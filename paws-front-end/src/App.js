@@ -12,26 +12,25 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 
-/* loggedIn prop for <Header /> set to true for now.
-  We are not sure where that piece of state will come from yet.
-*/
-
 // Temp global variable for user's logged-in status
 let loggedIn = true;
+let userName = "Snoopy123";
 
 function App() {
   return (
     <div className="App">
-      <Header loggedIn={loggedIn} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/RegisterUser" element={<RegisterUser />} />
-        <Route path="/RegisterDog" element={<RegisterDog />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/terms" element={<Terms />} />
-      </Routes>
-      <Footer />
+      <BrowserRouter>
+        <Header loggedIn={loggedIn} userName={userName} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/RegisterUser" element={<RegisterUser />} />
+          <Route path="/RegisterDog" element={<RegisterDog />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const HeaderLoggedIn = function () {
-  // Display the PAWs logo/name in the header bar
-  // A logout option on the right-hand side?
-  return <></>;
+const HeaderLoggedIn = function (props) {
+  return (
+    <>
+      <p>Logged in as: {props.username}</p>
+      <Link to="/home">
+        <button>Logout</button>
+      </Link>
+    </>
+  );
 };
 
 export default HeaderLoggedIn;
