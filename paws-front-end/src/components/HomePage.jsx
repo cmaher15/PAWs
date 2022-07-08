@@ -7,7 +7,7 @@ const HomePage = function () {
       <p>
         We may not need this component. Perhaps the user will be routed to their
         user-profile/dashboard, or the login screen based on their logged-in
-        status?{" "}
+        status?
       </p>
     </div>
   );
