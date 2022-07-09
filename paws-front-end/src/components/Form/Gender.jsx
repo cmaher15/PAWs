@@ -2,10 +2,12 @@ import React from "react";
 
 export default function Gender() {
   return (
-    <div>
-      Gender: <br />
+    <div class="component">
+      <label class="title">Gender: </label> <br />
+        <br />
       <input name="gender" type="radio" />
-      Female<br/>
+      Female <br />
+        <br />
       <input name="gender" type="radio" />
       Male
     </div>

@@ -2,8 +2,9 @@ import React from "react";
 
 export default function Breed() {
   return (
-    <div>
-      Breed:<br/>
+    <div class="component">
+      <label class="title"> Breed: </label> <br />
+        <br />
       <select name="selectList" id="selectList">
         <option value="option 0">Select a Breed</option>
         <option value="option 1">Afghan Hound</option>
@@ -57,6 +58,7 @@ export default function Breed() {
         <option value="option 49">Whippet</option>
       </select>
       <br />
+        <br />
       If you can't find their exact breed, please select the closest option!
     </div>
   );
