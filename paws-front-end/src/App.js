@@ -23,8 +23,8 @@ function App() {
         <Header loggedIn={loggedIn} userName={userName} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/RegisterUser" element={<RegisterUser />} />
-          <Route path="/RegisterDog" element={<RegisterDog />} />
+          <Route path="/register-user" element={<RegisterUser />} />
+          <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
