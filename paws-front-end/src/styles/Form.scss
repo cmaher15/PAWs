@@ -49,10 +49,33 @@ select {
   border-radius:10px;
 }
 
-
+textarea {
+  resize: none;
+  width: 600px;
+  height: 200px;
+}
 
 span:before {
   color: #e32;
   content: ' *';
   display:inline;
+}
+
+#submit {
+  background-color: white;
+  background: transparent;
+  border-radius: 10px;
+  color: rgb(38, 148, 38);
+  outline-color: rgb(38, 148, 38);
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  border-color: rgb(38, 148, 38);;
+  border-style: solid;
+}
+
+#submit:hover {
+  background-color: rgb(38, 148, 38);;
+  color: white;
+  outline-color: white;
 }

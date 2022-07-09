@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Breed() {
   return (
-    <div class="component">
-      <label class="title"> Breed: <span></span></label> <br />
+    <div className="component">
+      <label className="title"> Breed: <span></span></label> <br />
         <br />
       <select name="selectList" id="selectList" required>
       <span></span>

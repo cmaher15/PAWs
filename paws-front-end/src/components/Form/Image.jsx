@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Image() {
   return (
-    <div class="component">
-      <label class="title">Image: <span></span></label>
+    <div className="component">
+      <label className="title">Image: <span></span></label>
       <br />
         <br />
       Please upload an image of your dog. This image will be used on their

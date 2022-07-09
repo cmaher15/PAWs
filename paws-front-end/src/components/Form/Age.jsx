@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Age() {
   return (
-    <div class="component">
-      <label class="title">
+    <div className="component">
+      <label className="title">
         Age: <span></span>
         </label>
         <br />
         <br />
-        <input class="input" type="number" name="age" required/>
+        <input className="input" type="number" name="age" required/>
         
      
     </div>
