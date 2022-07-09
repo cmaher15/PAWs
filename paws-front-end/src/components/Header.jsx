@@ -9,7 +9,10 @@ const Header = function (props) {
       <span className="title-descrition">Pups. Awaiting. Walks.</span>
 
       {props.loggedIn ? (
-        <HeaderLoggedIn userName={props.userName} />
+        <HeaderLoggedIn
+          userName={props.userName}
+          setLoggedIn={props.setLoggedIn}
+        />
       ) : (
         <HeaderLoggedOut />
       )}

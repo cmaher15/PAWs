@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -13,14 +14,20 @@ import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 
 // Temp global variable for user's logged-in status
-let loggedIn = false;
-let userName = "Snoopy123";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(() => true);
+  const [userName, setUserName] = useState("Snoopy123");
+  const [urlPath, setUrlPath] = useState(window.location.pathname);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Header loggedIn={loggedIn} userName={userName} />
+        <Header
+          loggedIn={loggedIn}
+          userName={userName}
+          setLoggedIn={setLoggedIn}
+        />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />
@@ -29,7 +36,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        <Footer />
+        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
   );

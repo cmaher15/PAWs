@@ -21,14 +21,14 @@ const HeaderLoggedOut = function () {
           onChange={e => setUsername(e.target.value)}
           name="username"
           placeholder="Username"
-          autocomplete="off"
+          autoComplete="off"
         />
         <input
           type="password"
           onChange={e => e.target.value}
           name="password"
           placeholder="Password"
-          autocomplete="off"
+          autoComplete="off"
         />
         <button>Sign In</button>
       </form>
