@@ -27,6 +27,7 @@ function App() {
           loggedIn={loggedIn}
           userName={userName}
           setLoggedIn={setLoggedIn}
+          setUrlPath={setUrlPath}
         />
         <Routes>
           <Route path="/" element={<HomePage />} />
