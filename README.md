@@ -2,9 +2,18 @@
 
 ### A full-stack social app that matches and links the dogs for walks and play-dates. Matches are made based on detailed dog profiles and geographical location.
 
+## Start the Database Server
+
+``` npm start ```
+
+## After the server is running, browse data:
+```localhost:8001/api```
+```localhost:8001/api/dogs```
+```localhost:8001/api/owners```
+
 ## Database setup
 
-1. In the 'express-server' folder type in 'psql'.
+1. In the 'express-server' folder type in ```psql```.
 2. Create new database:
  ``` CREATE DATABASE paws; ```
 3. Enter it with the command:
