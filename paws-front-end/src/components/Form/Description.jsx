@@ -10,7 +10,8 @@ export default function Description() {
       info/fun facts not covered in this form!
       <br />
         <br />
-      <textarea className="input" required></textarea>
+      <textarea className="input" required maxlength="255"></textarea><br/>
+      maximum 255 characters
     </div>
   );
 }
