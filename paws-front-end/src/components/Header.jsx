@@ -9,7 +9,7 @@ const Header = function (props) {
       <span className="title-descrition">Pups. Awaiting. Walks.</span>
 
       {props.loggedIn ? (
-        <HeaderLoggedIn user={props.user} />
+        <HeaderLoggedIn userName={props.userName} />
       ) : (
         <HeaderLoggedOut />
       )}
