@@ -2,14 +2,16 @@
 
 ### A full-stack social app that matches and links the dogs for walks and play-dates. Matches are made based on detailed dog profiles and geographical location.
 
-## Start the Database Server
+## Initial setup
 
-``` npm start ```
-
-## After the server is running, browse data:
-```localhost:8001/api```
-```localhost:8001/api/dogs```
-```localhost:8001/api/owners```
+1. After cloning the repo, inside ```express-server/``` folder
+create a file ```.env.development``` and copy the contents of ```.env.example``` into it.
+2. Fill in the contents: 
+``` host - localhost ```
+``` user - 'your pg user' ```
+``` database - paws ```
+``` password - development ```
+``` port - 5432 ```
 
 ## Database setup
 
@@ -33,3 +35,13 @@ If need to reset dt, run:
 To delete dt and start over: 
 ``` psql ```
 ``` DROP DATABASE IF EXISTS paws; ```
+
+## Start the Database Server
+
+``` npm start ```
+
+## After the server is running, browse data:
+Dogs:
+```localhost:8001/api/dogs```
+Owners:
+```localhost:8001/api/owners```
