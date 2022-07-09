@@ -2,10 +2,12 @@ import React from "react";
 
 export default function Name() {
   return (
-    <div>
-      <label>
-        Name:<br/>
-        <input type="text" name="name" />
+    <div className="component">
+      <label className="title">
+        Name: <span></span><br />
+        <br />
+        <input className="input" type="text" name="name" required/>
+        
       </label>
     </div>
   );

@@ -2,13 +2,15 @@ import React from "react";
 
 export default function People() {
   return (
-    <div>
-      Are they good with new people?
+    <div className="component">
+      <label className="title" required="required">Are they good with new people?<span></span></label>
+      
       <br />
-      <input name="people" type="radio" />
+        <br />
+      <input className="input" name="people" type="radio"  required="required"/>
       Yes
-      <br />
-      <input name="people" type="radio" />
+        <br />
+      <input className="input" name="people" type="radio"  required="required"/>
       No
     </div>
   );
