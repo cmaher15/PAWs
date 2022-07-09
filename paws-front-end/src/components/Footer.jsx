@@ -7,6 +7,7 @@ const Footer = function () {
       <Link to={"/"}>Home</Link>
       <Link to={"/about-us"}>About</Link>
       <Link to={"/terms"}>Terms</Link>
+      <p>CAE-Gang /{new Date().getFullYear()}</p>
     </div>
   );
 };

@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 
 // Temp global variable for user's logged-in status
-let loggedIn = true;
+let loggedIn = false;
 let userName = "Snoopy123";
 
 function App() {
