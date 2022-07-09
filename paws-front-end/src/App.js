@@ -16,6 +16,7 @@ import Terms from "./components/Terms";
 // Temp global variable for user's logged-in status
 
 function App() {
+  // Global State
   const [loggedIn, setLoggedIn] = useState(() => true);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
@@ -30,8 +31,14 @@ function App() {
           setUrlPath={setUrlPath}
         />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register-user" element={<RegisterUser />} />
+          <Route
+            path="/"
+            element={<HomePage loggedIn={loggedIn} userName={userName} />}
+          />
+          <Route
+            path="/register-user"
+            element={<RegisterUser loggedIn={loggedIn} />}
+          />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
