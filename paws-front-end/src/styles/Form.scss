@@ -1,9 +1,15 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 .dogapp {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 50px;
+  width:fit-content;
+  block-size: fit-content;
+  padding:20px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border: 5px solid black;
 }
 
 .title {
@@ -11,6 +17,42 @@
 }
 
 .component {
-  padding-bottom: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 
+}
+
+.input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  box-shadow:0 0 15px 10px rgba(0,0,0,0.06);
+  border-radius:10px;
+}
+
+.input:focus {
+  background-color: white;
+  border: 3px solid rgb(0, 0, 0);
+}
+
+#description {
+  display: flex;
+  width: 400px;
+  height: 100px;
+  justify-content: flex-start;
+}
+
+select {
+  width: 100%;
+  padding:10px;
+  border-radius:10px;
+}
+
+
+
+span:before {
+  color: #e32;
+  content: ' *';
+  display:inline;
 }

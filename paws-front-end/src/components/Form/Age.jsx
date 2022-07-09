@@ -4,11 +4,12 @@ export default function Age() {
   return (
     <div class="component">
       <label class="title">
-        Age:
+        Age: <span></span>
         </label>
         <br />
         <br />
-        <input type="number" name="age" />
+        <input class="input" type="number" name="age" required/>
+        
      
     </div>
   );

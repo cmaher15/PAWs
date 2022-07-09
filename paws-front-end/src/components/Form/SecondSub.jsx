@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function SecondSub() {
-  return <h3>Now tell us about your pup's preferences.</h3>;
+  return <h2>Now Tell Us About Your Pup's Preferences</h2>;
 }

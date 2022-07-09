@@ -3,18 +3,16 @@ import React from "react";
 export default function DogCompatibility() {
   return (
     <div class="component">
-     <label class="title"> What size(s) of dog does yours get along with? Select all that apply.</label>
+     <label class="title" required="required"> What size(s) of dog does yours get along with? Select all that apply. <span></span></label>
      <br />
         <br />
-      <input name="small" type="radio" />
+      <input class="input" name="small" type="checkbox"  required="required" />
       Small
-      <br />
         <br />
-      <input name="medium" type="radio" />
+      <input class="input" name="medium" type="checkbox"  required="required"/>
       Medium
-      <br />
         <br />
-      <input name="large" type="radio" />
+      <input class="input" name="large" type="checkbox"  required="required"/>
       Large
     </div>
   );

@@ -4,9 +4,10 @@ export default function Name() {
   return (
     <div class="component">
       <label class="title">
-        Name: <br />
+        Name: <span></span><br />
         <br />
-        <input type="text" name="name" />
+        <input class="input" type="text" name="name" required/>
+        
       </label>
     </div>
   );

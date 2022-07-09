@@ -3,14 +3,14 @@ import React from "react";
 export default function People() {
   return (
     <div class="component">
-      <label class="title">Are they good with new people?</label>
+      <label class="title" required="required">Are they good with new people?<span></span></label>
+      
       <br />
         <br />
-      <input name="people" type="radio" />
+      <input class="input" name="people" type="radio"  required="required"/>
       Yes
-      <br />
         <br />
-      <input name="people" type="radio" />
+      <input class="input" name="people" type="radio"  required="required"/>
       No
     </div>
   );

@@ -3,10 +3,11 @@ import React from "react";
 export default function Breed() {
   return (
     <div class="component">
-      <label class="title"> Breed: </label> <br />
+      <label class="title"> Breed: <span></span></label> <br />
         <br />
-      <select name="selectList" id="selectList">
-        <option value="option 0">Select a Breed</option>
+      <select name="selectList" id="selectList" required>
+      <span></span>
+        <option value="">Select a Breed</option>
         <option value="option 1">Afghan Hound</option>
         <option value="option 2">Akita</option>
         <option value="option 3">Alaskan Malemute</option>
