@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -13,23 +14,37 @@ import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 
 // Temp global variable for user's logged-in status
-let loggedIn = true;
-let userName = "Snoopy123";
 
 function App() {
+  // Global State
+  const [loggedIn, setLoggedIn] = useState(() => true);
+  const [userName, setUserName] = useState("Snoopy123");
+  const [urlPath, setUrlPath] = useState(window.location.pathname);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Header loggedIn={loggedIn} userName={userName} />
+        <Header
+          loggedIn={loggedIn}
+          userName={userName}
+          setLoggedIn={setLoggedIn}
+          setUrlPath={setUrlPath}
+        />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/RegisterUser" element={<RegisterUser />} />
-          <Route path="/RegisterDog" element={<RegisterDog />} />
+          <Route
+            path="/"
+            element={<HomePage loggedIn={loggedIn} userName={userName} />}
+          />
+          <Route
+            path="/register-user"
+            element={<RegisterUser loggedIn={loggedIn} />}
+          />
+          <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        <Footer />
+        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
   );
