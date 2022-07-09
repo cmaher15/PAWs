@@ -2,10 +2,12 @@ import React from "react";
 
 export default function Breed() {
   return (
-    <div>
-      Breed:<br/>
-      <select name="selectList" id="selectList">
-        <option value="option 0">Select a Breed</option>
+    <div className="component">
+      <label className="title"> Breed: <span></span></label> <br />
+        <br />
+      <select name="selectList" id="selectList" required>
+      <span></span>
+        <option value="">Select a Breed</option>
         <option value="option 1">Afghan Hound</option>
         <option value="option 2">Akita</option>
         <option value="option 3">Alaskan Malemute</option>
@@ -57,6 +59,7 @@ export default function Breed() {
         <option value="option 49">Whippet</option>
       </select>
       <br />
+        <br />
       If you can't find their exact breed, please select the closest option!
     </div>
   );
