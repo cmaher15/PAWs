@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Size() {
-  const [size, setSize] = useState("")
+export default function Size(props) {
   return (
     <div className="component">
     <label className="title" name="size" required="required">
@@ -14,8 +13,8 @@ export default function Size() {
       name="size"
       type="radio"
       required="required"
-      value={size}
-      onChange={() => setSize("small")}
+      value={props.size}
+      onChange={() => props.onChange("small")}
     />
     Small
     <br />
@@ -24,8 +23,8 @@ export default function Size() {
       name="size"
       type="radio"
       required="required"
-      value={size}
-      onChange={() => setSize("medium")}
+      value={props.size}
+      onChange={() => props.onChange("medium")}
     />
     Medium
     <br />
@@ -34,8 +33,8 @@ export default function Size() {
       name="size"
       type="radio"
       required="required"
-      value={size}
-      onChange={() => setSize("large")}
+      value={props.size}
+      onChange={() => props.onChange("large")}
     />
     Large
   </div>

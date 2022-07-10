@@ -29,7 +29,7 @@ export default function HandleOnSubmit(props) {
   const [description, setDescription] = useState("")
   const [photo_url, setImage] = useState("")
 
-  console.log("age", age)
+  console.log("size", size)
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility
@@ -69,7 +69,7 @@ export default function HandleOnSubmit(props) {
       <Breed />
       <Gender onChange={setGender} value={gender} />
       <Age onChange={setAge} value={age}/>
-      <Size />
+      <Size onChange={setSize} value={size}/>
       <hr />
       <h2>Now Tell Us About Your Pup's Preferences</h2>
       <Reactive onChange={setReactive} value={reactive}/>
