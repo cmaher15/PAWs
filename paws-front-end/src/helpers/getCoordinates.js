@@ -5,10 +5,18 @@ const getCoordinates = function (position) {
   return { latitude: latitude, longitude: longitude };
 };
 
+const fetchCoordinates = async function (getCoordinates) {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(position => {
+      resolve(getCoordinates(position), reject);
+    });
+  });
+};
+
 const sendCoordinatesToServer = function (userCoordinates, ownerId) {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", `/api/owners/${ownerId}`);
   xhr.send(userCoordinates);
 };
 
-export { getCoordinates, sendCoordinatesToServer };
+export { getCoordinates, fetchCoordinates, sendCoordinatesToServer };
