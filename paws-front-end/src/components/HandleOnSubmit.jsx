@@ -43,7 +43,7 @@ export default function HandleOnSubmit(e) {
           <br />
           <br />
           <input
-            className="input"
+            className="inputtext"
             type="text"
             name="name"
             placeholder="Enter your dog's name"
@@ -134,8 +134,8 @@ export default function HandleOnSubmit(e) {
           type="radio"
           required="required"
           value="female"
-          checked={gender === "female"}
-          onChange={(event) => setGender(event.target.value)}
+          checked={gender}
+          onChange={() => setGender("female")}
         />
         Female <br />
         <input
@@ -143,8 +143,8 @@ export default function HandleOnSubmit(e) {
           name="gender"
           type="radio"
           required="required"
-          value={gender === "male"}
-          onChange={(event) => setGender(event.target.value)}
+          value={gender}
+          onChange={() => setGender("male")}
         />
         Male
       </div>
@@ -155,7 +155,7 @@ export default function HandleOnSubmit(e) {
         <br />
         <br />
         <input
-          className="input"
+          className="inputtext"
           name="age"
           type="number"
           value={age}
@@ -214,7 +214,7 @@ export default function HandleOnSubmit(e) {
           type="radio"
           required="required"
           value={reactive}
-          onChange={(event) => setReactive(true)}
+          onChange={() => setReactive(true)}
         />
         Yes
         <br />
@@ -224,7 +224,7 @@ export default function HandleOnSubmit(e) {
           type="radio"
           required="required"
           value={reactive}
-          onChange={(event) => setReactive(false)}
+          onChange={() => setReactive(false)}
         />
         No
       </div>
@@ -240,7 +240,7 @@ export default function HandleOnSubmit(e) {
           type="radio"
           required="required"
           value={good_with_people}
-          onChange={(event) => setPeople(true)}
+          onChange={() => setPeople(true)}
         />
         Yes
         <br />
@@ -250,7 +250,7 @@ export default function HandleOnSubmit(e) {
           type="radio"
           required="required"
           value={good_with_people}
-          onChange={(event) => setPeople(false)}
+          onChange={() => setPeople(false)}
         />
         No
       </div>
@@ -268,7 +268,7 @@ export default function HandleOnSubmit(e) {
           type="checkbox"
           required="required"
           value={size_compatibility}
-          onChange={(event) => setDogComp(event.target.value)}
+          onChange={() => setDogComp("small")}
         />
         Small
         <br />
@@ -278,7 +278,7 @@ export default function HandleOnSubmit(e) {
           type="checkbox"
           required="required"
           value={size_compatibility}
-          onChange={(event) => setDogComp(event.target.value)}
+          onChange={() => setDogComp("medium")}
         />
         Medium
         <br />
@@ -288,7 +288,7 @@ export default function HandleOnSubmit(e) {
           type="checkbox"
           required="required"
           value={size_compatibility}
-          onChange={(event) => setDogComp(event.target.value)}
+          onChange={() => setDogComp("large")}
         />
         Large
       </div>
@@ -309,7 +309,7 @@ export default function HandleOnSubmit(e) {
           type="checkbox"
           required="required"
           value={gender_compatibility}
-          onChange={(event) => setGenderComp(event.target.value)}
+          onChange={() => setGenderComp("male")}
         />
         Female
         <br />
@@ -319,7 +319,7 @@ export default function HandleOnSubmit(e) {
           type="checkbox"
           required="required"
           value={gender_compatibility}
-          onChange={(event) => setGenderComp(event.target.value)}
+          onChange={() => setGenderComp("female")}
         />
         Male
       </div>
@@ -327,7 +327,9 @@ export default function HandleOnSubmit(e) {
         <label className="title">
           {" "}
           Which breed(s) of dogs is your dog NOT comfortable with? 
-        </label>{" "}
+        </label>{" "}<br/>
+                  
+        Select all that apply.
         <br />
         <br />
           <input className="input" type="checkbox" name="Afghan Hound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Afghan Hound <br/>
@@ -379,8 +381,7 @@ export default function HandleOnSubmit(e) {
           <input className="input" type="checkbox" name="Shih Tzu"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Shih Tzu <br/>
           <input className="input" type="checkbox" name="Terrier"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Terrier <br/>
           <input className="input" type="checkbox" name="Whippet"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Whippet <br/>
-          
-        Select all that apply.
+
       </div>
       <div className="component">
         <label className="title">
@@ -393,7 +394,7 @@ export default function HandleOnSubmit(e) {
         <br />
         <br />
         <textarea
-          className="input"
+          className="inputtext"
           name="description"
           required
           maxLength="255"
