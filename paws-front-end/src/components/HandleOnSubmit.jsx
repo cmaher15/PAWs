@@ -330,61 +330,56 @@ export default function HandleOnSubmit(e) {
         </label>{" "}
         <br />
         <br />
-          <select
-            name="list_box"
-            size="49"
-            value={breed_compatibility}
-            onChange={(event) => setBreedComp(event.target.value)}>
-          <option value="Afghan Hound">Afghan Hound</option>
-          <option value="Akita">Akita</option>
-          <option value="Alaskan Malemute">Alaskan Malemute</option>
-          <option value="Australian Cattle Dog">Australian Cattle Dog</option>
-          <option value="Australian Shepherd">Australian Shepherd</option>
-          <option value="Bassett Hound">Bassett Hound</option>
-          <option value="Beagle">Beagle</option>
-          <option value="Bernese Mountain Dog">Bernese Mountain Dog</option>
-          <option value="Bloodhound">Bloodhound</option>
-          <option value="Border Collie">Border Collie</option>
-          <option value="Boston Terrier">Boston Terrier</option>
-          <option value="Boxer">Boxer</option>
-          <option value="Bulldog">Bulldog</option>
-          <option value="Bull Terrier">Bull Terrier</option>
-          <option value="Cane Corso">Cane Corso</option>
-          <option value="Chihuahua">Chihuahua</option>
-          <option value="Cocker Spaniel">Cocker Spaniel</option>
-          <option value="Coonhound">Coonhound</option>
-          <option value="Daschund">Daschund</option>
-          <option value="Dalmatian">Dalmatian</option>
-          <option value="Doberman">Doberman</option>
-          <option value="German Shepherd">German Shepherd</option>
-          <option value="Golden Retriever">Golden Retriever</option>
-          <option value="Great Dane">Great Dane</option>
-          <option value="Greyhound">Greyhound</option>
-          <option value="Havanese">Havanese</option>
-          <option value="Husky">Husky</option>
-          <option value="Irish Setter">Irish Setter</option>
-          <option value="Irish Wolfhound">Irish Wolfhound</option>
-          <option value="Labrador Retriever">Labrador Retriever</option>
-          <option value="Lhasa Apso">Lhasa Apso</option>
-          <option value="Maltese">Maltese</option>
-          <option value="Mastiff">Mastiff</option>
-          <option value="Mutt">Mutt</option>
-          <option value="Newfoundland">Newfoundland</option>
-          <option value="Pitbull">Pit Bull</option>
-          <option value="Pomeranian">Pomeranian</option>
-          <option value="Poodle">Poodle</option>
-          <option value="Pug">Pug</option>
-          <option value="Rottweiler">Rottweiler</option>
-          <option value="St. Bernard">St. Bernard</option>
-          <option value="Samoyed">Samoyed</option>
-          <option value="Schnauzer">Schnauzer</option>
-          <option value="Shar Pei">Shar Pei</option>
-          <option value="Sheepdog">Sheepdog</option>
-          <option value="Shiba Inu">Shiba Inu</option>
-          <option value="Shih Tzu">Shih Tzu</option>
-          <option value="Terrier">Terrier</option>
-          <option value="Whippet">Whippet</option>
-          </select>
+          <input className="input" type="checkbox" name="Afghan Hound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Afghan Hound <br/>
+          <input className="input" type="checkbox" name="Akita"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Akita <br/>
+          <input className="input" type="checkbox" name="Alaskan Malemute"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Alaskan Malemute <br/>
+          <input className="input" type="checkbox" name="Australian Cattle Dog"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Australian Cattle Dog <br/>
+          <input className="input" type="checkbox" name="Australian Shepherd"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Australian Shepherd <br/>
+          <input className="input" type="checkbox" name="Bassett Hound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Bassett Hound<br/>
+          <input className="input" type="checkbox" name="Beagle"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Beagle <br/>
+          <input className="input" type="checkbox" name="Bernese Mountain Dog"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Bernese Mountain Dog<br/>
+          <input className="input" type="checkbox" name="Bloodhound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Bloodhound<br/>
+          <input className="input" type="checkbox" name="Border Collie"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Border Collie <br/>
+          <input className="input" type="checkbox" name="Boston Terrier"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Boston Terrier <br/>
+          <input className="input" type="checkbox" name="Boxer"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Boxer <br/>
+          <input className="input" type="checkbox" name="Bulldog"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Bulldog <br/>
+          <input className="input" type="checkbox" name="Bull Terrier"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Bull Terrier <br/>
+          <input className="input" type="checkbox" name="Cane Corso"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Cane Corso <br/>
+          <input className="input" type="checkbox" name="Chihuahua"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Chihuahua <br/>
+          <input className="input" type="checkbox" name="Cocker Spaniel"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Cocker Spaniel <br/>
+          <input className="input" type="checkbox" name="Coonhound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Coonhound <br/>
+          <input className="input" type="checkbox" name="Daschund"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Daschund <br/>
+          <input className="input" type="checkbox" name="Dalmatian"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Dalmatian <br/>
+          <input className="input" type="checkbox" name="Doberman"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Doberman <br/>
+          <input className="input" type="checkbox" name="German Shepherd"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>German Shepherd <br/>
+          <input className="input" type="checkbox" name="Golden Retriever"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Golden Retriever <br/>
+          <input className="input" type="checkbox" name="Great Dane"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Great Dane <br/>
+          <input className="input" type="checkbox" name="Greyhound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Greyhound <br/>
+          <input className="input" type="checkbox" name="Havanese"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Havanese<br/>
+          <input className="input" type="checkbox" name="Husky"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Husky <br/>
+          <input className="input" type="checkbox" name="Irish Setter"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Irish Setter <br/>
+          <input className="input" type="checkbox" name="Irish Wolfhound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Irish Wolfhound <br/>
+          <input className="input" type="checkbox" name="Labrador Retriever"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Labrador Retriever <br/>
+          <input className="input" type="checkbox" name="Lhasa Apso"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Lhasa Apso <br/>
+          <input className="input" type="checkbox" name="Maltese"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Maltese <br/>
+          <input className="input" type="checkbox" name="Mastiff"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Mastiff <br/>
+          <input className="input" type="checkbox" name="Mutt"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Mutt <br/>
+          <input className="input" type="checkbox" name="Newfoundland"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Newfoundland<br/>
+          <input className="input" type="checkbox" name="Pit Bull"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Pit Bull <br/>
+          <input className="input" type="checkbox" name="Pomeranian"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Pomeranian <br/>
+          <input className="input" type="checkbox" name="Poodle"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Poodle <br/>
+          <input className="input" type="checkbox" name="Pug"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Pug <br/>
+          <input className="input" type="checkbox" name="Rottweiler"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Rottweiler <br/>
+          <input className="input" type="checkbox" name="St. Bernard"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>St. Bernard <br/>
+          <input className="input" type="checkbox" name="Samoyed"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Samoyed <br/>
+          <input className="input" type="checkbox" name="Schnauzer"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Schnauzer <br/>
+          <input className="input" type="checkbox" name="Shar Pei"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Shar Pei <br/>
+          <input className="input" type="checkbox" name="Sheepdog"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Sheepdog <br/>
+          <input className="input" type="checkbox" name="Shiba Inu"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Shiba Inu <br/>
+          <input className="input" type="checkbox" name="Shih Tzu"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Shih Tzu <br/>
+          <input className="input" type="checkbox" name="Terrier"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Terrier <br/>
+          <input className="input" type="checkbox" name="Whippet"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Whippet <br/>
+          
         Select all that apply.
       </div>
       <div className="component">
