@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Breed() {
-  const [breed, setBreed] = useState("")
+export default function Breed(props) {
   return (
     <div className="component">
     <label className="title">
@@ -13,8 +12,8 @@ export default function Breed() {
     <select
       name="breed"
       id="selectList"
-      value={breed}
-      onChange={(event) => setBreed(event.target.value)}
+      value={props.breed}
+      onChange={(event) => props.onChange(event.target.value)}
       required
     >
        <option value="">Select a Breed</option>

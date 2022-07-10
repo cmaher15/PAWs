@@ -15,7 +15,7 @@ import Description from "./Form/Description";
 import Image from "./Form/Image";
 import React from "react";
 
-export default function HandleOnSubmit(props) {
+export default function HandleOnSubmit() {
   const [name, setName] = useState("")
   const [breed, setBreed] = useState("")
   const [gender, setGender] = useState("")
@@ -29,7 +29,7 @@ export default function HandleOnSubmit(props) {
   const [description, setDescription] = useState("")
   const [photo_url, setImage] = useState("")
 
-  console.log("image", photo_url)
+  console.log("breed", breed)
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility
@@ -66,7 +66,7 @@ export default function HandleOnSubmit(props) {
       <h1>Pup Profile:</h1>
       <h2>Describe Your Doggo</h2>
       <Name onChange={setName} value={name}/>
-      <Breed />
+      <Breed onChange={setBreed} value={breed}/>
       <Gender onChange={setGender} value={gender} />
       <Age onChange={setAge} value={age}/>
       <Size onChange={setSize} value={size}/>
