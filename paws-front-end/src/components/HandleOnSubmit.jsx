@@ -2,13 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import "../styles/Form.scss";
 import Breed from "./Form/Breed";
-import Title from "./Form/Title";
 import Name from "./Form/Name";
 import Gender from "./Form/Gender";
 import Age from "./Form/Age";
 import Size from "./Form/Size";
-import Subtitle from "./Form/Subtitle";
-import SecondSub from "./Form/SecondSub";
 import Reactive from "./Form/Reactive";
 import People from "./Form/People";
 import DogSizeCompatibility from "./Form/DogSizeCompatibility";
@@ -65,15 +62,15 @@ export default function HandleOnSubmit(props) {
   
   return (
     <form className="dogapp" onSubmit={formHandle}>
-      <Title />
-      <Subtitle />
+      <h1>Pup Profile:</h1>
+      <h2>Describe Your Doggo</h2>
       <Name onChange={setName} value={name}/>
       <Breed />
       <Gender />
       <Age />
       <Size />
       <hr />
-      <SecondSub />
+      <h2>Now Tell Us About Your Pup's Preferences</h2>
       <Reactive />
       <People />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange}/>
