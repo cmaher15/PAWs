@@ -14,3 +14,10 @@ module.exports = db => {
 
   return router;
 };
+
+// CRUD
+
+// CREATE = POST /owners/:id   create an account
+// READ = GET /owners          get all the owners
+// UPDATE = POST /owners/:id   update owners info
+// DELETE = POST /owners/:id   delete user

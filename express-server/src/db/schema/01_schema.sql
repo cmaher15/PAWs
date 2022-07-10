@@ -6,7 +6,8 @@ CREATE TABLE owners (
   name VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  thumbnail_photo VARCHAR(255) NOT NULL
+  thumbnail_photo_url VARCHAR(255) NOT NULL,
+  location POINT NOT NULL
   );
 
 CREATE TABLE dogs (
@@ -18,11 +19,11 @@ CREATE TABLE dogs (
   size VARCHAR(100) NOT NULL,
   reactive BOOLEAN NOT NULL,
   good_with_people BOOLEAN NOT NULL,
-  size_compatibility TEXT[3], -- small, medium, large(max 3)
-  gender_compatibility TEXT[2], -- male, female (max 2)
-  breed_compatibility TEXT[49], -- any breed (max 49)
+  size_compatibility TEXT[3] NOT NULL, -- small, medium, large(max 3)
+  gender_compatibility TEXT[2] NOT NULL, -- male, female (max 2)
+  breed_incompatibility TEXT[] NOT NULL,
   description VARCHAR(255) NOT NULL,
-  photo VARCHAR(255) NOT NULL, --bytea
+  photo_url VARCHAR(255) NOT NULL, --bytea
   owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
   );
 

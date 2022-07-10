@@ -16,12 +16,12 @@
 ## User can browse the matched dogs and match within preferred geo area.
 ## Message the owner about the meetup
 ## User can tag any other user for "not match"
+## Users can favourite dogs
 
 
 # Stretch
 
 ## Filter the owners 
-## Users can favourite dogs
 ## User can view info of any dog.
 ## User can see the dog parks in the area..
 ## User can mark/swipe appropriate dogs - tinder style
