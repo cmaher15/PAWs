@@ -27,20 +27,27 @@ export default function HandleOnSubmit(props) {
   const [reactive, setReactive] = useState(true)
   const [good_with_people, setPeople] = useState(true)
   const [size_compatibility, setDogComp] = useState({small: false, medium: false, large: false})
-  const [gender_compatibility, setGenderComp] = useState([])
+  const [gender_compatibility, setGenderComp] = useState({female: false, male: false})
   const [breed_incompatibility, setBreedIncomp] = useState([])
   const [description, setDescription] = useState("")
   const [photo, setImage] = useState("")
 
   console.log("name", name)
   console.log("sizeCompatibility", size_compatibility)
+  console.log("genderCompatibility", gender_compatibility)
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility
     newSizeCompatibility[size] = !size_compatibility[size]
     console.log("new Size Comp", newSizeCompatibility)
     setDogComp(newSizeCompatibility)
+  }
 
+  const onGenderCompatibilityChange = (gender) => {
+    const newGenderCompatibility = gender_compatibility
+    newGenderCompatibility[gender] = !size_compatibility[gender]
+    console.log("new Gender Comp", newGenderCompatibility)
+    setGenderComp(newGenderCompatibility)
   }
 
   const formHandle = (e) => {
@@ -77,7 +84,7 @@ export default function HandleOnSubmit(props) {
       <Reactive />
       <People />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange}/>
-      <GenderCompatability />
+      <GenderCompatability  onChange={onGenderCompatibilityChange}/>
       <BreedIncompatibility/>
       <Description />
       <Image />

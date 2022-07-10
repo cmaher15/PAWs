@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function GenderCompatability() {
+export default function GenderCompatability(props) {
   const [gender_compatibility, setGenderComp] = useState([])
   return (
     <div className="component">
@@ -16,21 +16,19 @@ export default function GenderCompatability() {
     <br />
     <input
       className="input"
-      name="male"
+      name="female"
       type="checkbox"
       required="required"
-      value={gender_compatibility}
-      onChange={() => setGenderComp("male")}
+      onChange={() => props.onChange("female")}
     />
     Female
     <br />
     <input
       className="input"
-      name="female"
+      name="male"
       type="checkbox"
       required="required"
-      value={gender_compatibility}
-      onChange={() => setGenderComp("female")}
+      onChange={() => props.onChange("male")}
     />
     Male
   </div>
