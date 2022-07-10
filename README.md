@@ -7,11 +7,11 @@
 1. After cloning the repo, inside ```express-server/``` folder
 create a file ```.env.development``` and copy the contents of ```.env.example``` into it.
 2. Fill in the contents: 
-``` host - localhost ```
-``` user - 'your pg user' ```
-``` database - paws ```
-``` password - development ```
-``` port - 5432 ```
+``` pghost - localhost ```
+``` pguser - 'your pg user' ```
+``` pgdatabase - paws ```
+``` pgpassword - development ```
+``` pgport - 5432 ```
 
 ## Database setup
 
