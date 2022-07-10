@@ -5,7 +5,7 @@ export default function Reactive(props) {
     <div className="component">
     <label className="title" name="reactive" required="required">
       Can they be wary of new dogs and have the potential to respond
-      unpredictably?<span></span>
+      unpredictably?
     </label>
     <br />
     <br />

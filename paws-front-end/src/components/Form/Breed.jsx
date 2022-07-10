@@ -5,7 +5,7 @@ export default function Breed(props) {
     <div className="component">
     <label className="title">
       {" "}
-      Breed: <span></span>
+      Breed: 
     </label>{" "}
     <br />
     <br />

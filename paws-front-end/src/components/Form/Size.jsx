@@ -4,7 +4,7 @@ export default function Size(props) {
   return (
     <div className="component">
     <label className="title" name="size" required="required">
-      Size: <span></span>
+      Size:
     </label>
     <br />
     <br />

@@ -4,7 +4,7 @@ export default function People(props) {
   return (
     <div className="component">
     <label className="title" name="people" required="required">
-      Are they good with new people?<span></span>
+      Are they good with new people?
     </label>
     <br />
     <br />

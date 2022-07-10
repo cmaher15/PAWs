@@ -4,7 +4,7 @@ export default function Image(props) {
   return (
     <div className="component">
     <label className="title">
-      Image: <span></span>
+      Image: 
     </label>
     <br />
     <br />

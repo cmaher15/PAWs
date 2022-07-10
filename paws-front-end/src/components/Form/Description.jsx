@@ -4,7 +4,7 @@ export default function Description(props) {
   return (
     <div className="component">
     <label className="title">
-      Description: <span></span>
+      Description: 
     </label>
     <br />
     <br />

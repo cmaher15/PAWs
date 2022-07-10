@@ -6,7 +6,6 @@ export default function DogSizeCompatibility(props) {
     <label className="title" name="size_compatibility" required="required">
       {" "}
       What size(s) of dog does yours get along with? Select all that apply.{" "}
-      <span></span>
     </label>
     <br />
     <br />

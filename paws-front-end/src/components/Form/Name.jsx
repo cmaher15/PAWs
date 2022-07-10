@@ -4,7 +4,7 @@ export default function Name(props) {
   return (
     <div className="component">
     <label className="title" name="name">
-      Name: <span></span>
+      Name: </label>
       <br />
       <br />
       <input
@@ -16,7 +16,6 @@ export default function Name(props) {
         onChange={(event) => props.onChange(event.target.value)}
         required
       />
-    </label>
   </div>
   );
 }

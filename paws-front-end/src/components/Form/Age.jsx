@@ -4,7 +4,7 @@ export default function Age(props) {
   return (
     <div className="component">
     <label className="title">
-      Age: <span></span>
+      Age: 
     </label>
     <br />
     <br />

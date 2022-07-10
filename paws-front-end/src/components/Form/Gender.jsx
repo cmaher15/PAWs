@@ -4,7 +4,7 @@ export default function Gender(props) {
   return (
     <div className="component">
     <label className="title" name="gender" required="required">
-      Gender: <span></span>
+      Gender:
     </label>{" "}
     <br />
     <br />
