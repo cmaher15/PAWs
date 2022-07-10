@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export default function Reactive() {
-  const [reactive, setReactive] = useState(true)
+export default function Reactive(props) {
   return (
     <div className="component">
     <label className="title" name="reactive" required="required">
@@ -15,8 +14,8 @@ export default function Reactive() {
       name="reactive"
       type="radio"
       required="required"
-      value={reactive}
-      onChange={() => setReactive(true)}
+      value={props.reactive}
+      onChange={() => props.onChange(true)}
     />
     Yes
     <br />
@@ -25,8 +24,8 @@ export default function Reactive() {
       name="reactive"
       type="radio"
       required="required"
-      value={reactive}
-      onChange={() => setReactive(false)}
+      value={props.reactive}
+      onChange={() => props.onChange(false)}
     />
     No
   </div>

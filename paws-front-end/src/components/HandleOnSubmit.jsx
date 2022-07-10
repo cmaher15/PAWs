@@ -29,6 +29,7 @@ export default function HandleOnSubmit(props) {
   const [description, setDescription] = useState("")
   const [photo_url, setImage] = useState("")
 
+  console.log("reactive", reactive)
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility
@@ -71,7 +72,7 @@ export default function HandleOnSubmit(props) {
       <Size />
       <hr />
       <h2>Now Tell Us About Your Pup's Preferences</h2>
-      <Reactive />
+      <Reactive onChange={setReactive} value={reactive}/>
       <People />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange}/>
       <GenderCompatability  onChange={onGenderCompatibilityChange}/>
