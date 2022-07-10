@@ -67,7 +67,7 @@ export default function HandleOnSubmit(props) {
       <h2>Describe Your Doggo</h2>
       <Name onChange={setName} value={name}/>
       <Breed />
-      <Gender />
+      <Gender onChange={setGender} value={gender} />
       <Age />
       <Size />
       <hr />

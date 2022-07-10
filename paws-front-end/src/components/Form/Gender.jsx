@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Gender() {
-  const [gender, setGender] = useState("")
+export default function Gender(props) {
   return (
     <div className="component">
     <label className="title" name="gender" required="required">
@@ -14,9 +13,8 @@ export default function Gender() {
       name="gender"
       type="radio"
       required="required"
-      value="female"
-      checked={gender}
-      onChange={() => setGender("female")}
+      value={props.gender}
+      onChange={() => props.onChange("female")}
     />
     Female <br />
     <input
@@ -24,8 +22,8 @@ export default function Gender() {
       name="gender"
       type="radio"
       required="required"
-      value={gender}
-      onChange={() => setGender("male")}
+      value={props.gender}
+      onChange={() => props.onChange("male")}
     />
     Male
   </div>
