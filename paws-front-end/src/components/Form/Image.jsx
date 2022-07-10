@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Image() {
-  const [photo, setImage] = useState("")
+export default function Image(props) {
   return (
     <div className="component">
     <label className="title">
@@ -17,8 +16,8 @@ export default function Image() {
       type="file"
       id="myFile"
       name="photo"
-      value={photo}
-      onChange={(event) => setImage(event.target.value)}
+      value={props.photo_url}
+      onChange={(event) => props.onChange(event.target.value)}
       required
     ></input>
   </div>

@@ -29,7 +29,7 @@ export default function HandleOnSubmit(props) {
   const [description, setDescription] = useState("")
   const [photo_url, setImage] = useState("")
 
-  console.log("size", size)
+  console.log("image", photo_url)
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility
@@ -78,7 +78,7 @@ export default function HandleOnSubmit(props) {
       <GenderCompatability  onChange={onGenderCompatibilityChange}/>
       <BreedIncompatibility/>
       <Description onChange={setDescription} value={description}/>
-      <Image />
+      <Image onChange={setImage} value={photo_url}/>
       <div className="component">
       <button type="submit" id="submit" onChange={formHandle}>
       Submit
