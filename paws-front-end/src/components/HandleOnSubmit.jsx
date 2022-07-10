@@ -9,17 +9,17 @@ export default function HandleOnSubmit(e) {
   const [age, setAge] = useState("")
   const [size, setSize] = useState("")
   const [reactive, setReactive] = useState("")
-  const [people, setPeople] = useState("")
-  const [dogComp, setDogComp] = useState("")
-  const [genderComp, setGenderComp] = useState("")
-  const [breedComp, setBreedComp] = useState("")
+  const [good_with_people, setPeople] = useState("")
+  const [size_compatibility, setDogComp] = useState("")
+  const [gender_compatibility, setGenderComp] = useState("")
+  const [breed_compatibility, setBreedComp] = useState("")
   const [description, setDescription] = useState("")
-  const [image, setImage] = useState("")
+  const [photo, setImage] = useState("")
 
   
   const formHandle = (e) => {
     e.preventDefault();
-    addDataToServer({name, breed, gender, age, size, reactive, people, dogComp, genderComp, breedComp, description, image});
+    addDataToServer({name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_compatibility, description, photo});
   };
 
   const addDataToServer = (data) => {
@@ -239,23 +239,23 @@ export default function HandleOnSubmit(e) {
           name="people"
           type="radio"
           required="required"
-          value={people === false}
+          value={good_with_people === false}
           onChange={(event) => setPeople(event.target.value)}
         />
         Yes
         <br />
         <input
           className="input"
-          name="people"
+          name="good_with_people"
           type="radio"
           required="required"
-          value={people === true}
+          value={good_with_people === true}
           onChange={(event) => setPeople(event.target.value)}
         />
         No
       </div>
       <div className="component">
-        <label className="title" name="dogComp" required="required">
+        <label className="title" name="size_compatibility" required="required">
           {" "}
           What size(s) of dog does yours get along with? Select all that apply.{" "}
           <span></span>
@@ -267,7 +267,7 @@ export default function HandleOnSubmit(e) {
           name="small"
           type="checkbox"
           required="required"
-          value={dogComp === "small"}
+          value={size_compatibility}
           onChange={(event) => setDogComp(event.target.value)}
         />
         Small
@@ -277,7 +277,7 @@ export default function HandleOnSubmit(e) {
           name="medium"
           type="checkbox"
           required="required"
-          value={dogComp === "medium"}
+          value={size_compatibility}
           onChange={(event) => setDogComp(event.target.value)}
         />
         Medium
@@ -287,7 +287,7 @@ export default function HandleOnSubmit(e) {
           name="large"
           type="checkbox"
           required="required"
-          value={dogComp === "large"}
+          value={size_compatibility}
           onChange={(event) => setDogComp(event.target.value)}
         />
         Large
@@ -295,7 +295,7 @@ export default function HandleOnSubmit(e) {
       <div className="component">
         <label
           className="title"
-          name="genderComp"
+          name="gender_compatibility"
           required="required"
         >
           What gender(s) of dog does yours get along with? Select all that
@@ -308,7 +308,7 @@ export default function HandleOnSubmit(e) {
           name="male"
           type="checkbox"
           required="required"
-          value={genderComp === "female"}
+          value={gender_compatibility}
           onChange={(event) => setGenderComp(event.target.value)}
         />
         Female
@@ -318,7 +318,7 @@ export default function HandleOnSubmit(e) {
           name="female"
           type="checkbox"
           required="required"
-          value={genderComp === "male"}
+          value={gender_compatibility}
           onChange={(event) => setGenderComp(event.target.value)}
         />
         Male
@@ -333,7 +333,7 @@ export default function HandleOnSubmit(e) {
           <select
             name="list_box"
             size="49"
-            value={breedComp}
+            value={breed_compatibility}
             onChange={(event) => setBreedComp(event.target.value)}>
           <option value="Afghan Hound">Afghan Hound</option>
           <option value="Akita">Akita</option>
@@ -421,8 +421,8 @@ export default function HandleOnSubmit(e) {
         <input
           type="file"
           id="myFile"
-          name="filename"
-          value={image}
+          name="photo"
+          value={photo}
           onChange={(event) => setImage(event.target.value)}
           required
         ></input>
