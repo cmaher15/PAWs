@@ -10,13 +10,13 @@ export default function HandleOnSubmit(e) {
   const [size, setSize] = useState("")
   const [reactive, setReactive] = useState(true)
   const [good_with_people, setPeople] = useState(true)
-  const [size_compatibility, setDogComp] = useState("")
-  const [gender_compatibility, setGenderComp] = useState("")
-  const [breed_compatibility, setBreedComp] = useState("")
+  const [size_compatibility, setDogComp] = useState([])
+  const [gender_compatibility, setGenderComp] = useState([])
+  const [breed_compatibility, setBreedComp] = useState([])
   const [description, setDescription] = useState("")
   const [photo, setImage] = useState("")
 
-  
+
   const formHandle = (e) => {
     e.preventDefault();
     addDataToServer({name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_compatibility, description, photo});
@@ -380,7 +380,7 @@ export default function HandleOnSubmit(e) {
           <input className="input" type="checkbox" name="Shiba Inu"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Shiba Inu <br/>
           <input className="input" type="checkbox" name="Shih Tzu"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Shih Tzu <br/>
           <input className="input" type="checkbox" name="Terrier"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Terrier <br/>
-          <input className="input" type="checkbox" name="Whippet"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Whippet <br/>
+          <input className="input" type="checkbox" name="Whippet"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/> Whippet <br/>
 
       </div>
       <div className="component">
