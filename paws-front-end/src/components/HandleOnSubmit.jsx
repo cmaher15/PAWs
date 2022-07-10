@@ -23,7 +23,7 @@ export default function HandleOnSubmit(e) {
   };
 
   const addDataToServer = (data) => {
-    axios.post("http://localhost:8001/api/dogs", data).then(
+    axios.post(`/api/dogs/`, data).then(
       (response) => {
         console.log(response);
       },
@@ -326,10 +326,8 @@ export default function HandleOnSubmit(e) {
       <div className="component">
         <label className="title">
           {" "}
-          Which breed(s) of dogs is your dog NOT comfortable with? 
+          Which breed(s) of dogs is your dog NOT comfortable with? Select all that apply, if applicable.
         </label>{" "}<br/>
-                  
-        Select all that apply.
         <br />
         <br />
           <input className="input" type="checkbox" name="Afghan Hound"  value={breed_compatibility} onChange={(event) => setBreedComp(event.target.value)}/>Afghan Hound <br/>
