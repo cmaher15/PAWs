@@ -10,7 +10,7 @@ import Divider from "./Form/Divider";
 import SecondSub from "./Form/SecondSub";
 import Reactive from "./Form/Reactive";
 import People from "./Form/People";
-import DogCompatibility from "./Form/DogCompatibility";
+import DogSizeCompatibility from "./Form/DogSizeCompatibility";
 import GenderCompatability from "./Form/GenderCompatability";
 import Description from "./Form/Description";
 import Image from "./Form/Image";
@@ -30,7 +30,7 @@ export default function DogForm() {
       <SecondSub />
       <Reactive />
       <People />
-      <DogCompatibility />
+      <DogSizeCompatibility />
       <GenderCompatability />
       <Description />
       <Image />
