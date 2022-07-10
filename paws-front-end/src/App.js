@@ -13,6 +13,9 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 
+// Helpers
+import { getCoordinates } from "./helpers/getCoordinates";
+
 // Temp global variable for user's logged-in status
 
 function App() {
@@ -20,6 +23,24 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(() => true);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
+
+  // Get user location
+  const getCoordinates = function (position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    return { latitude: latitude, longitude: longitude };
+  };
+
+  const [userCoordinates, setUserCoordinates] = useState(async function () {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(position => {
+        resolve(getCoordinates(position), reject);
+      });
+    });
+  });
+
+  console.log("userCoordinates: ", userCoordinates);
 
   return (
     <div className="App">
