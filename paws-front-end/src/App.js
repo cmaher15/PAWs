@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
+import HandleOnSubmit from "./components/HandleOnSubmit";
 
 // Temp global variable for user's logged-in status
 
@@ -46,6 +47,7 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
+      <HandleOnSubmit />
     </div>
   );
 }

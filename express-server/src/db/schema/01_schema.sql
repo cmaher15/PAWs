@@ -20,6 +20,7 @@ CREATE TABLE dogs (
   good_with_people BOOLEAN NOT NULL,
   size_compatibility TEXT[3], -- small, medium, large(max 3)
   gender_compatibility TEXT[2], -- male, female (max 2)
+  breed_compatibility TEXT[49], -- any breed (max 49)
   description VARCHAR(255) NOT NULL,
   photo VARCHAR(255) NOT NULL, --bytea
   owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE
