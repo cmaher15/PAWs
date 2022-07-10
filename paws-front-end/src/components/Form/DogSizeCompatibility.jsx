@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export default function DogSizeCompatibility() {
-  const [size_compatibility, setDogComp] = useState([])
+export default function DogSizeCompatibility(props) {
   return (
     <div className="component">
     <label className="title" name="size_compatibility" required="required">
@@ -16,8 +15,7 @@ export default function DogSizeCompatibility() {
       name="small"
       type="checkbox"
       required="required"
-      value={size_compatibility}
-      onChange={() => setDogComp("small")}
+      onChange={() => props.onChange("small")}
     />
     Small
     <br />
@@ -26,8 +24,7 @@ export default function DogSizeCompatibility() {
       name="medium"
       type="checkbox"
       required="required"
-      value={size_compatibility}
-      onChange={() => setDogComp("medium")}
+      onChange={() => props.onChange("medium")}
     />
     Medium
     <br />
@@ -36,8 +33,7 @@ export default function DogSizeCompatibility() {
       name="large"
       type="checkbox"
       required="required"
-      value={size_compatibility}
-      onChange={() => setDogComp("large")}
+      onChange={() => props.onChange("large")}
     />
     Large
   </div>

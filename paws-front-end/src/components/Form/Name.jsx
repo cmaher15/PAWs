@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export default function Name() {
-  const [name, setName] = useState("")
+export default function Name(props) {
   return (
     <div className="component">
     <label className="title" name="name">
@@ -13,8 +12,8 @@ export default function Name() {
         type="text"
         name="name"
         placeholder="Enter your dog's name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
+        value={props.value}
+        onChange={(event) => props.onChange(event.target.value)}
         required
       />
     </label>
