@@ -8,8 +8,8 @@ export default function HandleOnSubmit(e) {
   const [gender, setGender] = useState("")
   const [age, setAge] = useState("")
   const [size, setSize] = useState("")
-  const [reactive, setReactive] = useState("")
-  const [good_with_people, setPeople] = useState("")
+  const [reactive, setReactive] = useState(true)
+  const [good_with_people, setPeople] = useState(true)
   const [size_compatibility, setDogComp] = useState("")
   const [gender_compatibility, setGenderComp] = useState("")
   const [breed_compatibility, setBreedComp] = useState("")
@@ -174,8 +174,8 @@ export default function HandleOnSubmit(e) {
           name="size"
           type="radio"
           required="required"
-          value={size === "small"}
-          onChange={(event) => setSize(event.target.value)}
+          value={size}
+          onChange={() => setSize("small")}
         />
         Small
         <br />
@@ -184,8 +184,8 @@ export default function HandleOnSubmit(e) {
           name="size"
           type="radio"
           required="required"
-          value={size === "medium"}
-          onChange={(event) => setSize(event.target.value)}
+          value={size}
+          onChange={() => setSize("medium")}
         />
         Medium
         <br />
@@ -194,8 +194,8 @@ export default function HandleOnSubmit(e) {
           name="size"
           type="radio"
           required="required"
-          value={size === "large"}
-          onChange={(event) => setSize(event.target.value)}
+          value={size}
+          onChange={() => setSize("large")}
         />
         Large
       </div>
@@ -213,8 +213,8 @@ export default function HandleOnSubmit(e) {
           name="reactive"
           type="radio"
           required="required"
-          value={reactive === true}
-          onChange={(event) => setReactive(event.target.value)}
+          value={reactive}
+          onChange={(event) => setReactive(true)}
         />
         Yes
         <br />
@@ -223,8 +223,8 @@ export default function HandleOnSubmit(e) {
           name="reactive"
           type="radio"
           required="required"
-          value={reactive === false}
-          onChange={(event) => setReactive(event.target.value)}
+          value={reactive}
+          onChange={(event) => setReactive(false)}
         />
         No
       </div>
@@ -236,11 +236,11 @@ export default function HandleOnSubmit(e) {
         <br />
         <input
           className="input"
-          name="people"
+          name="good_with_people"
           type="radio"
           required="required"
-          value={good_with_people === false}
-          onChange={(event) => setPeople(event.target.value)}
+          value={good_with_people}
+          onChange={(event) => setPeople(true)}
         />
         Yes
         <br />
@@ -249,8 +249,8 @@ export default function HandleOnSubmit(e) {
           name="good_with_people"
           type="radio"
           required="required"
-          value={good_with_people === true}
-          onChange={(event) => setPeople(event.target.value)}
+          value={good_with_people}
+          onChange={(event) => setPeople(false)}
         />
         No
       </div>
