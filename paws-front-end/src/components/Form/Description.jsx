@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 export default function Description() {
   const [description, setDescription] = useState("")

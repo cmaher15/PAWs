@@ -1,25 +1,27 @@
-import { useState } from "react";
 import axios from "axios";
 import "../styles/Form.scss";
+import Breed from "./Form/Breed";
+import Title from "./Form/Title";
+import Name from "./Form/Name";
+import Gender from "./Form/Gender";
+import Age from "./Form/Age";
+import Size from "./Form/Size";
+import Subtitle from "./Form/Subtitle";
+import SecondSub from "./Form/SecondSub";
+import Reactive from "./Form/Reactive";
+import People from "./Form/People";
+import DogSizeCompatibility from "./Form/DogSizeCompatibility";
+import GenderCompatability from "./Form/GenderCompatability";
+import BreedIncompatibility from "./Form/BreedIncompability";
+import Description from "./Form/Description";
+import Image from "./Form/Image";
 
-export default function HandleOnSubmit(e) {
-  const [name, setName] = useState("")
-  const [breed, setBreed] = useState("")
-  const [gender, setGender] = useState("")
-  const [age, setAge] = useState("")
-  const [size, setSize] = useState("")
-  const [reactive, setReactive] = useState(true)
-  const [good_with_people, setPeople] = useState(true)
-  const [size_compatibility, setDogComp] = useState([])
-  const [gender_compatibility, setGenderComp] = useState([])
-  const [breed_compatibility, setBreedComp] = useState([])
-  const [description, setDescription] = useState("")
-  const [photo, setImage] = useState("")
+export default function HandleOnSubmit(props) {
 
 
   const formHandle = (e) => {
     e.preventDefault();
-    addDataToServer({name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_compatibility, description, photo});
+    addDataToServer({});;
   };
 
   const addDataToServer = (data) => {
@@ -35,10 +37,27 @@ export default function HandleOnSubmit(e) {
   
   return (
     <form className="dogapp" onSubmit={formHandle}>
+      <Title />
+      <Subtitle />
+      <Name />
+      <Breed />
+      <Gender />
+      <Age />
+      <Size />
       <hr />
-     
-
-
+      <SecondSub />
+      <Reactive />
+      <People />
+      <DogSizeCompatibility />
+      <GenderCompatability />
+      <BreedIncompatibility/>
+      <Description />
+      <Image />
+      <div className="component">
+      <button type="button" id="submit" onChange={formHandle}>
+      Submit
+    </button>
+    </div>
     </form>
   );
 }

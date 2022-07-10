@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 export default function People() {
   const [good_with_people, setPeople] = useState(true)

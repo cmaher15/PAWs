@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 export default function GenderCompatability() {
   const [gender_compatibility, setGenderComp] = useState([])
