@@ -30,28 +30,22 @@ export default function HandleOnSubmit(props) {
   const [gender_compatibility, setGenderComp] = useState({female: false, male: false})
   const [breed_incompatibility, setBreedIncomp] = useState([])
   const [description, setDescription] = useState("")
-  const [photo, setImage] = useState("")
+  const [photo_url, setImage] = useState("")
 
-  console.log("name", name)
-  console.log("sizeCompatibility", size_compatibility)
-  console.log("genderCompatibility", gender_compatibility)
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility
     newSizeCompatibility[size] = !size_compatibility[size]
-    console.log("new Size Comp", newSizeCompatibility)
     setDogComp(newSizeCompatibility)
   }
 
   const onGenderCompatibilityChange = (gender) => {
     const newGenderCompatibility = gender_compatibility
     newGenderCompatibility[gender] = !size_compatibility[gender]
-    console.log("new Gender Comp", newGenderCompatibility)
     setGenderComp(newGenderCompatibility)
   }
 
   const formHandle = (e) => {
-    console.log("formhandle", e.target)
     e.preventDefault();
     addDataToServer({});;
   };
@@ -61,8 +55,7 @@ export default function HandleOnSubmit(props) {
     /** {name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url} */
     axios.post(`/api/dogs/`, data).then(
       (response) => {
-        console.log(response);
-        
+        console.log(response);    
       },
       (error) => {
         console.log(error);
@@ -86,7 +79,7 @@ export default function HandleOnSubmit(props) {
       <DogSizeCompatibility onChange={onSizeCompatibilityChange}/>
       <GenderCompatability  onChange={onGenderCompatibilityChange}/>
       <BreedIncompatibility/>
-      <Description />
+      <Description onChange={setDescription} value={description}/>
       <Image />
       <div className="component">
       <button type="submit" id="submit" onChange={formHandle}>

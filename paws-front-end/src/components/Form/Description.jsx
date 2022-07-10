@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Description() {
-  const [description, setDescription] = useState("")
+export default function Description(props) {
   return (
     <div className="component">
     <label className="title">
@@ -18,8 +17,8 @@ export default function Description() {
       name="description"
       required
       maxLength="255"
-      value={description}
-      onChange={(event) => setDescription(event.target.value)}
+      value={props.value}
+      onChange={(event) => props.onChange(event.target.value)}
     ></textarea>
     <br />
     maximum 255 characters

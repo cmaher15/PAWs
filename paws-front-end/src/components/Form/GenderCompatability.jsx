@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
 export default function GenderCompatability(props) {
-  const [gender_compatibility, setGenderComp] = useState([])
   return (
     <div className="component">
     <label
