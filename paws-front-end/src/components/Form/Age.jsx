@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function Age() {
-  const [age, setAge] = useState("")
+export default function Age(props) {
   return (
     <div className="component">
     <label className="title">
@@ -13,8 +12,8 @@ export default function Age() {
       className="inputtext"
       name="age"
       type="number"
-      value={age}
-      onChange={(event) => setAge(event.target.value)}
+      value={props.age}
+      onChange={(event) => props.onChange(event.target.value)}
       required
     />
   </div>
