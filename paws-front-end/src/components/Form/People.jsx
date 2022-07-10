@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React from "react";
 
-export default function People() {
-  const [good_with_people, setPeople] = useState(true)
+export default function People(props) {
   return (
     <div className="component">
     <label className="title" name="people" required="required">
@@ -14,8 +13,8 @@ export default function People() {
       name="good_with_people"
       type="radio"
       required="required"
-      value={good_with_people}
-      onChange={() => setPeople(true)}
+      value={props.good_with_people}
+      onChange={() => props.onChange(true)}
     />
     Yes
     <br />
@@ -24,8 +23,8 @@ export default function People() {
       name="good_with_people"
       type="radio"
       required="required"
-      value={good_with_people}
-      onChange={() => setPeople(false)}
+      value={props.good_with_people}
+      onChange={() => props.onChange(false)}
     />
     No
   </div>
