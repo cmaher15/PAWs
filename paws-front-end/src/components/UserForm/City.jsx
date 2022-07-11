@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function City(props) {
+  return (
   <div class="component">
   <label className="title" name="city">
   City: </label>
@@ -16,4 +17,5 @@ export default function City(props) {
     required
   />
   </div>
+  )
 }

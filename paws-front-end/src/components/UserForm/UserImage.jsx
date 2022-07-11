@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Image(props) {
+export default function UserImage(props) {
   return (
     <div className="component">
     <label className="title">

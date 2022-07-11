@@ -19,7 +19,7 @@ export default function Distance(props) {
     5km or less <br />
     <input
       className="input"
-      name="gender"
+      name="location"
       type="radio"
       required="required"
       value={props.distance}
@@ -28,12 +28,13 @@ export default function Distance(props) {
     10km <br />
     <input
       className="input"
-      name="gender"
+      name="location"
       type="radio"
       required="required"
       value={props.distance}
       onChange={() => props.onChange("15km")}
     />
+    15km <br />
   </div>
   );
 }

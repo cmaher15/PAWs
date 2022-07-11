@@ -77,6 +77,7 @@ function App() {
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
       <RegisterDog />
+      <RegisterUser />
     </div>
   );
 }
