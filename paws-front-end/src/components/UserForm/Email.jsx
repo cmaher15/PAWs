@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Email(props) {
   return (
-  <div class="component">
+  <div className="component">
   <label className="title" name="email">
   Email: </label>
   <br />

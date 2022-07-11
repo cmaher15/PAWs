@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Password(props) {
   return (
-  <div class="component">
+  <div className="component">
   <label className="title" name="password">
   Password: </label>
   <br />

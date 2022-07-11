@@ -109,7 +109,7 @@ export default function RegisterDog() {
       <Description onChange={setDescription} value={description} />
       <Image onChange={setImage} value={photo_url} />
       <div className="component">
-        <button type="submit" id="submit" onChange={formHandle}>
+        <button type="submit" class="submitbtn" onChange={formHandle}>
           Submit
         </button>
       </div>

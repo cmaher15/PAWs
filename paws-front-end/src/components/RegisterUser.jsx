@@ -7,7 +7,7 @@ import Email from "./UserForm/Email";
 import Password from "./UserForm/Password";
 import UserName from "./UserForm/UserName";
 import UserImage from "./UserForm/UserImage";
-
+const bcrypt = require('bcryptjs')
 
 export default function RegisterUser () {
   const [name, setName] = useState("");
@@ -17,6 +17,10 @@ export default function RegisterUser () {
   const [distance, setDistance] = useState("")
   const [thumbnail_photo_url, setPhoto] = useState("");
 
+  const salt = bcrypt.genSaltSync(10)
+
+  const hashedpassword = bcrypt.hashSync(password, salt)
+
 
   const formHandle = (e) => {
     e.preventDefault();
@@ -25,7 +29,7 @@ export default function RegisterUser () {
       city,
       email,
       thumbnail_photo_url,
-      password,
+      hashedpassword,
     });
   };
 
@@ -53,7 +57,7 @@ export default function RegisterUser () {
       <Distance onChange={setDistance} value={distance} />
       <UserImage onChange={setPhoto} value={thumbnail_photo_url} />
       <div className="component">
-        <button type="submit" id="submit" onChange={formHandle}>
+        <button type="submit" class="submitbtn" onChange={formHandle}>
           Submit
         </button>
         </div>
