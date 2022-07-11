@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function BreedIncompatibility() {
-  const [breed_incompatibility, setBreedIncomp] = useState([]);
+export default function BreedIncompatibility(props) {
   const breeds = [
     "Afghan Hound",
     "Akita",
@@ -54,7 +53,7 @@ export default function BreedIncompatibility() {
     "Whippet",
   ];
 
-  console.log("breeds", breed_incompatibility)
+
   return (
     <div className="component">
       <label className="title">
@@ -66,10 +65,9 @@ export default function BreedIncompatibility() {
       {breeds.map((breed) => (
         <div>
           <input
-            value={breed_incompatibility}
             type="checkbox"
-            className="breeds"
-            onChange={onChange}
+            value={props.value}
+            onChange={(event) => props.onChange(event.target.value)}
           />
           <span id="breed">{breed}</span>
         </div>

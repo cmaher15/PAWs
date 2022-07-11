@@ -51,15 +51,12 @@ export default function HandleOnSubmit() {
     setGenderComp(newGenderCompatibility);
   };
 
-
   const formHandle = (e) => {
     e.preventDefault();
-    addDataToServer({});
+    addDataToServer({name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url});
   };
 
   const addDataToServer = (data) => {
-    console.log("data", data);
-    /** {name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url} */
     axios.post(`/api/dogs/`, data).then(
       (response) => {
         console.log(response);
@@ -69,6 +66,7 @@ export default function HandleOnSubmit() {
       }
     );
   };
+
 
   return (
     <form className="dogapp" id="dogform" onSubmit={formHandle}>

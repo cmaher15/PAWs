@@ -17,7 +17,6 @@ export default function GenderCompatability(props) {
       className="input"
       name="female"
       type="checkbox"
-      required="required"
       onChange={() => props.onChange("female")}
     />
     Female
@@ -26,7 +25,6 @@ export default function GenderCompatability(props) {
       className="input"
       name="male"
       type="checkbox"
-      required="required"
       onChange={() => props.onChange("male")}
     />
     Male

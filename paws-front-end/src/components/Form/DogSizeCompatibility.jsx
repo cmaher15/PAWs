@@ -13,7 +13,6 @@ export default function DogSizeCompatibility(props) {
       className="input"
       name="small"
       type="checkbox"
-      required="required"
       onChange={() => props.onChange("small")}
     />
     Small
@@ -22,7 +21,6 @@ export default function DogSizeCompatibility(props) {
       className="input"
       name="medium"
       type="checkbox"
-      required="required"
       onChange={() => props.onChange("medium")}
     />
     Medium
@@ -31,7 +29,6 @@ export default function DogSizeCompatibility(props) {
       className="input"
       name="large"
       type="checkbox"
-      required="required"
       onChange={() => props.onChange("large")}
     />
     Large
