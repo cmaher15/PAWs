@@ -17,7 +17,7 @@ import HandleOnSubmit from "./components/HandleOnSubmit";
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer
+  sendCoordinatesToServer,
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -36,11 +36,11 @@ function App() {
   useEffect(() => {
     (async () => {
       await fetchCoordinates(getCoordinates)
-        .then(results => {
+        .then((results) => {
           console.log("results, App.js: ", results);
           setUserCoordinates(results);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
       // OR:
@@ -77,7 +77,7 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      <HandleOnSubmit />
+      <RegisterDog />
     </div>
   );
 }
