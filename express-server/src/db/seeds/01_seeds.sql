@@ -1,17 +1,17 @@
 INSERT INTO owners
-(name, city, email, thumbnail_photo_url, location)
+(name, password, city, email, thumbnail_photo_url, location)
 VALUES
-('Angela', 'Calgary', 'ilovecats@yahoo.com', 'photo', '(-194.0, 53.0)'),
-('Dwight', 'Vancouver', 'supreme_dwight@gmail.com', 'photo', '(-194.0, 53.0)'),
-('Michael', 'Vancouver', 'nice-to-meet-me@yahoo.com', 'photo', '(-194.0, 53.0)'),
-('Kevin', 'Vancouver', 'chili_lover@yahoo.com', 'photo', '(-194.0, 53.0)'),
-('Jimothy', 'Calgary', 'asian_jim@mail.com', 'photo', '(-194.0, 53.0)'),
-('Toby', 'Montreal', 'stranglehorn@gmail.com', 'photo', '(-194.0, 53.0)'),
-('Troy', 'Toronto', 'truckdriver@yahoo.com', 'photo', '(-194.0, 53.0)'),
-('Erin', 'Calgary', 'hannon123@inbox.com', 'photo', '(-194.0, 53.0)'),
-('Stanley', 'Vancouver', 'manley99@email.com', 'photo', '(-194.0, 53.0)'),
-('Darryl', 'Montreal', 'big_boi@inbox.com', 'photo', '(-194.0, 53.0)'),
-('Mose', 'Calgary', 'mastermind111@gmail.com', 'photo', '(-194.0, 53.0)');
+('Angela', 's565ds8d5h8s75f8h57858s5s', 'Calgary', 'ilovecats@yahoo.com', 'photo', '(-194.0, 53.0)'),
+('Dwight', 's565ds8d5h8s75f8h57858s5s', 'Vancouver', 'supreme_dwight@gmail.com', 'photo', '(-194.0, 53.0)'),
+('Michael','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'nice-to-meet-me@yahoo.com', 'photo', '(-194.0, 53.0)'),
+('Kevin','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'chili_lover@yahoo.com', 'photo', '(-194.0, 53.0)'),
+('Jimothy','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'asian_jim@mail.com', 'photo', '(-194.0, 53.0)'),
+('Toby', 's565ds8d5h8s75f8h57858s5s','Montreal', 'stranglehorn@gmail.com', 'photo', '(-194.0, 53.0)'),
+('Troy','s565ds8d5h8s75f8h57858s5s', 'Toronto', 'truckdriver@yahoo.com', 'photo', '(-194.0, 53.0)'),
+('Erin', 's565ds8d5h8s75f8h57858s5s','Calgary', 'hannon123@inbox.com', 'photo', '(-194.0, 53.0)'),
+('Stanley','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'manley99@email.com', 'photo', '(-194.0, 53.0)'),
+('Darryl','s565ds8d5h8s75f8h57858s5s', 'Montreal', 'big_boi@inbox.com', 'photo', '(-194.0, 53.0)'),
+('Mose','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'mastermind111@gmail.com', 'photo', '(-194.0, 53.0)');
 
 
 INSERT INTO dogs 
