@@ -7,7 +7,6 @@ import Email from "./UserForm/Email";
 import Password from "./UserForm/Password";
 import UserName from "./UserForm/UserName";
 import UserImage from "./UserForm/UserImage";
-import {useCookies} from 'react-cookie';
 const bcrypt = require('bcryptjs')
 
 export default function RegisterUser () {
@@ -17,7 +16,6 @@ export default function RegisterUser () {
   const [password, setPassword] = useState("")
   const [distance, setDistance] = useState("")
   const [thumbnail_photo_url, setPhoto] = useState("");
-  const [cookies, setCookie] = useCookies(['user'])
 
   const salt = bcrypt.genSaltSync(10)
 
@@ -26,8 +24,6 @@ export default function RegisterUser () {
 
   const formHandle = (e) => {
     e.preventDefault();
-    setCookie('Email', email, {path: '/'})
-    setCookie('Password', hashedpassword, {path: '/'})
     addDataToServer({
       name,
       city,
