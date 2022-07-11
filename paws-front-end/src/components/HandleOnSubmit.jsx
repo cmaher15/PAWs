@@ -16,74 +16,83 @@ import Image from "./Form/Image";
 import React from "react";
 
 export default function HandleOnSubmit() {
-  const [name, setName] = useState("")
-  const [breed, setBreed] = useState("")
-  const [gender, setGender] = useState("")
-  const [age, setAge] = useState("")
-  const [size, setSize] = useState("")
-  const [reactive, setReactive] = useState(true)
-  const [good_with_people, setPeople] = useState(true)
-  const [size_compatibility, setDogComp] = useState({small: false, medium: false, large: false})
-  const [gender_compatibility, setGenderComp] = useState({female: false, male: false})
-  const [breed_incompatibility, setBreedIncomp] = useState([])
-  const [description, setDescription] = useState("")
-  const [photo_url, setImage] = useState("")
+  const [name, setName] = useState("");
+  const [breed, setBreed] = useState("");
+  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
+  const [size, setSize] = useState("");
+  const [reactive, setReactive] = useState(true);
+  const [good_with_people, setPeople] = useState(true);
+  const [size_compatibility, setDogComp] = useState({
+    small: false,
+    medium: false,
+    large: false,
+  });
+  const [gender_compatibility, setGenderComp] = useState({
+    female: false,
+    male: false,
+  });
+  const [breed_incompatibility, setBreedIncomp] = useState([]);
+  const [description, setDescription] = useState("");
+  const [photo_url, setImage] = useState("");
 
-  console.log("breed", breed)
+
+  console.log("breed_incompatibility", breed_incompatibility);
 
   const onSizeCompatibilityChange = (size) => {
-    const newSizeCompatibility = size_compatibility
-    newSizeCompatibility[size] = !size_compatibility[size]
-    setDogComp(newSizeCompatibility)
-  }
+    const newSizeCompatibility = size_compatibility;
+    newSizeCompatibility[size] = !size_compatibility[size];
+    setDogComp(newSizeCompatibility);
+  };
 
   const onGenderCompatibilityChange = (gender) => {
-    const newGenderCompatibility = gender_compatibility
-    newGenderCompatibility[gender] = !size_compatibility[gender]
-    setGenderComp(newGenderCompatibility)
-  }
+    const newGenderCompatibility = gender_compatibility;
+    newGenderCompatibility[gender] = !size_compatibility[gender];
+    setGenderComp(newGenderCompatibility);
+  };
+
 
   const formHandle = (e) => {
     e.preventDefault();
-    addDataToServer({});;
+    addDataToServer({});
   };
 
   const addDataToServer = (data) => {
-    console.log("data", data)
+    console.log("data", data);
     /** {name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url} */
     axios.post(`/api/dogs/`, data).then(
       (response) => {
-        console.log(response);    
+        console.log(response);
       },
       (error) => {
         console.log(error);
       }
     );
   };
-  
+
   return (
-    <form className="dogapp" onSubmit={formHandle}>
+    <form className="dogapp" id="dogform" onSubmit={formHandle}>
       <h1>Pup Profile:</h1>
       <h2>Describe Your Doggo</h2>
-      <Name onChange={setName} value={name}/>
-      <Breed onChange={setBreed} value={breed}/>
+      <Name onChange={setName} value={name} />
+      <Breed onChange={setBreed} value={breed} />
       <Gender onChange={setGender} value={gender} />
-      <Age onChange={setAge} value={age}/>
-      <Size onChange={setSize} value={size}/>
+      <Age onChange={setAge} value={age} />
+      <Size onChange={setSize} value={size} />
       <hr />
       <h2>Now Tell Us About Your Pup's Preferences</h2>
-      <Reactive onChange={setReactive} value={reactive}/>
-      <People onChange={setPeople} value={good_with_people}/>
-      <DogSizeCompatibility onChange={onSizeCompatibilityChange}/>
-      <GenderCompatability  onChange={onGenderCompatibilityChange}/>
+      <Reactive onChange={setReactive} value={reactive} />
+      <People onChange={setPeople} value={good_with_people} />
+      <DogSizeCompatibility onChange={onSizeCompatibilityChange} />
+      <GenderCompatability onChange={onGenderCompatibilityChange} />
       <BreedIncompatibility/>
-      <Description onChange={setDescription} value={description}/>
-      <Image onChange={setImage} value={photo_url}/>
+      <Description onChange={setDescription} value={description} />
+      <Image onChange={setImage} value={photo_url} />
       <div className="component">
-      <button type="submit" id="submit" onChange={formHandle}>
-      Submit
-    </button>
-    </div>
+        <button type="submit" id="submit" onChange={formHandle}>
+          Submit
+        </button>
+      </div>
     </form>
   );
 }
