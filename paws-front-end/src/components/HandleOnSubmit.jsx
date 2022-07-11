@@ -33,7 +33,7 @@ export default function HandleOnSubmit() {
     female: false,
     male: false,
   });
-  const [breed_incompatibility, setBreedIncomp] = useState([]);
+  const [breed_incompatibility, setBreedIncomp] = useState({});
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
 
@@ -51,6 +51,11 @@ export default function HandleOnSubmit() {
     setGenderComp(newGenderCompatibility);
   };
 
+  const checkBreedIncompatibility = (breed) => {
+    const newBreedIncompatibility = breed_incompatibility;
+    newBreedIncompatibility[breed] = ! breed_incompatibility[breed];
+    setBreedIncomp(newBreedIncompatibility)
+  }
 
   const formHandle = (e) => {
     e.preventDefault();
@@ -84,7 +89,7 @@ export default function HandleOnSubmit() {
       <People onChange={setPeople} value={good_with_people} />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange} />
       <GenderCompatability onChange={onGenderCompatibilityChange} />
-      <BreedIncompatibility />
+      <BreedIncompatibility onChange={checkBreedIncompatibility} value={breed_incompatibility} />
       <Description onChange={setDescription} value={description} />
       <Image onChange={setImage} value={photo_url} />
       <div className="component">
