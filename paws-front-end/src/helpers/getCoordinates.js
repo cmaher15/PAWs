@@ -16,14 +16,15 @@ const getCoordinates = function (position) {
   return { latitude: latitude, longitude: longitude };
 };
 
-const apiLocationSetState = async function (
-  coordinatesPromise,
-  getCoordinates,
-  setUserCoordinates
-) {
-  const res = await coordinatesPromise(getCoordinates);
-  setUserCoordinates(res);
-};
+// const apiLocationSetState = async function (
+//   coordinatesPromise,
+//   getCoordinates,
+//   setUserCoordinates
+// ) {
+//   const res = await coordinatesPromise(getCoordinates);
+//   console.log("res in apLocationSetState: ", res);
+//   setUserCoordinates(res);
+// };
 
 // Send latitude and longitude coordinates-object to server
 const sendCoordinatesToServer = function (userCoordinates, ownerId) {
@@ -35,6 +36,6 @@ const sendCoordinatesToServer = function (userCoordinates, ownerId) {
 export {
   getCoordinates,
   fetchCoordinates,
-  apiLocationSetState,
+  // apiLocationSetState,
   sendCoordinatesToServer
 };
