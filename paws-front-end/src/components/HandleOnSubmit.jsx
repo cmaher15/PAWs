@@ -15,7 +15,6 @@ import Description from "./Form/Description";
 import Image from "./Form/Image";
 import React from "react";
 
-
 export default function HandleOnSubmit() {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
@@ -30,7 +29,7 @@ export default function HandleOnSubmit() {
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
 
-
+  //Function to manage checked box status in size compatibility form section
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility;
@@ -38,23 +37,44 @@ export default function HandleOnSubmit() {
     setDogComp(newSizeCompatibility);
   };
 
+  //Function to manage checked box status in gender compatibility form section
+
   const onGenderCompatibilityChange = (gender) => {
     const newGenderCompatibility = gender_compatibility;
     newGenderCompatibility[gender] = !size_compatibility[gender];
     setGenderComp(newGenderCompatibility);
   };
 
+  //Function to manage checked box status in breed compatibility form section
+
   const checkBreedIncompatibility = (breed) => {
     const newBreedIncompatibility = breed_incompatibility;
-    newBreedIncompatibility[breed] = ! breed_incompatibility[breed];
-    setBreedIncomp(newBreedIncompatibility)
-  }
+    newBreedIncompatibility[breed] = !breed_incompatibility[breed];
+    setBreedIncomp(newBreedIncompatibility);
+  };
+
+  //Function to add data to server on form submission
 
   const formHandle = (e) => {
     e.preventDefault();
-    addDataToServer({name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url});
+    addDataToServer({
+      name,
+      breed,
+      gender,
+      age,
+      size,
+      reactive,
+      good_with_people,
+      size_compatibility,
+      gender_compatibility,
+      breed_incompatibility,
+      description,
+      photo_url,
+    });
   };
 
+  //Axios post request to send data to server
+  
   const addDataToServer = (data) => {
     axios.post(`/api/dogs/`, data).then(
       (response) => {
@@ -65,7 +85,6 @@ export default function HandleOnSubmit() {
       }
     );
   };
-
 
   return (
     <form className="dogapp" id="dogform" onSubmit={formHandle}>
@@ -82,7 +101,10 @@ export default function HandleOnSubmit() {
       <People onChange={setPeople} value={good_with_people} />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange} />
       <GenderCompatability onChange={onGenderCompatibilityChange} />
-      <BreedIncompatibility onChange={checkBreedIncompatibility} value={breed_incompatibility} />
+      <BreedIncompatibility
+        onChange={checkBreedIncompatibility}
+        value={breed_incompatibility}
+      />
       <Description onChange={setDescription} value={description} />
       <Image onChange={setImage} value={photo_url} />
       <div className="component">
