@@ -45,3 +45,7 @@ Dogs:
 ```localhost:8001/api/dogs```
 Owners:
 ```localhost:8001/api/owners```
+
+## Reset database
+
+Paste ```localhost:8001/api/debug/reset``` in your browser while server is running
