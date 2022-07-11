@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.dogapp {
+form {
   display: flex;
   flex-direction: column;
   width:fit-content;
@@ -26,9 +26,12 @@
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius:10px;
+}
+
+.inputtext:focus {
   border: 0;
   box-shadow:0 0 15px 10px rgba(0,0,0,0.06);
-  border-radius:10px;
 }
 
 .input {
@@ -39,11 +42,6 @@
   border-radius:10px;
 }
 
-
-.input:focus {
-  background-color: white;
-  border: 3px solid rgb(0, 0, 0);
-}
 
 #description {
   display: flex;
