@@ -21,7 +21,7 @@ INSERT INTO dogs
 
   ('Bailey', 'poodle', 'female', 2, 'medium', false, true, ARRAY ['small', 'middle', 'large'], ARRAY ['male', 'female'], ARRAY ['pitbull'], 'Smart and happy dog, enjoys playing with everyone', './public/bailey.jpeg', 2),
 
-  ('Flash', 'pug', 'male', 7, 'small', true, true, ARRAY ['small'], ARRAY ['male', 'female'],ARRAY ['german shepherd'], 'Small but quick, Flash loved dog parks more than anything, a little cautious of other dogs', './public/flash.jpeg', 3),
+  ('Flash', 'pug', 'male', 7, 'small', true, true, ARRAY ['small'], ARRAY ['male', 'female'], ARRAY ['pitbull'], 'Small but quick, Flash loved dog parks more than anything, a little cautious of other dogs', './public/flash.jpeg', 3),
 
   ('Gatsby', 'labrador', 'male', 5, 'medium', true, false, ARRAY ['middle'], ARRAY ['male', 'female'], ARRAY ['none'], 'Being a resque dog, Gatsby is a sweet and loving dog, but needs a little time to get adjusted to new faces', './public/gatsby.jpeg', 4),
 
