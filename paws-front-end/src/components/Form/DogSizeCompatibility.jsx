@@ -1,39 +1,34 @@
 import React from "react";
 
-export default function Size(props) {
+export default function DogSizeCompatibility(props) {
   return (
     <div className="component">
-    <label className="title" name="size" required="required">
-      Size:
+    <label className="title" name="size_compatibility" required="required">
+      {" "}
+      What size(s) of dog does yours get along with? Select all that apply.{" "}
     </label>
     <br />
     <br />
     <input
       className="input"
-      name="size"
-      type="radio"
-      required="required"
-      value={props.size}
+      name="small"
+      type="checkbox"
       onChange={() => props.onChange("small")}
     />
     Small
     <br />
     <input
       className="input"
-      name="size"
-      type="radio"
-      required="required"
-      value={props.size}
+      name="medium"
+      type="checkbox"
       onChange={() => props.onChange("medium")}
     />
     Medium
     <br />
     <input
       className="input"
-      name="size"
-      type="radio"
-      required="required"
-      value={props.size}
+      name="large"
+      type="checkbox"
       onChange={() => props.onChange("large")}
     />
     Large

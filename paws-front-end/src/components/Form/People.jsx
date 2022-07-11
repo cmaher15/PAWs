@@ -1,17 +1,32 @@
 import React from "react";
 
-export default function People() {
+export default function People(props) {
   return (
     <div className="component">
-      <label className="title" required="required">Are they good with new people?<span></span></label>
-      
-      <br />
-        <br />
-      <input className="input" name="people" type="radio"  required="required"/>
-      Yes
-        <br />
-      <input className="input" name="people" type="radio"  required="required"/>
-      No
-    </div>
+    <label className="title" name="people" required="required">
+      Are they good with new people?
+    </label>
+    <br />
+    <br />
+    <input
+      className="input"
+      name="good_with_people"
+      type="radio"
+      required="required"
+      value={props.good_with_people}
+      onChange={() => props.onChange(true)}
+    />
+    Yes
+    <br />
+    <input
+      className="input"
+      name="good_with_people"
+      type="radio"
+      required="required"
+      value={props.good_with_people}
+      onChange={() => props.onChange(false)}
+    />
+    No
+  </div>
   );
 }

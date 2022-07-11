@@ -1,66 +1,75 @@
 import React from "react";
 
-export default function Breed() {
+export default function Breed(props) {
   return (
     <div className="component">
-      <label className="title"> Breed: <span></span></label> <br />
-        <br />
-      <select name="selectList" id="selectList" required>
-      <span></span>
-        <option value="">Select a Breed</option>
-        <option value="option 1">Afghan Hound</option>
-        <option value="option 2">Akita</option>
-        <option value="option 3">Alaskan Malemute</option>
-        <option value="option 4">Australian Cattle Dog</option>
-        <option value="option 5">Australian Shepherd</option>
-        <option value="option 6">Bassett Hound</option>
-        <option value="option 7">Beagle</option>
-        <option value="option 8">Bernese Mountain Dog</option>
-        <option value="option 9">Bloodhound</option>
-        <option value="option 10">Border Collie</option>
-        <option value="option 11">Boston Terrier</option>
-        <option value="option 12">Boxer</option>
-        <option value="option 13">Bulldog</option>
-        <option value="option 14">Bull Terrier</option>
-        <option value="option 15">Cane Corso</option>
-        <option value="option 16">Chihuahua</option>
-        <option value="option 17">Cocker Spaniel</option>
-        <option value="option 18">Coonhound</option>
-        <option value="option 19">Daschund</option>
-        <option value="option 20">Dalmatian</option>
-        <option value="option 21">Doberman</option>
-        <option value="option 22">German Shepherd</option>
-        <option value="option 23">Golden Retriever</option>
-        <option value="option 24">Great Dane</option>
-        <option value="option 25">Greyhound</option>
-        <option value="option 26">Havanese</option>
-        <option value="option 27">Husky</option>
-        <option value="option 28">Irish Setter</option>
-        <option value="option 29">Irish Wolfhound</option>
-        <option value="option 30">Labrador Retriever</option>
-        <option value="option 31">Lhasa Apso</option>
-        <option value="option 32">Maltese</option>
-        <option value="option 33">Mastiff</option>
-        <option value="option 34">Mutt</option>
-        <option value="option 35">Newfoundland</option>
-        <option value="option 36">Pit Bull</option>
-        <option value="option 37">Pomeranian</option>
-        <option value="option 38">Poodle</option>
-        <option value="option 39">Pug</option>
-        <option value="option 40">Rottweiler</option>
-        <option value="option 41">St. Bernard</option>
-        <option value="option 42">Samoyed</option>
-        <option value="option 43">Schnauzer</option>
-        <option value="option 44">Shar Pei</option>
-        <option value="option 45">Sheepdog</option>
-        <option value="option 46">Shiba Inu</option>
-        <option value="option 47">Shih Tzu</option>
-        <option value="option 48">Terrier</option>
-        <option value="option 49">Whippet</option>
-      </select>
-      <br />
-        <br />
-      If you can't find their exact breed, please select the closest option!
-    </div>
+    <label className="title">
+      {" "}
+      Breed: 
+    </label>{" "}
+    <br />
+    <br />
+    <select
+      name="breed"
+      id="selectList"
+      value={props.breed}
+      onChange={(event) => props.onChange(event.target.value)}
+      required
+    >
+       <option value="">Select a Breed</option>
+      <option value="Afghan Hound">Afghan Hound</option>
+      <option value="Akita">Akita</option>
+      <option value="Alaskan Malemute">Alaskan Malemute</option>
+      <option value="Australian Cattle Dog">Australian Cattle Dog</option>
+      <option value="Australian Shepherd">Australian Shepherd</option>
+      <option value="Bassett Hound">Bassett Hound</option>
+      <option value="Beagle">Beagle</option>
+      <option value="Bernese Mountain Dog">Bernese Mountain Dog</option>
+      <option value="Bloodhound">Bloodhound</option>
+      <option value="Border Collie">Border Collie</option>
+      <option value="Boston Terrier">Boston Terrier</option>
+      <option value="Boxer">Boxer</option>
+      <option value="Bulldog">Bulldog</option>
+      <option value="Bull Terrier">Bull Terrier</option>
+      <option value="Cane Corso">Cane Corso</option>
+      <option value="Chihuahua">Chihuahua</option>
+      <option value="Cocker Spaniel">Cocker Spaniel</option>
+      <option value="Coonhound">Coonhound</option>
+      <option value="Daschund">Daschund</option>
+      <option value="Dalmatian">Dalmatian</option>
+      <option value="Doberman">Doberman</option>
+      <option value="German Shepherd">German Shepherd</option>
+      <option value="Golden Retriever">Golden Retriever</option>
+      <option value="Great Dane">Great Dane</option>
+      <option value="Greyhound">Greyhound</option>
+      <option value="Havanese">Havanese</option>
+      <option value="Husky">Husky</option>
+      <option value="Irish Setter">Irish Setter</option>
+      <option value="Irish Wolfhound">Irish Wolfhound</option>
+      <option value="Labrador Retriever">Labrador Retriever</option>
+      <option value="Lhasa Apso">Lhasa Apso</option>
+      <option value="Maltese">Maltese</option>
+      <option value="Mastiff">Mastiff</option>
+      <option value="Mutt">Mutt</option>
+      <option value="Newfoundland">Newfoundland</option>
+      <option value="Pitbull">Pit Bull</option>
+      <option value="Pomeranian">Pomeranian</option>
+      <option value="Poodle">Poodle</option>
+      <option value="Pug">Pug</option>
+      <option value="Rottweiler">Rottweiler</option>
+      <option value="St. Bernard">St. Bernard</option>
+      <option value="Samoyed">Samoyed</option>
+      <option value="Schnauzer">Schnauzer</option>
+      <option value="Shar Pei">Shar Pei</option>
+      <option value="Sheepdog">Sheepdog</option>
+      <option value="Shiba Inu">Shiba Inu</option>
+      <option value="Shih Tzu">Shih Tzu</option>
+      <option value="Terrier">Terrier</option>
+      <option value="Whippet">Whippet</option>
+    </select>
+    <br />
+    <br />
+    If you can't find their exact breed, please select the closest option!
+  </div>
   );
 }
