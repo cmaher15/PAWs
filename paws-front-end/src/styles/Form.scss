@@ -72,7 +72,7 @@ textarea {
 
 
 
-#submit {
+.submitbtn {
   background-color: white;
   background: transparent;
   border-radius: 10px;
@@ -85,7 +85,7 @@ textarea {
   border-style: solid;
 }
 
-#submit:hover {
+.submitbtn:hover {
   background-color: rgb(38, 148, 38);;
   color: white;
   outline-color: white;
