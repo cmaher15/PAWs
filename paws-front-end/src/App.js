@@ -11,7 +11,6 @@ import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
-import HandleOnSubmit from "./components/HandleOnSubmit";
 
 // Helpers
 import {
