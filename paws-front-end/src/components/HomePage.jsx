@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import RegisterUser from "./RegisterUser";
 
 const HomePage = function (props) {
   // JSX to be displayed if user is logged in

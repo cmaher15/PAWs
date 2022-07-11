@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -13,6 +12,14 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 
+// Helpers
+import {
+  getCoordinates,
+  fetchCoordinates,
+  sendCoordinatesToServer
+  // apiLocationSetState
+} from "./helpers/getCoordinates";
+
 // Temp global variable for user's logged-in status
 
 function App() {
@@ -20,6 +27,29 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(() => true);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
+
+  // Get user location
+  const [userCoordinates, setUserCoordinates] = useState();
+
+  // Update userCoordinates, after async request for location is fulfilled
+  useEffect(() => {
+    (async () => {
+      await fetchCoordinates(getCoordinates)
+        .then(results => {
+          console.log("results, App.js: ", results);
+          setUserCoordinates(results);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      // OR:
+      // const response = await fetchCoordinates(getCoordinates);
+      // setUserCoordinates(response);
+    })();
+
+    // After state is set, pass lat/longitude to database
+    // sendCoordinatesToServer(userCoordinates, ownerId);
+  }, []);
 
   return (
     <div className="App">
