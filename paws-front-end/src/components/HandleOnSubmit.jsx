@@ -24,15 +24,8 @@ export default function HandleOnSubmit() {
   const [size, setSize] = useState("");
   const [reactive, setReactive] = useState(true);
   const [good_with_people, setPeople] = useState(true);
-  const [size_compatibility, setDogComp] = useState({
-    small: false,
-    medium: false,
-    large: false,
-  });
-  const [gender_compatibility, setGenderComp] = useState({
-    female: false,
-    male: false,
-  });
+  const [size_compatibility, setDogComp] = useState({});
+  const [gender_compatibility, setGenderComp] = useState({});
   const [breed_incompatibility, setBreedIncomp] = useState({});
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
