@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../styles/Form.scss";
 import Breed from "./Form/Breed";
 import Name from "./Form/Name";
@@ -13,7 +13,7 @@ import GenderCompatability from "./Form/GenderCompatability";
 import BreedIncompatibility from "./Form/BreedIncompability";
 import Description from "./Form/Description";
 import Image from "./Form/Image";
-import React from "react";
+
 
 export default function HandleOnSubmit() {
   const [name, setName] = useState("");
@@ -74,7 +74,7 @@ export default function HandleOnSubmit() {
   };
 
   //Axios post request to send data to server
-  
+
   const addDataToServer = (data) => {
     axios.post(`/api/dogs/`, data).then(
       (response) => {
