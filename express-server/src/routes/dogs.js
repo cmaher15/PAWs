@@ -25,20 +25,19 @@ module.exports = db => {
     });
   });
 
-  //Create new dog
+  // Create new dog
   router.post(`/dogs`, (req, res) => {
     console.log(req.body);
-    // console.log('regular:', req.body.size_compatibility);
-    // console.log('stringify:', JSON.stringify(req.body.size_compatibility));
-  
-    // console.log('proper form:','{"medium": true}');
-
     db.query(`
     INSERT INTO dogs 
     (name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id)
      VALUES 
-     ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${req.body.age}', '${req.body.size}', '${req.body.reactive}', '${req.body.good_with_people}', '${JSON.stringify(req.body.size_compatibility)}', '${JSON.stringify(req.body.gender_compatibility)}', '${JSON.stringify(req.body.breed_incompatibility)}', '${req.body.description}', '${req.body.photo_url}', 1)`);
-    
+     ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${req.body.age}', '${req.body.size}', '${req.body.reactive}', '${req.body.good_with_people}', '${JSON.stringify(req.body.size_compatibility)}', '${JSON.stringify(req.body.gender_compatibility)}', '${JSON.stringify(req.body.breed_incompatibility)}', '${req.body.description}', '${req.body.photo_url}', 1)`).then((result) => {
+      console.log('New dog was successfully added');
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
     
   })
   return router;
