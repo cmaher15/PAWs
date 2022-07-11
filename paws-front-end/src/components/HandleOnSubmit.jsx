@@ -15,6 +15,7 @@ import Description from "./Form/Description";
 import Image from "./Form/Image";
 import React from "react";
 
+
 export default function HandleOnSubmit() {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
@@ -37,7 +38,6 @@ export default function HandleOnSubmit() {
   const [photo_url, setImage] = useState("");
 
 
-  console.log("breed_incompatibility", breed_incompatibility);
 
   const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility;
@@ -50,6 +50,7 @@ export default function HandleOnSubmit() {
     newGenderCompatibility[gender] = !size_compatibility[gender];
     setGenderComp(newGenderCompatibility);
   };
+
 
   const formHandle = (e) => {
     e.preventDefault();
@@ -83,7 +84,7 @@ export default function HandleOnSubmit() {
       <People onChange={setPeople} value={good_with_people} />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange} />
       <GenderCompatability onChange={onGenderCompatibilityChange} />
-      <BreedIncompatibility/>
+      <BreedIncompatibility />
       <Description onChange={setDescription} value={description} />
       <Image onChange={setImage} value={photo_url} />
       <div className="component">
