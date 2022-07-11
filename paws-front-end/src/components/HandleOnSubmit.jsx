@@ -14,6 +14,7 @@ import BreedIncompatibility from "./Form/BreedIncompability";
 import Description from "./Form/Description";
 import Image from "./Form/Image";
 
+//Main function to handle dog registration and form submission for dog profile
 
 export default function HandleOnSubmit() {
   const [name, setName] = useState("");
