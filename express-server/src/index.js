@@ -1,9 +1,11 @@
 const PORT = process.env.PORT || 8001;
-const ENV = require("./environment");
-const app = require("./application")(ENV);
-const server = require("http").Server(app);
-const { Server } = require("socket.io");
-const client = require("./db");
+// const ENV = require("./environment");
+// const app = require("./application")(ENV);
+// const server = require("http").Server(app);
+const express = require("express");
+const sock = require("socket.io");
+const app = express();
+// const client = require("./db");
 
 // const WebSocket = require("ws");
 // const wss = new WebSocket.Server({ server });
@@ -18,16 +20,16 @@ const client = require("./db");
 //   };
 // });
 
-const http = server.listen(PORT, () => {
-  console.log(`Listening on port ${PORT} in ${ENV} mode.`);
+const http = app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 
 const clients = {};
+console.log("socketio.Server", sock.Server);
+const io = new sock.Server(http);
 
-const io = new Server(http);
-
-io.on("connection", (owner) => {
-  const name = owner.getName();
+io.on("connection", (client) => {
+  const name = client.getName();
   console.log("Someone connected!", client.id, name);
   client.name = name;
   clients[name] = client.id;
