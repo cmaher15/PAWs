@@ -7,7 +7,12 @@ export default function DogProfile() {
       <div>
         <img className="dog" src="images/happy_baby.jpeg" />
       </div>
-      <h2>Rocky || Male || Pitbull || 3 1/2</h2>
+      <span className="dogInfo">
+      <h1>Rocky</h1>
+      <h3>Male</h3>
+      <h3>Pitbull</h3>
+      <h3>3.5 Years</h3>
+      </span>
       <p>
         Rocky is a good boy who likes jumping in puddles! He would absolutely
         love to go on a walk with you.
@@ -26,6 +31,10 @@ export default function DogProfile() {
           onMouseOver={({ target }) => (target.style.color = "blue")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
+      </span>
+      <span className="parent">
+        <img className="userThumbnail" src="images/mscarn.jpeg" />
+        <h4>Parent: Michael Scarn</h4>
       </span>
     </main>
   );
