@@ -7,20 +7,8 @@ export default function DogProfile() {
       <div>
         <img className="dog" src="images/happy_baby.jpeg" />
       </div>
-      <h1 className="dogName">Rocky</h1>
-      <span className="dogInfo">
-      <h3>Male</h3>
-      <h3>Pitbull</h3>
-      <h3>3.5 Years</h3>
-      </span>
-      <p>
-        Rocky is a good boy who likes jumping in puddles! He would absolutely
-        love to go on a walk with you.
-      </p>
       <span className="icons">
-        <i className="fa-solid fa-location-dot fa-xl"
-         onMouseOver={({ target }) => (target.style.color = "black")}
-         onMouseOut={({ target }) => (target.style.color = "gray")}></i>
+        <h1 className="dogName">Rocky</h1>
         <i
           className="fa-solid fa-heart fa-xl"
           onMouseOver={({ target }) => (target.style.color = "red")}
@@ -32,6 +20,19 @@ export default function DogProfile() {
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
       </span>
+      <span className="locationInfo">
+        <i className="fa-solid fa-location-dot fa-2xl"></i>
+        <p className="distance">15 km away</p>
+      </span>
+      <span className="dogInfo">
+        <h3>Male</h3>
+        <h3>Pitbull</h3>
+        <h3>3.5 Years</h3>
+      </span>
+      <p class="description">
+        Rocky is a good boy who likes jumping in puddles! He would absolutely
+        love to go on a walk with you.
+      </p>
       <span className="parent">
         <img className="userThumbnail" src="images/mscarn.jpeg" />
         <h4>Parent: Michael Scarn</h4>

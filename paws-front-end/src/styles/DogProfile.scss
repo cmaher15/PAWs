@@ -3,14 +3,14 @@
   flex-direction: column;
   margin: auto;
   border: 3px solid black;
-  width: 550px;
-  height: 880px;
+  width: 450px;
+  height: 800px;
   overflow: auto;
 }
 
 .dog {
-  width: 550px;
-  height: 500px;
+  width: 450px;
+  height: 400px;
   object-fit: cover;
   float: right;
   border-bottom-width: 3px;
@@ -21,18 +21,35 @@
 .dogName {
   display: flex;
   justify-content: left;
-  margin-left: 20px
+  margin-bottom: 0px;
+  color: black;
+  margin-right: 170px
   
 }
 
 .icons {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
   justify-content: space-around;
-  color: gray
+  align-items: center;
+  color: gray;
+  margin-top: 0px;
 }
 
+.locationInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin-left: 20px;
+  margin-top: 0px
+}
+
+.distance {
+  margin-left: 10px;
+  font-size: 20px;
+
+}
 .dogInfo {
   display: flex;
   flex-direction: row;
@@ -41,6 +58,10 @@
   border-bottom: 3px solid black;
 }
 
+.description {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 .userThumbnail {
   display: flex;
   float: left;
