@@ -29,7 +29,7 @@ export default function DogProfile() {
         <h3>Pitbull</h3>
         <h3>3.5 Years</h3>
       </span>
-      <p class="description">
+      <p className="description">
         Rocky is a good boy who likes jumping in puddles! He would absolutely
         love to go on a walk with you.
       </p>

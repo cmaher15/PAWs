@@ -77,9 +77,9 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      {/* <RegisterDog />
-      <RegisterUser /> */}
       <DogProfile />
+      <RegisterDog />
+      <RegisterUser />
     </div>
   );
 }
