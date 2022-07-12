@@ -111,6 +111,7 @@ function App() {
       <DogProfile />
       <RegisterDog />
       <RegisterUser />
+      <Chat />
     </div>
   );
 }

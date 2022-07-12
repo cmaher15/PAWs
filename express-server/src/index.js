@@ -1,10 +1,9 @@
 const PORT = process.env.PORT || 8001;
 const ENV = require("./environment");
-
 const app = require("./application")(ENV);
 const server = require("http").Server(app);
 const { Server } = require("socket.io");
-const owner = require("../db");
+const client = require("./db");
 
 // const WebSocket = require("ws");
 // const wss = new WebSocket.Server({ server });
@@ -23,33 +22,36 @@ const http = server.listen(PORT, () => {
   console.log(`Listening on port ${PORT} in ${ENV} mode.`);
 });
 
-const owners = {};
+const clients = {};
 
 const io = new Server(http);
 
 io.on("connection", (owner) => {
   const name = owner.getName();
-  console.log("Someone connected!", owner.id, name);
-  owner.name = name;
-  owners[name] = owner.id;
-  console.log(owners);
+  console.log("Someone connected!", client.id, name);
+  client.name = name;
+  clients[name] = client.id;
+  console.log(clients);
 
-  owner.broadcast.emit("server", `${name}: just connected`);
+  client.broadcast.emit("server", `${name}: just connected`);
 
-  owner.emit("name", name);
+  client.emit("name", name);
 
-  owner.on("message", (data) => {
+  client.on("message", (data) => {
     console.log("message:", data);
-    data.from = owner.name;
+    data.from = client.name;
 
-    const id = owners[data.to];
-    console.log("message is for: ", data.to, id);
-    io.to(id).emit("user", data);
-    return;
+    if (data.to) {
+      const id = clients[data.to];
+      console.log("message is for: ", data.to, id);
+      io.to(id).emit("user", data);
+      return;
+    }
+    client.broadcast.emit("user", data);
   });
 
-  owner.on("disconnect", () => {
-    delete owners[owner.name];
-    console.log("owner Disconnected!", owner.name);
+  client.on("disconnect", () => {
+    delete clients[client.name];
+    console.log("owner Disconnected!", client.name);
   });
 });
