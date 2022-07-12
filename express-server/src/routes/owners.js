@@ -1,12 +1,17 @@
 const router = require("express").Router();
 const cookieSession = require("cookie-session");
 
+<<<<<<< HEAD
 module.exports = db => {
   const generateRandomString = () => {
     const result = Math.random().toString(36).substring(2, 8);
     return result;
   };
 
+=======
+module.exports = (db) => {
+  
+>>>>>>> 28976453e40c06564cdeda3a8807c60f0a4e0b0d
   router.use(
     cookieSession({
       name: "session",
@@ -40,7 +45,8 @@ module.exports = db => {
 
   //Create new owner
   router.post(`/owners`, (req, res) => {
-    // console.log(req.body);
+    //const id = db.query(`SELECT id FROM owners WHERE id = 1`)
+    console.log(req.body);
     // console.log(req.params);
     db.query(
       `
@@ -49,20 +55,47 @@ module.exports = db => {
      VALUES 
      ('${req.body.name}', '${req.body.hashedpassword}', '${req.body.city}', '${req.body.email}', '${req.body.thumbnail_photo_url}', '(-194.0, 53.0)')`
     )
-      .then(result => {
-        const owner = db.query(`SELECT * FROM owners WHERE id = 1`);
-        console.log(result);
+      .then((result) => {
         console.log("New owner was successfully added");
-        // const ownerID = generateRandomString();
-        // req.session.userId = owner;
-        console.log("user cookie:", req.session.user_id);
+        res.json({
+          statuscode: 200, 
+          message: 'User was successfully created'
+        })
+        
       })
       .catch(err => {
         console.log(err.message);
       });
   });
 
-  
+  // Login route
+  router.post('/login', (req, res) => {
+    
+    const userEmail = req.body.email;
+    const userPassword = req.body.password;
+    db
+    .query(`SELECT * FROM owners WHERE email = ${userEmail}`)
+    .then((result) => {
+      if (bcrypt.compareSync(userPassword, result.password)) {
+        res.json({
+          statuscode: 200, 
+          message: 'User login successful',
+          userId: result.id
+        });
+      } else {
+        return res.status(403).send("Incorrect password");
+      }
+    })
+    .catch((err) => {
+      res.status(403);
+    })    
+  });
+
+  return router;
+};
+
+
+
 
 // CRUD
 
