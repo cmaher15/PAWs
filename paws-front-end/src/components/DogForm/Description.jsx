@@ -14,6 +14,7 @@ export default function Description(props) {
     <br />
     <textarea
       className="inputtext"
+      id="description"
       name="description"
       required
       maxLength="255"

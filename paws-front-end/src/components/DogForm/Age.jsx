@@ -12,6 +12,7 @@ export default function Age(props) {
       className="inputtext"
       name="age"
       type="number"
+      placeholder="Enter your dog's age"
       value={props.age}
       onChange={(event) => props.onChange(event.target.value)}
       required
