@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-
 // Components
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
@@ -12,6 +11,7 @@ import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
+import DogProfile from "./components/DogProfile";
 
 // Helpers
 import {
@@ -77,8 +77,9 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      <RegisterDog />
-      <RegisterUser />
+      {/* <RegisterDog />
+      <RegisterUser /> */}
+      <DogProfile />
     </div>
   );
 }

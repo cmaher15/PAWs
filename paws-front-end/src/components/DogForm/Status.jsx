@@ -8,7 +8,7 @@ export default function Status() {
     src="images/doggo2.png"
     alt="Loading"
     />
-    <h1 className="loading">Finding pup pals...</h1>
+    <h1 className="loading">Finding compatible pups...</h1>
   </div>
   )
 }

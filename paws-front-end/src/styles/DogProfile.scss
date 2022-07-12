@@ -1,0 +1,19 @@
+.dogProfile {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border: 3px solid black;
+  width: 550px;
+  height: 700px;
+  overflow: auto;
+}
+
+.dog {
+  width: 550px;
+  height: 500px;
+  object-fit: cover;
+  float: right;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
