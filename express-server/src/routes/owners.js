@@ -16,23 +16,19 @@ module.exports = (db) => {
     })
   );
 
-  router.get("/owners", (request, response) => {
-    db.query(`SELECT * FROM owners`).then(({ rows: owners }) => {
-      response.json(
-        owners.reduce(
-          (previous, current) => ({ ...previous, [current.id]: current }),
-          {}
-        )
-      );
+  router.get("/owners", (req, res) => {
+    db.query(`SELECT * FROM owners`).then((result) => {
+      res.send(result.rows);
     });
   });
 
   //info about specific owner
-  router.get("/owner/:id", (request, response) => {
-    const id = request.session.user_id;
-    db.query("SELECT * FROM owners WHERE id = $1", [id]).then(
-      ({ rows: owners }) => {
-        response.json(
+  router.get("/owners/:id", (req, res) => {
+    const id = req.params.id
+    // const id = req.session.user_id;
+    db.query(`SELECT * FROM owners WHERE id = ${id}`).then(
+      ({ rows: owners}) => {
+        res.json(
           owners.reduce(
             (previous, current) => ({ ...previous, [current.id]: current }),
             {}
@@ -44,10 +40,9 @@ module.exports = (db) => {
 
   //Create new owner
   router.post(`/owners`, (req, res) => {
-    console.log(req.body);
-    console.log(req.params);
-    db.query(
-      `
+    // console.log(req.body);
+    // console.log(req.params);
+    db.query(`
     INSERT INTO owners 
     (name, password, city, email, thumbnail_photo_url, location)
      VALUES 
@@ -64,8 +59,30 @@ module.exports = (db) => {
       });
   });
 
+  // Login route
+  // router.post('/login', (req, res) => {
+  //   const userEntries = req.body;
+  //   const user = findUser(candidateEmail, users);
+  //   if (!user) {
+  //     return res.status(403).redirect('/register');
+  //   }
+  //   if (candidateEmail !== user.email) {
+  //     return res.redirect('/register');
+  
+  //   }
+  //   if (bcrypt.compareSync(candidatePassword, user.password)) {
+  //     req.session.userId = user.id;
+  //     return res.redirect('/urls');
+  //   } else {
+  //     return res.status(403).send("Incorrect password");
+  //   }
+  // });
+
   return router;
 };
+
+
+
 
 // CRUD
 
