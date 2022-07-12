@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/DogProfile.scss";
+import "../styles/DogProfile.css";
 
 export default function DogProfile() {
   return (

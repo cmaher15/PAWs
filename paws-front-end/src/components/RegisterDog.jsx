@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "../styles/Form.scss";
+import "../styles/Form.css";
 import Breed from "./DogForm/Breed";
 import Name from "./DogForm/Name";
 import Gender from "./DogForm/Gender";
