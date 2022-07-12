@@ -9,6 +9,7 @@ export default function BreedIncompatibility(props) {
     </label>{" "}<br/>
     <br />
     <br />
+    <div className="scrollbox">
       <input className="input" type="checkbox" name="Afghan Hound"  value={props.breed_incompatibility} onChange={() => props.onChange("Afghan Hound")}/>Afghan Hound <br/>
       <input className="input" type="checkbox" name="Akita"  value={props.breed_incompatibility} onChange={() => props.onChange("Akita")}/>Akita <br/>
       <input className="input" type="checkbox" name="Alaskan Malemute"  value={props.breed_incompatibility} onChange={() => props.onChange("Alaskan Malemute")}/>Alaskan Malemute <br/>
@@ -58,7 +59,7 @@ export default function BreedIncompatibility(props) {
       <input className="input" type="checkbox" name="Shih Tzu"  value={props.breed_incompatibility} onChange={() => props.onChange("Shih Tzu")}/>Shih Tzu <br/>
       <input className="input" type="checkbox" name="Terrier"  value={props.breed_incompatibility} onChange={() => props.onChange("Terrier")}/>Terrier <br/>
       <input className="input" type="checkbox" name="Whippet"  value={props.breed_incompatibility} onChange={() => props.onChange("Whippet")}/> Whippet <br/>
-
+      </div>
   </div>
   )
 }
