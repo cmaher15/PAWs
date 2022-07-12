@@ -17,3 +17,19 @@
   border-bottom-style: solid;
   border-bottom-color: black;
 }
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+#heart:before {
+  color:rgb(168, 174, 172)
+}
+
+#heart:hover {
+  color: red;
+}
