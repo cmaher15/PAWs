@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function Image(props) {
+  // const client = filestack.init('AiisZJhdbQK2bEQwvqRqKz')
+  // client.picker().open();
   return (
     <div className="component">
     <label className="title">
@@ -12,6 +14,7 @@ export default function Image(props) {
     profile and visible to other users.
     <br />
     <br />
+    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
     <input
       type="file"
       id="myFile"
