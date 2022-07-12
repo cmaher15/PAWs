@@ -11,7 +11,7 @@ export default function DogProfile() {
         <h1 className="dogName">Rocky</h1>
         <i
           className="fa-solid fa-heart fa-xl"
-          onMouseOver={({ target }) => (target.style.color = "darkred")}
+          onMouseOver={({ target }) => (target.style.color = "red")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
         <i
