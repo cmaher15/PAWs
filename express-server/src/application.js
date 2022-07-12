@@ -33,14 +33,14 @@ module.exports = function application(ENV) {
   app.use(cors());
   app.use(helmet());
   app.use(bodyparser.json());
-  app.use(cookieSession)({
-    name: "session",
-    keys: [
-      /*secret keys */
-    ],
+  app.use(
+    cookieSession({
+      name: "session",
+      keys: ["user_id", "key2"],
 
-    maxAge: 24 * 60 * 60 * 1000,
-  });
+      maxAge: 24 * 60 * 60 * 1000,
+    })
+  );
 
   app.use("/api", dogs(db));
   app.use("/api", owners(db));
