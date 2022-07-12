@@ -23,6 +23,9 @@ import {
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
+//Chat
+import Chat from "./Chat";
+
 function App() {
   // GLOBAL STATE
   const [loggedIn, setLoggedIn] = useState(true);
