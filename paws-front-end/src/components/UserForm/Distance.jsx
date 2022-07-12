@@ -32,9 +32,9 @@ export default function Distance(props) {
       type="radio"
       required="required"
       value={props.distance}
-      onChange={() => props.onChange("15km")}
+      onChange={() => props.onChange("city")}
     />
-    15km <br />
+    City-wide <br />
   </div>
   );
 }

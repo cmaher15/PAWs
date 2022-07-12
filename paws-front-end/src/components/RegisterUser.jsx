@@ -17,12 +17,10 @@ export default function RegisterUser() {
   const [distance, setDistance] = useState("");
   const [thumbnail_photo_url, setPhoto] = useState("");
 
-  const salt = bcrypt.genSaltSync(10);
-
-  const hashedpassword = bcrypt.hashSync(password, salt);
-
-  const formHandle = e => {
+  const formHandle = (e) => {
     e.preventDefault();
+    const salt = bcrypt.genSaltSync(10);
+    const hashedpassword = bcrypt.hashSync(password, salt);
     addDataToServer({
       name,
       city,
@@ -56,7 +54,7 @@ export default function RegisterUser() {
       <Distance onChange={setDistance} value={distance} />
       <UserImage onChange={setPhoto} value={thumbnail_photo_url} />
       <div className="component">
-        <button type="submit" className="submitbtn" onChange={formHandle}>
+        <button type="submit" className="submitbtn" onClick={formHandle}>
           Submit
         </button>
       </div>

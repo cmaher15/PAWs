@@ -13,7 +13,7 @@ export default function UserImage(props) {
     <br />
     <input
       type="file"
-      id="myFile"
+      id="myFile1"
       name="photo"
       value={props.thumbnail_photo_url}
       onChange={(event) => props.onChange(event.target.value)}

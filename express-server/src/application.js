@@ -5,6 +5,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const helmet = require("helmet");
 const cors = require("cors");
+const cookieSession = require("cookie-session");
 
 const app = express();
 
@@ -18,7 +19,7 @@ function read(file) {
     fs.readFile(
       file,
       {
-        encoding: "utf-8"
+        encoding: "utf-8",
       },
       (error, data) => {
         if (error) return reject(error);
@@ -32,6 +33,14 @@ module.exports = function application(ENV) {
   app.use(cors());
   app.use(helmet());
   app.use(bodyparser.json());
+  app.use(
+    cookieSession({
+      name: "session",
+      keys: ["user_id", "key2"],
+
+      maxAge: 24 * 60 * 60 * 1000,
+    })
+  );
 
   app.use("/api", dogs(db));
   app.use("/api", owners(db));
@@ -39,7 +48,7 @@ module.exports = function application(ENV) {
   if (ENV === "development") {
     Promise.all([
       read(path.resolve(__dirname, `db/schema/01_schema.sql`)),
-      read(path.resolve(__dirname, `db/seeds/01_seeds.sql`))
+      read(path.resolve(__dirname, `db/seeds/01_seeds.sql`)),
     ])
       .then(([create, seed]) => {
         app.get("/api/debug/reset", (request, response) => {
@@ -51,12 +60,12 @@ module.exports = function application(ENV) {
             });
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(`Error setting up the reset route: ${error}`);
       });
   }
 
-  app.close = function() {
+  app.close = function () {
     return db.end();
   };
 
