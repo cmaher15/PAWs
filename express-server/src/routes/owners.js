@@ -2,6 +2,20 @@ const router = require("express").Router();
 const cookieSession = require("cookie-session");
 
 module.exports = (db) => {
+  const generateRandomString = () => {
+    const result = Math.random().toString(36).substring(2, 8);
+    return result;
+  };
+
+  router.use(
+    cookieSession({
+      name: "session",
+      keys: ["user_id", "key2"],
+
+      maxAge: 24 * 60 * 60 * 1000,
+    })
+  );
+
   router.get("/owners", (request, response) => {
     db.query(`SELECT * FROM owners`).then(({ rows: owners }) => {
       response.json(
@@ -30,7 +44,6 @@ module.exports = (db) => {
 
   //Create new owner
   router.post(`/owners`, (req, res) => {
-    console.log(req.session.user_id);
     console.log(req.body);
     console.log(req.params);
     db.query(
@@ -42,7 +55,9 @@ module.exports = (db) => {
     )
       .then((result) => {
         console.log("New owner was successfully added");
-        req.session.user_id;
+        const ownerID = generateRandomString();
+        req.session.user_id = ownerID;
+        console.log(req.session.user_id);
       })
       .catch((err) => {
         console.log(err.message);
