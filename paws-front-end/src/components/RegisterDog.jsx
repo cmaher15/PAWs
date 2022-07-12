@@ -75,6 +75,7 @@ export default function RegisterDog() {
     });
   };
 
+
   //Axios post request to send data to server
 
   const addDataToServer = (data) => {
