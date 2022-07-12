@@ -3,13 +3,23 @@ const router = require("express").Router();
 module.exports = db => {
   // get dogs
   router.get("/dogs", (req, res) => {
-    // const params = req.body;   // getting filter parameters from client
-    // console.log('params:', params); 
+    //  const reactive = true;   // getting filter parameters from client
+    const reactive = req.body.reactive;
+    const good = req.body.good_with_people;
+    const size = req.body.size_compatibility;
+    const gender = req.body.gender_compatibility;
+    const incompat = req.body.breed_incompatibility;
+    // const incompat = '{"pitbull": true}';
     db
-    .query(`SELECT * FROM dogs`)
+    .query(`SELECT * FROM dogs WHERE breed_incompatibility @> '${incompat}'`)
     .then((result) => {
-      const output = result.rows.filter(dog => dog.name === 'Spot'); // dog filter
-      // console.log('result: ', result.rows);
+      const output = result.rows.filter(dog => {
+        dog.reactive === reactive &&
+        dog.good_with_people === good && 
+        dog.size_compatibility === size && 
+        dog.gender_compatibility === gender
+      }); // dog filter
+      
       res.send(output);
     })
     .catch((err) => {console.error(err)});
