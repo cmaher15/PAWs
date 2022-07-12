@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
+import UserProfile from "./components/UserProfile.jsx";
 
 // Helpers
 import {
@@ -56,7 +57,7 @@ function App() {
     // Make GET request to server for array of matched dogs
     const getMatches = async function (ownerId) {
       axios
-        .get("/api/get-matches", ownerId)
+        .get("/api/dogs", ownerId)
         .then(response => {
           return response;
         })
@@ -94,6 +95,7 @@ function App() {
           />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // Async request for user's coordiates using Geolocation API
 const fetchCoordinates = async function (getCoordinates) {
   const results = new Promise((resolve, reject) => {
@@ -28,9 +30,19 @@ const getCoordinates = function (position) {
 
 // Send latitude and longitude coordinates-object to server
 const sendCoordinatesToServer = function (userCoordinates, ownerId) {
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", `/api/owners/${ownerId}`);
-  xhr.send(userCoordinates);
+  const data = {
+    ownerId: ownerId,
+    userCoordinates: userCoordinates
+  };
+
+  axios.post(`/api/owners`, data).then(
+    response => {
+      console.log(response);
+    },
+    error => {
+      console.log(error);
+    }
+  );
 };
 
 export {
