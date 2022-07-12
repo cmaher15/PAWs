@@ -16,7 +16,7 @@ export default function DogProfile() {
         ></i>
         <i
           className="fa-solid fa-message fa-xl"
-          onMouseOver={({ target }) => (target.style.color = "blue")}
+          onMouseOver={({ target }) => (target.style.color = "cadetblue")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
       </span>
