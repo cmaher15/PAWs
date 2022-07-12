@@ -7,8 +7,8 @@ export default function DogProfile() {
       <div>
         <img className="dog" src="images/happy_baby.jpeg" />
       </div>
+      <h1 className="dogName">Rocky</h1>
       <span className="dogInfo">
-      <h1>Rocky</h1>
       <h3>Male</h3>
       <h3>Pitbull</h3>
       <h3>3.5 Years</h3>
