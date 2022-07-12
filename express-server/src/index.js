@@ -1,10 +1,9 @@
 const PORT = process.env.PORT || 8001;
-// const ENV = require("./environment");
-// const app = require("./application")(ENV);
-// const server = require("http").Server(app);
-const express = require("express");
+const ENV = require("./environment");
+const app = require("./application")(ENV);
+const server = require("http").Server(app);
 const sock = require("socket.io");
-const app = express();
+// const app = express();
 // const client = require("./db");
 
 // const WebSocket = require("ws");
@@ -20,7 +19,7 @@ const app = express();
 //   };
 // });
 
-const http = app.listen(PORT, () => {
+const http = server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
 
@@ -29,7 +28,7 @@ console.log("socketio.Server", sock.Server);
 const io = new sock.Server(http);
 
 io.on("connection", (client) => {
-  const name = client.getName();
+  const name = client;
   console.log("Someone connected!", client.id, name);
   client.name = name;
   clients[name] = client.id;
