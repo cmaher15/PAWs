@@ -7,40 +7,39 @@ import Email from "./UserForm/Email";
 import Password from "./UserForm/Password";
 import UserName from "./UserForm/UserName";
 import UserImage from "./UserForm/UserImage";
-const bcrypt = require('bcryptjs')
+const bcrypt = require("bcryptjs");
 
-export default function RegisterUser () {
+export default function RegisterUser() {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
-  const [distance, setDistance] = useState("")
+  const [password, setPassword] = useState("");
+  const [distance, setDistance] = useState("");
   const [thumbnail_photo_url, setPhoto] = useState("");
 
-  const salt = bcrypt.genSaltSync(10)
+  const salt = bcrypt.genSaltSync(10);
 
-  const hashedpassword = bcrypt.hashSync(password, salt)
+  const hashedpassword = bcrypt.hashSync(password, salt);
 
-
-  const formHandle = (e) => {
+  const formHandle = e => {
     e.preventDefault();
     addDataToServer({
       name,
       city,
       email,
       thumbnail_photo_url,
-      hashedpassword,
+      hashedpassword
     });
   };
 
   //Axios post request to send data to server
 
-  const addDataToServer = (data) => {
+  const addDataToServer = data => {
     axios.post(`/api/owners/`, data).then(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.log(error);
       }
     );
@@ -51,7 +50,7 @@ export default function RegisterUser () {
       <h1>User Registration:</h1>
       <h2>Tell Us About Yourself!</h2>
       <UserName onChange={setName} value={name} />
-      <Email onChange={setEmail} value= {email} />
+      <Email onChange={setEmail} value={email} />
       <Password onChange={setPassword} value={password} />
       <City onChange={setCity} value={city} />
       <Distance onChange={setDistance} value={distance} />
@@ -60,8 +59,7 @@ export default function RegisterUser () {
         <button type="submit" class="submitbtn" onChange={formHandle}>
           Submit
         </button>
-        </div>
+      </div>
     </form>
-  )
-};
-
+  );
+}

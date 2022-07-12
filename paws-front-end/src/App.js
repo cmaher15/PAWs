@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
 import "./App.css";
 
 // Components
@@ -16,30 +17,28 @@ import Terms from "./components/Terms";
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer,
+  sendCoordinatesToServer
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
-// Temp global variable for user's logged-in status
-
 function App() {
-  // Global State
+  // GLOBAL STATE
   const [loggedIn, setLoggedIn] = useState(() => true);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
-  // Get user location
+  // GET USER LOCATION
   const [userCoordinates, setUserCoordinates] = useState();
 
   // Update userCoordinates, after async request for location is fulfilled
   useEffect(() => {
     (async () => {
       await fetchCoordinates(getCoordinates)
-        .then((results) => {
+        .then(results => {
           console.log("results, App.js: ", results);
           setUserCoordinates(results);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
       // OR:
@@ -50,6 +49,30 @@ function App() {
     // After state is set, pass lat/longitude to database
     // sendCoordinatesToServer(userCoordinates, ownerId);
   }, []);
+
+  // GET ARRAY OF MATCHED DOGS
+  const [matchedDogs, setMatchedDogs] = useState();
+  if (loggedIn) {
+    // Make GET request to server for array of matched dogs
+    const getMatches = async function (ownerId) {
+      axios
+        .get("/api/get-matches", ownerId)
+        .then(response => {
+          return response;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+
+    // Array sent back from the server will be the value of matchedDogs
+    getMatches(1).then(response => {
+      setMatchedDogs(response);
+    });
+  } else {
+    // Empty array for user who is not logged in
+    setMatchedDogs([]);
+  }
 
   return (
     <div className="App">
