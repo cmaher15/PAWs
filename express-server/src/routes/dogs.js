@@ -8,7 +8,8 @@ module.exports = db => {
     db
     .query(`SELECT * FROM dogs`)
     .then((result) => {
-      const output = result.rows.map(dog => dog ); // dog filter
+      const output = result.rows.filter(dog => dog.name === 'Spot'); // dog filter
+      // console.log('result: ', result.rows);
       res.send(output);
     })
     .catch((err) => {console.error(err)});

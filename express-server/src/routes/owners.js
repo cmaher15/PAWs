@@ -10,7 +10,7 @@ module.exports = (db) => {
   router.use(
     cookieSession({
       name: "session",
-      keys: ["user_id", "key2"],
+      keys: ["userId", "key2"],
 
       maxAge: 24 * 60 * 60 * 1000,
     })
@@ -49,9 +49,11 @@ module.exports = (db) => {
      ('${req.body.name}', '${req.body.hashedpassword}', '${req.body.city}', '${req.body.email}', '${req.body.thumbnail_photo_url}', '(-194.0, 53.0)')`
     )
       .then((result) => {
+        const owner = db.query(`SELECT * FROM owners WHERE id = 1`)
+        console.log(result);
         console.log("New owner was successfully added");
-        const ownerID = generateRandomString();
-        req.session.user_id = ownerID;
+        // const ownerID = generateRandomString();
+        // req.session.userId = owner;
         console.log("user cookie:", req.session.user_id);
       })
       .catch((err) => {
@@ -61,21 +63,32 @@ module.exports = (db) => {
 
   // Login route
   // router.post('/login', (req, res) => {
-  //   const userEntries = req.body;
-  //   const user = findUser(candidateEmail, users);
-  //   if (!user) {
-  //     return res.status(403).redirect('/register');
-  //   }
-  //   if (candidateEmail !== user.email) {
-  //     return res.redirect('/register');
+    
+  //   const userEmail = req.body.email;
+  //   const userPassword = req.body.password;
+  //   db
+  //   .query(`SELECT * FROM owners WHERE email = ${userEmail}`)
+  //   .then((result) => {
+  //     if (bcrypt.compareSync(userPassword, result.password)) {
+  //       req.session.userId = result.id;
+  //       // res.send() // owners.id
+  //     } else {
+  //       return res.status(403).send("Incorrect password");
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     res.status(403);
+  //   })
+
+    // const user = findUser(candidateEmail, users);
+    // if (!user) {
+    //   return res.status(403).redirect('/register');
+    // }
+    // if (candidateEmail !== user.email) {
+    //   return res.redirect('/register');
   
-  //   }
-  //   if (bcrypt.compareSync(candidatePassword, user.password)) {
-  //     req.session.userId = user.id;
-  //     return res.redirect('/urls');
-  //   } else {
-  //     return res.status(403).send("Incorrect password");
-  //   }
+    // }
+    
   // });
 
   return router;
