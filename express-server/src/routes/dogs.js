@@ -1,6 +1,25 @@
 const router = require("express").Router();
 
 module.exports = db => {
+  // // get dogs
+  // router.get("/dogs", (request, response) => {
+  //   db.query(`SELECT * FROM dogs`).then(({ rows: dogs }) => {
+  //     response.json(
+  //       dogs.reduce(
+  //         (previous, current) => ({ ...previous, [current.id]: current }),
+  //         {}
+  //       )
+  //     );
+  //   });
+  // });
+  // get filtered dogs
+  const filterDogs = (user_id) => {
+    db
+    .query(`SELECT * FROM dogs JOIN owners ON owners.id = dogs.owner_id WHERE owners.id = ${user_id}`)
+    .then((result) => console.log(result.rows))
+    .catch(console.log('could not retrieve data'));
+  }
+
   router.get("/dogs", (request, response) => {
     db.query(`SELECT * FROM dogs`).then(({ rows: dogs }) => {
       response.json(
@@ -34,6 +53,7 @@ module.exports = db => {
      VALUES 
      ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${req.body.age}', '${req.body.size}', '${req.body.reactive}', '${req.body.good_with_people}', '${JSON.stringify(req.body.size_compatibility)}', '${JSON.stringify(req.body.gender_compatibility)}', '${JSON.stringify(req.body.breed_incompatibility)}', '${req.body.description}', '${req.body.photo_url}', 1)`).then((result) => {
       console.log('New dog was successfully added');
+      filterDogs(1);
     })
     .catch((err) => {
       console.log(err.message);
