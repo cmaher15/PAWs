@@ -24,7 +24,7 @@ import {
 
 function App() {
   // GLOBAL STATE
-  const [loggedIn, setLoggedIn] = useState(() => true);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
@@ -32,48 +32,49 @@ function App() {
   const [userCoordinates, setUserCoordinates] = useState();
 
   // Update userCoordinates, after async request for location is fulfilled
-  useEffect(() => {
-    (async () => {
-      await fetchCoordinates(getCoordinates)
-        .then(results => {
-          console.log("results, App.js: ", results);
-          setUserCoordinates(results);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      // OR:
-      // const response = await fetchCoordinates(getCoordinates);
-      // setUserCoordinates(response);
-    })();
+  const getLongLat = async function () {
+    try {
+      await fetchCoordinates(getCoordinates).then(results => {
+        console.log("results, App.js: ", results);
+        setUserCoordinates(results);
+        // After state is set, pass lat/longitude to database
+        // sendCoordinatesToServer(userCoordinates, ownerId);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    // After state is set, pass lat/longitude to database
-    // sendCoordinatesToServer(userCoordinates, ownerId);
+  useEffect(() => {
+    getLongLat();
   }, []);
 
   // GET ARRAY OF MATCHED DOGS
   const [matchedDogs, setMatchedDogs] = useState();
-  if (loggedIn) {
-    // Make GET request to server for array of matched dogs
-    const getMatches = async function (ownerId) {
-      axios
-        .get("/api/dogs", ownerId)
-        .then(response => {
+  const getMatches = async function (ownerId) {
+    if (loggedIn) {
+      // Make GET request to server for array of matched dogs
+      try {
+        await axios.get("/api/dogs", ownerId).then(response => {
+          console.log("response in getMatches axios request: ", response);
           return response;
-        })
-        .catch(err => {
-          console.log(err);
         });
-    };
+      } catch (err) {
+        setMatchedDogs("No response from server");
+        console.log(err);
+      }
+    } else {
+      // Empty array for user who is not logged in
+      setMatchedDogs([]);
+    }
+  };
 
+  useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
     getMatches(1).then(response => {
       setMatchedDogs(response);
     });
-  } else {
-    // Empty array for user who is not logged in
-    setMatchedDogs([]);
-  }
+  }, []);
 
   return (
     <div className="App">
@@ -95,7 +96,10 @@ function App() {
           />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user-profile" element={<UserProfile />} />
+          <Route
+            path="/user-profile"
+            element={<UserProfile matchedDogs={matchedDogs} />}
+          />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>

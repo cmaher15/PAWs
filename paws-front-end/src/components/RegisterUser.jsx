@@ -56,7 +56,7 @@ export default function RegisterUser() {
       <Distance onChange={setDistance} value={distance} />
       <UserImage onChange={setPhoto} value={thumbnail_photo_url} />
       <div className="component">
-        <button type="submit" class="submitbtn" onChange={formHandle}>
+        <button type="submit" className="submitbtn" onChange={formHandle}>
           Submit
         </button>
       </div>

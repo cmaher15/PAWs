@@ -31,8 +31,10 @@ const getCoordinates = function (position) {
 // Send latitude and longitude coordinates-object to server
 const sendCoordinatesToServer = function (userCoordinates, ownerId) {
   const data = {
-    ownerId: ownerId,
-    userCoordinates: userCoordinates
+    params: {
+      ownerId: ownerId,
+      userCoordinates: userCoordinates
+    }
   };
 
   axios.post(`/api/owners`, data).then(
