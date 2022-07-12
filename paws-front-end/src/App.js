@@ -30,7 +30,6 @@ function App() {
 
   // GET USER LOCATION
   const [userCoordinates, setUserCoordinates] = useState();
-
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
@@ -105,8 +104,6 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      <RegisterDog />
-      <RegisterUser />
     </div>
   );
 }
