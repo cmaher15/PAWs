@@ -57,7 +57,7 @@ module.exports = (db) => {
         console.log("New owner was successfully added");
         const ownerID = generateRandomString();
         req.session.user_id = ownerID;
-        console.log(req.session.user_id);
+        console.log("user cookie:", req.session.user_id);
       })
       .catch((err) => {
         console.log(err.message);
