@@ -19,7 +19,7 @@ const Header = function (props) {
           setLoggedIn={props.setLoggedIn}
         />
       ) : (
-        <HeaderLoggedOut />
+        <HeaderLoggedOut setUserId={props.setUserId} />
       )}
     </div>
   );

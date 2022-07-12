@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import UserProfile from "./UserProfile";
 
 const HomePage = function (props) {
   // JSX to be displayed if user is logged in
@@ -24,7 +25,11 @@ const HomePage = function (props) {
   return (
     <div>
       {/*Display profile page if user logged in, else prompt user to sign up */}
-      {props.loggedIn ? userGreeting(props.userName) : guestGreeting()}
+      {props.loggedIn ? (
+        <UserProfile userName={props.userName} />
+      ) : (
+        guestGreeting()
+      )}
     </div>
   );
 };

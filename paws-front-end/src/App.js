@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
+import UserProfile from "./components/UserProfile.jsx";
 import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
@@ -25,6 +26,7 @@ import {
 function App() {
   // GLOBAL STATE
   const [loggedIn, setLoggedIn] = useState(true);
+  const [userId, setUserId] = useState(0);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
@@ -83,6 +85,7 @@ function App() {
           userName={userName}
           setLoggedIn={setLoggedIn}
           setUrlPath={setUrlPath}
+          setUserId={setUserId}
         />
         <Routes>
           <Route
@@ -94,19 +97,18 @@ function App() {
             element={<RegisterUser loggedIn={loggedIn} />}
           />
           <Route path="/register-dog" element={<RegisterDog />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUserId={setUserId} />} />
           <Route
             path="/user-profile"
-            element={<UserProfile matchedDogs={matchedDogs} />}
+            element={
+              <UserProfile userName={userName} matchedDogs={matchedDogs} />
+            }
           />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      <DogProfile />
-      <RegisterDog />
-      <RegisterUser />
     </div>
   );
 }
