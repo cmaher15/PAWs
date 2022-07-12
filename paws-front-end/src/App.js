@@ -12,7 +12,7 @@ import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
-import UserProfile from "./components/UserProfile.jsx";
+import DogProfile from "./components/DogProfile";
 
 // Helpers
 import {
@@ -104,6 +104,9 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
+      <DogProfile />
+      <RegisterDog />
+      <RegisterUser />
     </div>
   );
 }
