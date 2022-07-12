@@ -2,8 +2,10 @@ const PORT = process.env.PORT || 8001;
 const ENV = require("./environment");
 const app = require("./application")(ENV);
 const server = require("http").Server(app);
-const sock = require("socket.io");
-// const client = require("./db");
+// const express = require("express");
+// const app = express();
+// const sock = require("socket.io");
+// // const client = require("./db");
 
 // const WebSocket = require("ws");
 // const wss = new WebSocket.Server({ server });
@@ -18,7 +20,8 @@ const sock = require("socket.io");
 //   };
 // });
 
-const http = server.listen(PORT, () => {
+// const http =
+server.listen(PORT, () => {
   console.log(`Listening on port ${PORT} in ${ENV} mode`);
 });
 
