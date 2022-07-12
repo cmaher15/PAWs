@@ -13,6 +13,7 @@ import GenderCompatability from "./DogForm/GenderCompatability";
 import BreedIncompatibility from "./DogForm/BreedIncompability";
 import Description from "./DogForm/Description";
 import Image from "./DogForm/Image";
+import Status from "./DogForm/Status";
 
 //Main function to handle dog registration and form submission for dog profile
 
@@ -112,6 +113,7 @@ export default function RegisterDog() {
         <button type="submit" className="submitbtn" onChange={formHandle}>
           Submit
         </button>
+        <Status />
       </div>
     </form>
   );
