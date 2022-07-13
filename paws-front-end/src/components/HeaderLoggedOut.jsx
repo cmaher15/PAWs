@@ -24,7 +24,7 @@ const HeaderLoggedOut = function (props) {
           props.setUserId(response.id);
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.message);
           // Display some sort of error message to user?
           alert("Login Unsuccessful");
         });
