@@ -7,14 +7,19 @@
   width: 450px;
   height: 600px;
   overflow: auto;
+  object-fit: cover;
   margin-bottom: 20px;
+}
+
+#messagebox {
+ display: flex;
+ justify-content: center;
 }
 
 
 .newmessage {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  float: center;
   border-radius: 10px;
   padding: 5px;
   width: 300px;

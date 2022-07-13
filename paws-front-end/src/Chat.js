@@ -56,7 +56,7 @@ export default function Chat() {
         />
       </div>
       <div className="messages">{list}</div>
-      <div>
+      <div id="messagebox">
         <textarea
           className="newmessage"
           onChange={(e) => setText(e.target.value)}
