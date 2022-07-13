@@ -4,18 +4,24 @@
   margin: auto;
   border: 3px solid black;
   font-family: 'Montserrat', sans-serif;
-  width: 460px;
+  width: 450px;
   height: 600px;
   overflow: auto;
   margin-bottom: 20px;
 }
 
-textarea {
+
+.newmessage {
   display: flex;
   flex-direction: column;
-  width: 450px;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
   height: 100px;
   overflow: auto;
+  border: 1px solid black;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .messages {
@@ -36,9 +42,40 @@ textarea {
 .send {
   width: 100px;
   height: 50px;
+  margin: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  background: transparent;
+  border-radius: 10px;
+  color: rgb(38, 148, 38);
+  outline-color: rgb(38, 148, 38);
+  border-color: rgb(38, 148, 38);;
+  border-style: solid;
+}
+
+.send:hover {
+  background-color: rgb(38, 148, 38);;
+  color: white;
+  outline-color: white;
 }
 
 .clear {
   width: 100px;
   height: 50px;
+  margin: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  background: transparent;
+  border-radius: 10px;
+  color: red;
+  outline-color: red;
+  border-color: red;
+  border-style: solid;
 }
+
+.clear:hover {
+  background-color: red;
+  color: white;
+  outline-color: white;
+}
+

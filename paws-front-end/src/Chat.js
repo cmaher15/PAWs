@@ -58,17 +58,17 @@ export default function Chat() {
       <div className="messages">{list}</div>
       <div>
         <textarea
+          className="newmessage"
           onChange={(e) => setText(e.target.value)}
           placeholder="Type a message"
         />
       </div>
       <div className="chatbottom">
-        <button className="send" onClick={send}>
-          Send
-        </button>
-
         <button className="clear" onClick={() => setMessages([])}>
           Clear
+        </button>
+        <button className="send" onClick={send}>
+          Send
         </button>
       </div>
     </div>
