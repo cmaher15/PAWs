@@ -9,7 +9,12 @@ const UserProfile = function (props) {
       <p>
         Manage your dogs{" "}
         <button>
-          <Link to={<UsersDogList />}>Here</Link>
+          <Link
+            to={"/users-dogs"}
+            onClick={() => props.setUrlPath("/users-dogs")}
+          >
+            Here
+          </Link>
         </button>
       </p>
       <p>
