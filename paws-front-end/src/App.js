@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import UserProfile from "./components/UserProfile";
+// import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
 import {
@@ -99,16 +100,15 @@ function App() {
           />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login />} />
-          <Route
+          {/* <Route
             path="/user-profile"
             element={<UserProfile matchedDogs={matchedDogs} />}
-          />
+          /> */}
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      <DogProfile />
       <RegisterDog />
       <RegisterUser />
     </div>
