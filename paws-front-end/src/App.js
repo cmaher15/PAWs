@@ -14,6 +14,8 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
+import UserProfile from "./components/UserProfile";
+// import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
 import {
@@ -22,6 +24,9 @@ import {
   sendCoordinatesToServer
   // apiLocationSetState
 } from "./helpers/getCoordinates";
+
+//Chat
+import Chat from "./Chat";
 
 function App() {
   // GLOBAL STATE
@@ -108,7 +113,14 @@ function App() {
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+      <RegisterDog/>
+      <RegisterUser/>
+      <DogProfile/>
+      <UserProfile/>
       </BrowserRouter>
+      {/* <RegisterDog />
+      <RegisterUser /> */}
+      {/* <Chat /> */}
     </div>
   );
 }

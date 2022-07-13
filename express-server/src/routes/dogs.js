@@ -1,59 +1,85 @@
 const router = require("express").Router();
 
-module.exports = db => {
+module.exports = (db) => {
   // get dogs
+  
   router.get("/dogs", (req, res) => {
-    //  const reactive = true;   // getting filter parameters from client
-    const reactive = req.body.reactive;
+    // const userId = 1;
+    // console.log('req.body:', req.body);
+    // const reactive = req.body.reactive;
     // const good = req.body.good_with_people;
     // const size = req.body.size_compatibility;
     // const gender = req.body.gender_compatibility;
     // const incompat = req.body.breed_incompatibility;
-     const incompat = '{"pitbull": true}';
-    db
-    .query(`SELECT * FROM dogs WHERE breed_incompatibility @> '${incompat}'`)
-    .then((result) => {
-      const output = result.rows.filter(dog => {
-        // dog.reactive === reactive && dog.good_with_people === good && dog.size_compatibility === size && dog.gender_compatibility === gender }); // dog filter
-        dog.reactive === reactive}); // dog filter
-      console.log(output)
-      
-      res.send(result.rows);
-    })
-    .catch((err) => {console.error(err)});
+    //  const incompat = '{"pitbull": true}';
+    db.query(`SELECT * FROM dogs`)
+    .then(result => { res.send(result.rows.filter(dog => dog.reactive === true && dog.good_with_people === true && dog.size_compatibility.small === true && dog.gender_compatibility.male === true && dog.breed_incompatibility !== '{"pitbull: true"}'))}).catch((err) => { console.error(err) });
+    });
 
-  });
+    //Playing around with bringing back dog and user data for the dog ID photo cards on UI
+  // router.get("/dogs", (req, res) => {
+  //   db.query(
+  //     `SELECT dogs.name as name, breed, size, gender, photo_url, description, owners.name as owner name, owners.thumbnail_photo_url FROM dogs JOIN owners ON dogs.owner_id = owners.id `
+  //   )
+  //     .then((result) => {
+  //       console.log(result);
+  //       const output = result.rows;
+  //       res.send(output);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // });
 
+  // get filtered dogs
+  // const filterDogs = (user_id) => {
+  //   db
+  //   .query(`SELECT * FROM dogs JOIN owners ON owners.id = dogs.owner_id WHERE owners.id = ${user_id}`)
+  //   .then((result) => console.log(result.rows))
+  //   .catch(console.log('could not retrieve data'));
+  // }
+  
 
   //info about specific dog
   router.get("/dogs/:id", (req, res) => {
     const id = req.params.id;
     db
-    .query(`SELECT * FROM dogs WHERE dogs.id = ${id}`)
+    .query(`SELECT dogs.name as name, breed, size, gender, photo_url, description, owners.name as owner_name, owners.thumbnail_photo_url FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE dogs.id = ${id}`)
     .then((result) => {
-      // console.log(result.rows[0])
       res.send(result.rows[0]);
     })
     .catch((err) => {console.error(err)});
   });
 
+//  
+
   // Create new dog
   router.post(`/dogs`, (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     db.query(`
     INSERT INTO dogs 
     (name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id)
      VALUES 
-     ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${req.body.age}', '${req.body.size}', '${req.body.reactive}', '${req.body.good_with_people}', '${JSON.stringify(req.body.size_compatibility)}', '${JSON.stringify(req.body.gender_compatibility)}', '${JSON.stringify(req.body.breed_incompatibility)}', '${req.body.description}', '${req.body.photo_url}', 1)`)
-    .then((result) => {
-      console.log('New dog was successfully added');
-      res.send(result.rows);
-    })
-    .catch((err) => {console.error(err)});
-  })
+     ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${
+        req.body.age
+      }', '${req.body.size}', '${req.body.reactive}', '${
+        req.body.good_with_people
+      }', '${JSON.stringify(req.body.size_compatibility)}', '${JSON.stringify(
+        req.body.gender_compatibility
+      )}', '${JSON.stringify(req.body.breed_incompatibility)}', '${
+        req.body.description
+      }', '${req.body.photo_url}', 1)`
+    )
+      .then((result) => {
+        console.log("New dog was successfully added");
+        res.send(result.rows);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
   return router;
 };
-
 
 // SELECT DOG NAME BY OWNERS ID
 // select dogs.name from dogs join owners on owners.id = dogs.owner_id where owners.id = 1;

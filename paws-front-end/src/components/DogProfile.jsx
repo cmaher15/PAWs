@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/DogProfile.scss";
+import "../styles/DogProfile.css";
 
 export default function DogProfile() {
   return (
@@ -11,7 +11,7 @@ export default function DogProfile() {
         <h1 className="dogName">Rocky</h1>
         <i
           className="fa-solid fa-heart fa-xl"
-          onMouseOver={({ target }) => (target.style.color = "red")}
+          onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
         <i

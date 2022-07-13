@@ -7,7 +7,7 @@ VALUES
 ('Kevin','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'chili_lover@yahoo.com', 'photo', '(-194.0, 53.0)'),
 ('Jimothy','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'asian_jim@mail.com', 'photo', '(-194.0, 53.0)'),
 ('Toby', 's565ds8d5h8s75f8h57858s5s','Montreal', 'stranglehorn@gmail.com', 'photo', '(-194.0, 53.0)'),
-('Troy','s565ds8d5h8s75f8h57858s5s', 'Toronto', 'truckdriver@yahoo.com', 'photo', '(-194.0, 53.0)'),
+('Robert','s565ds8d5h8s75f8h57858s5s', 'Toronto', 'truckdriver@yahoo.com', 'photo', '(-194.0, 53.0)'),
 ('Erin', 's565ds8d5h8s75f8h57858s5s','Calgary', 'hannon123@inbox.com', 'photo', '(-194.0, 53.0)'),
 ('Stanley','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'manley99@email.com', 'photo', '(-194.0, 53.0)'),
 ('Darryl','s565ds8d5h8s75f8h57858s5s', 'Montreal', 'big_boi@inbox.com', 'photo', '(-194.0, 53.0)'),

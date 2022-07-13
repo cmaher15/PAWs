@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "../styles/Form.scss";
+import "../styles/Form.css";
 import City from "./UserForm/City";
 import Distance from "./UserForm/Distance";
 import Email from "./UserForm/Email";
