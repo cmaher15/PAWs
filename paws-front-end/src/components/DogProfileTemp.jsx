@@ -24,7 +24,7 @@ export default function DogProfileTemplate() {
     return (
       <main className="dogProfile">
         <div>
-          <img className="dog" src={response.photo_url} />
+          <img className="dog" src={dog.photo_url} />
         </div>
         <span className="icons">
           <h1 className="dogName">{dog.name}</h1>
@@ -41,7 +41,7 @@ export default function DogProfileTemplate() {
         </span>
         <span className="locationInfo">
           <i className="fa-solid fa-location-dot fa-2xl"></i>
-          <p className="distance">{owner.location} km away</p>
+          <p className="distance">5 km away</p>
         </span>
         <span className="dogInfo">
           <h3>{dog.gender}</h3>

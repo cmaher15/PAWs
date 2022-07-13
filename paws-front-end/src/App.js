@@ -111,7 +111,7 @@ function App() {
       </BrowserRouter>
       {/* <RegisterDog />
       <RegisterUser /> */}
-      <Chat />
+      {/* <Chat /> */}
     </div>
   );
 }
