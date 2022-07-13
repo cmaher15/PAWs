@@ -3,26 +3,31 @@ import "../styles/DogProfile.css";
 import axios from "axios";
 
 export default function DogProfileTemplate() {
-  const [renderDogs, setRenderDogs] = useState("");
-  const findDogs = () => {
-    axios.get(`/api/dogs/`).then(
-      (response) => {
-        console.log(response);
-        renderDogs;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    useEffect(() => {
-      findDogs.then((response) => {
-        setRenderDogs(response);
+  const [matchedDogs, setMatchedDogs] = useState([]);
+  const getMatches = async function (ownerId) {
+    // Make GET request to server for array of matched dogs
+    try {
+      await axios.get("/api/dogs", ownerId).then(response => {
+        console.log("response in getMatches axios request: ", response);
+        return response;
       });
-    }, []);
+    } catch (err) {
+      setMatchedDogs("No response from server");
+      console.log(err);
+    }
+  };
 
+  useEffect(() => {
+    // Array sent back from the server will be the value of matchedDogs
+    getMatches(1).then(response => {
+      setMatchedDogs(response);
+    });
+  }, []);
+
+  // JSX template for each dog profile
+  const dogProfileCard = function (dog) {
     return (
-      <main className="dogProfile">
+      <div className="dogProfile">
         <div>
           <img className="dog" src={dog.photo_url} />
         </div>
@@ -53,7 +58,15 @@ export default function DogProfileTemplate() {
           <img className="userThumbnail" src={owner.thumbnail_photo_url} />
           <h4>Parent: {owner.name}</h4>
         </span>
-      </main>
+      </div>
     );
   };
+
+  console.log("matchedDogs: ", matchedDogs);
+  console.log("matchedDogs === []: ", matchedDogs.length === 0);
+
+  // JSX for dog profiles returned by component
+  return matchedDogs.Length > 0
+    ? matchedDogs.map(dog => dogProfileCard(dog))
+    : "There are no matches in your area at this time.";
 }

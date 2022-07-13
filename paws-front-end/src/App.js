@@ -8,13 +8,13 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
-import UserProfile from "./components/UserProfile.jsx";
+import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
+import DogMatches from "./components/DogMatches";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
-import UserProfile from "./components/UserProfile";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -55,32 +55,32 @@ function App() {
     getLongLat();
   }, []);
 
-  // GET ARRAY OF MATCHED DOGS
-  const [matchedDogs, setMatchedDogs] = useState();
-  const getMatches = async function (ownerId) {
-    if (loggedIn) {
-      // Make GET request to server for array of matched dogs
-      try {
-        await axios.get("/api/dogs", ownerId).then(response => {
-          console.log("response in getMatches axios request: ", response);
-          return response;
-        });
-      } catch (err) {
-        setMatchedDogs("No response from server");
-        console.log(err);
-      }
-    } else {
-      // Empty array for user who is not logged in
-      setMatchedDogs([]);
-    }
-  };
+  // // GET ARRAY OF MATCHED DOGS
+  // const [matchedDogs, setMatchedDogs] = useState();
+  // const getMatches = async function (ownerId) {
+  //   if (loggedIn) {
+  //     // Make GET request to server for array of matched dogs
+  //     try {
+  //       await axios.get("/api/dogs", ownerId).then(response => {
+  //         console.log("response in getMatches axios request: ", response);
+  //         return response;
+  //       });
+  //     } catch (err) {
+  //       setMatchedDogs("No response from server");
+  //       console.log(err);
+  //     }
+  //   } else {
+  //     // Empty array for user who is not logged in
+  //     setMatchedDogs([]);
+  //   }
+  // };
 
-  useEffect(() => {
-    // Array sent back from the server will be the value of matchedDogs
-    getMatches(1).then(response => {
-      setMatchedDogs(response);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Array sent back from the server will be the value of matchedDogs
+  //   getMatches(1).then(response => {
+  //     setMatchedDogs(response);
+  //   });
+  // }, []);
 
   return (
     <div className="App">
@@ -102,21 +102,22 @@ function App() {
             element={<RegisterUser loggedIn={loggedIn} />}
           />
           <Route path="/register-dog" element={<RegisterDog />} />
+          <Route path="/dog-matches" element={<DogMatches />} />
           <Route path="/login" element={<Login setUserId={setUserId} />} />
           <Route
             path="/user-profile"
             element={
-              <UserProfile userName={userName} matchedDogs={matchedDogs} />
+              <UserProfile userName={userName} setUrlPath={setUrlPath} />
             }
           />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
-      <RegisterDog/>
-      <RegisterUser/>
-      <DogProfile/>
-      <UserProfile/>
+        {/* <RegisterDog />
+        <RegisterUser />
+        <DogProfile />
+        <UserProfile /> */}
       </BrowserRouter>
       {/* <RegisterDog />
       <RegisterUser /> */}

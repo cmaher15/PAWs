@@ -9,7 +9,18 @@ const UserProfile = function (props) {
       <p>
         Manage your dogs <Link to={<UsersDogList />}>here</Link>
       </p>
-      <p>Matched dogs: {props.matchedDogs}</p>
+      <p>
+        View your{" "}
+        <button>
+          {" "}
+          <Link
+            to={"/dog-matches"}
+            onClick={() => props.setUrlPath("/dog-matches")}
+          >
+            Matches
+          </Link>
+        </button>
+      </p>
     </div>
   );
 };
