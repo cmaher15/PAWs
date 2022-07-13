@@ -108,6 +108,10 @@ function App() {
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+      <RegisterDog/>
+      <RegisterUser/>
+      <DogProfile/>
+      <UserProfile/>
       </BrowserRouter>
     </div>
   );
