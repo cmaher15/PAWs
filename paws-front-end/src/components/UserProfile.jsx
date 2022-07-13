@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import UsersDogList from "./UserForm/UserDogList";
 
 const UserProfile = function (props) {
-  console.log("props.matchedDogs: ", props);
   return (
     <div>
-      <h3>This is the user profile page</h3>
+      <p>Hello {props.userName}!</p>
+      <p>
+        Manage your dogs <Link to={<UsersDogList />}>here</Link>
+      </p>
       <p>Matched dogs: {props.matchedDogs}</p>
     </div>
   );

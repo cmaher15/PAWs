@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
+import UserProfile from "./components/UserProfile.jsx";
 import Login from "./components/Login";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
@@ -20,7 +21,7 @@ import UserProfile from "./components/UserProfile";
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer,
+  sendCoordinatesToServer
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -30,6 +31,7 @@ import Chat from "./Chat";
 function App() {
   // GLOBAL STATE
   const [loggedIn, setLoggedIn] = useState(true);
+  const [userId, setUserId] = useState(0);
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
@@ -38,7 +40,7 @@ function App() {
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
-      await fetchCoordinates(getCoordinates).then((results) => {
+      await fetchCoordinates(getCoordinates).then(results => {
         console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
@@ -59,7 +61,7 @@ function App() {
     if (loggedIn) {
       // Make GET request to server for array of matched dogs
       try {
-        await axios.get("/api/dogs", ownerId).then((response) => {
+        await axios.get("/api/dogs", ownerId).then(response => {
           console.log("response in getMatches axios request: ", response);
           return response;
         });
@@ -75,7 +77,7 @@ function App() {
 
   useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
-    getMatches(1).then((response) => {
+    getMatches(1).then(response => {
       setMatchedDogs(response);
     });
   }, []);
@@ -88,6 +90,7 @@ function App() {
           userName={userName}
           setLoggedIn={setLoggedIn}
           setUrlPath={setUrlPath}
+          setUserId={setUserId}
         />
         <Routes>
           <Route
@@ -99,15 +102,21 @@ function App() {
             element={<RegisterUser loggedIn={loggedIn} />}
           />
           <Route path="/register-dog" element={<RegisterDog />} />
-          <Route path="/login" element={<Login />} />
-          {/* <Route
+          <Route path="/login" element={<Login setUserId={setUserId} />} />
+          <Route
             path="/user-profile"
-            element={<UserProfile matchedDogs={matchedDogs} />}
-          /> */}
+            element={
+              <UserProfile userName={userName} matchedDogs={matchedDogs} />
+            }
+          />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+      <RegisterDog/>
+      <RegisterUser/>
+      <DogProfile/>
+      <UserProfile/>
       </BrowserRouter>
       {/* <RegisterDog />
       <RegisterUser /> */}

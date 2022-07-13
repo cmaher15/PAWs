@@ -47,6 +47,7 @@ module.exports = function application(ENV) {
 
   app.use("/api", dogs(db));
   app.use("/api", owners(db));
+  app.use("/login", owners(db));
 
   ///CHAT CODE FOR SERVER SIDE///
 
