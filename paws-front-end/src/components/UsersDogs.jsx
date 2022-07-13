@@ -7,28 +7,29 @@ import { dogProfileCard } from "../helpers/dogProfileJSX";
 
 const UsersDogs = function () {
   const [userDogs, setUserDogs] = useState([]);
+
   const getUserDogs = async function (ownerId) {
     // Make GET request to server for array of user's dogs
-    try {
-      await axios.get("/api/users-dogs", ownerId).then(response => {
-        return response;
-      });
-    } catch (err) {
-      // FOR DEBUGGING
-      console.log("Server request for dogs failed."); // REMOVE
-      console.log("Catch error: ", err);
-      setUserDogs([]);
-    }
+    await axios.get("/api/users-dogs", ownerId).then(response => {
+      return response;
+    });
   };
 
   useEffect(() => {
+    console.log("userDogs before axios: ", userDogs);
     // Array sent back from the server will be the value of matchedDogs
-    getUserDogs(1).then(response => {
-      console.log("response within getUserDogs request: ", response);
-      setUserDogs(response);
-    });
+    getUserDogs(1)
+      .then(response => {
+        console.log("response within getUserDogs request: ", response);
+        setUserDogs(response);
+      })
+      .catch(error => {
+        console.log("Server request for owner's dogs failed."); // REMOVE
+        console.log("Catch error: ", error);
+      });
   }, []);
 
+  console.log("userDogs after axios: ", userDogs);
   return userDogs.length > 0
     ? userDogs.map(dog => dogProfileCard(dog))
     : "It appears that you do not have any dogs registered.";

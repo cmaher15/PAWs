@@ -12,22 +12,20 @@ const DogProfileTemplate = function () {
 
   const getMatches = async function (ownerId) {
     // Make GET request to server for array of matched dogs
-    try {
-      await axios.get("/api/dogs", ownerId).then(response => {
-        return response;
-      });
-    } catch (err) {
-      // FOR DEBUGGING
-      console.log("Server request for matches failed."); // REMOVE
-      console.log(err);
-    }
+    await axios.get("/api/dogs", ownerId).then(response => {
+      return response;
+    });
   };
 
   useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
-    getMatches().then(response => {
-      setMatchedDogs(response);
-    });
+    getMatches()
+      .then(response => {
+        setMatchedDogs(response);
+      })
+      .catch(error => {
+        console.log("Server request for dog matches failed: ", error);
+      });
   }, []);
 
   // JSX for dog profiles returned by component
