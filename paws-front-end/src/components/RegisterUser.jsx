@@ -17,7 +17,7 @@ export default function RegisterUser() {
   const [distance, setDistance] = useState("");
   const [thumbnail_photo_url, setPhoto] = useState("");
 
-  const formHandle = (e) => {
+  const formHandle = e => {
     e.preventDefault();
     const salt = bcrypt.genSaltSync(10);
     const hashedpassword = bcrypt.hashSync(password, salt);
@@ -33,7 +33,7 @@ export default function RegisterUser() {
   //Axios post request to send data to server
 
   const addDataToServer = data => {
-    axios.post(`/api/owners/`, data).then(
+    axios.post(`/api/owners`, data).then(
       response => {
         console.log(response);
       },

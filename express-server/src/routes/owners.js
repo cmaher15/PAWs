@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const cookieSession = require("cookie-session");
 
-module.exports = (db) => {
-  
+module.exports = db => {
   router.use(
     cookieSession({
       name: "session",
@@ -46,13 +45,12 @@ module.exports = (db) => {
      VALUES 
      ('${req.body.name}', '${req.body.hashedpassword}', '${req.body.city}', '${req.body.email}', '${req.body.thumbnail_photo_url}', '(-194.0, 53.0)')`
     )
-      .then((result) => {
+      .then(result => {
         console.log("New owner was successfully added");
         res.json({
-          statuscode: 200, 
-          message: 'User was successfully created'
-        })
-        
+          statuscode: 200,
+          message: "User was successfully created"
+        });
       })
       .catch(err => {
         console.log(err.message);
@@ -60,34 +58,31 @@ module.exports = (db) => {
   });
 
   // Login route
-  router.post('/login', (req, res) => {
-    console.log(req.body);
+  router.post("/login", (req, res) => {
+    console.log("req.body in /login: ", req.body);
     const userEmail = req.body.email;
     const userPassword = req.body.password;
-    db
-    .query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
-    .then((result) => {
-      // console.log('result:', result.rows)
-      console.log('password:', result.rows[0].password)
-      console.log('user password:', userPassword)
+    db.query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
+      .then(result => {
+        // console.log('result:', result.rows)
+        console.log("password:", result.rows[0].password);
+        console.log("user password:", userPassword);
 
-      if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
-        console.log('inside comparison');
-        res.send(result.rows[0].id);
-      } else {
-        return res.status(403).send("Incorrect password");
-      }
-    })
-    .catch((err) => {
-      res.status(403);
-    })    
+        if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
+          console.log("inside comparison");
+          res.send(result.rows[0].id);
+        } else {
+          return res.status(403).send("Incorrect password");
+        }
+      })
+      .catch(err => {
+        console.log("Login Fail");
+        return res.sendStatus(403);
+      });
   });
 
   return router;
 };
-
-
-
 
 // CRUD
 
