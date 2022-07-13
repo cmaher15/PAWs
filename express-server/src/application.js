@@ -14,6 +14,7 @@ const db = require("./db");
 const dogs = require("./routes/dogs");
 const owners = require("./routes/owners");
 
+
 function read(file) {
   return new Promise((resolve, reject) => {
     fs.readFile(
@@ -44,6 +45,7 @@ module.exports = function application(ENV) {
 
   app.use("/api", dogs(db));
   app.use("/api", owners(db));
+  app.use("/login", owners(db));
 
   if (ENV === "development") {
     Promise.all([

@@ -5,34 +5,24 @@ module.exports = db => {
   router.get("/dogs", (req, res) => {
     //  const reactive = true;   // getting filter parameters from client
     const reactive = req.body.reactive;
-    const good = req.body.good_with_people;
-    const size = req.body.size_compatibility;
-    const gender = req.body.gender_compatibility;
-    const incompat = req.body.breed_incompatibility;
-    // const incompat = '{"pitbull": true}';
+    // const good = req.body.good_with_people;
+    // const size = req.body.size_compatibility;
+    // const gender = req.body.gender_compatibility;
+    // const incompat = req.body.breed_incompatibility;
+     const incompat = '{"pitbull": true}';
     db
     .query(`SELECT * FROM dogs WHERE breed_incompatibility @> '${incompat}'`)
     .then((result) => {
       const output = result.rows.filter(dog => {
-        dog.reactive === reactive &&
-        dog.good_with_people === good && 
-        dog.size_compatibility === size && 
-        dog.gender_compatibility === gender
-      }); // dog filter
+        // dog.reactive === reactive && dog.good_with_people === good && dog.size_compatibility === size && dog.gender_compatibility === gender }); // dog filter
+        dog.reactive === reactive}); // dog filter
+      console.log(output)
       
-      res.send(output);
+      res.send(result.rows);
     })
     .catch((err) => {console.error(err)});
 
   });
-
-  // get filtered dogs
-  // const filterDogs = (user_id) => {
-  //   db
-  //   .query(`SELECT * FROM dogs JOIN owners ON owners.id = dogs.owner_id WHERE owners.id = ${user_id}`)
-  //   .then((result) => console.log(result.rows))
-  //   .catch(console.log('could not retrieve data'));
-  // }
 
 
   //info about specific dog

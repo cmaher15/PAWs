@@ -1,17 +1,8 @@
 const router = require("express").Router();
 const cookieSession = require("cookie-session");
 
-<<<<<<< HEAD
-module.exports = db => {
-  const generateRandomString = () => {
-    const result = Math.random().toString(36).substring(2, 8);
-    return result;
-  };
-
-=======
 module.exports = (db) => {
   
->>>>>>> 28976453e40c06564cdeda3a8807c60f0a4e0b0d
   router.use(
     cookieSession({
       name: "session",
@@ -70,18 +61,19 @@ module.exports = (db) => {
 
   // Login route
   router.post('/login', (req, res) => {
-    
+    console.log(req.body);
     const userEmail = req.body.email;
     const userPassword = req.body.password;
     db
-    .query(`SELECT * FROM owners WHERE email = ${userEmail}`)
+    .query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
     .then((result) => {
-      if (bcrypt.compareSync(userPassword, result.password)) {
-        res.json({
-          statuscode: 200, 
-          message: 'User login successful',
-          userId: result.id
-        });
+      // console.log('result:', result.rows)
+      console.log('password:', result.rows[0].password)
+      console.log('user password:', userPassword)
+
+      if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
+        console.log('inside comparison');
+        res.send(result.rows[0].id);
       } else {
         return res.status(403).send("Incorrect password");
       }

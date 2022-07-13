@@ -13,18 +13,19 @@ const HeaderLoggedOut = function (props) {
 
     // Axios post request below, submit to /login with username + password
     const loginToServer = function (data) {
-      axios
-        .post("/api/login", data)
-        .then(response => {
-          console.log(response);
-          //Set the global "userId" state to userId returned from server
-          props.setUserId(response.id);
+      axios.post("/api/login", data)
+        .then(
+          response => {
+            console.log("server response");
+            console.log(JSON.stringify(response));
+            //Set the global "userId" state to userId returned from server
+            props.setUserId(response.id);
         })
-        .catch(error => {
-          console.log(error);
-          // Display some sort of error message to user?
-          alert("Login Unsucessful");
-        });
+          .catch(error => {
+            console.log(error);
+            // Display some sort of error message to user?
+            alert("Login Unsuccessful");
+        })
     };
 
     loginToServer({
