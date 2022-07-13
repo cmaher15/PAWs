@@ -14,14 +14,13 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
-
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer
+  sendCoordinatesToServer,
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -40,7 +39,7 @@ function App() {
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
-      await fetchCoordinates(getCoordinates).then(results => {
+      await fetchCoordinates(getCoordinates).then((results) => {
         console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
@@ -61,7 +60,7 @@ function App() {
     if (loggedIn) {
       // Make GET request to server for array of matched dogs
       try {
-        await axios.get("/api/dogs", ownerId).then(response => {
+        await axios.get("/api/dogs", ownerId).then((response) => {
           console.log("response in getMatches axios request: ", response);
           return response;
         });
@@ -77,7 +76,7 @@ function App() {
 
   useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
-    getMatches(1).then(response => {
+    getMatches(1).then((response) => {
       setMatchedDogs(response);
     });
   }, []);
@@ -113,14 +112,13 @@ function App() {
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
-      <RegisterDog/>
-      <RegisterUser/>
-      <DogProfile/>
-      <UserProfile/>
+        {/* <RegisterDog />
+        <RegisterUser />
+        <DogProfile />
+        <UserProfile /> */}
+        <DogProfile />
+        <Chat />
       </BrowserRouter>
-      {/* <RegisterDog />
-      <RegisterUser /> */}
-      {/* <Chat /> */}
     </div>
   );
 }

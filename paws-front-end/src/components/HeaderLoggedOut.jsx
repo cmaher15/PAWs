@@ -19,12 +19,12 @@ const HeaderLoggedOut = function (props) {
       }
 
       await axios
-        .post("/api/login", data)
+        .post("/api/login", data, {withCredentials: true})
         .then(response => {
           console.log("server response");
           console.log(JSON.stringify(response));
           //Set the global "userId" state to userId returned from server
-          props.setUserId(response.id);
+          props.setUserId(response.data);
         })
         .catch(error => {
           console.log(error.message);
