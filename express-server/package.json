@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "nodemon": "^2.0.19"
+  },
+  "browser": {
+    "crypto": false
   }
 }

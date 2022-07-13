@@ -14,7 +14,6 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
-import UserProfile from "./components/UserProfile";
 
 // Helpers
 import {

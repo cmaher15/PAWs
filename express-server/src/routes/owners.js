@@ -60,18 +60,19 @@ module.exports = (db) => {
 
   // Login route
   router.post('/login', (req, res) => {
-    
+    console.log(req.body);
     const userEmail = req.body.email;
     const userPassword = req.body.password;
     db
-    .query(`SELECT * FROM owners WHERE email = ${userEmail}`)
+    .query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
     .then((result) => {
-      if (bcrypt.compareSync(userPassword, result.password)) {
-        res.json({
-          statuscode: 200, 
-          message: 'User login successful',
-          userId: result.id
-        });
+      // console.log('result:', result.rows)
+      console.log('password:', result.rows[0].password)
+      console.log('user password:', userPassword)
+
+      if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
+        console.log('inside comparison');
+        res.send(result.rows[0].id);
       } else {
         return res.status(403).send("Incorrect password");
       }
