@@ -12,15 +12,20 @@
   margin-bottom: 20px;
 }
 
-#messagebox {
+#newmessagebox {
  display: flex;
  justify-content: center;
 }
 
+.messagehistory {
+  width: 440px;
+  height: 400px;
+  margin-bottom: 20px;
+}
 
 .newmessage {
   display: flex;
-  float: center;
+  justify-content: center;
   border-radius: 10px;
   padding: 5px;
   width: 300px;
@@ -62,14 +67,14 @@
   background-color: white;
   background: transparent;
   border-radius: 10px;
-  color: rgb(38, 148, 38);
-  outline-color: rgb(38, 148, 38);
-  border-color: rgb(38, 148, 38);;
+  color: rgb(21, 56, 88);
+  outline-color: rgb(21, 56, 88);
+  border-color: rgb(21, 56, 88);
   border-style: solid;
 }
 
 .send:hover {
-  background-color: rgb(38, 148, 38);;
+  background-color: rgb(21, 56, 88);
   color: white;
   outline-color: white;
 }
@@ -82,14 +87,14 @@
   background-color: white;
   background: transparent;
   border-radius: 10px;
-  color: red;
-  outline-color: red;
-  border-color: red;
+  color: rgb(88, 33, 33);
+  outline-color: rgb(88, 33, 33);
+  border-color: rgb(88, 33, 33);
   border-style: solid;
 }
 
 .clear:hover {
-  background-color: red;
+  background-color: rgb(88, 33, 33);
   color: white;
   outline-color: white;
 }

@@ -55,8 +55,12 @@ export default function Chat() {
           placeholder="Recipient"
         />
       </div>
-      <div className="messages">{list}</div>
-      <div id="messagebox">
+      <div className="messagehistory">
+        <div className="messages">
+          <ul>{list}</ul>
+        </div>
+      </div>
+      <div id="newmessagebox">
         <textarea
           className="newmessage"
           onChange={(e) => setText(e.target.value)}
