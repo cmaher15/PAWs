@@ -8,14 +8,14 @@ const cors = require("cors");
 const cookieSession = require("cookie-session");
 
 const app = express();
-// const http = require("http");
+const http = require("http");
 
 const db = require("./db");
 
 const dogs = require("./routes/dogs");
 const owners = require("./routes/owners");
 
-// const sock = require("socket.io");
+const sock = require("socket.io");
 
 function read(file) {
   return new Promise((resolve, reject) => {
@@ -48,6 +48,43 @@ module.exports = function application(ENV) {
   app.use("/api", dogs(db));
   app.use("/api", owners(db));
 
+  ///CHAT CODE FOR SERVER SIDE///
+
+  const clients = {};
+  console.log("socketio.Server", sock.Server);
+
+  const io = new sock.Server(http);
+
+  io.on("connection", (db) => {
+    const name = db;
+    console.log("Someone connected!", db.id, name);
+    db.name = name;
+    clients[name] = db.id;
+    console.log(clients);
+
+    db.broadcast.emit("server", `${name}: just connected`);
+
+    db.emit("name", name);
+
+    db.on("message", (data) => {
+      console.log("message:", data);
+      data.from = db.name;
+
+      if (data.to) {
+        const id = clients[data.to];
+        console.log("message is for: ", data.to, id);
+        io.to(id).emit("user", data);
+        return;
+      }
+      db.broadcast.emit("user", data);
+    });
+
+    db.on("disconnect", () => {
+      delete clients[db.name];
+      console.log("owner Disconnected!", db.name);
+    });
+  });
+
   if (ENV === "development") {
     Promise.all([
       read(path.resolve(__dirname, `db/schema/01_schema.sql`)),
@@ -67,43 +104,6 @@ module.exports = function application(ENV) {
         console.log(`Error setting up the reset route: ${error}`);
       });
   }
-
-  ///CHAT CODE FOR SERVER SIDE///
-
-  // const clients = {};
-  // console.log("socketio.Server", sock.Server);
-
-  // const io = new sock.Server(http);
-
-  // io.on("connection", (db) => {
-  //   const name = db;
-  //   console.log("Someone connected!", db.id, name);
-  //   db.name = name;
-  //   clients[name] = db.id;
-  //   console.log(clients);
-
-  //   db.broadcast.emit("server", `${name}: just connected`);
-
-  //   db.emit("name", name);
-
-  //   db.on("message", (data) => {
-  //     console.log("message:", data);
-  //     data.from = db.name;
-
-  //     if (data.to) {
-  //       const id = clients[data.to];
-  //       console.log("message is for: ", data.to, id);
-  //       io.to(id).emit("user", data);
-  //       return;
-  //     }
-  //     db.broadcast.emit("user", data);
-  //   });
-
-  //   db.on("disconnect", () => {
-  //     delete clients[db.name];
-  //     console.log("owner Disconnected!", db.name);
-  //   });
-  // });
 
   app.close = function () {
     return db.end();

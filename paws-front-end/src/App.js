@@ -109,8 +109,9 @@ function App() {
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
-      <RegisterDog />
-      <RegisterUser />
+      {/* <RegisterDog />
+      <RegisterUser /> */}
+      <Chat />
     </div>
   );
 }
