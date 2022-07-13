@@ -7,7 +7,7 @@ import Email from "./UserForm/Email";
 import Password from "./UserForm/Password";
 import UserName from "./UserForm/UserName";
 import UserImage from "./UserForm/UserImage";
-const bcrypt = require("bcryptjs");
+
 
 export default function RegisterUser() {
   const [name, setName] = useState("");
@@ -19,14 +19,12 @@ export default function RegisterUser() {
 
   const formHandle = e => {
     e.preventDefault();
-    const salt = bcrypt.genSaltSync(10);
-    const hashedpassword = bcrypt.hashSync(password, salt);
     addDataToServer({
       name,
       city,
       email,
       thumbnail_photo_url,
-      hashedpassword
+      password
     });
   };
 

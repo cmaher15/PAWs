@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-
+import { v4 } from "uuid";
 
 export default function Chat() {
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ export default function Chat() {
     return () => socket.disconnect(); // prevents memory leak!
   }, []);
 
-  const list = messages.map((msg) => <li>{msg}</li>);
+  const list = messages.map((msg) => <li key={v4()}>{msg}</li>);
 
   const send = function () {
     socket.emit("message", { to, text });
