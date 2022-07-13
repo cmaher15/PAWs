@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { v4 } from "uuid";
+import "./styles/Chat.css";
 
 export default function Chat() {
   const [name, setName] = useState("");
@@ -43,7 +44,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="App">
+    <div className="chat">
       <h1>Chat</h1>
       <div className="email">{name}</div>
 
@@ -54,17 +55,22 @@ export default function Chat() {
           placeholder="Recipient"
         />
       </div>
-      <div className="chat">{list}</div>
+      <div className="messages">{list}</div>
       <div>
         <textarea
           onChange={(e) => setText(e.target.value)}
           placeholder="Type a message"
         />
       </div>
+      <div className="chatbottom">
+        <button className="send" onClick={send}>
+          Send
+        </button>
 
-      <button onClick={send}>Send</button>
-
-      <button onClick={() => setMessages([])}>Clear</button>
+        <button className="clear" onClick={() => setMessages([])}>
+          Clear
+        </button>
+      </div>
     </div>
   );
 }
