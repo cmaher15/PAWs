@@ -14,6 +14,9 @@ const HeaderLoggedOut = function (props) {
     // Axios post request below, submit to /login with username + password
     const loginToServer = async function (data) {
       // Validate email/password
+      if (data.email === "" || data.password === "") {
+        alert("Email or password fields can not be empty.");
+      }
 
       await axios
         .post("/api/login", data)
