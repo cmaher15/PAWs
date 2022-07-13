@@ -4,6 +4,7 @@ module.exports = db => {
   // get dogs
   
   router.get("/dogs", (req, res) => {
+    // const userId = 1;
     // console.log('req.body:', req.body);
     // const reactive = req.body.reactive;
     // const good = req.body.good_with_people;
@@ -12,22 +13,22 @@ module.exports = db => {
     // const incompat = req.body.breed_incompatibility;
     //  const incompat = '{"pitbull": true}';
     db.query(`SELECT * FROM dogs`)
-    .then(result => { res.json(result.rows.filter(dog => dog.reactive === true && dog.good_with_people === true && dog.size_compatibility.small === true && dog.gender_compatibility.male === true && dog.breed_incompatibility !== '{"pitbull: true"}'))}).catch((err) => { console.error(err) });
+    .then(result => { res.send(result.rows.filter(dog => dog.reactive === true && dog.good_with_people === true && dog.size_compatibility.small === true && dog.gender_compatibility.male === true && dog.breed_incompatibility !== '{"pitbull: true"}'))}).catch((err) => { console.error(err) });
     });
   
-  
-
 
   //info about specific dog
   router.get("/dogs/:id", (req, res) => {
     const id = req.params.id;
     db
-    .query(`SELECT * FROM dogs WHERE dogs.id = ${id}`)
+    .query(`SELECT dogs.name as name, breed, size, gender, photo_url, description, owners.name as owner_name, owners.thumbnail_photo_url FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE dogs.id = ${id}`)
     .then((result) => {
       res.send(result.rows[0]);
     })
     .catch((err) => {console.error(err)});
   });
+
+//  
 
   // Create new dog
   router.post(`/dogs`, (req, res) => {
