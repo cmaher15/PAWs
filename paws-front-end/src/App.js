@@ -57,31 +57,31 @@ function App() {
   }, []);
 
   // GET ARRAY OF MATCHED DOGS
-  const [matchedDogs, setMatchedDogs] = useState();
-  const getMatches = async function (ownerId) {
-    if (loggedIn) {
-      // Make GET request to server for array of matched dogs
-      try {
-        await axios.get("/api/dogs", ownerId).then(response => {
-          console.log("response in getMatches axios request: ", response);
-          return response;
-        });
-      } catch (err) {
-        setMatchedDogs("No response from server");
-        console.log(err);
-      }
-    } else {
-      // Empty array for user who is not logged in
-      setMatchedDogs([]);
-    }
-  };
+  // const [matchedDogs, setMatchedDogs] = useState();
+  // const getMatches = async function (ownerId) {
+  //   if (loggedIn) {
+  //     // Make GET request to server for array of matched dogs
+  //     try {
+  //       await axios.get("/api/dogs", ownerId).then(response => {
+  //         console.log("response in getMatches axios request: ", response);
+  //         return response;
+  //       });
+  //     } catch (err) {
+  //       setMatchedDogs("No response from server");
+  //       console.log(err);
+  //     }
+  //   } else {
+  //     // Empty array for user who is not logged in
+  //     setMatchedDogs([]);
+  //   }
+  // };
 
-  useEffect(() => {
-    // Array sent back from the server will be the value of matchedDogs
-    getMatches(1).then(response => {
-      setMatchedDogs(response);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Array sent back from the server will be the value of matchedDogs
+  //   getMatches(1).then(response => {
+  //     setMatchedDogs(response);
+  //   });
+  // }, []);
 
   return (
     <div className="App">
