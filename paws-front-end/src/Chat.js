@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
+
 export default function Chat() {
   const [name, setName] = useState("");
   const [messages, setMessages] = useState([]);
