@@ -33,7 +33,10 @@ export default function Chat() {
     return () => socket.disconnect(); // prevents memory leak!
   }, []);
 
-  const list = messages.map((msg) => <li key={v4()}>{msg}</li>);
+  const list = messages
+    .map((msg) => <li key={v4()}>{msg}</li>)
+    .sort()
+    .reverse();
 
   const send = function () {
     socket.emit("message", { to, text });
@@ -51,17 +54,17 @@ export default function Chat() {
           placeholder="Recipient"
         />
       </div>
-
+      <div className="chat">{list}</div>
       <div>
         <textarea
           onChange={(e) => setText(e.target.value)}
           placeholder="Type a message"
         />
       </div>
+
       <button onClick={send}>Send</button>
 
       <button onClick={() => setMessages([])}>Clear</button>
-      <ul>{list}</ul>
     </div>
   );
 }
