@@ -2,8 +2,9 @@ const router = require("express").Router();
 
 module.exports = db => {
   // get dogs
+  
   router.get("/dogs", (req, res) => {
-
+    // console.log('req.body:', req.body);
     // const reactive = req.body.reactive;
     // const good = req.body.good_with_people;
     // const size = req.body.size_compatibility;
@@ -11,9 +12,10 @@ module.exports = db => {
     // const incompat = req.body.breed_incompatibility;
     //  const incompat = '{"pitbull": true}';
     db.query(`SELECT * FROM dogs`)
-    .then(result => { res.json(result.rows.filter(dog => dog.reactive === true && dog.good_with_people === true && dog.size_compatibility.small === true && dog.gender_compatibility.male === true && breed_incompatibility.pitbul === false))})
-    .catch((err) => { console.error(err) });
+    .then(result => { res.json(result.rows.filter(dog => dog.reactive === true && dog.good_with_people === true && dog.size_compatibility.small === true && dog.gender_compatibility.male === true && dog.breed_incompatibility !== '{"pitbull: true"}'))}).catch((err) => { console.error(err) });
     });
+  
+  
 
 
   //info about specific dog
@@ -22,7 +24,6 @@ module.exports = db => {
     db
     .query(`SELECT * FROM dogs WHERE dogs.id = ${id}`)
     .then((result) => {
-      // console.log(result.rows[0])
       res.send(result.rows[0]);
     })
     .catch((err) => {console.error(err)});
@@ -30,7 +31,7 @@ module.exports = db => {
 
   // Create new dog
   router.post(`/dogs`, (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     db.query(`
     INSERT INTO dogs 
     (name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id)
