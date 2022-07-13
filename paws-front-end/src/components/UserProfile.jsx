@@ -7,7 +7,10 @@ const UserProfile = function (props) {
     <div>
       <p>Hello {props.userName}!</p>
       <p>
-        Manage your dogs <Link to={<UsersDogList />}>here</Link>
+        Manage your dogs{" "}
+        <button>
+          <Link to={<UsersDogList />}>Here</Link>
+        </button>
       </p>
       <p>
         View your{" "}
@@ -15,7 +18,7 @@ const UserProfile = function (props) {
           {" "}
           <Link
             to={"/dog-matches"}
-            onClick={() => props.setUrlPath("/dog-matches")}
+            conClick={() => props.setUrlPath("/dog-matches")}
           >
             Matches
           </Link>
