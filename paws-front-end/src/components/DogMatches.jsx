@@ -28,11 +28,7 @@ const DogProfileTemplate = function () {
   }, []);
 
   // JSX for dog profiles returned by component
-<<<<<<< HEAD
   return matchedDogs !== undefined
-=======
-  return matchedDogs.length > 0
->>>>>>> 9eca1d5e79786b6d64d6fd8aae09ae9b9624ff0b
     ? matchedDogs.map(dog => dogProfileCard(dog))
     : "There are no matches in your area at this time.";
 };
