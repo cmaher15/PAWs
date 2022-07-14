@@ -1,0 +1,101 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(207, 230, 230);
+  margin: auto;
+  border: 3px solid black;
+  font-family: 'Montserrat', sans-serif;
+  width: 450px;
+  height: 600px;
+  overflow: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+#newmessagebox {
+ display: flex;
+ justify-content: center;
+}
+
+.messagehistory {
+  width: 440px;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.newmessage {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  height: 100px;
+  overflow: auto;
+  border: 1px solid black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.messages {
+  display:flex;
+  background-color:rgb(244, 136, 136);
+  padding:20px;
+  border-radius:30px;
+  min-width:40px;
+  max-width:220px;
+  min-height:40px;
+  margin:20px;
+  position:relative;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+    }
+
+
+    
+.chatbutton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.send {
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  background: transparent;
+  border-radius: 10px;
+  color: rgb(21, 56, 88);
+  outline-color: rgb(21, 56, 88);
+  border-color: rgb(21, 56, 88);
+  border-style: solid;
+}
+
+.send:hover {
+  background-color: rgb(21, 56, 88);
+  color: white;
+  outline-color: white;
+}
+
+.clear {
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  background: transparent;
+  border-radius: 10px;
+  color: rgb(88, 33, 33);
+  outline-color: rgb(88, 33, 33);
+  border-color: rgb(88, 33, 33);
+  border-style: solid;
+}
+
+.clear:hover {
+  background-color: rgb(88, 33, 33);
+  color: white;
+  outline-color: white;
+}
+

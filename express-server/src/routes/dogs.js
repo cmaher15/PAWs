@@ -2,9 +2,16 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   // get dogs
-  
+
   router.get("/dogs", (req, res) => {
-    // const userId = 1;
+    const queryResult = [];
+    const userId = 1;
+    db.query(`SELECT dogs.reactive, dogs.good_with_people, dogs.size_compatibility, dogs.gender_compatibility, dogs.breed_incompatibility FROM dogs WHERE owner_id = ${userId}`).then(result => {
+      queryResult.push(result.rows);
+
+      
+      console.log('queryResult inside initial query:',queryResult);
+    }).catch(err => console.error(err))
     // console.log('req.body:', req.body);
     // const reactive = req.body.reactive;
     // const good = req.body.good_with_people;
@@ -12,11 +19,26 @@ module.exports = (db) => {
     // const gender = req.body.gender_compatibility;
     // const incompat = req.body.breed_incompatibility;
     //  const incompat = '{"pitbull": true}';
+    
     db.query(`SELECT * FROM dogs`)
-    .then(result => { res.send(result.rows.filter(dog => dog.reactive === true && dog.good_with_people === true && dog.size_compatibility.small === true && dog.gender_compatibility.male === true && dog.breed_incompatibility !== '{"pitbull: true"}'))}).catch((err) => { console.error(err) });
-    });
+      .then((result) => {
+        res.send(
+          result.rows.filter(
+            (dog) =>
+              dog.reactive === true &&
+              dog.good_with_people === true &&
+              dog.size_compatibility.small === true &&
+              dog.gender_compatibility.male === true &&
+              dog.breed_incompatibility !== '{"pitbull: true"}'
+          )
+        );
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 
-    //Playing around with bringing back dog and user data for the dog ID photo cards on UI
+  //Playing around with bringing back dog and user data for the dog ID photo cards on UI
   // router.get("/dogs", (req, res) => {
   //   db.query(
   //     `SELECT dogs.name as name, breed, size, gender, photo_url, description, owners.name as owner name, owners.thumbnail_photo_url FROM dogs JOIN owners ON dogs.owner_id = owners.id `
@@ -38,25 +60,28 @@ module.exports = (db) => {
   //   .then((result) => console.log(result.rows))
   //   .catch(console.log('could not retrieve data'));
   // }
-  
 
   //info about specific dog
   router.get("/dogs/:id", (req, res) => {
     const id = req.params.id;
-    db
-    .query(`SELECT dogs.name as name, breed, size, gender, photo_url, description, owners.name as owner_name, owners.thumbnail_photo_url FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE dogs.id = ${id}`)
-    .then((result) => {
-      res.send(result.rows[0]);
-    })
-    .catch((err) => {console.error(err)});
+    db.query(
+      `SELECT dogs.name as name, breed, size, gender, photo_url, description, owners.name as owner_name, owners.thumbnail_photo_url FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE dogs.id = ${id}`
+    )
+      .then((result) => {
+        res.send(result.rows[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   });
 
-//  
+  //
 
   // Create new dog
   router.post(`/dogs`, (req, res) => {
     // console.log(req.body);
-    db.query(`
+    db.query(
+      `
     INSERT INTO dogs 
     (name, breed, gender, age, size, reactive, good_with_people, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id)
      VALUES 
