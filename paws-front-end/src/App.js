@@ -8,8 +8,10 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
-import UserProfile from "./components/UserProfile.jsx";
+import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
+import DogMatches from "./components/DogMatches";
+import UsersDogs from "./components/UsersDogs";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
@@ -106,9 +108,11 @@ function App() {
           <Route
             path="/user-profile"
             element={
-              <UserProfile userName={userName} matchedDogs={matchedDogs} />
+              <UserProfile userName={userName} setUrlPath={setUrlPath} />
             }
           />
+          <Route path="/dog-matches" element={<DogMatches />} />
+          <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>

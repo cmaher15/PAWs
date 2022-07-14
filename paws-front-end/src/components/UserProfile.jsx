@@ -7,9 +7,28 @@ const UserProfile = function (props) {
     <div>
       <p>Hello {props.userName}!</p>
       <p>
-        Manage your dogs <Link to={<UsersDogList />}>here</Link>
+        Manage your dogs{" "}
+        <button>
+          <Link
+            to={"/users-dogs"}
+            onClick={() => props.setUrlPath("/users-dogs")}
+          >
+            Here
+          </Link>
+        </button>
       </p>
-      <p>Matched dogs: {props.matchedDogs}</p>
+      <p>
+        View your{" "}
+        <button>
+          {" "}
+          <Link
+            to={"/dog-matches"}
+            conClick={() => props.setUrlPath("/dog-matches")}
+          >
+            Matches
+          </Link>
+        </button>
+      </p>
     </div>
   );
 };
