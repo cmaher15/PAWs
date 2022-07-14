@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // JSX template for each dog profile
 const dogProfileCard = function (dog) {
   const [isShown, setIsShown] = useState(false);
@@ -5,6 +7,7 @@ const dogProfileCard = function (dog) {
   const handleChat = (event) => {
     setIsShown((current) => !current);
   };
+
   return (
     <div className="dogProfile">
       <div>
@@ -47,3 +50,12 @@ const dogProfileCard = function (dog) {
 };
 
 export { dogProfileCard };
+
+
+
+// 1) send dog to DB
+// 2) find dogs that are compatible with THIS dog (based on its size, gender, breed)
+// 3) once found, compare the compatibilities (make sure good with people and reactive match as well as the size, gender, and breed compatibilities eg, make sure the dog we sent is compatible with the size/gender/breed of the dogs that may be compatible with it)
+
+
+/* SELECT * FROM DOGS WHERE (size of input dog) ?| size_compatibility) AND (gender of dog) ?| gender_compatibility AND (breed of input dog IS NOT ?! breed_incompatability) AND (size_compatibility of input dog ?! size_compatibility) AND (gender_compatibility of input dog ?! gender_compatibility AND (reactive is equal) AND (good_with_people is equal) AND (breed_incompatibility of input dog does NOT match breed)) */
