@@ -30,6 +30,7 @@ export default function RegisterDog() {
   const [breed_incompatibility, setBreedIncomp] = useState({});
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
+  // const [status, setStatus] = useState(false);
 
   //Function to manage checked box status in size compatibility form section
 
@@ -54,6 +55,11 @@ export default function RegisterDog() {
     newBreedIncompatibility[breed] = !breed_incompatibility[breed];
     setBreedIncomp(newBreedIncompatibility);
   };
+
+  //Function to manage status "pop up" component
+  // const handleChat = event => {
+  //   setIsShown(current => !current)
+  // }
 
   //Function to add data to server on form submission
 
