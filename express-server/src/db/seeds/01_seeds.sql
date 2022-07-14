@@ -17,13 +17,13 @@ VALUES
 INSERT INTO dogs 
   (name, breed, gender, age, size, reactive, good_with_people,size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id) 
   VALUES 
-  ('Spot', 'pitbull', 'male', 3, 'medium', false, true, '{"small": true, "middle": true}', '{"male": true, "female": true}', '{"pitbull": true}','Very playful and kind to people and kids, Spot loves to spend time outdoors', './public/spot.jpeg', 1),
+  ('Spot', 'pitbull', 'male', 3, 'medium', false, true, '{"small": true, "middle": true, "large": true}', '{"male": true, "female": true}', '{"pitbull": true}','Very playful and kind to people and kids, Spot loves to spend time outdoors', './public/spot.jpeg', 1),
 
   ('Bailey', 'poodle', 'female', 2, 'medium', false, true, '{"small": true, "middle": true, "large": true}', '{"male": true, "female": true}', '{"pitbull": true}', 'Smart and happy dog, enjoys playing with everyone', './public/bailey.jpeg', 2),
 
   ('Flash', 'pug', 'male', 7, 'small', true, true, '{"small": true}', '{"male": true, "female": true}', '{"husky": true}', 'Small but quick, Flash loved dog parks more than anything, a little cautious of other dogs', './public/flash.jpeg', 3),
 
-  ('Gatsby', 'labrador', 'male', 5, 'medium', true, false, '{"small": true}', '{"male": true, "female": true}', '{"german shepherd": true}', 'Being a resque dog, Gatsby is a sweet and loving dog, but needs a little time to get adjusted to new faces', './public/gatsby.jpeg', 4),
+  ('Gatsby', 'labrador', 'male', 5, 'medium', true, false, '{"medium": true}', '{"male": true, "female": true}', '{"german shepherd": true}', 'Being a resque dog, Gatsby is a sweet and loving dog, but needs a little time to get adjusted to new faces', './public/gatsby.jpeg', 4),
 
   ('Abby', 'bulldog', 'female', 4, 'medium', true, true, '{"middle": true}', '{"female": true}', '{"pitbull": true}', 'Give Abby a treat, and she will become your best friend', './public/abby.jpeg', 5),
 
