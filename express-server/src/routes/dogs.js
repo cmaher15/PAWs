@@ -4,7 +4,14 @@ module.exports = (db) => {
   // get dogs
 
   router.get("/dogs", (req, res) => {
-    // const userId = 1;
+    const queryResult = [];
+    const userId = 1;
+    db.query(`SELECT dogs.reactive, dogs.good_with_people, dogs.size_compatibility, dogs.gender_compatibility, dogs.breed_incompatibility FROM dogs WHERE owner_id = ${userId}`).then(result => {
+      queryResult.push(result.rows);
+
+      
+      console.log('queryResult inside initial query:',queryResult);
+    }).catch(err => console.error(err))
     // console.log('req.body:', req.body);
     // const reactive = req.body.reactive;
     // const good = req.body.good_with_people;
@@ -12,6 +19,7 @@ module.exports = (db) => {
     // const gender = req.body.gender_compatibility;
     // const incompat = req.body.breed_incompatibility;
     //  const incompat = '{"pitbull": true}';
+    
     db.query(`SELECT * FROM dogs`)
       .then((result) => {
         res.send(
