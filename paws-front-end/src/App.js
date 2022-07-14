@@ -14,6 +14,7 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
+import Status from "./components/Status";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -112,11 +113,11 @@ function App() {
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
-        {/* <RegisterDog />
+        <RegisterDog />
         <RegisterUser />
         <DogProfile />
-        <UserProfile /> */}
-        <DogProfile />
+        <Status/>
+        <UserProfile />
       </BrowserRouter>
     </div>
   );

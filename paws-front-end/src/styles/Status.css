@@ -1,0 +1,14 @@
+.loading {
+  border: 3px solid black;
+  width: 500px;
+  height: 300px;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 20px;
+  border-radius: 10px;
+  background: white
+}
+
+.status_image {
+  width: 200px;
+  height: 200px;
+}
