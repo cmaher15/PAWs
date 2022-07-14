@@ -7,6 +7,7 @@ form {
   flex-direction: column;
   width:fit-content;
   block-size: fit-content;
+  margin: auto;
   padding:20px;
   font-family: 'Montserrat', sans-serif;
   border: 5px solid black;
@@ -79,8 +80,6 @@ textarea {
   display:inline;
 }
 
-
-
 .submitbtn {
   background-color: white;
   background: transparent;
@@ -99,3 +98,4 @@ textarea {
   color: white;
   outline-color: white;
 }
+
