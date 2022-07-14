@@ -51,10 +51,12 @@ app.use("/api", dogs(db));
 app.use("/api", owners(db));
 app.use("/login", owners(db));
 
+
+
 ///CHAT CODE FOR SERVER SIDE///
 
 const clients = {};
-console.log("socketio.Server", sock.Server);
+// console.log("socketio.Server", sock.Server);
 
 const io = new sock.Server(server);
 
@@ -70,7 +72,7 @@ io.on("connection", (db) => {
   // db.emit("name", name);
 
   db.on("message", (data) => {
-    console.log("message:", data);
+    // console.log("message:", data);
     // data.from = db.name;
 
     // if (data.to) {
@@ -84,7 +86,7 @@ io.on("connection", (db) => {
 
   db.on("disconnect", () => {
     delete clients[db.name];
-    console.log("owner Disconnected!", db.name);
+    // console.log("owner Disconnected!", db.name);
   });
 });
 
