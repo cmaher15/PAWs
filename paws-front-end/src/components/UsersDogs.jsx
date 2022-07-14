@@ -8,24 +8,21 @@ import { dogProfileCard } from "../helpers/dogProfileJSX";
 const UsersDogs = function () {
   const [userDogs, setUserDogs] = useState([]);
 
-  const getUserDogs = (ownerId) => {
+  const getUserDogs = ownerId => {
     // Make GET request to server for array of user's dogs
     axios
       .get(`/api/dogs/${ownerId}`)
       .then(response => {
-        console.log('response in users-dogs:', response);
+        console.log("response in users-dogs:", response);
         return response;
       })
       .catch(err => console.error(err));
   };
 
   useEffect(() => {
- 
     // Array sent back from the server will be the value of matchedDogs
     getUserDogs(1);
-      
   }, []);
-
 
   return userDogs !== undefined
     ? userDogs.map(dog => dogProfileCard(dog))
