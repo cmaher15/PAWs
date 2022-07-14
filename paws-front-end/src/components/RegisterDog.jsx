@@ -13,7 +13,7 @@ import GenderCompatability from "./DogForm/GenderCompatability";
 import BreedIncompatibility from "./DogForm/BreedIncompability";
 import Description from "./DogForm/Description";
 import Image from "./DogForm/Image";
-import Status from "./DogForm/Status";
+
 
 //Main function to handle dog registration and form submission for dog profile
 
@@ -30,6 +30,7 @@ export default function RegisterDog() {
   const [breed_incompatibility, setBreedIncomp] = useState({});
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
+  // const [status, setStatus] = useState(false);
 
   //Function to manage checked box status in size compatibility form section
 
@@ -54,6 +55,11 @@ export default function RegisterDog() {
     newBreedIncompatibility[breed] = !breed_incompatibility[breed];
     setBreedIncomp(newBreedIncompatibility);
   };
+
+  //Function to manage status "pop up" component
+  // const handleChat = event => {
+  //   setIsShown(current => !current)
+  // }
 
   //Function to add data to server on form submission
 
@@ -114,7 +120,6 @@ export default function RegisterDog() {
         <button type="submit" className="submitbtn" onChange={formHandle}>
           Submit
         </button>
-        <Status />
       </div>
     </form>
   );

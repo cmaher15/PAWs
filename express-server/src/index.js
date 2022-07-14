@@ -67,7 +67,7 @@ io.on("connection", (db) => {
   clients[name] = db.id;
   // console.log(clients);
 
-  db.broadcast.emit("server", `${name}: just connected`);
+  // db.broadcast.emit("server", `${name}: just connected`);
 
   // db.emit("name", name);
 
