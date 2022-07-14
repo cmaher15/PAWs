@@ -8,6 +8,10 @@ import { dogProfileCard } from "../helpers/dogProfileJSX";
 const UsersDogs = function () {
   const [userDogs, setUserDogs] = useState([]);
 
+  const ownerID = {
+    id: 1
+  };
+
   const getUserDogs = async function (ownerId) {
     // Make GET request to server for array of user's dogs
     await axios.get("/api/users-dogs", ownerId).then(response => {
@@ -24,8 +28,7 @@ const UsersDogs = function () {
         setUserDogs(response);
       })
       .catch(error => {
-        console.log("Server request for owner's dogs failed."); // REMOVE
-        console.log("Catch error: ", error);
+        console.log("Server request for owner's dogs failed: ", error);
       });
   }, []);
 
