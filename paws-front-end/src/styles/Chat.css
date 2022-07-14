@@ -52,6 +52,7 @@
 
 .messages {
   display:flex;
+  word-wrap: break-word;
   background-color:rgb(244, 136, 136);
   padding:20px;
   border-radius:30px;
@@ -65,7 +66,9 @@
   text-align:center;
     }
 
-
+.chatBubble {
+  word-wrap: break-word;
+}
     
 .chatbutton {
   display: flex;

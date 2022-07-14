@@ -60,7 +60,7 @@ export default function Chat() {
       </div>
       <div className="messagehistory">
         <div className="messages">
-          <ul>{list}</ul>
+          <ul className="chatBubble">{list}</ul>
         </div>
       </div>
       <div id="newmessagebox">
