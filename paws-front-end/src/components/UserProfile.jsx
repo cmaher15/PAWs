@@ -23,7 +23,7 @@ const UserProfile = function (props) {
           {" "}
           <Link
             to={"/dog-matches"}
-            conClick={() => props.setUrlPath("/dog-matches")}
+            onClick={() => props.setUrlPath("/dog-matches")}
           >
             Matches
           </Link>

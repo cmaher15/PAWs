@@ -10,26 +10,24 @@ const DogProfileTemplate = function () {
   // An array of matched dogs fetched from the server
   const [matchedDogs, setMatchedDogs] = useState([]);
 
-  const getMatches = async function (ownerId) {
+  const getMatches = function (ownerId) {
     // Make GET request to server for array of matched dogs
-    await axios.get("/api/dogs", ownerId).then(response => {
-      return response;
-    });
+    axios
+      .get(`/api/dogs/filter/${ownerId}`)
+      .then(response => {
+        console.log("response in dog-matches:", response);
+        return response;
+      })
+      .catch(err => console.error(err));
   };
 
   useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
-    getMatches()
-      .then(response => {
-        setMatchedDogs(response);
-      })
-      .catch(error => {
-        console.log("Server request for dog matches failed: ", error);
-      });
+    getMatches(1);
   }, []);
 
   // JSX for dog profiles returned by component
-  return matchedDogs.length > 0
+  return matchedDogs !== undefined
     ? matchedDogs.map(dog => dogProfileCard(dog))
     : "There are no matches in your area at this time.";
 };
