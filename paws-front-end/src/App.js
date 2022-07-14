@@ -117,7 +117,6 @@ function App() {
         <DogProfile />
         <UserProfile /> */}
         <DogProfile />
-        {/* <Chat /> */}
       </BrowserRouter>
     </div>
   );

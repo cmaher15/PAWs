@@ -16,16 +16,17 @@ export default function DogProfile() {
       </div>
       <span className="icons">
         <h1 className="dogName">Rocky</h1>
-        <i
-          className="fa-solid fa-heart fa-xl"
+        <button className="favourite"><i
+          className="fa-solid fa-heart fa-2xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
-        ></i><button className="sendChatBtn" onClick={handleChat}><i
-          className="fa-solid fa-message fa-xl"
+        ></i></button>
+        <button className="sendChatBtn" onClick={handleChat}><i
+          className="fa-solid fa-message fa-2xl"
           onMouseOver={({ target }) => (target.style.color = "cadetblue")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i></button>
-        {isShown && <Chat />}
+              {isShown && <Chat />}
       </span>
       <span className="locationInfo">
         <i className="fa-solid fa-location-dot fa-2xl"></i>
@@ -45,5 +46,6 @@ export default function DogProfile() {
         <h4>Parent: Michael Scarn</h4>
       </span>
     </main>
+    
   );
 }

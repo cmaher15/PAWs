@@ -80,3 +80,14 @@
   justify-content: center;
   margin-top: 40px;
 }
+
+.favourite {
+background: transparent;
+border: none;
+}
+
+.sendChatBtn {
+  background: transparent;
+border: none;
+
+}
