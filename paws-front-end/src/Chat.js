@@ -45,15 +45,18 @@ export default function Chat() {
 
   return (
     <div className="chat">
-      <h1>Chat</h1>
+      <h3>Chat</h3>
       <div className="email">{name}</div>
 
-      <div>
-        <input
+      <div className="headerChat">
+        You're chatting with:
+      <img className="userChatThumb" src="images/mscarn.jpeg" />
+      Michael Scarn
+        {/* <input
           onChange={(event) => setTo(event.target.value)}
           value={to}
           placeholder="Recipient"
-        />
+        /> */}
       </div>
       <div className="messagehistory">
         <div className="messages">
