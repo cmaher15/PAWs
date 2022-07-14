@@ -29,6 +29,7 @@ import {
 
 //Chat
 import Chat from "./Chat";
+import DogProfileTemplate from "./components/DogMatches";
 
 const App = () => {
   // GLOBAL STATE
@@ -56,7 +57,6 @@ const App = () => {
   useEffect(() => {
     getLongLat();
   }, []);
-
 
   return (
     <div className="App">

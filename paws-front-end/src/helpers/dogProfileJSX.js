@@ -7,16 +7,20 @@ const dogProfileCard = function (dog) {
       </div>
       <span className="icons">
         <h1 className="dogName">{dog.dogs_name}</h1>
-        <i
-          className="fa-solid fa-heart fa-xl"
-          onMouseOver={({ target }) => (target.style.color = "darkred")}
-          onMouseOut={({ target }) => (target.style.color = "gray")}
-        ></i>
-        <i
-          className="fa-solid fa-message fa-xl"
-          onMouseOver={({ target }) => (target.style.color = "cadetblue")}
-          onMouseOut={({ target }) => (target.style.color = "gray")}
-        ></i>
+        <button className="favourite">
+          <i
+            className="fa-solid fa-heart fa-2xl"
+            onMouseOver={({ target }) => (target.style.color = "darkred")}
+            onMouseOut={({ target }) => (target.style.color = "gray")}
+          ></i>
+        </button>
+        <button className="sendChatBtn" onClick={handleChat}>
+          <i
+            className="fa-solid fa-message fa-2xl"
+            onMouseOver={({ target }) => (target.style.color = "cadetblue")}
+            onMouseOut={({ target }) => (target.style.color = "gray")}
+          ></i>
+        </button>
       </span>
       <span className="locationInfo">
         <i className="fa-solid fa-location-dot fa-2xl"></i>
