@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/DogProfile.css";
+import Chat from "../Chat";
+
 
 export default function DogProfile() {
+  const [isShown, setIsShown] = useState(false);
+
+  const handleChat = event => {
+    setIsShown(current => !current)
+  }
   return (
     <main className="dogProfile">
       <div>
@@ -13,12 +20,12 @@ export default function DogProfile() {
           className="fa-solid fa-heart fa-xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
-        ></i>
-        <i
+        ></i><button className="sendChatBtn" onClick={handleChat}><i
           className="fa-solid fa-message fa-xl"
           onMouseOver={({ target }) => (target.style.color = "cadetblue")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
-        ></i>
+        ></i></button>
+        {isShown && <Chat />}
       </span>
       <span className="locationInfo">
         <i className="fa-solid fa-location-dot fa-2xl"></i>

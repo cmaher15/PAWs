@@ -20,7 +20,7 @@ export default function Chat() {
     });
 
     socket.on("user", (msg) => {
-      setMessages((prev) => [`${msg.from} says:" ${msg.text}`, ...prev]);
+      setMessages((prev) => [`${msg.from} says: ${msg.text}`, ...prev]);
     });
 
     socket.on("server", (msg) => {
@@ -50,8 +50,8 @@ export default function Chat() {
 
       <div className="headerChat">
         You're chatting with:
-      <img className="userChatThumb" src="images/mscarn.jpeg" />
-      Michael Scarn
+        <img className="userChatThumb" src="images/mscarn.jpeg" />
+        Michael Scarn
         {/* <input
           onChange={(event) => setTo(event.target.value)}
           value={to}
