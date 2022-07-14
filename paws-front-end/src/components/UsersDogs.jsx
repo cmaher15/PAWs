@@ -13,16 +13,18 @@ const UsersDogs = function () {
     axios
       .get(`/api/dogs/${ownerId}`)
       .then(response => {
-        console.log("response in users-dogs:", response);
-        return response;
+        console.log("response in users-dogs axios-request:", response.data);
+        return response.data;
       })
       .catch(err => console.error(err));
   };
 
   useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
-    getUserDogs(1);
+    setUserDogs(getUserDogs(1));
   }, []);
+
+  console.log("usersDogs before return call: ", userDogs);
 
   return userDogs !== undefined
     ? userDogs.map(dog => dogProfileCard(dog))
