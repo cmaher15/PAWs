@@ -1,18 +1,20 @@
 const router = require("express").Router();
 const cookieSession = require("cookie-session");
+const bcrypt = require("bcryptjs");
 
-module.exports = db => {
+module.exports = (db) => {
   router.use(
     cookieSession({
       name: "session",
       keys: ["userId", "key2"],
+      httpOnly: false,
 
-      maxAge: 24 * 60 * 60 * 1000
+      maxAge: 24 * 60 * 60 * 1000,
     })
   );
 
   router.get("/owners", (req, res) => {
-    db.query(`SELECT * FROM owners`).then(result => {
+    db.query(`SELECT * FROM owners`).then((result) => {
       res.send(result.rows);
     });
   });
@@ -38,21 +40,23 @@ module.exports = db => {
     //const id = db.query(`SELECT id FROM owners WHERE id = 1`)
     console.log(req.body);
     // console.log(req.params);
+    const salt = bcrypt.genSaltSync(10);
+    const hashedpassword = bcrypt.hashSync(req.body.password, salt);
     db.query(
       `
     INSERT INTO owners 
     (name, password, city, email, thumbnail_photo_url, location)
      VALUES 
-     ('${req.body.name}', '${req.body.hashedpassword}', '${req.body.city}', '${req.body.email}', '${req.body.thumbnail_photo_url}', '(-194.0, 53.0)')`
+     ('${req.body.name}', '${hashedpassword}', '${req.body.city}', '${req.body.email}', '${req.body.thumbnail_photo_url}', '(-194.0, 53.0)')`
     )
-      .then(result => {
+      .then((result) => {
         console.log("New owner was successfully added");
         res.json({
           statuscode: 200,
-          message: "User was successfully created"
+          message: "User was successfully created",
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.message);
       });
   });
@@ -63,20 +67,22 @@ module.exports = db => {
     const userEmail = req.body.email;
     const userPassword = req.body.password;
     db.query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
-      .then(result => {
+      .then((result) => {
         // console.log('result:', result.rows)
         console.log("password:", result.rows[0].password);
         console.log("user password:", userPassword);
 
         if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
           console.log("inside comparison");
-          res.send(result.rows[0].id);
+          res.cookie("userId", result.rows[0].id);
+          res.status(200).send(result.rows[0].id.toString());
+          // req.session.userId = result.rows[0].id;}
         } else {
           return res.status(403).send("Incorrect password");
         }
       })
-      .catch(err => {
-        console.log("Login Fail");
+      .catch((err) => {
+        console.log(err);
         return res.sendStatus(403);
       });
   });

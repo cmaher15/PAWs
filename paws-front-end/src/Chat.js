@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-
+import { v4 } from "uuid";
+import "./styles/Chat.css";
 
 export default function Chat() {
   const [name, setName] = useState("");
@@ -33,14 +34,17 @@ export default function Chat() {
     return () => socket.disconnect(); // prevents memory leak!
   }, []);
 
-  const list = messages.map((msg) => <li>{msg}</li>);
+  const list = messages
+    .map((msg) => <li key={v4()}>{msg}</li>)
+    .sort()
+    .reverse();
 
   const send = function () {
     socket.emit("message", { to, text });
   };
 
   return (
-    <div className="App">
+    <div className="chat">
       <h1>Chat</h1>
       <div className="email">{name}</div>
 
@@ -51,17 +55,26 @@ export default function Chat() {
           placeholder="Recipient"
         />
       </div>
-
-      <div>
+      <div className="messagehistory">
+        <div className="messages">
+          <ul>{list}</ul>
+        </div>
+      </div>
+      <div id="newmessagebox">
         <textarea
+          className="newmessage"
           onChange={(e) => setText(e.target.value)}
           placeholder="Type a message"
         />
       </div>
-      <button onClick={send}>Send</button>
-
-      <button onClick={() => setMessages([])}>Clear</button>
-      <ul>{list}</ul>
+      <div className="chatbottom">
+        <button className="clear" onClick={() => setMessages([])}>
+          Clear
+        </button>
+        <button className="send" onClick={send}>
+          Send
+        </button>
+      </div>
     </div>
   );
 }
