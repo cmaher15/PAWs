@@ -26,7 +26,6 @@ export default function DogProfile() {
           onMouseOver={({ target }) => (target.style.color = "cadetblue")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i></button>
-              {isShown && <Chat />}
       </span>
       <span className="locationInfo">
         <i className="fa-solid fa-location-dot fa-2xl"></i>
@@ -45,6 +44,7 @@ export default function DogProfile() {
         <img className="userThumbnail" src="images/mscarn.jpeg" />
         <h4>Parent: Michael Scarn</h4>
       </span>
+      <div>{isShown && <Chat />}</div>
     </main>
     
   );
