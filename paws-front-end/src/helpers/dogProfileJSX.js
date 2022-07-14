@@ -1,10 +1,11 @@
-// JSX template for each dog profile
+//JSX template for each dog profile
 const dogProfileCard = function (dog) {
   const [isShown, setIsShown] = useState(false);
 
   const handleChat = (event) => {
     setIsShown((current) => !current);
   };
+
   return (
     <div className="dogProfile">
       <div>
