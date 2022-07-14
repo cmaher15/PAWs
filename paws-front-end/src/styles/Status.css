@@ -1,4 +1,7 @@
 .loading {
+  display: flex;
+  align-items: center;
+  margin: auto;
   border: 3px solid black;
   width: 500px;
   height: 300px;
