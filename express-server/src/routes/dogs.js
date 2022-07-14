@@ -16,47 +16,37 @@ module.exports = (db) => {
 
   // get dogs which are compatible with particular user
   router.get("/dogs/filter/:id", (req, res) => {
-    //const id = req.params;
-    const id = 1;
-    let ownersDogs;
+    const id = req.params.id;
+    // const id = 1;
 
       db
-      .query(`
-        SELECT 
-        reactive, 
-        good_with_people,
-        size_compatibility, 
-        gender_compatibility, 
-        breed_incompatibility 
-        FROM dogs WHERE owner_id = ${id} 
-      `) 
-      .then(result => {
-        ownersDogs = result.rows;
-        console.log('result of ownersDogs 1st', ownersDogs);
-        res.send(ownersDogs)
-        // console.log('queryResult.size_compat', queryResult[0].size_compatibility)
-      })
-      
-      .then(()=> {
-        // console.log('result of ownersDogs 2nd: ', ownersDogs);
-        // db
-        // .query(`
-        // SELECT * FROM dogs WHERE
-        // reactive = ${ownersDogs.reactive}, 
-        // good_with_people = ${ownersDogs.good_with_people}
-        // `)
-        // .then(result => {
-        //   console.log('result.rows 2nd query:', result.rows)
-        //   res.send(result.rows)
-        // })     
-        // .catch(err => console.error(err));
-      })
-      .catch(err => console.error(err));
-      
+      .query("SELECT * FROM dogs WHERE owner_id = $1", [id]) 
+    
+      .then((result)=> {
+         
+        const ownersCriteria = result.rows[0];
+        console.log('result of ownersCriteria 1st', ownersCriteria);
 
-      // size_compatibility = ${ownersDogs.size_compatibility},
-      // gender_compatibility = ${ownersDogs.gender_compatibility},
-      // breed_incompatibility IS NOT ${ownersDogs.gender_compatibility}
+        const sql = "SELECT * FROM dogs WHERE reactive = $1 AND good_with_people = $2 AND size_compatibility ?| $3"
+        return db.query(sql, [ownersCriteria.reactive, ownersCriteria.good_with_people, Object.keys(ownersCriteria.size)]);
+      })
+      .then(result => {
+        console.log('result.rows 2nd query:', result.rows)
+        res.send(result.rows)
+      })
+      .catch(err => {
+        console.error(err.message)
+        res.send({error:err.message})
+      });
+
+
+// {small: true} !== {small: true, "medium":true}
+
+
+// AND size_compatibility @> $3 AND gender_compatibility @> $4 AND breed_incompatibility @> $5 AND owner_id != $6
+
+//, ownersCriteria.size_compatibility, ownersCriteria.gender_compatibility, ownersCriteria.breed_incompatibility, id
+
   });
     
 

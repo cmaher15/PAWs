@@ -12,23 +12,22 @@ const UsersDogs = function () {
     // Make GET request to server for array of user's dogs
     axios
       .get(`/api/dogs/${ownerId}`)
-      .then(response => {
-        console.log('response in users-dogs:', response);
-        return response;
+      .then((response) => {
+        console.log("response in users-dogs axios-request:", response.data);
+        return response.data;
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
- 
     // Array sent back from the server will be the value of matchedDogs
-    getUserDogs(1);
-      
+    setUserDogs(getUserDogs(1));
   }, []);
 
+  console.log("usersDogs before return call: ", userDogs);
 
   return userDogs !== undefined
-    ? userDogs.map(dog => dogProfileCard(dog))
+    ? userDogs.map((dog) => dogProfileCard(dog))
     : "It appears that you do not have any dogs registered.";
 };
 

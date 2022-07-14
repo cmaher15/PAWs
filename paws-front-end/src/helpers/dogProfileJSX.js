@@ -1,5 +1,6 @@
 // JSX template for each dog profile
 const dogProfileCard = function (dog) {
+  console.log(dog);
   return (
     <div className="dogProfile">
       <div>
