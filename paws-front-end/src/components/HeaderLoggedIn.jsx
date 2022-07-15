@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/Header.css"
+import UserProfile from "./UserProfile";
 
 const HeaderLoggedIn = function (props) {
   return (
     <>
-      <p>Logged in as: {props.userName}</p>
+        <UserProfile />
+      <p className='logged-in'>Logged in as: {props.userName}</p>
       <Link to="/">
-        <button onClick={() => props.setLoggedIn(false)}>Logout</button>
+        <button className='logout' onClick={() => props.setLoggedIn(false)}>Logout</button>
       </Link>
     </>
   );

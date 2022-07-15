@@ -7,7 +7,7 @@ const HomePage = function (props) {
   const guestGreeting = function () {
     return (
       <p>
-        No account? Sign up <Link to="/register-user">here</Link>
+        No account? Sign up <Link className='footer' to="/register-user">here</Link>
       </p>
     );
   };
