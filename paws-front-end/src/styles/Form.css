@@ -11,6 +11,9 @@ form {
   padding:20px;
   font-family: 'Montserrat', sans-serif;
   border: 5px solid black;
+  border-radius: 10px;
+  background-color: rgba(245, 245, 220, 0.503);
+  
 }
 
 .title {

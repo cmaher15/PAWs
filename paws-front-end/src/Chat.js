@@ -4,11 +4,10 @@ import { v4 } from "uuid";
 import "./styles/Chat.css";
 import axios from "axios";
 
-export default function Chat(props) {
+export default function Chat() {
   const [name, setName] = useState("");
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
-  const [to, setTo] = useState("");
   const [socket, setSocket] = useState();
   console.log("cookie", document.cookie);
   const userID = document.cookie.slice(7);
@@ -70,11 +69,6 @@ export default function Chat(props) {
         You're chatting with:
         <img className="userChatThumb" src="images/mscarn.jpeg" />
         Michael Scarn
-        {/* <input
-          onChange={(event) => setTo(event.target.value)}
-          value={to}
-          placeholder="Recipient"
-        /> */}
       </div>
       <div className="messagehistory">
         <div className="messages">{list}</div>
