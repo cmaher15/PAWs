@@ -21,7 +21,6 @@ const owners = require("./routes/owners");
 
 const sock = require("socket.io");
 
-
 function read(file) {
   return new Promise((resolve, reject) => {
     fs.readFile(
@@ -53,8 +52,6 @@ app.use("/api", dogs(db));
 app.use("/api", owners(db));
 app.use("/login", owners(db));
 
-
-
 ///CHAT CODE FOR SERVER SIDE///
 
 const clients = {};
@@ -64,17 +61,17 @@ const io = new sock.Server(server);
 
 io.on("connection", (db) => {
   const name = db;
-  // console.log("Someone connected!", db.id, name);
   db.name = name;
-  clients[name] = db.id;
-  // console.log(clients);
+  // console.log("clents", clients);
+  clients[name] = name;
+  // console.log(clients[name]);
 
   // db.broadcast.emit("server", `${name}: just connected`);
 
   // db.emit("name", name);
 
   db.on("message", (data) => {
-    // console.log("message:", data);
+    console.log("message:", data.name, data.text);
     // data.from = db.name;
 
     // if (data.to) {

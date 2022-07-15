@@ -34,7 +34,7 @@ export default function Chat(props) {
     });
 
     socket.on("user", (msg) => {
-      setMessages((prev) => [`${msg.from} says: ${msg.text}`, ...prev]);
+      setMessages((prev) => [`${msg.name} says: ${msg.text}`, ...prev]);
     });
 
     socket.on("server", (msg) => {
@@ -49,12 +49,16 @@ export default function Chat(props) {
   }, []);
 
   const list = messages
-    .map((msg) => <li key={v4()}>{msg}</li>)
+    .map((msg) => (
+      <div className="chatBubble" key={v4()}>
+        {msg}
+      </div>
+    ))
     .sort()
     .reverse();
 
   const send = function () {
-    socket.emit("message", { to, text });
+    socket.emit("message", { name, text });
   };
 
   return (
@@ -73,9 +77,7 @@ export default function Chat(props) {
         /> */}
       </div>
       <div className="messagehistory">
-        <div className="messages">
-          <ul className="chatBubble">{list}</ul>
-        </div>
+        <div className="messages">{list}</div>
       </div>
       <div id="newmessagebox">
         <textarea
