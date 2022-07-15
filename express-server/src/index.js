@@ -52,7 +52,7 @@ app.use(
 app.use("/api", dogs(db));
 app.use("/api", owners(db));
 app.use("/login", owners(db));
-
+app.use("/logout", owners(db));
 
 
 ///CHAT CODE FOR SERVER SIDE///

@@ -15,16 +15,14 @@ module.exports = (db) => {
   router.get("/owners/:id", (req, res) => {
     const id = req.params.id;
     // const id = req.session.user_id;
-    db.query(`SELECT * FROM owners WHERE id = ${id}`).then(
-      ({ rows: owners }) => {
-        res.json(
-          owners.reduce(
-            (previous, current) => ({ ...previous, [current.id]: current }),
-            {}
-          )
-        );
-      }
-    );
+    db.query(`SELECT * FROM owners WHERE id = ${id}`)
+    .then((result) => {
+        // console.log('info about the dog of specific owner: ',result.rows)
+        res.send(result.rows[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   });
 
   //Create new owner
@@ -77,6 +75,11 @@ module.exports = (db) => {
         console.log(err);
         return res.sendStatus(403);
       });
+  });
+
+  // Logout route
+  router.post("/logout", (req, res) => {
+    res.clearCookie("userId").send('Cookies were cleared');
   });
 
   return router;
