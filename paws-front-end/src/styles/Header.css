@@ -3,7 +3,7 @@ background-color: rgb(214, 231, 194);
 overscroll-behavior: none;
 display: flex;
 flex-direction: row;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 }
 
@@ -12,9 +12,15 @@ align-items: center;
   color: rgb(0, 0, 0);
   font-weight: 600;
   font-size: 20px;
-  margin-right: 500px;
+  margin-top: 0px;
+  margin-left: 40px;
 }
 
+.site-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
 a,
 a:visited,
 a:hover,
@@ -23,6 +29,33 @@ a:active {
   text-decoration: none;
   font-size: 50px;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 0px;
+  margin-left: 30px;
 }
 
+.logged-in {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
 
+.logout {
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  background-color: white;
+  background: transparent;
+  border-radius: 10px;
+  color: rgb(21, 56, 88);
+  outline-color: rgb(21, 56, 88);
+  border-color: rgb(21, 56, 88);
+  border-style: solid;
+
+}
+
+.logout:hover {
+  background-color: rgb(21, 56, 88);
+  color: white;
+  outline-color: white;
+}
