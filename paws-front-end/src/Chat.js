@@ -2,13 +2,26 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { v4 } from "uuid";
 import "./styles/Chat.css";
+import axios from "axios";
 
 export default function Chat() {
   const [name, setName] = useState("");
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
-  const [to, setTo] = useState("");
   const [socket, setSocket] = useState();
+  console.log("cookie", document.cookie);
+  const userID = document.cookie.slice(7);
+  console.log("userId", userID);
+
+  axios
+    .get(`/api/owners/${userID}`)
+    .then((response) => {
+      console.log("response for user:", response);
+      console.log("username", response.data.name);
+      setName(response.data.name);
+      return response;
+    })
+    .catch((err) => console.error(err));
 
   useEffect(() => {
     // Connect to server
@@ -20,27 +33,31 @@ export default function Chat() {
     });
 
     socket.on("user", (msg) => {
-      setMessages((prev) => [`${msg.from} says: ${msg.text}`, ...prev]);
+      setMessages((prev) => [`${msg.name} says: ${msg.text}`, ...prev]);
     });
 
     socket.on("server", (msg) => {
       setMessages((prev) => [msg, ...prev]);
     });
 
-    socket.on("name", (data) => {
-      setName(data);
+    socket.on("name", (name) => {
+      setName(name);
     });
 
     return () => socket.disconnect(); // prevents memory leak!
   }, []);
 
   const list = messages
-    .map((msg) => <li key={v4()}>{msg}</li>)
+    .map((msg) => (
+      <div className="chatBubble" key={v4()}>
+        {msg}
+      </div>
+    ))
     .sort()
     .reverse();
 
   const send = function () {
-    socket.emit("message", { to, text });
+    socket.emit("message", { name, text });
   };
 
   return (
@@ -52,16 +69,9 @@ export default function Chat() {
         You're chatting with:
         <img className="userChatThumb" src="images/mscarn.jpeg" />
         Michael Scarn
-        {/* <input
-          onChange={(event) => setTo(event.target.value)}
-          value={to}
-          placeholder="Recipient"
-        /> */}
       </div>
       <div className="messagehistory">
-        <div className="messages">
-          <ul className="chatBubble">{list}</ul>
-        </div>
+        <div className="messages">{list}</div>
       </div>
       <div id="newmessagebox">
         <textarea

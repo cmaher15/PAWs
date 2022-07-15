@@ -3,12 +3,12 @@ const cookieSession = require("cookie-session");
 const bcrypt = require("bcryptjs");
 
 module.exports = (db) => {
-  
-
   router.get("/owners", (req, res) => {
-    db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then((result) => {
-      res.send(result.rows);
-    });
+    db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then(
+      (result) => {
+        res.send(result.rows);
+      }
+    );
   });
 
   //info about specific owner
@@ -16,7 +16,7 @@ module.exports = (db) => {
     const id = req.params.id;
     // const id = req.session.user_id;
     db.query(`SELECT * FROM owners WHERE id = ${id}`)
-    .then((result) => {
+      .then((result) => {
         // console.log('info about the dog of specific owner: ',result.rows)
         res.send(result.rows[0]);
       })
