@@ -46,7 +46,7 @@ const Footer = function (props) {
 
   return (
     <div className="footer-div">
-      {renderLinks}
+      <p className='footer'>{renderLinks}</p>
       <p className='easteregg'>a Theat-Level MIDNIGHT production /{new Date().getFullYear()}</p>
     </div>
   );
