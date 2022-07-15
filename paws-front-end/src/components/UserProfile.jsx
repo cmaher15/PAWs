@@ -27,6 +27,7 @@ const UserProfile = function (props) {
             <p className='dropdown-text'>View Your Matches</p>
           </Link>
         </button>
+        
       </div>
     </div>
   );

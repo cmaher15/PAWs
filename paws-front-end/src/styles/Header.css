@@ -87,12 +87,20 @@ background-color: transparent;
 
 .footer-div {
   margin-left: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .footer {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
+}
+
+.footer:hover {
+  color: gray;
+  list-style-type: none;
 }
 
 .easteregg {

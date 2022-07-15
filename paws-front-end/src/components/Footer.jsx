@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = function (props) {
   // Path Link components
   const homeLink = (
-    <Link to={"/"} onClick={() => props.setUrlPath("/")}>
+    <Link className='footer' to={"/"} onClick={() => props.setUrlPath("/")}>
       Home
     </Link>
   );
@@ -45,7 +45,7 @@ const Footer = function (props) {
   }
 
   return (
-    <div className="footer-div" id='footer'>
+    <div className="footer-div">
       {renderLinks}
       <p className='easteregg'>a Theat-Level MIDNIGHT production /{new Date().getFullYear()}</p>
     </div>

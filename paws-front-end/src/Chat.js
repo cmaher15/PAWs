@@ -45,7 +45,7 @@ export default function Chat() {
 
   return (
     <div className="chat">
-      <h3>Chat</h3>
+      <h3 className="headerChat">Chat</h3>
       <div className="email">{name}</div>
 
       <div className="headerChat">
@@ -70,7 +70,7 @@ export default function Chat() {
           placeholder="Type a message"
         />
       </div>
-      <div className="chatbottom">
+      <div id="chatbottom">
         <button className="clear" onClick={() => setMessages([])}>
           Clear
         </button>
