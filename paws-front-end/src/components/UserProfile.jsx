@@ -8,25 +8,23 @@ const UserProfile = function (props) {
     <div className='dropdown'>
       <button className='dropbtn'><p>Hello {props.userName}!</p></button>
       <div className='dropdown-content'>
-        Manage your dogs{" "}
         <button className='mainbtn'>
           <Link
-            className='mainpage'
+            className='hovermenu'
             to={"/users-dogs"}
             onClick={() => props.setUrlPath("/users-dogs")}
           >
-            Here
+            <p className='dropdown-text'>Manage Your Dogs</p>
           </Link>
         </button>
-        View your{" "}
         <button className='mainbtn'>
           {" "}
           <Link
-          className='mainpage'
+          className='hovermenu'
             to={"/dog-matches"}
             onClick={() => props.setUrlPath("/dog-matches")}
           >
-            Matches
+            <p className='dropdown-text'>View Your Matches</p>
           </Link>
         </button>
       </div>
