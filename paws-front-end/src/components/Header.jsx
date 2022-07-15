@@ -8,7 +8,6 @@ import "../styles/Header.css"
 
 const Header = function (props) {
   return (
- 
     <div className="header-div">
          <UserProfile loggedIn = {props.loggedIn}/>
       <div className="dd-men">

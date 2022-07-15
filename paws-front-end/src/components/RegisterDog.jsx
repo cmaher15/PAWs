@@ -107,7 +107,7 @@ export default function RegisterDog() {
       <hr />
       <h2>Now Tell Us About Your Pup's Preferences</h2>
       <Reactive onChange={setReactive} value={reactive} />
-      <OkReactive onChange={setOkReactive} value={good_with_reactive_dogs} />
+      <OkReactive onChange={setOKReactive} value={good_with_reactive_dogs} />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange} />
       <GenderCompatability onChange={onGenderCompatibilityChange} />
       <BreedIncompatibility
