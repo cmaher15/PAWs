@@ -3,18 +3,10 @@ const cookieSession = require("cookie-session");
 const bcrypt = require("bcryptjs");
 
 module.exports = (db) => {
-  router.use(
-    cookieSession({
-      name: "session",
-      keys: ["userId", "key2"],
-      httpOnly: false,
-
-      maxAge: 24 * 60 * 60 * 1000,
-    })
-  );
+  
 
   router.get("/owners", (req, res) => {
-    db.query(`SELECT * FROM owners`).then((result) => {
+    db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then((result) => {
       res.send(result.rows);
     });
   });
