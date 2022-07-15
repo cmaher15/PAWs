@@ -15,7 +15,7 @@ VALUES
 
 
 INSERT INTO dogs 
-  (name, breed, gender, age, size, reactive, good_with_people,size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id) 
+  (name, breed, gender, age, size, reactive, good_with_reactive_dogs,size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id) 
   VALUES 
   ('Spot', 'pitbull', 'male', 3, 'medium', false, true, '{"small": true, "medium": true, "large": true}', '{"male": true, "female": true}', '{"pitbull": true}','Very playful and kind to people and kids, Spot loves to spend time outdoors', './public/spot.jpeg', 1),
 

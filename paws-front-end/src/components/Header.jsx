@@ -10,7 +10,7 @@ const Header = function (props) {
   return (
  
     <div className="header-div">
-         <UserProfile />
+         <UserProfile loggedIn = {props.loggedIn}/>
       <div className="dd-men">
       </div>
     <span className="site-title">

@@ -71,10 +71,10 @@ const App = () => {
             setUserId={setUserId}
           />
           <Routes>
-            <Route
+            {/* <Route
               path="/"
               element={<HomePage loggedIn={loggedIn} userName={userName} />}
-            />
+            /> */}
             <Route
               path="/register-user"
               element={<RegisterUser loggedIn={loggedIn} />}
