@@ -5,9 +5,9 @@ import "../styles/Header.css"
 
 const UserProfile = function (props) {
   return (
-    <div className='userlinks'>
-      <p>Hello {props.userName}!</p>
-      <p>
+    <div className='dropdown'>
+      <button className='dropbtn'><p>Hello {props.userName}!</p></button>
+      <div className='dropdown-content'>
         Manage your dogs{" "}
         <button className='mainbtn'>
           <Link
@@ -18,8 +18,6 @@ const UserProfile = function (props) {
             Here
           </Link>
         </button>
-      </p>
-      <p>
         View your{" "}
         <button className='mainbtn'>
           {" "}
@@ -31,7 +29,7 @@ const UserProfile = function (props) {
             Matches
           </Link>
         </button>
-      </p>
+      </div>
     </div>
   );
 };
