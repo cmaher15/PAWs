@@ -299,12 +299,12 @@ const generateDogs = function (number) {
 
     dog["breed"] = breeds[generateRandomInteger(49)];
 
-    dog["breedIncompatibility"] = generateBreedIncompatibility(breeds);
+    dog["breed_incompatibility"] = generateBreedIncompatibility(breeds);
 
-    dog["descritption"] =
+    dog["description"] =
       "My dog is dolor sit amet. Rem nisi asperiores qui voluptatem bark, bark qui omnis magnam ut sweet similique et atque quasi? Sed maiores nobis non dolor nemo est fetch tempore ut magnam impedit aut enim odit. Ut play ipsam 33 dolores runs et animi sunt qui molestiae aspernatur et aperiam ipsa sit nostrum iure.";
 
-    dog["sizeCompatibility"] = sizeCompatibility[generateRandomInteger(4) - 1];
+    dog["size_compatibility"] = sizeCompatibility[generateRandomInteger(4) - 1];
 
     dog["gender"] = gender[generateRandomInteger(2) - 1];
 
@@ -314,7 +314,7 @@ const generateDogs = function (number) {
       dog["name"] = maleNames[generateRandomInteger(100) - 1];
     }
 
-    dog["genderCompatiblitiy"] =
+    dog["gender_compatiblitiy"] =
       genderIncompatibility[generateRandomInteger(3) - 1];
 
     dog["image"] = photo;
