@@ -8,6 +8,7 @@ import UserProfile from "./UserProfile";
 const Header = function (props) {
   return (
     <div className="header-div">
+      <UserProfile />
       <div className="dd-men">
       </div>
     <span className="site-title">
@@ -25,7 +26,7 @@ const Header = function (props) {
           setLoggedIn={props.setLoggedIn}
         />
       ) : (
-        <HeaderLoggedOut setUserId={props.setUserId} />
+        <HeaderLoggedOut setUserId={props.setUserId} setLoggedIn={props.setLoggedIn} />
       )}
       </span>
     </div>

@@ -6,7 +6,7 @@ import "../styles/Header.css"
 const UserProfile = function (props) {
   return (
     <div className='dropdown'>
-      <button className='dropbtn'><p>Hello {props.userName}!</p></button>
+      <button className='dropbtn'><p>Menu</p></button>
       <div className='dropdown-content'>
         <button className='mainbtn'>
           <Link

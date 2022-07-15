@@ -34,9 +34,9 @@ import DogProfileTemplate from "./components/DogMatches";
 
 const App = () => {
   // GLOBAL STATE
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [userId, setUserId] = useState(0);
-  const [userName, setUserName] = useState("Snoopy123");
+  const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
   // GET USER LOCATION
@@ -80,23 +80,16 @@ const App = () => {
           />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login setUserId={setUserId} />} />
-          <Route
-            path="/user-profile"
-            element={
-              <UserProfile userName={userName} setUrlPath={setUrlPath} />
-            }
-          />
           <Route path="/dog-matches" element={<DogMatches />} />
           <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
         <RegisterDog />
         {/* <Status />
         <RegisterUser /> */}
-        {/* <UserProfile /> */}
         <DogProfile />
+        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
   );

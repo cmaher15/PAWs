@@ -26,6 +26,7 @@ const HeaderLoggedOut = function (props) {
           console.log(JSON.stringify(response));
           //Set the global "userId" state to userId returned from server
           props.setUserId(response.data);
+          props.setLoggedIn(true);
         })
         .catch(error => {
           console.log(error.message);
