@@ -57,16 +57,20 @@ const matchDogs = function (dogs, userDog) {
     const userBadBreeds = Object.keys(userDog.breed_incompatibility);
     const dogBadBreeds = Object.keys(dog.breed_incompatibility);
 
-    // User dog doesn't like the compare dog's breed, skip to next dog
+    // User dog doesn't like the compared dog's breed, skip to next dog
     for (let badBreed of userBadBreeds) {
       if (dog.breed === badBreed) continue;
     }
 
-    // Compare dog doesn't like user dog's breed, skip to next dog
+    // Compared dog doesn't like user dog's breed, skip to next dog
     for (let badBreed of dogBadBreeds) {
       if (userDog.breed === badBreed) continue;
     }
+
+    // Compared dog and userDog have passed all compatibility tests
+    matches.push(dog); // Dog pushed to matches array.
   }
+  return matches;
 };
 
 export { matchDogs };
