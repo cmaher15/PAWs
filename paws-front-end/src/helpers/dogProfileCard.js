@@ -1,4 +1,9 @@
+import React, { useState } from "react";
+import "../styles/DogProfile.css";
+import Chat from "../Chat";
+
 //JSX template for each dog profile
+
 const dogProfileCard = function (dog) {
   const [isShown, setIsShown] = useState(false);
 

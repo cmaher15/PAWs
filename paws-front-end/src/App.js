@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
 import "./App.css";
+import axios from "axios";
 
 // Components
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
-import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
 import DogMatches from "./components/DogMatches";
 import UsersDogs from "./components/UsersDogs";
@@ -16,6 +15,7 @@ import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
+import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
@@ -33,9 +33,9 @@ import DogProfileTemplate from "./components/DogMatches";
 
 const App = () => {
   // GLOBAL STATE
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [userId, setUserId] = useState(0);
-  const [userName, setUserName] = useState("Snoopy123");
+  const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
   // GET USER LOCATION
@@ -79,23 +79,16 @@ const App = () => {
           />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login setUserId={setUserId} />} />
-          <Route
-            path="/user-profile"
-            element={
-              <UserProfile userName={userName} setUrlPath={setUrlPath} />
-            }
-          />
           <Route path="/dog-matches" element={<DogMatches />} />
           <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
         <RegisterDog />
-        <Status />
-        {/* <RegisterUser /> */}
+        {/* <Status />
+        <RegisterUser /> */}
         <DogProfile />
-        <UserProfile />
+        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
   );

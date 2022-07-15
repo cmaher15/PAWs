@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Helper functions
 // Function takes dog object as argument, returns jsx profile card
-import { dogProfileCard } from "../helpers/dogProfileJSX";
+import { dogProfileCard } from "../helpers/dogProfileCard";
 
 const DogProfileTemplate = function () {
   // An array of matched dogs fetched from the server
@@ -15,7 +15,7 @@ const DogProfileTemplate = function () {
     axios
       .get(`/api/dogs/filter/${ownerId}`)
       .then(response => {
-        console.log('response in dog-matches:', response);
+        console.log("response in dog-matches:", response);
         return response;
       })
       .catch(err => console.error(err));
@@ -24,7 +24,6 @@ const DogProfileTemplate = function () {
   useEffect(() => {
     // Array sent back from the server will be the value of matchedDogs
     getMatches(1);
-      
   }, []);
 
   // JSX for dog profiles returned by component
