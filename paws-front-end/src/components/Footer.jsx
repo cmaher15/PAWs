@@ -9,12 +9,12 @@ const Footer = function (props) {
     </Link>
   );
   const aboutLink = (
-    <Link to={"/about-us"} onClick={() => props.setUrlPath("/about-us")}>
+    <Link className='footer' to={"/about-us"} onClick={() => props.setUrlPath("/about-us")}>
       About
     </Link>
   );
   const termsLink = (
-    <Link to={"/terms"} onClick={() => props.setUrlPath("/terms")}>
+    <Link className='footer' to={"/terms"} onClick={() => props.setUrlPath("/terms")}>
       Terms
     </Link>
   );
@@ -45,9 +45,9 @@ const Footer = function (props) {
   }
 
   return (
-    <div className="footer-div">
+    <div className="footer-div" id='footer'>
       {renderLinks}
-      <p>a Theat-Level MIDNIGHT production /{new Date().getFullYear()}</p>
+      <p className='easteregg'>a Theat-Level MIDNIGHT production /{new Date().getFullYear()}</p>
     </div>
   );
 };

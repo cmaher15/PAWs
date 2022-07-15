@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import UsersDogList from "./UserForm/UserDogList";
+import "../styles/Header.css"
 
 const UserProfile = function (props) {
   return (
-    <div>
+    <div className='userlinks'>
       <p>Hello {props.userName}!</p>
       <p>
         Manage your dogs{" "}
-        <button>
+        <button className='mainbtn'>
           <Link
+            className='mainpage'
             to={"/users-dogs"}
             onClick={() => props.setUrlPath("/users-dogs")}
           >
@@ -19,9 +21,10 @@ const UserProfile = function (props) {
       </p>
       <p>
         View your{" "}
-        <button>
+        <button className='mainbtn'>
           {" "}
           <Link
+          className='mainpage'
             to={"/dog-matches"}
             onClick={() => props.setUrlPath("/dog-matches")}
           >
