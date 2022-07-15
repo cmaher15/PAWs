@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../styles/DogProfile.css";
-import axios from "axios";
 
 // Helper functions
+import { matchDogs } from "../helpers/matchDogs";
+
 // Function takes dog object as argument, returns jsx profile card
 import { dogProfileCard } from "../helpers/dogProfileCard";
 
-const DogProfileTemplate = function () {
-  // An array of matched dogs fetched from the server
-  const [matchedDogs, setMatchedDogs] = useState([]);
-
-  const getMatches = function (ownerId) {
-    // Make GET request to server for array of matched dogs
-    axios
-      .get(`/api/dogs/filter/${ownerId}`)
-      .then(response => {
-        console.log("response in dog-matches:", response);
-        return response;
-      })
-      .catch(err => console.error(err));
-  };
-
-  useEffect(() => {
-    // Array sent back from the server will be the value of matchedDogs
-    getMatches(1);
-  }, []);
+const DogMatches = function (props) {
+  // Sort through array of dogs for matches with current dog;
+  const matchedDogs = matchDogs(props.areaDogs, dog);
 
   // JSX for dog profiles returned by component
   return matchedDogs !== undefined
@@ -32,4 +17,4 @@ const DogProfileTemplate = function () {
     : "There are no matches in your area at this time.";
 };
 
-export default DogProfileTemplate;
+export default DogMatches;

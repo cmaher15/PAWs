@@ -38,22 +38,42 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
-  // GET FROM DATABASE DOGS IN THE LOCAL AREA
+  // GET FROM SERVER, DOGS IN THE LOCAL AREA
   const [areaDogs, setAreaDogs] = useState("");
 
-  const fetchAreaDogs = async function () {
-    await axios
-      .get(`/api/dogs/%{city}`)
+  const fetchAreaDogs = function () {
+    axios
+      .get(`/api/dogs`)
       .then(response => {
         console.log("response from fetchAreaDogs: ", response);
-        return response;
+        setAreaDogs(response.data);
       })
       .catch(error => console.log("error fetching dogs in App.js: ", error));
   };
 
   useEffect(() => {
-    setAreaDogs(fetchAreaDogs);
+    fetchAreaDogs();
   }, []);
+
+  // GET FROM SERVER, OWNERS IN THE LOCAL AREA
+  const [areaOwners, setAreaOwners] = useState("");
+
+  const fetchAreaOwners = function () {
+    axios
+      .get("/api/owners")
+      .then(response => {
+        console.log("response from fetchAreaOwners");
+        setAreaOwners(response.data);
+      })
+      .catch(error => console.log("error fetching owners in App.js: ", error));
+  };
+
+  useEffect(() => {
+    fetchAreaOwners();
+  }, []);
+
+  console.log("areaOwners: ", areaOwners);
+  console.log("areaDogs: ", areaDogs);
 
   // GET USER LOCATION
   const [userCoordinates, setUserCoordinates] = useState("");
@@ -96,8 +116,14 @@ const App = () => {
           />
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route path="/login" element={<Login setUserId={setUserId} />} />
-          <Route path="/dog-matches" element={<DogMatches />} />
-          <Route path="/users-dogs" element={<UsersDogs />} />
+          <Route
+            path="/dog-matches"
+            element={<DogMatches areaDogs={areaDogs} areaOwners={areaOwners} />}
+          />
+          <Route
+            path="/users-dogs"
+            element={<UsersDogs areaDogs={areaDogs} areaOwners={areaOwners} />}
+          />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
