@@ -21,6 +21,7 @@ const owners = require("./routes/owners");
 
 const sock = require("socket.io");
 
+
 function read(file) {
   return new Promise((resolve, reject) => {
     fs.readFile(
@@ -41,7 +42,8 @@ app.use(express.json());
 app.use(
   cookieSession({
     name: "session",
-    keys: ["user_id", "key2"],
+    keys: ["userId", "key2"],
+    httpOnly: false,
 
     maxAge: 24 * 60 * 60 * 1000,
   })

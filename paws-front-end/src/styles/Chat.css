@@ -65,7 +65,7 @@
   text-align: center;
 }
 
-#chatbutton {
+.chatbutton {
   display: flex;
   flex-direction: row;
   align-items: center;
