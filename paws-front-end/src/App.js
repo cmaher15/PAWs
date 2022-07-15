@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
-import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
 import DogMatches from "./components/DogMatches";
 import UsersDogs from "./components/UsersDogs";
