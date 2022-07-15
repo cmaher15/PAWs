@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import HeaderLoggedIn from "./HeaderLoggedIn";
 import HeaderLoggedOut from "./HeaderLoggedOut";
 import "../styles/Header.css"
+import UserProfile from "./UserProfile";
 
 const Header = function (props) {
   return (
     <div className="header-div">
+      <div className="dd-men">
+        < UserProfile />
+      </div>
     <span className="site-title">
       <h1 className="home">
         <Link to={"/"} onClick={() => props.setUrlPath("/")}>
