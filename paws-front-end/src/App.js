@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 import axios from "axios";
 
 // Components
@@ -91,9 +92,9 @@ const App = () => {
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
-        {/* <RegisterDog />
-        <Status /> */}
-        {/* <RegisterUser /> */}
+        <RegisterDog />
+        {/* <Status />
+        <RegisterUser /> */}
         {/* <UserProfile /> */}
         <DogProfile />
       </BrowserRouter>

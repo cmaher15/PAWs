@@ -64,7 +64,8 @@
 .description {
   margin-left: 20px;
   margin-right: 20px;
-  justify-content: center
+  justify-content: center;
+  float:inherit;
 }
 .userThumbnail {
   display: flex;

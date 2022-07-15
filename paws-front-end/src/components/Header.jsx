@@ -9,7 +9,6 @@ const Header = function (props) {
   return (
     <div className="header-div">
       <div className="dd-men">
-        <UserProfile />
       </div>
     <span className="site-title">
       <h1 className="home">
