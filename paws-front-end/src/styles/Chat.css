@@ -50,27 +50,6 @@
 }
 
 .messages {
-<<<<<<< HEAD
-  display:flex;
-  word-wrap: break-word;
-  background-color:rgb(244, 136, 136);
-  padding:20px;
-  border-radius:30px;
-  min-width:40px;
-  max-width:220px;
-  min-height:40px;
-  margin:20px;
-  position:relative;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-    }
-
-.chatBubble {
-  word-wrap: break-word;
-}
-    
-=======
   display: flex;
   background-color: rgb(244, 136, 136);
   padding: 20px;
@@ -85,7 +64,6 @@
   text-align: center;
 }
 
->>>>>>> e9274935f8d305f1b24e1ece868d0f99fd0a3118
 .chatbutton {
   display: flex;
   flex-direction: row;

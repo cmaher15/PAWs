@@ -26,9 +26,18 @@ module.exports = (db) => {
          
         const ownersCriteria = result.rows[0];
         console.log('result of ownersCriteria 1st', ownersCriteria);
+        let sizeArray = [];
+        sizeArray.push(ownersCriteria.size)
+        console.log(sizeArray);
+        // const sql = "SELECT * FROM dogs WHERE size_compatibility ?| $1 AND gender_compatibility ?| $2 AND reactive = $3 AND good_with_people = $4 AND size ?| $5 AND gender ?| $6"
+        // return db.query(sql, [ownersCriteria.size, ownersCriteria.gender, ownersCriteria.reactive, ownersCriteria.good_with_people, Object.keys(ownersCriteria.size_compatibility), Object.keys(ownersCriteria.gender_compatibility)])
 
-        const sql = "SELECT * FROM dogs WHERE reactive = $1 AND good_with_people = $2 AND size_compatibility ?| $3"
-        return db.query(sql, [ownersCriteria.reactive, ownersCriteria.good_with_people, Object.keys(ownersCriteria.size)]);
+ //{ small: true }   ?|  [ 'large' ]
+
+// {msmvsmvpsdopv}   ?|    ['']  
+ 
+        const sql = "SELECT * FROM dogs WHERE reactive = $1 AND good_with_people = $2 AND size_compatibility ?| $3 AND owner_id != $4 AND size_compatibility ?| $5"
+        return db.query(sql, [ownersCriteria.reactive, ownersCriteria.good_with_people, Object.keys(ownersCriteria.size_compatibility), id, sizeArray]);
       })
       .then(result => {
         console.log('result.rows 2nd query:', result.rows)
