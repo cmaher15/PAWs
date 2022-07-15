@@ -4,26 +4,26 @@ export default function People(props) {
   return (
     <div className="component">
     <label className="title" name="people" required="required">
-      Are they good with new people?
+      Is your dog okay to walk with other dogs who may be reactive and/or vocal with other dogs?
     </label>
     <br />
     <br />
     <input
       className="input"
-      name="good_with_people"
+      name="good_with_reactive_dogs"
       type="radio"
       required="required"
-      value={props.good_with_people}
+      value={props.good_with_reactive_dogs}
       onChange={() => props.onChange(true)}
     />
     Yes
     <br />
     <input
       className="input"
-      name="good_with_people"
+      name="good_with_reactive_dogs"
       type="radio"
       required="required"
-      value={props.good_with_people}
+      value={props.good_with_reactive_dogs}
       onChange={() => props.onChange(false)}
     />
     No

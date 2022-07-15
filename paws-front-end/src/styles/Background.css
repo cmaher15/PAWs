@@ -1,0 +1,8 @@
+.background-img {
+  background-image: url("/public/images/readme.jpeg");
+  background-color: rgb(236, 232, 228);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

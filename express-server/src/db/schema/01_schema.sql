@@ -19,7 +19,7 @@ CREATE TABLE dogs (
   age INTEGER NOT NULL,
   size VARCHAR(100) NOT NULL,
   reactive BOOLEAN NOT NULL,
-  good_with_people BOOLEAN NOT NULL,
+  good_with_reactive_dogs BOOLEAN NOT NULL,
   size_compatibility JSONB NOT NULL, -- small, medium, large
   gender_compatibility JSONB NOT NULL, -- male, female
   breed_incompatibility JSONB NOT NULL,

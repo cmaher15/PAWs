@@ -7,7 +7,7 @@ import Gender from "./DogForm/Gender";
 import Age from "./DogForm/Age";
 import Size from "./DogForm/Size";
 import Reactive from "./DogForm/Reactive";
-import People from "./DogForm/People";
+import OkReactive from "./DogForm/OkReactive";
 import DogSizeCompatibility from "./DogForm/DogSizeCompatibility";
 import GenderCompatability from "./DogForm/GenderCompatability";
 import BreedIncompatibility from "./DogForm/BreedIncompability";
@@ -24,7 +24,7 @@ export default function RegisterDog() {
   const [age, setAge] = useState("");
   const [size, setSize] = useState("");
   const [reactive, setReactive] = useState(true);
-  const [good_with_people, setPeople] = useState(true);
+  const [good_with_reactive_dogs, setOKReactive] = useState(true);
   const [size_compatibility, setDogComp] = useState({});
   const [gender_compatibility, setGenderComp] = useState({});
   const [breed_incompatibility, setBreedIncomp] = useState({});
@@ -72,7 +72,7 @@ export default function RegisterDog() {
       age,
       size,
       reactive,
-      good_with_people,
+      good_with_reactive_dogs,
       size_compatibility,
       gender_compatibility,
       breed_incompatibility,
@@ -107,7 +107,7 @@ export default function RegisterDog() {
       <hr />
       <h2>Now Tell Us About Your Pup's Preferences</h2>
       <Reactive onChange={setReactive} value={reactive} />
-      <People onChange={setPeople} value={good_with_people} />
+      <OkReactive onChange={setOKReactive} value={good_with_reactive_dogs} />
       <DogSizeCompatibility onChange={onSizeCompatibilityChange} />
       <GenderCompatability onChange={onGenderCompatibilityChange} />
       <BreedIncompatibility
