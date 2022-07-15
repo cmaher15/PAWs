@@ -6,7 +6,7 @@ module.exports = (db) => {
   
 
   router.get("/owners", (req, res) => {
-    db.query(`SELECT * FROM owners`).then((result) => {
+    db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then((result) => {
       res.send(result.rows);
     });
   });
