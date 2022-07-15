@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/DogProfile.css";
 import Chat from "../Chat";
-import axios from "axios";
 
 //JSX template for each dog profile
 

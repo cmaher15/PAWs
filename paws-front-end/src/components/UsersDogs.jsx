@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Helper functions
 // Function takes dog object as argument, returns jsx profile card
-import { dogProfileCard } from "../helpers/dogProfileJSX";
+import { dogProfileCard } from "../helpers/dogProfileCard";
 
 const UsersDogs = function () {
   const [userDogs, setUserDogs] = useState([]);
