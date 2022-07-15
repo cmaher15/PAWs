@@ -325,6 +325,8 @@ const generateDogs = function (number) {
 
     dog["size"] = size[generateRandomInteger(3) - 1];
 
+    dog["ownerId"] = 20 + i;
+
     dogs.push(dog);
 
     dog = {};

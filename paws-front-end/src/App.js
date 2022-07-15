@@ -23,7 +23,7 @@ import Status from "./components/Status";
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer,
+  sendCoordinatesToServer
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -38,12 +38,29 @@ const App = () => {
   const [userName, setUserName] = useState("Snoopy123");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
+  // GET FROM DATABASE DOGS IN THE LOCAL AREA
+  const [areaDogs, setAreaDogs] = useState("");
+
+  const fetchAreaDogs = async function () {
+    await axios
+      .get(`/api/dogs/%{city}`)
+      .then(response => {
+        console.log("response from fetchAreaDogs: ", response);
+        return response;
+      })
+      .catch(error => console.log("error fetching dogs in App.js: ", error));
+  };
+
+  useEffect(() => {
+    setAreaDogs(fetchAreaDogs);
+  }, []);
+
   // GET USER LOCATION
-  const [userCoordinates, setUserCoordinates] = useState();
+  const [userCoordinates, setUserCoordinates] = useState("");
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
-      await fetchCoordinates(getCoordinates).then((results) => {
+      await fetchCoordinates(getCoordinates).then(results => {
         console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
