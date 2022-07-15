@@ -15,6 +15,7 @@ const Header = function (props) {
       </h1>
       <span className="title-description">Pups. Awaiting. Walks.</span>
     </span>
+    <span className='user-credentials'>
       {props.loggedIn ? (
         <HeaderLoggedIn
           userName={props.userName}
@@ -23,6 +24,7 @@ const Header = function (props) {
       ) : (
         <HeaderLoggedOut setUserId={props.setUserId} />
       )}
+      </span>
     </div>
   );
 };

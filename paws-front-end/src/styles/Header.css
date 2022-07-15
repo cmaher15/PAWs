@@ -3,8 +3,8 @@ background-color: rgb(214, 231, 194);
 overscroll-behavior: none;
 display: flex;
 flex-direction: row;
-justify-content: space-between;
 align-items: center;
+justify-content: space-between;
 }
 
 .title-description {
@@ -21,6 +21,7 @@ align-items: center;
   flex-direction: column;
   margin-bottom: 20px;
 }
+
 a,
 a:visited,
 a:hover,
@@ -33,9 +34,13 @@ a:active {
   margin-left: 30px;
 }
 
-.logged-in {
+.user-credentials {
+  display: flex;
+  flex-direction: column;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+  margin-right: 20px;
+  
 }
 
 .logout {
