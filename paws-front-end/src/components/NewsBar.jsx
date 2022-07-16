@@ -17,6 +17,12 @@ export default function NewsBar() {
       <p className='news-article'>A great place to mix and mingle, just don't drop your ball!</p> 
       </span>
       <span className='article'>
+      <img className='message-image' src='images/maz.jpg'>
+      </img>
+      <h4 className='news-title'>All Bows 50% Off at BowWow Boutique!</h4>
+      <p className='news-article'>It's time to get fancy.</p> 
+      </span>
+      <span className='article'>
        <img className='message-image' src='images/dogbakery.jpg'>
       </img>
       <h4 className='news-title'>Best Treats In The Area!</h4>
