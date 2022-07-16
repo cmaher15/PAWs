@@ -6,7 +6,7 @@
   border: 3px solid black;
   font-family: "Montserrat", sans-serif;
   width: 450px;
-  height: 600px;
+  height: 100%;
   object-fit: cover;
   margin-bottom: 20px;
 }
@@ -33,6 +33,7 @@
 .messagehistory {
   width: 440px;
   height: 400px;
+  overflow: auto;
   margin-bottom: 20px;
 }
 
@@ -50,6 +51,8 @@
 
 .messages {
   display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
   background-color: rgb(244, 136, 136);
   padding: 20px;
   border-radius: 30px;
