@@ -5,7 +5,7 @@ import UsersDogs from "./UsersDogs";
 
 // This component exists to fetch owners/dogs from server and pass results as
 // props to usersDogs, and matchDogs
-const fetchProfiles = function (props) {
+const FetchProfiles = function (props) {
   const [isLoadingDogs, setIsLoadingDogs] = useState(true);
   const [isLoadingOwners, setIsLoadingOwners] = useState(true);
   const [areaDogs, setAreaDogs] = useState();
@@ -50,4 +50,4 @@ const fetchProfiles = function (props) {
   }
 };
 
-export default fetchProfiles;
+export default FetchProfiles;
