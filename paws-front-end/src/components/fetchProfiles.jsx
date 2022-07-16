@@ -16,7 +16,7 @@ const fetchProfiles = function (props) {
   // Fetch dogs from server
   useEffect(() => {
     axios
-      .get(/api/dogs)
+      .get(`/api/dogs`)
       .then(response => {
         // callSetAreaDogs(response.data);
         setAreaDogs(response.data);
@@ -28,7 +28,7 @@ const fetchProfiles = function (props) {
   // Fetch owners from server
   useEffect(() => {
     axios
-      .get(/api/owners)
+      .get(`/api/owners`)
       .then(response => {
         // callSetAreaDogs(response.data);
         setAreaOwners(response.data);
