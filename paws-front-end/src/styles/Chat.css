@@ -1,15 +1,14 @@
 .chat {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: rgb(207, 230, 230);
   margin: auto;
   border: 3px solid black;
   font-family: "Montserrat", sans-serif;
   width: 450px;
-  height: 600px;
-  overflow: hidden;
+  height: 100%;
   object-fit: cover;
+  overflow: auto;
   margin-bottom: 20px;
 }
 
@@ -35,6 +34,7 @@
 .messagehistory {
   width: 440px;
   height: 400px;
+  overflow: auto;
   margin-bottom: 20px;
 }
 
@@ -52,6 +52,8 @@
 
 .messages {
   display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
   background-color: rgb(244, 136, 136);
   padding: 20px;
   border-radius: 30px;
@@ -90,6 +92,7 @@
   background-color: rgb(21, 56, 88);
   color: white;
   outline-color: white;
+  cursor: pointer;
 }
 
 .clear {
@@ -110,4 +113,5 @@
   background-color: rgb(88, 33, 33);
   color: white;
   outline-color: white;
+  cursor: pointer;
 }
