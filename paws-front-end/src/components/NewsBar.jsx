@@ -8,7 +8,7 @@ export default function NewsBar() {
     <img className='message-image' src='images/lola1.jpg'>
       </img>
       <h4 className='news-title'>This Just In: Lola is a GOOD GIRL!</h4>
-      <p className='news-article'>She's not accepting interviews at this time, but viewers expect she's busy getting lots of belly rubs!</p>
+      <p className='news-article'>She's not accepting interviews at this time, but we expect she's busy getting lots of belly rubs!</p>
       </span>
       <span className='article'>
       <img className='message-image' src='images/dogpark.jpg'>
