@@ -30,7 +30,7 @@ export default function RegisterDog() {
   const [breed_incompatibility, setBreedIncomp] = useState({});
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
-  // const [status, setStatus] = useState(false);
+  const [isShown, setIsShown] = useState(false);
 
   //Function to manage checked box status in size compatibility form section
 
@@ -57,14 +57,15 @@ export default function RegisterDog() {
   };
 
   //Function to manage status "pop up" component
-  // const handleChat = event => {
-  //   setIsShown(current => !current)
-  // }
+  const showStatus = event => {
+    setIsShown(current => !current)
+  }
 
   //Function to add data to server on form submission
 
   const formHandle = (e) => {
     e.preventDefault();
+    showStatus()
     addDataToServer({
       name,
       breed,
@@ -120,6 +121,7 @@ export default function RegisterDog() {
           Submit
         </button>
       </div>
+      <div>{isShown && <Status />}</div>
     </form>
   );
 }
