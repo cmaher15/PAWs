@@ -130,7 +130,7 @@ const App = () => {
           <Route path="/terms" element={<Terms />} />
         </Routes>
         <RegisterDog />
-        <Status />
+        {/* <Status /> */}
         <RegisterUser />
         <DogProfile />
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />

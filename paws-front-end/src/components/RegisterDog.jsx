@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Form.css";
 import Breed from "./DogForm/Breed";
 import Name from "./DogForm/Name";
@@ -12,6 +12,7 @@ import DogSizeCompatibility from "./DogForm/DogSizeCompatibility";
 import GenderCompatability from "./DogForm/GenderCompatability";
 import BreedIncompatibility from "./DogForm/BreedIncompability";
 import Description from "./DogForm/Description";
+import Status from "./Status";
 import Image from "./DogForm/Image";
 
 
@@ -61,6 +62,13 @@ export default function RegisterDog() {
   //   setIsShown(current => !current)
   // }
 
+  //Function to show status window
+
+  const showStatus = () => {
+    useEffect(() => {setTimeout(() => <Status/>, 3000);
+  }, []) 
+  }
+
   //Function to add data to server on form submission
 
   const formHandle = e => {
@@ -79,6 +87,7 @@ export default function RegisterDog() {
       description,
       photo_url
     });
+    showStatus;
   };
 
 
