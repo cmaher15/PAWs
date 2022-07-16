@@ -4,17 +4,25 @@ import { Link } from "react-router-dom";
 const Footer = function (props) {
   // Path Link components
   const homeLink = (
-    <Link className='footer' to={"/"} onClick={() => props.setUrlPath("/")}>
+    <Link className="footer" to={"/"} onClick={() => props.setUrlPath("/")}>
       Home
     </Link>
   );
   const aboutLink = (
-    <Link className='footer' to={"/about-us"} onClick={() => props.setUrlPath("/about-us")}>
+    <Link
+      className="footer"
+      to={"/about-us"}
+      onClick={() => props.setUrlPath("/about-us")}
+    >
       About
     </Link>
   );
   const termsLink = (
-    <Link className='footer' to={"/terms"} onClick={() => props.setUrlPath("/terms")}>
+    <Link
+      className="footer"
+      to={"/terms"}
+      onClick={() => props.setUrlPath("/terms")}
+    >
       Terms
     </Link>
   );
@@ -46,8 +54,10 @@ const Footer = function (props) {
 
   return (
     <div className="footer-div">
-      <p className='footer'>{renderLinks}</p>
-      <p className='easteregg'>a Theat-Level MIDNIGHT production /{new Date().getFullYear()}</p>
+      <p className="footer">{renderLinks}</p>
+      <p className="easteregg">
+        a Theat-Level MIDNIGHT production /{new Date().getFullYear()}
+      </p>
     </div>
   );
 };
