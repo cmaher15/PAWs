@@ -1,7 +1,7 @@
 .background-img {
-  background-image: url("/public/images/readme.jpeg");
+  background-image: url("/public/images/skipping-dogs.jpg");
   background-color: rgb(236, 232, 228);
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -45,8 +45,8 @@ const UserProfile = function (props) {
           {" "}
           <Link
           className='hovermenu'
-            to={"/dogs"}
-            onClick={() => props.setUrlPath("/dogs")}
+            to={"/register-user"}
+            onClick={() => props.setUrlPath("/register-user")}
           >
             <p className='dropdown-text'>Register</p>
           </Link>

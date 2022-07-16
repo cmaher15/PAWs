@@ -16,7 +16,7 @@ const HomePage = function (props) {
     <div>
       {/*Display profile page if user logged in, else prompt user to sign up */}
       {props.loggedIn ? (
-        <UsersDogs userName={props.userName} />
+        <UserDogs userName={props.userName} />
       ) : (
         guestGreeting()
       )}
