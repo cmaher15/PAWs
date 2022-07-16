@@ -13,13 +13,12 @@
     font-weight: 600;
     font-size: 20px;
     margin-top: 0px;
-
   }
 
   #paws {
     display: flex;
     justify-content: center;
-
+    margin-right: 300px;
   }
   
   .site-title {
@@ -44,8 +43,6 @@
     flex-direction: column;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    margin-right: 20px;
-    
   }
 
   .menu {
@@ -90,7 +87,6 @@
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 600;
-    margin-left: 40px;
   }
   
   .footer {
@@ -98,6 +94,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 600;
+    margin-bottom: 20px;
   }
 
   .footer:hover {
@@ -110,6 +107,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
     font-weight: 600;
+    margin-bottom: 20px;
   }
   
   .dropbtn {

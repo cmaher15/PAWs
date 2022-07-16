@@ -2,7 +2,7 @@
 
 .main-box {
   display: flex;
-  float: left;
+  float: right;
   flex-direction: column;
   height: 100vh;
   overflow: auto;
@@ -23,11 +23,16 @@
 .news-article {
   margin: 10px;
   font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px
 }
 
 .news-title {
   font-family: 'Montserrat', sans-serif;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 10px
 }
 
 .breaker {
