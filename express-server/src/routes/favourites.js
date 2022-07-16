@@ -41,12 +41,24 @@ module.exports = db => {
       res.send(result.rows)
     })
     .catch(err => {console.error(err)});
-  })
+  });
   
   ////////////////////////////////////////////////////////////////////
 
   // Delete from favourites
-  // router.delete("/favourites/:id")
+  router.delete("/favourites/:id", (req, res) => {
+    const owner_id = req.params.id;
+    const dog_id = req.body.id
+    const sql = `DELETE FROM favourites WHERE owner_id = ${owner_id} AND dog_id = ${dog_id}`;
+
+    db
+    .query(sql)
+    .then(result => {
+      console.log("Dog has been removed from favourites");
+      res.send(result.rows)
+    })
+    .catch(err => {console.error(err)});
+  });
 
   return router;
 }
