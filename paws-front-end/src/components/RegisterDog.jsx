@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Form.css";
 import Breed from "./DogForm/Breed";
 import Name from "./DogForm/Name";
@@ -12,6 +12,7 @@ import DogSizeCompatibility from "./DogForm/DogSizeCompatibility";
 import GenderCompatability from "./DogForm/GenderCompatability";
 import BreedIncompatibility from "./DogForm/BreedIncompability";
 import Description from "./DogForm/Description";
+import Status from "./Status";
 import Image from "./DogForm/Image";
 
 //Main function to handle dog registration and form submission for dog profile
@@ -29,7 +30,7 @@ export default function RegisterDog() {
   const [breed_incompatibility, setBreedIncomp] = useState({});
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
-  // const [status, setStatus] = useState(false);
+  const [isShown, setIsShown] = useState(false);
 
   //Function to manage checked box status in size compatibility form section
 
@@ -56,14 +57,15 @@ export default function RegisterDog() {
   };
 
   //Function to manage status "pop up" component
-  // const handleChat = event => {
-  //   setIsShown(current => !current)
-  // }
+  const showStatus = event => {
+    setIsShown(current => !current)
+  }
 
   //Function to add data to server on form submission
 
   const formHandle = (e) => {
     e.preventDefault();
+    showStatus()
     addDataToServer({
       name,
       breed,
@@ -119,6 +121,7 @@ export default function RegisterDog() {
           Submit
         </button>
       </div>
+      <div>{isShown && <Status />}</div>
     </form>
   );
 }

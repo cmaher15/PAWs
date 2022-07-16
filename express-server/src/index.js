@@ -18,6 +18,7 @@ const db = require("./db");
 
 const dogs = require("./routes/dogs");
 const owners = require("./routes/owners");
+const favourites = require("./routes/favourites");
 
 const sock = require("socket.io");
 
@@ -50,6 +51,7 @@ app.use(
 
 app.use("/api", dogs(db));
 app.use("/api", owners(db));
+app.use("/api", favourites(db));
 app.use("/login", owners(db));
 app.use("/logout", owners(db));
 

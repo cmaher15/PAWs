@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./styles/Background.css";
 import axios from "axios";
 
 // Components
@@ -18,13 +17,14 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
+import NewsBar from "./components/NewsBar";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer
+  sendCoordinatesToServer,
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -45,11 +45,11 @@ const App = () => {
   const fetchAreaDogs = function () {
     axios
       .get(`/api/dogs`)
-      .then(response => {
+      .then((response) => {
         console.log("response from fetchAreaDogs: ", response);
         setAreaDogs(response.data);
       })
-      .catch(error => console.log("error fetching dogs in App.js: ", error));
+      .catch((error) => console.log("error fetching dogs in App.js: ", error));
   };
 
   useEffect(() => {
@@ -62,11 +62,13 @@ const App = () => {
   const fetchAreaOwners = function () {
     axios
       .get("/api/owners")
-      .then(response => {
+      .then((response) => {
         console.log("response from fetchAreaOwners");
         setAreaOwners(response.data);
       })
-      .catch(error => console.log("error fetching owners in App.js: ", error));
+      .catch((error) =>
+        console.log("error fetching owners in App.js: ", error)
+      );
   };
 
   useEffect(() => {
@@ -81,7 +83,7 @@ const App = () => {
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
-      await fetchCoordinates(getCoordinates).then(results => {
+      await fetchCoordinates(getCoordinates).then((results) => {
         console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
@@ -97,39 +99,41 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <div className="background-img">
-        <BrowserRouter>
-          <Header
-            loggedIn={loggedIn}
-            userName={userName}
-            setLoggedIn={setLoggedIn}
-            setUrlPath={setUrlPath}
-            setUserId={setUserId}
+    <div
+      className="App"
+      style={{ backgroundImage: 'url("images/skipping-dogs.jpg")' }}
+    >
+      <BrowserRouter>
+        <Header
+          loggedIn={loggedIn}
+          userName={userName}
+          setLoggedIn={setLoggedIn}
+          setUrlPath={setUrlPath}
+          setUserId={setUserId}
+        />
+        <NewsBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage loggedIn={loggedIn} userName={userName} />}
           />
-          <Routes>
-            <Route
-              path="/"
-              element={<HomePage loggedIn={loggedIn} userName={userName} />}
-            />
-            <Route
-              path="/register-user"
-              element={<RegisterUser loggedIn={loggedIn} />}
-            />
-            <Route path="/register-dog" element={<RegisterDog />} />
-            <Route path="/login" element={<Login setUserId={setUserId} />} />
-            <Route path="/dog-matches" element={<DogMatches />} />
-            <Route path="/users-dogs" element={<UsersDogs />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/terms" element={<Terms />} />
-          </Routes>
-          <RegisterDog />
-          {/* <Status />
-        <RegisterUser /> */}
-          <DogProfile />
-          <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
-        </BrowserRouter>
-      </div>
+          <Route
+            path="/register-user"
+            element={<RegisterUser loggedIn={loggedIn} />}
+          />
+          <Route path="/register-dog" element={<RegisterDog />} />
+          <Route path="/login" element={<Login setUserId={setUserId} />} />
+          <Route path="/dog-matches" element={<DogMatches />} />
+          <Route path="/users-dogs" element={<UsersDogs />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+        {/* <RegisterDog /> */}
+        {/* <Status /> */}
+        {/* <RegisterUser /> */}
+        {/* <DogProfile /> */}
+        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+      </BrowserRouter>
     </div>
   );
 };

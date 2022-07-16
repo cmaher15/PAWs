@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function People(props) {
+export default function OkReactive (props) {
   return (
     <div className="component">
       <label className="title" name="people" required="required">
