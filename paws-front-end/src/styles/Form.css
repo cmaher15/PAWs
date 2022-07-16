@@ -12,7 +12,7 @@ form {
   font-family: 'Montserrat', sans-serif;
   border: 5px solid black;
   border-radius: 10px;
-  background-color: rgba(245, 245, 220, 0.503);
+  background-color: rgba(245, 245, 220, 0.789);
   
 }
 
@@ -98,7 +98,7 @@ textarea {
 }
 
 .submitbtn:hover {
-  background-color: rgba(255, 255, 255, 0.512);
+  background-color: white;
   color: rgb(38, 148, 38);
   outline-color: rgb(38, 148, 38);
 }

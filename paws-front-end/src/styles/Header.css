@@ -56,19 +56,19 @@
     margin: 20px;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    background-color: white;
-    background: transparent;
     border-radius: 10px;
-    color: rgb(21, 56, 88);
-    outline-color: rgb(21, 56, 88);
     border-color: rgb(21, 56, 88);
     border-style: solid;
+    background-color: rgb(21, 56, 88);
+    color: white;
+    outline-color: white;
   }
   
   .logout:hover {
     background-color: rgb(21, 56, 88);
-    color: white;
-    outline-color: white;
+    background: white;
+    color: rgb(21, 56, 88);
+    outline-color: rgb(21, 56, 88);
   }
   
   .mainbtn {

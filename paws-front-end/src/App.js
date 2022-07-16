@@ -129,10 +129,10 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        <RegisterDog />
+        {/* <RegisterDog /> */}
         {/* <Status /> */}
         {/* <RegisterUser /> */}
-        {/* <DogProfile /> */}
+        <DogProfile />
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
