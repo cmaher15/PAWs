@@ -15,7 +15,6 @@ import Description from "./DogForm/Description";
 import Status from "./Status";
 import Image from "./DogForm/Image";
 
-
 //Main function to handle dog registration and form submission for dog profile
 
 export default function RegisterDog() {
@@ -35,7 +34,7 @@ export default function RegisterDog() {
 
   //Function to manage checked box status in size compatibility form section
 
-  const onSizeCompatibilityChange = size => {
+  const onSizeCompatibilityChange = (size) => {
     const newSizeCompatibility = size_compatibility;
     newSizeCompatibility[size] = !size_compatibility[size];
     setDogComp(newSizeCompatibility);
@@ -43,7 +42,7 @@ export default function RegisterDog() {
 
   //Function to manage checked box status in gender compatibility form section
 
-  const onGenderCompatibilityChange = gender => {
+  const onGenderCompatibilityChange = (gender) => {
     const newGenderCompatibility = gender_compatibility;
     newGenderCompatibility[gender] = !size_compatibility[gender];
     setGenderComp(newGenderCompatibility);
@@ -51,7 +50,7 @@ export default function RegisterDog() {
 
   //Function to manage checked box status in breed compatibility form section
 
-  const checkBreedIncompatibility = breed => {
+  const checkBreedIncompatibility = (breed) => {
     const newBreedIncompatibility = breed_incompatibility;
     newBreedIncompatibility[breed] = !breed_incompatibility[breed];
     setBreedIncomp(newBreedIncompatibility);
@@ -62,16 +61,9 @@ export default function RegisterDog() {
   //   setIsShown(current => !current)
   // }
 
-  //Function to show status window
-
-  const showStatus = () => {
-    useEffect(() => {setTimeout(() => <Status/>, 3000);
-  }, []) 
-  }
-
   //Function to add data to server on form submission
 
-  const formHandle = e => {
+  const formHandle = (e) => {
     e.preventDefault();
     addDataToServer({
       name,
@@ -85,20 +77,18 @@ export default function RegisterDog() {
       gender_compatibility,
       breed_incompatibility,
       description,
-      photo_url
+      photo_url,
     });
-    showStatus;
   };
-
 
   //Axios post request to send data to server
 
-  const addDataToServer = data => {
+  const addDataToServer = (data) => {
     axios.post(`/api/dogs/`, data).then(
-      response => {
+      (response) => {
         console.log(response);
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );

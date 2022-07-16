@@ -131,8 +131,8 @@ const App = () => {
         </Routes>
         <RegisterDog />
         {/* <Status /> */}
-        <RegisterUser />
-        <DogProfile />
+        {/* <RegisterUser /> */}
+        {/* <DogProfile /> */}
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
