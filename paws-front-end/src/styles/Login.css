@@ -35,4 +35,5 @@
   background-color: rgb(255, 255, 255);
   color: rgb(60, 54, 5);
   outline-color: rgb(60, 54, 5);
+  cursor: pointer;
 }

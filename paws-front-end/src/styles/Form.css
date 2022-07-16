@@ -101,5 +101,6 @@ textarea {
   background-color: white;
   color: rgb(38, 148, 38);
   outline-color: rgb(38, 148, 38);
+  cursor: pointer;
 }
 
