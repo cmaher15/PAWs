@@ -43,6 +43,7 @@
     flex-direction: column;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
+    margin-right: 20px;
   }
 
   .menu {
@@ -62,7 +63,6 @@
     outline-color: rgb(21, 56, 88);
     border-color: rgb(21, 56, 88);
     border-style: solid;
-  
   }
   
   .logout:hover {

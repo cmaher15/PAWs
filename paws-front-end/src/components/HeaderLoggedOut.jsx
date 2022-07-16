@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import "../styles/Header.css"
+import "../styles/Login.css"
 
 // We will show a login option on top of the header, or perhaps no header?
 const HeaderLoggedOut = function (props) {
@@ -43,16 +44,18 @@ const HeaderLoggedOut = function (props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className='login-box' onSubmit={handleSubmit}>
         <input
+          className='login'
           type="text"
           onChange={e => setEmail(e.target.value)}
           name="email"
           value={email}
-          placeholder="Username"
+          placeholder="Email"
           autoComplete="off"
         />
         <input
+          className='login'
           type="password"
           onChange={e => setPassword(e.target.value)}
           name="password"
@@ -60,7 +63,7 @@ const HeaderLoggedOut = function (props) {
           placeholder="Password"
           autoComplete="off"
         />
-        <button>Sign In</button>
+        <button className='sign-in-btn'>Sign In</button>
       </form>
     </>
   );
