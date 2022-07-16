@@ -15,6 +15,12 @@
     margin-top: 0px;
 
   }
+
+  #paws {
+    display: flex;
+    justify-content: center;
+
+  }
   
   .site-title {
     display: flex;

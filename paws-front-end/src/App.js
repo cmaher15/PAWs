@@ -18,13 +18,14 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
+import NewsBar from "./components/NewsBar";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer
+  sendCoordinatesToServer,
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -45,11 +46,11 @@ const App = () => {
   const fetchAreaDogs = function () {
     axios
       .get(`/api/dogs`)
-      .then(response => {
+      .then((response) => {
         console.log("response from fetchAreaDogs: ", response);
         setAreaDogs(response.data);
       })
-      .catch(error => console.log("error fetching dogs in App.js: ", error));
+      .catch((error) => console.log("error fetching dogs in App.js: ", error));
   };
 
   useEffect(() => {
@@ -62,11 +63,13 @@ const App = () => {
   const fetchAreaOwners = function () {
     axios
       .get("/api/owners")
-      .then(response => {
+      .then((response) => {
         console.log("response from fetchAreaOwners");
         setAreaOwners(response.data);
       })
-      .catch(error => console.log("error fetching owners in App.js: ", error));
+      .catch((error) =>
+        console.log("error fetching owners in App.js: ", error)
+      );
   };
 
   useEffect(() => {
@@ -81,7 +84,7 @@ const App = () => {
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
-      await fetchCoordinates(getCoordinates).then(results => {
+      await fetchCoordinates(getCoordinates).then((results) => {
         console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
@@ -100,6 +103,7 @@ const App = () => {
     <div className="App">
       <div className="background-img">
         <BrowserRouter>
+      
           <Header
             loggedIn={loggedIn}
             userName={userName}
@@ -107,6 +111,7 @@ const App = () => {
             setUrlPath={setUrlPath}
             setUserId={setUserId}
           />
+            <NewsBar/>
           <Routes>
             <Route
               path="/"
@@ -124,8 +129,8 @@ const App = () => {
             <Route path="/terms" element={<Terms />} />
           </Routes>
           <RegisterDog />
-          {/* <Status />
-        <RegisterUser /> */}
+          {/* <Status /> */}
+          {/* <RegisterUser /> */}
           <DogProfile />
           <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
         </BrowserRouter>
