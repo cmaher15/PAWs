@@ -32,7 +32,21 @@ const DogMatches = function (props) {
   // } else {
   // return areaDogs.map(dog => <DogProfileCard dog={dog} />);
   // }
-  return props.areaDogs.map(dog => <DogProfileCard dog={dog} />);
+  // console.log("areaDogs: ", props.areaDogs);
+  console.log("areaOwners: ", props.areaOwners);
+  return props.areaDogs.map(dog => {
+    let owner;
+    console.log("dog.photo_url: ", dog.photo_url);
+    console.log("dog in loop: ", dog);
+    for (let areaOwner of props.areaOwners) {
+      console.log("areaOwner.thumbnail: ", areaOwner.thumbnail_photo_url);
+      if (areaOwner.id === dog.owner_id) {
+        owner = areaOwner;
+        console.log("matched owner: ", owner);
+      }
+    }
+    return <DogProfileCard dog={dog} owner={owner} />;
+  });
 };
 
 export default DogMatches;
