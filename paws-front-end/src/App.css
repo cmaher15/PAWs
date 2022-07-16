@@ -1,6 +1,13 @@
 .App {
+  height: 500vh;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+
 
 .App-logo {
   height: 40vmin;

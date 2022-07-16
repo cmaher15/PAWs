@@ -4,6 +4,7 @@ import "./App.css";
 import "./styles/Background.css";
 import axios from "axios";
 
+
 // Components
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
@@ -100,40 +101,41 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <div className="background-img">
-        <BrowserRouter>
-          <Header
-            loggedIn={loggedIn}
-            userName={userName}
-            setLoggedIn={setLoggedIn}
-            setUrlPath={setUrlPath}
-            setUserId={setUserId}
+    <div
+      className="App"
+      style={{ backgroundImage: 'url("images/skipping-dogs.jpg")' }}
+    >
+      <BrowserRouter>
+        <Header
+          loggedIn={loggedIn}
+          userName={userName}
+          setLoggedIn={setLoggedIn}
+          setUrlPath={setUrlPath}
+          setUserId={setUserId}
+        />
+        <NewsBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage loggedIn={loggedIn} userName={userName} />}
           />
-          <NewsBar />
-          <Routes>
-            <Route
-              path="/"
-              element={<HomePage loggedIn={loggedIn} userName={userName} />}
-            />
-            <Route
-              path="/register-user"
-              element={<RegisterUser loggedIn={loggedIn} />}
-            />
-            <Route path="/register-dog" element={<RegisterDog />} />
-            <Route path="/login" element={<Login setUserId={setUserId} />} />
-            <Route path="/dog-matches" element={<DogMatches />} />
-            <Route path="/users-dogs" element={<UsersDogs />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/terms" element={<Terms />} />
-          </Routes>
-          {/* <RegisterDog /> */}
-          {/* <Status /> */}
-          {/* <RegisterUser /> */}
-          {/* <DogProfile /> */}
-          <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
-        </BrowserRouter>
-      </div>
+          <Route
+            path="/register-user"
+            element={<RegisterUser loggedIn={loggedIn} />}
+          />
+          <Route path="/register-dog" element={<RegisterDog />} />
+          <Route path="/login" element={<Login setUserId={setUserId} />} />
+          <Route path="/dog-matches" element={<DogMatches />} />
+          <Route path="/users-dogs" element={<UsersDogs />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+        {/* <RegisterDog /> */}
+        {/* <Status /> */}
+        {/* <RegisterUser /> */}
+        {/* <DogProfile /> */}
+        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+      </BrowserRouter>
     </div>
   );
 };
