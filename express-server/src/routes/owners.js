@@ -1,8 +1,10 @@
 const router = require("express").Router();
-const cookieSession = require("cookie-session");
 const bcrypt = require("bcryptjs");
 
+
 module.exports = (db) => {
+  ////////////////////////////////////////////////////////////////////
+
   router.get("/owners", (req, res) => {
     db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then(
       (result) => {
@@ -10,6 +12,8 @@ module.exports = (db) => {
       }
     );
   });
+
+  ////////////////////////////////////////////////////////////////////
 
   //info about specific owner
   router.get("/owners/:id", (req, res) => {
@@ -24,6 +28,8 @@ module.exports = (db) => {
         console.error(err);
       });
   });
+
+  ////////////////////////////////////////////////////////////////////
 
   //Create new owner
   router.post(`/owners`, (req, res) => {
@@ -51,22 +57,17 @@ module.exports = (db) => {
       });
   });
 
+  ////////////////////////////////////////////////////////////////////
+
   // Login route
   router.post("/login", (req, res) => {
-    console.log("req.body in /login: ", req.body);
     const userEmail = req.body.email;
     const userPassword = req.body.password;
     db.query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
       .then((result) => {
-        // console.log('result:', result.rows)
-        console.log("password:", result.rows[0].password);
-        console.log("user password:", userPassword);
-
         if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
-          console.log("inside comparison");
           res.cookie("userId", result.rows[0].id);
           res.status(200).send(result.rows[0].id.toString());
-          // req.session.userId = result.rows[0].id;}
         } else {
           return res.status(403).send("Incorrect password");
         }
@@ -77,17 +78,12 @@ module.exports = (db) => {
       });
   });
 
+  ////////////////////////////////////////////////////////////////////
+
   // Logout route
   router.post("/logout", (req, res) => {
-    res.clearCookie("userId").send('Cookies were cleared');
+    res.clearCookie("userId").send("Cookies were cleared");
   });
 
   return router;
 };
-
-// CRUD
-
-// CREATE = POST /owners/   create an account
-// READ = GET /owners          get all the owners
-// UPDATE = PUT /owners/:id   update owners info
-// DELETE = POST /owners/:id   delete user

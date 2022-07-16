@@ -1,0 +1,50 @@
+.main-box {
+  display: flex;
+  float: right;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+  border: 3px solid black;
+  width: 300px;
+  background-color:antiquewhite;
+  opacity: 0.9
+}
+
+.main-box:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+.message-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  float: right;
+  margin-bottom: 10px;
+}
+
+
+.news-article {
+  margin: 10px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px
+}
+
+
+.news-title {
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px
+}
+
+.breaker {
+  border-bottom: 1px solid black;
+}
+
+.article {
+  border-bottom: 3px solid black;
+}
