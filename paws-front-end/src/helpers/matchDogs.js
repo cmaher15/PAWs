@@ -10,11 +10,6 @@ const matchDogs = function (dogs, userDog) {
   const userLikeMales = userDog.gender_compatibility["male"];
 
   for (let dog of dogs) {
-    // REACTIVITY
-    if (dog.reactive === true && reactive === true) continue; // DISCUSSION
-
-    // Good with people **I THINK WE SHOULD REMOVE THIS**
-
     // SIZE COMPATIBILITY
     const userCompatible = false; // User dog compatible with size og other dog
     const dogCompatible = false; // Dog compatible with user dog size;
