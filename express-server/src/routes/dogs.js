@@ -17,7 +17,7 @@ module.exports = db => {
     const id = req.params.id;
     console.log("req.params:", req.params);
     db.query(
-      `SELECT dogs.name as dogs_name, breed, gender, age, size, reactive, good_with_people, size_compatibility,gender_compatibility, breed_incompatibility,description, photo_url as dogs_photo, owners.id as owners_id, owners.name as owners_name, owners.city as city, owners.thumbnail_photo_url as owners_photo FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE dogs.owner_id = ${id}`
+      `SELECT dogs.name as dogs_name, breed, gender, age, size, reactive, good_with_reactive_dogs, size_compatibility,gender_compatibility, breed_incompatibility, description, photo_url as dogs_photo, owners.id as owners_id, owners.name as owners_name, owners.city as city, owners.thumbnail_photo_url as owners_photo FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE dogs.owner_id = ${id}`
     )
       .then(result => {
         // console.log('info about the dog of specific owner: ',result.rows)
