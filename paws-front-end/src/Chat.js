@@ -9,9 +9,8 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const [socket, setSocket] = useState();
-  console.log("cookie", document.cookie);
   const userID = document.cookie.slice(7);
-  console.log("userId", userID);
+  const [chat, setChat] = useState(0)
 
   axios
     .get(`/api/owners/${userID}`)
