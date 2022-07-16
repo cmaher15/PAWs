@@ -15,7 +15,8 @@ const Header = function (props) {
     <div className="site-title" id="paws">
       <h1 className="home">
         <Link to={"/"} onClick={() => props.setUrlPath("/")}>
-          PAWs
+          PAWs 
+          🐾
         </Link>
       </h1>
       <span className="title-description">Pups. Awaiting. Walks.</span>

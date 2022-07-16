@@ -103,7 +103,6 @@ const App = () => {
     <div className="App">
       <div className="background-img">
         <BrowserRouter>
-      
           <Header
             loggedIn={loggedIn}
             userName={userName}
@@ -111,7 +110,7 @@ const App = () => {
             setUrlPath={setUrlPath}
             setUserId={setUserId}
           />
-            <NewsBar/>
+          <NewsBar />
           <Routes>
             <Route
               path="/"
@@ -128,10 +127,10 @@ const App = () => {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/terms" element={<Terms />} />
           </Routes>
-          <RegisterDog />
+          {/* <RegisterDog /> */}
           {/* <Status /> */}
           {/* <RegisterUser /> */}
-          <DogProfile />
+          {/* <DogProfile /> */}
           <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
         </BrowserRouter>
       </div>
