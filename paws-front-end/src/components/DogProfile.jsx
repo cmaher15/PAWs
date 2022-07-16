@@ -5,10 +5,16 @@ import Chat from "../Chat";
 
 export default function DogProfile() {
   const [isShown, setIsShown] = useState(false);
+  const [fave, setFave] = useState(false);
 
   const handleChat = event => {
     setIsShown(current => !current)
   }
+
+  const handleFave  = event => {
+    setFave(current => !current)
+  }
+
   return (
     <main className="dogProfile">
       <div>
@@ -16,7 +22,7 @@ export default function DogProfile() {
       </div>
       <span className="icons">
         <h1 className="dogName">Rocky</h1>
-        <button className="favourite"><i
+        <button className="favourite" onClick={handleFave}><i
           className="fa-solid fa-heart fa-2xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
