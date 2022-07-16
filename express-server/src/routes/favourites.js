@@ -20,7 +20,7 @@ module.exports = db => {
     )
       .then(result => {
         // console.log('info about the dog of specific owner: ',result.rows)
-        res.send(result.rows[0]);
+        res.send(result.rows);
       })
       .catch(err => {
         console.error(err);
