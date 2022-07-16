@@ -7,7 +7,10 @@ const HomePage = function (props) {
   const guestGreeting = function () {
     return (
       <p>
-        No account? Sign up <Link className='footer' to="/register-user">here</Link>
+        No account? Sign up{" "}
+        <Link className="footer" to="/register-user">
+          here
+        </Link>
       </p>
     );
   };
@@ -16,7 +19,7 @@ const HomePage = function (props) {
     <div>
       {/*Display profile page if user logged in, else prompt user to sign up */}
       {props.loggedIn ? (
-        <UsersDogs userName={props.userName} />
+        <UserDogs userName={props.userName} />
       ) : (
         guestGreeting()
       )}

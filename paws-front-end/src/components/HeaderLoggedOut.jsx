@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import "../styles/Header.css"
+import "../styles/Header.css";
 
 // We will show a login option on top of the header, or perhaps no header?
 const HeaderLoggedOut = function (props) {
@@ -20,15 +20,15 @@ const HeaderLoggedOut = function (props) {
       }
 
       await axios
-        .post("/api/login", data, {withCredentials: true})
-        .then(response => {
+        .post("/api/login", data, { withCredentials: true })
+        .then((response) => {
           console.log("server response");
           console.log(JSON.stringify(response));
           //Set the global "userId" state to userId returned from server
           props.setUserId(response.data);
           props.setLoggedIn(true);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.message);
           // Display some sort of error message to user?
           alert("Login Unsuccessful");
@@ -37,7 +37,7 @@ const HeaderLoggedOut = function (props) {
 
     loginToServer({
       email,
-      password
+      password,
     });
   };
 
@@ -46,7 +46,7 @@ const HeaderLoggedOut = function (props) {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           name="email"
           value={email}
           placeholder="Username"
@@ -54,7 +54,7 @@ const HeaderLoggedOut = function (props) {
         />
         <input
           type="password"
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           name="password"
           value={password}
           placeholder="Password"
