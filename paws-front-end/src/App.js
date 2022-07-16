@@ -4,7 +4,6 @@ import "./App.css";
 import "./styles/Background.css";
 import axios from "axios";
 
-
 // Components
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
@@ -130,10 +129,10 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        {/* <RegisterDog /> */}
-        {/* <Status /> */}
-        {/* <RegisterUser /> */}
-        {/* <DogProfile /> */}
+        <RegisterDog />
+        <Status />
+        <RegisterUser />
+        <DogProfile />
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
