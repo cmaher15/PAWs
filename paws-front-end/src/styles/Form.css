@@ -12,7 +12,7 @@ form {
   font-family: 'Montserrat', sans-serif;
   border: 5px solid black;
   border-radius: 10px;
-  background-color: rgba(245, 245, 220, 0.503);
+  background-color: rgba(245, 245, 220, 0.789);
   
 }
 
@@ -63,6 +63,7 @@ form {
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius:10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 select {
@@ -84,21 +85,22 @@ textarea {
 }
 
 .submitbtn {
-  background-color: white;
   background: transparent;
   border-radius: 10px;
-  color: rgb(38, 148, 38);
-  outline-color: rgb(38, 148, 38);
   width: 100px;
   height: 50px;
   font-size: 20px;
   border-color: rgb(38, 148, 38);;
   border-style: solid;
-}
-
-.submitbtn:hover {
   background-color: rgb(38, 148, 38);;
   color: white;
   outline-color: white;
+}
+
+.submitbtn:hover {
+  background-color: white;
+  color: rgb(38, 148, 38);
+  outline-color: rgb(38, 148, 38);
+  cursor: pointer;
 }
 
