@@ -85,21 +85,21 @@ textarea {
 }
 
 .submitbtn {
-  background-color: white;
   background: transparent;
   border-radius: 10px;
-  color: rgb(38, 148, 38);
-  outline-color: rgb(38, 148, 38);
   width: 100px;
   height: 50px;
   font-size: 20px;
   border-color: rgb(38, 148, 38);;
   border-style: solid;
-}
-
-.submitbtn:hover {
   background-color: rgb(38, 148, 38);;
   color: white;
   outline-color: white;
+}
+
+.submitbtn:hover {
+  background-color: rgba(255, 255, 255, 0.512);
+  color: rgb(38, 148, 38);
+  outline-color: rgb(38, 148, 38);
 }
 
