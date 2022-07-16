@@ -38,3 +38,21 @@ INSERT INTO dogs
   ('Mabel', 'german shepherd', 'female', 2, 'large', false, true, '{"small": true, "medium": true, "large": true}', '{"female": true}', '{"doberman": true}', 'Very obedient and well behaved, Mabel lacks good dog friendships, she loves going to the beach and dog parks', './public/mabel.jpeg', 10),
 
   ('Arnold', 'boxer', 'male', 4, 'large', false, true, '{"small": true, "medium": true}', '{"male": true, "female": true}', '{}', 'Very energetic and playful, Arnord will not leave anyone without a smile', './public/arnold.jpeg', 11);
+
+INSERT INTO favourites
+  (owner_id, dog_id)
+  VALUES
+  (1, 7),
+  (1, 3),
+  (1, 6),
+  (2, 8),
+  (2, 4),
+  (3, 10),
+  (3, 9),
+  (4, 3),
+  (6, 1),
+  (6, 10),
+  (6, 7),
+  (7, 4),
+  (7, 5),
+  (9, 10);
