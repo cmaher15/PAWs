@@ -17,6 +17,7 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
+import FetchProfiles from "./components/fetchProfiles";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -33,7 +34,7 @@ import DogProfileTemplate from "./components/DogMatches";
 
 const App = () => {
   // GLOBAL STATE
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState();
   const [userId, setUserId] = useState(0);
   const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
@@ -114,8 +115,13 @@ const App = () => {
               element={<RegisterUser loggedIn={loggedIn} />}
             />
             <Route path="/register-dog" element={<RegisterDog />} />
-            <Route path="/dog-matches" element={<DogMatches />} />
-            <Route path="/users-dogs" element={<UsersDogs />} />
+            <Route
+              path="/dog-matches"
+              element={<FetchProfiles urlPath={urlPath} />}
+            />
+            <Route path="/users-dogs" element={<FetchProfiles />} />
+            {/* <Route path="/dog-matches" element={<DogMatches />} />
+            <Route path="/users-dogs" element={<UsersDogs />} /> */}
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/terms" element={<Terms />} />
           </Routes>

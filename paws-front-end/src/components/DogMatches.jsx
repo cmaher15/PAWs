@@ -10,27 +10,29 @@ import { DogProfileCard } from "../helpers/dogProfileCard";
 
 const DogMatches = function (props) {
   // GET FROM SERVER, DOGS IN THE LOCAL AREA
-  const [isLoading, setIsLoading] = useState(true);
-  const [areaDogs, setAreaDogs] = useState(() => true);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [areaDogs, setAreaDogs] = useState(true);
 
-  const callSetAreaDogs = dogs => setAreaDogs(dogs);
+  // const callSetAreaDogs = dogs => setAreaDogs(dogs);
 
-  useEffect(() => {
-    axios
-      .get(`/api/dogs`)
-      .then(response => {
-        console.log("response in fetchAreaDogs: ", response.data);
-        callSetAreaDogs(response.data);
-        setIsLoading(false);
-      })
-      .catch(error => console.log("Error fetching dogs from server: ", error));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`/api/dogs`)
+  //     .then(response => {
+  //       console.log("response in fetchAreaDogs: ", response.data);
+  //       callSetAreaDogs(response.data);
+  //       setIsLoading(false);
+  //     })
+  //     .catch(error => console.log("Error fetching dogs from server: ", error));
+  // }, []);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  } else {
-    return areaDogs.map(dog => <DogProfileCard dog={dog} />);
-  }
+  // if (isLoading) {
+  //   // Shows loading whilst waiting for axios request (gif dog goes here)
+  //   return <p>Loading...</p>;
+  // } else {
+  // return areaDogs.map(dog => <DogProfileCard dog={dog} />);
+  // }
+  return props.areaDogs.map(dog => <DogProfileCard dog={dog} />);
 };
 
 export default DogMatches;
