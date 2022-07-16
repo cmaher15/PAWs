@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Helper functions
 // Function takes dog object as argument, returns jsx profile card
-import { dogProfileCard } from "../helpers/dogProfileCard";
+import { DogProfileCard } from "../helpers/dogProfileCard";
 
 const UsersDogs = function () {
   const [userDogs, setUserDogs] = useState([]);
@@ -27,7 +27,7 @@ const UsersDogs = function () {
   console.log("usersDogs before return call: ", userDogs);
 
   return userDogs !== undefined
-    ? userDogs.map(dog => dogProfileCard(dog))
+    ? userDogs.map(dog => <DogProfileCard dog={dog} />)
     : "It appears that you do not have any dogs registered.";
 };
 
