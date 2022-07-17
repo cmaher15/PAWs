@@ -29,8 +29,8 @@ const HomePage = function (props) {
   return (
     <div>
       {/*Display profile page if user logged in, else prompt user to sign up */}
-      {props.loggedIn ? (
-        <UsersDogs userName={props.userName} />
+      {window.localStorage.getItem('paws_logged_in') ? (
+        <p>You are logged in!</p>
       ) : (
         guestGreeting()
       )}

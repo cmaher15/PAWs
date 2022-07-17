@@ -66,7 +66,7 @@ module.exports = db => {
       .then(result => {
         if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
           res.cookie("userId", result.rows[0].id);
-          res.status(200).send(result.rows[0].data);
+          res.status(200).send(result.rows[0]);
           // res.status(200).send(result.rows[0].id.toString());
         } else {
           return res.status(403).send("Incorrect password");
