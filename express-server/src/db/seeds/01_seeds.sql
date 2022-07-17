@@ -37,10 +37,10 @@ INSERT INTO dogs
 
   ('Mabel', 'german shepherd', 'female', 2, 'large', false, true, '{"small": true, "medium": true, "large": true}', '{"female": true}', '{"doberman": true}', 'Very obedient and well behaved, Mabel lacks good dog friendships, she loves going to the beach and dog parks', '/dogs/mabel.jpeg', 10),
 
-  ('Arnold', 'boxer', 'male', 4, 'large', false, true, '{"small": true, "medium": true}', '{"male": true, "female": true}', '{}', 'Very energetic and playful, Arnord will not leave anyone without a smile', './public/arnold.jpeg', 11);
+  ('Arnold', 'boxer', 'male', 4, 'large', false, true, '{"small": true, "medium": true}', '{"male": true, "female": true}', '{}', 'Very energetic and playful, Arnord will not leave anyone without a smile', '/dogs/arnold.jpeg', 11),
 
   ('Rocky', 'pitbull', 'male', 2, 'large', false, true, '{"medium": true, "large": true}', '{"male": true, "female": true}', '{}', 'Rocky is a good boy who likes jumping in puddles! He would absolutely
-  love to go on a walk with you.', './public/happy_baby.jpeg', 1)
+  love to go on a walk with you.', '/dogs/happy_baby.jpeg', 1);
 
 INSERT INTO favourites
   (owner_id, dog_id)

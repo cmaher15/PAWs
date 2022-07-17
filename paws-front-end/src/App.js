@@ -16,7 +16,7 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
-import FetchProfiles from "./components/fetchProfiles";
+import FetchProfiles from "./components/FetchProfiles";
 import NewsBar from "./components/NewsBar";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
@@ -134,10 +134,8 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        <RegisterDog />
         {/* <Status />
         <RegisterUser /> */}
-        <DogProfile />
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
