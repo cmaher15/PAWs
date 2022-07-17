@@ -116,10 +116,6 @@ const App = () => {
             element={<HomePage loggedIn={loggedIn} userName={userName} />}
           />
           <Route
-            path="/"
-            element={<HomePage loggedIn={loggedIn} userName={userName} />}
-          />
-          <Route
             path="/register-user"
             element={<RegisterUser loggedIn={loggedIn} />}
           />
@@ -128,7 +124,7 @@ const App = () => {
             path="/dog-matches"
             element={<FetchProfiles urlPath={urlPath} />}
           />
-          <Route path="/users-dogs" element={<FetchProfiles />} />
+          <Route path="/users-dogs" element={<FetchProfiles urlPath={urlPath} />} />
           {/* <Route path="/dog-matches" element={<DogMatches />} />
             <Route path="/users-dogs" element={<UsersDogs />} /> */}
           <Route path="/about-us" element={<AboutUs />} />
