@@ -46,7 +46,7 @@ const DogMatches = function (props) {
         // console.log("matched owner: ", owner);
       }
     }
-    return <div className="doggos"><DogProfileCard dog={dog} owner={owner} /></div>
+    return <main className="doggos"><DogProfileCard dog={dog} owner={owner} /></main>
   });
 };
 
