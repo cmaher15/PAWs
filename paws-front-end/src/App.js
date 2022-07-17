@@ -24,7 +24,7 @@ import NewsBar from "./components/NewsBar";
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer,
+  sendCoordinatesToServer
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -61,12 +61,10 @@ const App = () => {
   const fetchAreaOwners = function () {
     axios
       .get("/api/owners")
-      .then((response) => {
+      .then(response => {
         setAreaOwners(response.data);
       })
-      .catch((error) =>
-        console.log("error fetching owners in App.js: ", error)
-      );
+      .catch(error => console.log("error fetching owners in App.js: ", error));
   };
 
   // useEffect(() => {
@@ -81,7 +79,7 @@ const App = () => {
   // Update userCoordinates, after async request for location is fulfilled
   const getLongLat = async function () {
     try {
-      await fetchCoordinates(getCoordinates).then((results) => {
+      await fetchCoordinates(getCoordinates).then(results => {
         console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
