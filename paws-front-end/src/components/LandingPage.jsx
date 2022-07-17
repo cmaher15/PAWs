@@ -47,7 +47,7 @@ export default function LandingPage(props) {
           Register New Dog
         </Link>
       </h3>
-      <span className="locationInfo">
+      <span className="userlocation">
         <i className="fa-solid fa-location-dot fa-2xl"></i>
         <p className="distance">Powell River, BC</p>
       </span>

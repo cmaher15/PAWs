@@ -13,6 +13,12 @@
   background-color: rgba(245, 245, 220, 0.789);
 }
 
+.userlocation {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 .userpic {
   width: 360px;
@@ -41,6 +47,3 @@
   cursor: pointer;
 }
 
-.locationInfo {
-  justify-content: center;
-}
