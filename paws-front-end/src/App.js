@@ -44,26 +44,59 @@ const App = () => {
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
   // GET DOGS
+  const [isLoadingDogs, setIsLoadingDogs] = useState(true);
+  const [isLoadingOwners, setIsLoadingOwners] = useState(true);
+  const [areaDogs, setAreaDogs] = useState();
+  const [areaOwners, setAreaOwners] = useState();
 
-  // GET USER LOCATION
-  const [userCoordinates, setUserCoordinates] = useState("");
-  // Update userCoordinates, after async request for location is fulfilled
-  const getLongLat = async function () {
-    try {
-      await fetchCoordinates(getCoordinates).then(results => {
-        console.log("results, App.js: ", results);
-        setUserCoordinates(results);
-        // After state is set, pass lat/longitude to database
-        // sendCoordinatesToServer(userCoordinates, ownerId);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // Fetch dogs from server
   useEffect(() => {
-    getLongLat();
+    axios
+      .get(`/api/dogs`)
+      .then(response => {
+        // callSetAreaDogs(response.data);
+        setAreaDogs(response.data);
+        setIsLoadingDogs(false);
+      })
+      .catch(error => console.log("Error fetching dogs from server: ", error));
   }, []);
+
+  // Fetch owners from server
+  useEffect(() => {
+    axios
+      .get(`/api/owners`)
+      .then(response => {
+        // callSetAreaDogs(response.data);
+        setAreaOwners(response.data);
+        setIsLoadingOwners(false);
+      })
+      .catch(error => console.log("Error fetching dogs from server: ", error));
+  }, []);
+
+  if (isLoadingDogs || isLoadingOwners) {
+    console.log("Axios not finished.");
+    return <div>LOADING DOGS AND OWNERS</div>;
+  }
+
+  // // GET USER LOCATION *Leave commented out until needed
+  // const [userCoordinates, setUserCoordinates] = useState("");
+  // // Update userCoordinates, after async request for location is fulfilled
+  // const getLongLat = async function () {
+  //   try {
+  //     await fetchCoordinates(getCoordinates).then(results => {
+  //       console.log("results, App.js: ", results);
+  //       setUserCoordinates(results);
+  //       // After state is set, pass lat/longitude to database
+  //       // sendCoordinatesToServer(userCoordinates, ownerId);
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getLongLat();
+  // }, []);
 
   return (
     <div
@@ -78,17 +111,27 @@ const App = () => {
           setUrlPath={setUrlPath}
           setUserId={setUserId}
         />
+
         {loggedIn ? <NewsBar /> : <></>}
         {loggedIn ? <LandingPage /> : <></>}
         <Routes>
-          <Route path="/" element={<HomePage userName={userName} />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />
           <Route path="/register-dog" element={<RegisterDog />} />
-          <Route path="/dog-matches" element={<DogMatches />} />
-          <Route path="/users-dogs" element={<UsersDogs />} />
+          <Route
+            path="/dog-matches"
+            element={<DogMatches areaDogs={areaDogs} areaOwners={areaOwners} />}
+          />
+          <Route
+            path="/my-favourites"
+            element={<FavePage areaDogs={areaDogs} areaOwners={areaOwners} />}
+          />
+          <Route
+            path="/users-dogs"
+            element={<UsersDogs areaDogs={areaDogs} areaOwners={areaOwners} />}
+          />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/my-favourites" element={<FavePage />} />
         </Routes>
         {/* <RegisterDog /> */}
         {/* <Status />

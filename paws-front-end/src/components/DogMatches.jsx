@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "../styles/DogProfile.css";
-import "../styles/ProfileSpinner.css"
+import "../styles/ProfileSpinner.css";
 
 // Helper functions
 import { matchDogs } from "../helpers/matchDogs";
@@ -10,7 +9,7 @@ import { matchDogs } from "../helpers/matchDogs";
 import { DogProfileCard } from "../helpers/dogProfileCard";
 
 const DogMatches = function (props) {
-
+  console.log("dogMatches props: ", props);
   return props.areaDogs.map(dog => {
     let owner;
     for (let areaOwner of props.areaOwners) {
@@ -18,7 +17,7 @@ const DogMatches = function (props) {
         owner = areaOwner;
       }
     }
-    return <DogProfileCard dog={dog} owner={owner} key={dog.id}/>;
+    return <DogProfileCard dog={dog} owner={owner} key={dog.id} />;
   });
 };
 

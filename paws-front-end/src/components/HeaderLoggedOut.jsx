@@ -24,12 +24,15 @@ const HeaderLoggedOut = function (props) {
         .post("/api/login", data, { withCredentials: true })
         .then(res => {
           console.log(JSON.stringify(res["data"]));
-          //Set the global "userId" state to userId returned from server
+
+          // Set
           window.localStorage.setItem("paws_id", res["data"]["id"]);
           window.localStorage.setItem("paws_name", res["data"]["name"]);
           window.localStorage.setItem("paws_city", res["data"]["city"]);
           window.localStorage.setItem("paws_email", res["data"]["email"]);
           window.localStorage.setItem("paws_logged_in", "true");
+
+          // setLoggedIn called in order to trigger App.js re-render
           props.setLoggedIn(true);
         })
         .catch(error => {
