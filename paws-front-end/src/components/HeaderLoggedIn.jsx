@@ -7,7 +7,14 @@ const HeaderLoggedIn = function (props) {
     <>
       <p className="logged-in">Logged in as: {props.userName}</p>
       <Link to="/">
-        <button className="logout" onClick={() => props.setLoggedIn(false)}>
+        <button
+          className="logout"
+          onClick={() => {
+            // Clear variables from client local storage
+            window.localStorage.clear();
+            props.setLoggedIn(false);
+          }}
+        >
           Logout
         </button>
       </Link>

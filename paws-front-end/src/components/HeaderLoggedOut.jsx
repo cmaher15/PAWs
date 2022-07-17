@@ -22,10 +22,13 @@ const HeaderLoggedOut = function (props) {
 
       await axios
         .post("/api/login", data, { withCredentials: true })
-        .then(response => {
-          console.log(JSON.stringify(response));
+        .then(res => {
+          console.log(JSON.stringify(res["data"]));
           //Set the global "userId" state to userId returned from server
-          props.setUserId(response.data);
+          window.localStorage.setItem("paws_id", res["data"]["id"]);
+          window.localStorage.setItem("paws_name", res["data"]["name"]);
+          window.localStorage.setItem("paws_city", res["data"]["city"]);
+          window.localStorage.setItem("paws_email", res["data"]["email"]);
           props.setLoggedIn(true);
         })
         .catch(error => {
