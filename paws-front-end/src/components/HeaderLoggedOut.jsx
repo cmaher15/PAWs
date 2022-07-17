@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import "../styles/Header.css"
-import "../styles/Login.css"
+import "../styles/Header.css";
+import "../styles/Login.css";
 
 // We will show a login option on top of the header, or perhaps no header?
 const HeaderLoggedOut = function (props) {
@@ -17,20 +17,23 @@ const HeaderLoggedOut = function (props) {
     const loginToServer = async function (data) {
       // Validate email/password
       if (data.email === "" || data.password === "") {
-        alert("Email or password fields can not be empty.");
+        return alert("Email or password fields can not be empty.");
       }
 
       await axios
-        .post("/api/login", data, {withCredentials: true})
-        .then(response => {
-          console.log("server response");
-          console.log(JSON.stringify(response));
+        .post("/api/login", data, { withCredentials: true })
+        .then(res => {
+          console.log(JSON.stringify(res["data"]));
           //Set the global "userId" state to userId returned from server
-          props.setUserId(response.data);
+          window.localStorage.setItem("paws_id", res["data"]["id"]);
+          window.localStorage.setItem("paws_name", res["data"]["name"]);
+          window.localStorage.setItem("paws_city", res["data"]["city"]);
+          window.localStorage.setItem("paws_email", res["data"]["email"]);
+          window.localStorage.setItem("paws_logged_in", "true");
           props.setLoggedIn(true);
         })
         .catch(error => {
-          console.log(error.message);
+          console.log("Unsuccessful login: ", error.message);
           // Display some sort of error message to user?
           alert("Login Unsuccessful");
         });
@@ -44,9 +47,9 @@ const HeaderLoggedOut = function (props) {
 
   return (
     <>
-      <form className='login-box' onSubmit={handleSubmit}>
+      <form className="login-box" onSubmit={handleSubmit}>
         <input
-          className='login'
+          className="login"
           type="text"
           onChange={e => setEmail(e.target.value)}
           name="email"
@@ -55,7 +58,7 @@ const HeaderLoggedOut = function (props) {
           autoComplete="off"
         />
         <input
-          className='login'
+          className="login"
           type="password"
           onChange={e => setPassword(e.target.value)}
           name="password"
@@ -63,7 +66,7 @@ const HeaderLoggedOut = function (props) {
           placeholder="Password"
           autoComplete="off"
         />
-        <button className='sign-in-btn'>Sign In</button>
+        <button className="sign-in-btn">Sign In</button>
       </form>
     </>
   );

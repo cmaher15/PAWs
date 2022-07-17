@@ -5,9 +5,18 @@ import "../styles/Header.css";
 const HeaderLoggedIn = function (props) {
   return (
     <>
-      <p className="logged-in">Logged in as: {props.userName}</p>
+      <p className="logged-in">
+        Logged in as: {window.localStorage.getItem("paws_name")}
+      </p>
       <Link to="/">
-        <button className="logout" onClick={() => props.setLoggedIn(false)}>
+        <button
+          className="logout"
+          onClick={() => {
+            // Clear variables from client local storage
+            window.localStorage.clear();
+            props.setLoggedIn(false);
+          }}
+        >
           Logout
         </button>
       </Link>
