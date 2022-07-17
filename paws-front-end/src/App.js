@@ -34,7 +34,9 @@ import DogProfileTemplate from "./components/DogMatches";
 
 const App = () => {
   // GLOBAL STATE
-  const [loggedIn, setLoggedIn] = useState();
+  const [loggedIn, setLoggedIn] = useState(
+    window.localStorage.getItem("paws_logged_in")
+  );
   const [userId, setUserId] = useState();
   const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);

@@ -29,6 +29,7 @@ const HeaderLoggedOut = function (props) {
           window.localStorage.setItem("paws_name", res["data"]["name"]);
           window.localStorage.setItem("paws_city", res["data"]["city"]);
           window.localStorage.setItem("paws_email", res["data"]["email"]);
+          window.localStorage.setItem("paws_logged_in", "true");
           props.setLoggedIn(true);
         })
         .catch(error => {
