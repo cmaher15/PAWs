@@ -16,7 +16,7 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
-import FetchProfiles from "./components/FetchProfiles";
+import GetProfiles from "./components/GetProfiles";
 import NewsBar from "./components/NewsBar";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
@@ -126,9 +126,9 @@ const App = () => {
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route
             path="/dog-matches"
-            element={<FetchProfiles urlPath={urlPath} />}
+            element={<GetProfiles urlPath={urlPath} />}
           />
-          <Route path="/users-dogs" element={<FetchProfiles />} />
+          <Route path="/users-dogs" element={<GetProfiles />} />
           {/* <Route path="/dog-matches" element={<DogMatches />} />
             <Route path="/users-dogs" element={<UsersDogs />} /> */}
           <Route path="/about-us" element={<AboutUs />} />
@@ -137,7 +137,7 @@ const App = () => {
         {/* <RegisterDog /> */}
         {/* <Status />
         <RegisterUser /> */}
-        <FetchProfiles />
+        <GetProfiles />
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
