@@ -18,7 +18,6 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
-import FetchProfiles from "./components/FetchProfiles";
 import NewsBar from "./components/NewsBar";
 import FavePage from "./components/FavePage";
 import DogList from "./components/DogList";
@@ -83,14 +82,14 @@ const App = () => {
           <Route path="/" element={<HomePage userName={userName} />} />
           <Route path="/register-user" element={<RegisterUser />} />
           <Route path="/register-dog" element={<RegisterDog />} />
-          <Route
+          {/* <Route
             path="/dog-matches"
             element={<FetchProfiles urlPath={urlPath} />}
           />
           <Route
             path="/users-dogs"
             element={<FetchProfiles urlPath={urlPath} />}
-          />
+          /> */}
           <Route path="/dog-matches" element={<DogMatches />} />
           <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />

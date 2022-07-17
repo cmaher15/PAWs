@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Header.css"
-import FetchProfiles from "./FetchProfiles";
+
 
 const UsersDogs = function () {
   //   const [userDogs, setUserDogs] = useState([]);
