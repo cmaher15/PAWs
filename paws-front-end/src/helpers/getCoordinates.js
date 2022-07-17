@@ -3,7 +3,7 @@ import axios from "axios";
 // Async request for user's coordiates using Geolocation API
 const fetchCoordinates = async function (getCoordinates) {
   const results = new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       resolve(getCoordinates(position), reject);
     });
   });
@@ -33,15 +33,15 @@ const sendCoordinatesToServer = function (userCoordinates, ownerId) {
   const data = {
     params: {
       ownerId: ownerId,
-      userCoordinates: userCoordinates
-    }
+      userCoordinates: userCoordinates,
+    },
   };
 
   axios.post(`/api/owners`, data).then(
-    response => {
+    (response) => {
       console.log(response);
     },
-    error => {
+    (error) => {
       console.log(error);
     }
   );
@@ -51,5 +51,5 @@ export {
   getCoordinates,
   fetchCoordinates,
   // apiLocationSetState,
-  sendCoordinatesToServer
+  sendCoordinatesToServer,
 };

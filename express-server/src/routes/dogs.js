@@ -31,7 +31,7 @@ module.exports = (db) => {
 
   // Create new dog
   router.post(`/dogs`, (req, res) => {
-    console.log('req.body', req.body);
+    // console.log('req.body', req.body);
     db.query(
       `
     INSERT INTO dogs 

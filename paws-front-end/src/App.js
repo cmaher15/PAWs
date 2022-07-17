@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "./styles/ProfileSpinner.css"
 import axios from "axios";
 
 // Components
@@ -8,6 +9,7 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
+import LandingPage from "./components/LandingPage";
 import DogMatches from "./components/DogMatches";
 import UsersDogs from "./components/UsersDogs";
 import AboutUs from "./components/AboutUs";
@@ -18,6 +20,7 @@ import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 import FetchProfiles from "./components/FetchProfiles";
 import NewsBar from "./components/NewsBar";
+import FavePage from "./components/FavePage";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -83,11 +86,13 @@ const App = () => {
             path="/dog-matches"
             element={<FetchProfiles urlPath={urlPath} />}
           />
-          <Route path="/users-dogs" element={<FetchProfiles urlPath={urlPath} />} />
-          {/* <Route path="/dog-matches" element={<DogMatches />} />
-            <Route path="/users-dogs" element={<UsersDogs />} /> */}
+          <Route path="/users-dogs" element={<FetchProfiles urlPath={urlPath}/>} />
+          <Route path="/dog-matches" element={<DogMatches />} />
+            <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/user-profile" element={<LandingPage />} />
+          <Route path="/my-favourites" element={<FavePage />} />
         </Routes>
         {/* <RegisterDog /> */}
         {/* <Status />

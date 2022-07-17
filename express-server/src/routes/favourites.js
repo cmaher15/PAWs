@@ -48,7 +48,7 @@ module.exports = (db) => {
 
   // Delete from favourites
   router.delete("/favourites/:id/:dog_id", (req, res) => {
-    console.log("req.body", req.params);
+    // console.log("req.body", req.params);
     const owner_id = req.params.id;
     const dog_id = req.params.dog_id;
     // console.log("owner_id", owner_id);

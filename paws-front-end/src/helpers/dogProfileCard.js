@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/DogProfile.css";
+import "../styles/ProfileSpinner.css";
 import Chat from "../Chat";
 import Favourites from "../components/Favourites";
 

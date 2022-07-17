@@ -2,7 +2,7 @@
   display: flex;
   float: right;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   overflow: auto;
   border: 3px solid black;
   width: 300px;
