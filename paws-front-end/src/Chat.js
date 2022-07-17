@@ -15,8 +15,8 @@ export default function Chat(props) {
   axios
     .get(`/api/owners/${userID}`)
     .then((response) => {
-      console.log("response for user:", response);
-      console.log("username", response.data.name);
+      // console.log("response for user:", response);
+      // console.log("username", response.data.name);
       setName(response.data.name);
       return response;
     })
