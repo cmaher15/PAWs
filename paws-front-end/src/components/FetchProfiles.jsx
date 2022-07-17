@@ -41,7 +41,7 @@ const fetchProfiles = function (props) {
     // Shows loading whilst waiting for axios request (gif dog goes here)
     return <p>Loading...</p>;
   } else {
-    console.log("props.urlPath: ", props.urlPath);
+    console.log("props.urlPath", props.urlPath);
     return props.urlPath === "/dog-matches" ? (
       <DogMatches areaDogs={areaDogs} areaOwners={areaOwners} />
     ) : (
