@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/DogProfile.css";
+import "../styles/ProfileSpinner.css"
 
 // Helper functions
 import { matchDogs } from "../helpers/matchDogs";
@@ -45,7 +46,7 @@ const DogMatches = function (props) {
         // console.log("matched owner: ", owner);
       }
     }
-    return <main className='profilecards'><DogProfileCard dog={dog} owner={owner} /></main>
+    return <div className="doggos"><DogProfileCard dog={dog} owner={owner} /></div>
   });
 };
 

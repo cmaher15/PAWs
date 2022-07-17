@@ -1,0 +1,13 @@
+
+
+.doggos {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-left: 70px;
+  padding-right: 70px;
+
+}
