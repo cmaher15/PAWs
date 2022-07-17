@@ -16,7 +16,7 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
-import GetProfiles from "./components/GetProfiles";
+import FetchProfiles from "./components/FetchProfiles";
 import NewsBar from "./components/NewsBar";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
@@ -82,7 +82,7 @@ const App = () => {
   const getLongLat = async function () {
     try {
       await fetchCoordinates(getCoordinates).then((results) => {
-        // console.log("results, App.js: ", results);
+        console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
         // sendCoordinatesToServer(userCoordinates, ownerId);
@@ -126,9 +126,9 @@ const App = () => {
           <Route path="/register-dog" element={<RegisterDog />} />
           <Route
             path="/dog-matches"
-            element={<GetProfiles urlPath={urlPath} />}
+            element={<FetchProfiles urlPath={urlPath} />}
           />
-          <Route path="/users-dogs" element={<GetProfiles />} />
+          <Route path="/users-dogs" element={<FetchProfiles />} />
           {/* <Route path="/dog-matches" element={<DogMatches />} />
             <Route path="/users-dogs" element={<UsersDogs />} /> */}
           <Route path="/about-us" element={<AboutUs />} />
@@ -137,7 +137,7 @@ const App = () => {
         {/* <RegisterDog /> */}
         {/* <Status />
         <RegisterUser /> */}
-        <GetProfiles />
+        <FetchProfiles />
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
