@@ -115,3 +115,12 @@ textarea {
   height: 800px;
   overflow: overlay;
 }
+
+.scrollbox {
+width: 400px;
+margin: auto;
+}
+
+.breedscroll {
+  width: fit-content
+}
