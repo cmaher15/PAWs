@@ -4,13 +4,13 @@ import { v4 } from "uuid";
 import "./styles/Chat.css";
 import axios from "axios";
 
-export default function Chat() {
+export default function Chat(props) {
   const [name, setName] = useState("");
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const [socket, setSocket] = useState();
   const userID = document.cookie.slice(7);
-  const [chat, setChat] = useState(0)
+  const [chat, setChat] = useState(0);
 
   axios
     .get(`/api/owners/${userID}`)
@@ -66,8 +66,8 @@ export default function Chat() {
 
       <div className="headerChat">
         You're chatting with:
-        <img className="userChatThumb" src="images/mscarn.jpeg" />
-        Michael Scarn
+        <img className="userChatThumb" src={props.owner_photo} />
+        {props.owner_name}
       </div>
       <div className="messagehistory">
         <div className="messages">{list}</div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/DogProfile.css";
 import Chat from "../Chat";
+import Favourites from "../components/Favourites";
 
 //JSX template for each dog profile
 
@@ -9,11 +10,11 @@ const DogProfileCard = function (props) {
   const [owner, setOwner] = useState(props.owner);
   const [isShown, setIsShown] = useState(false);
 
-  console.log("dog in JSX: ", dog);
-  console.log("owner in JSX: ", owner);
+  // console.log("dog in JSX: ", dog);
+  // console.log("owner in JSX: ", owner);
 
-  const handleChat = event => {
-    setIsShown(current => !current);
+  const handleChat = (event) => {
+    setIsShown((current) => !current);
   };
 
   const generateRandomInteger = function (max) {
@@ -27,13 +28,7 @@ const DogProfileCard = function (props) {
       </div>
       <span className="icons">
         <h1 className="dogName">{dog.name}</h1>
-        <button className="favourite">
-          <i
-            className="fa-solid fa-heart fa-2xl"
-            onMouseOver={({ target }) => (target.style.color = "darkred")}
-            onMouseOut={({ target }) => (target.style.color = "gray")}
-          ></i>
-        </button>
+        <Favourites dog_id={dog.id} key={dog.id} />
         <button className="sendChatBtn" onClick={handleChat}>
           <i
             className="fa-solid fa-message fa-2xl"
@@ -49,14 +44,14 @@ const DogProfileCard = function (props) {
       <span className="dogInfo">
         <h3>{dog.gender}</h3>
         <h3>{dog.breed}</h3>
-        <h3>{dog.age}</h3>
+        <h3>{dog.age} years</h3>
       </span>
       <p className="description">{dog.description}</p>
       <span className="parent">
         <img className="userThumbnail" src={owner.thumbnail_photo_url} />
         <h4>Parent: {owner.name}</h4>
       </span>
-      <div>{isShown && <Chat />}</div>
+      <div>{isShown && <Chat owner_photo={owner.thumbnail_photo_url} owner_name={owner.name} />}</div>
     </div>
   );
 };

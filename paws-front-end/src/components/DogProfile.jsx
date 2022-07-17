@@ -5,7 +5,7 @@ import Chat from "../Chat";
 
 export default function DogProfile() {
   const [isShown, setIsShown] = useState(false);
-  const [fave, setFave] = useState(false);
+
 
   const handleChat = event => {
     setIsShown(current => !current)

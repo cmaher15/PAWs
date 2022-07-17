@@ -31,6 +31,7 @@ export default function RegisterDog() {
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
   const [isShown, setIsShown] = useState(false);
+  const owner_id = document.cookie.slice(7);
 
   //Function to manage checked box status in size compatibility form section
 
@@ -67,6 +68,7 @@ export default function RegisterDog() {
     e.preventDefault();
     showStatus()
     addDataToServer({
+      owner_id,
       name,
       breed,
       gender,

@@ -31,7 +31,7 @@ module.exports = (db) => {
 
   // Create new dog
   router.post(`/dogs`, (req, res) => {
-    // console.log(req.body);
+    console.log('req.body', req.body);
     db.query(
       `
     INSERT INTO dogs 
@@ -45,7 +45,7 @@ module.exports = (db) => {
         req.body.gender_compatibility
       )}', '${JSON.stringify(req.body.breed_incompatibility)}', '${
         req.body.description
-      }', '${req.body.photo_url}', 1)`
+      }', '${req.body.photo_url}', '${req.body.owner_id}')`
     )
       .then((result) => {
         console.log("New dog was successfully added");
