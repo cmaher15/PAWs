@@ -19,6 +19,7 @@ import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 import FetchProfiles from "./components/FetchProfiles";
 import NewsBar from "./components/NewsBar";
+import FavePage from "./components/FavePage";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -130,11 +131,12 @@ const App = () => {
             element={<FetchProfiles urlPath={urlPath} />}
           />
           <Route path="/users-dogs" element={<FetchProfiles />} />
-          {/* <Route path="/dog-matches" element={<DogMatches />} />
-            <Route path="/users-dogs" element={<UsersDogs />} /> */}
+          <Route path="/dog-matches" element={<DogMatches />} />
+            <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/user-profile" element={<LandingPage />} />
+          <Route path="/my-favourites" element={<FavePage />} />
         </Routes>
         {/* <RegisterDog /> */}
         {/* <Status />

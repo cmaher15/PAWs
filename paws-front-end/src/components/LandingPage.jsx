@@ -1,17 +1,56 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/LandingPage.css";
 
-export default function LandingPage () {
-
+export default function LandingPage(props) {
   return (
     <main className="ownerProfile">
-       <div className="user-photo"><img className="userpic" src="images/ceilidhe.jpeg"/></div>
-      <h3>My Favourites</h3>
-      <h3>My Matches</h3>
-      <h3>My Dogs</h3>
+      <h1 className="welcome">Hello, Ceilidhe!</h1>
+      <div className="user-photo">
+        <img className="userpic" src="images/ceilidhe.jpeg" />
+      </div>
+      <h3 className="userlinks">
+        <Link
+          className="userlinks"
+          to={"/my-favourites"}
+          onClick={() => props.setUrlPath("/my-favourites")}
+        >
+          My Favourites
+        </Link>
+      </h3>
+      <h3 className="userlinks">
+        {" "}
+        <Link
+          className="userlinks"
+          to={"/users-dogs"}
+          onClick={() => props.setUrlPath("/users-dogs")}
+        >
+          My Dogs
+        </Link>
+      </h3>
+      <h3 className="userlinks">
+        <Link
+          className="userlinks"
+          to={"/dog-matches"}
+          onClick={() => props.setUrlPath("/dog-matches")}
+        >
+          My Matches
+        </Link>
+      </h3>
+      <h3 className="userlinks">
+        {" "}
+        <Link
+          className="userlinks"
+          to={"/register-dog"}
+          onClick={() => props.setUrlPath("/register-dog")}
+        >
+          Register New Dog
+        </Link>
+      </h3>
       <span className="locationInfo">
         <i className="fa-solid fa-location-dot fa-2xl"></i>
         <p className="distance">Powell River, BC</p>
       </span>
     </main>
-  )}
+  );
+}

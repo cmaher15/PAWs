@@ -92,11 +92,11 @@
   
   .footer {
     display: flex;
-    margin-left: 10px;
+    margin-right: 10px;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 600;
-    margin-top: 100px;
+    margin-top: 400px;
     margin-bottom: 20px;
     justify-content: center;
   }
