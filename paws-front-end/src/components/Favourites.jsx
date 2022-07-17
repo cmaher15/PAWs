@@ -1,20 +1,36 @@
-import react, { useState } from "react";
+import { useState } from "react";
+import axios from "axios";
+import "../styles/DogProfile.css";
 
-export default function Favourites() {
+export default function Favourites(props) {
   const [favourite, setFavourite] = useState(false);
+  const owner_id = document.cookie.slice(7);
+  const dog_id = props.dog_id
+
+
+  const data = { owner_id, dog_id };
+
 
   const handleClick = () => {
+    axios.post(`/api/favourites/`, data).then(
+      (response) => {
+        console.log(response);
+        console.log("dog sucessfully added to favourites!");
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     setFavourite((current) => !current);
   };
-
   return (
     <div
-      style={{ color: favourite ? 'darkred' : 'gray', }}
+      style={{ color: favourite ? "darkred" : "gray" }}
       onClick={handleClick}
     >
-      <button>
+      <button className="favourite">
         <i
-          className="fa-solid fa-heart fa-2xl"
+         className="fa-solid fa-heart fa-2xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
