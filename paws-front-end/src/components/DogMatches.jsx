@@ -18,7 +18,9 @@ const DogMatches = function (props) {
         owner = areaOwner;
       }
     }
-    return <DogProfileCard dog={dog} owner={owner} key={dog.id}/>;
+    return (
+    <DogProfileCard dog={dog} owner={owner} key={dog.id} />
+    )
   });
 };
 

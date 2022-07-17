@@ -1,0 +1,23 @@
+.doggos {
+  margin-top: 30px;
+  margin-left: 160px;
+  margin: auto;
+  display: flex;
+  gap: 0.7em;
+  /* adds scrolling for the element: */
+  overflow-x: scroll;
+  /* removes the horizontal scrollbar: */
+  scrollbar-width: none;
+  border: 2px solid black;
+}
+
+.doggos-item {
+  min-width: 360px;
+  /* carousel item should have defined height: */
+  height: 540px;
+  border-radius: 0.4em;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.85;
+  transition: 300ms ease;
+}
