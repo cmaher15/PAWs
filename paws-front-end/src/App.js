@@ -82,7 +82,7 @@ const App = () => {
   const getLongLat = async function () {
     try {
       await fetchCoordinates(getCoordinates).then((results) => {
-        console.log("results, App.js: ", results);
+        // console.log("results, App.js: ", results);
         setUserCoordinates(results);
         // After state is set, pass lat/longitude to database
         // sendCoordinatesToServer(userCoordinates, ownerId);

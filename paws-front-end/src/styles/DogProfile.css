@@ -90,10 +90,29 @@ color: gray;
 border: none;
 }
 
+.favourite:hover {
+  cursor: pointer
+}
+
+
+.favourited {
+  background: transparent;
+  color: darkred;
+  border: none;
+ 
+}
+
+.favourited:hover {
+  cursor: pointer
+}
+
 .sendChatBtn {
   background: transparent;
   color: gray;
 border: none;
+}
 
+.sendChatBtn:hover {
+  cursor: pointer
 }
 
