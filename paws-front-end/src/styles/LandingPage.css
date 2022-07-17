@@ -1,0 +1,49 @@
+.ownerProfile {
+  display: flex;
+  float: left;
+  flex-direction: column;
+  margin: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  width: 360px;
+  height: 730px;
+  overflow: auto;
+  margin-bottom: 20px;
+  background-color: rgba(245, 245, 220, 0.789);
+}
+
+.userlocation {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userpic {
+  width: 360px;
+  height: 300px;
+  object-fit: cover;
+  float: right;
+  border-bottom: 4px solid black;
+}
+
+.user-photo {
+  float: left;
+}
+
+.userlinks {
+  display: flex;
+  margin-left: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.userlinks:hover {
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+}
+

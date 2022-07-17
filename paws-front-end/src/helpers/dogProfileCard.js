@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/DogProfile.css";
+import "../styles/ProfileSpinner.css";
 import Chat from "../Chat";
 import Favourites from "../components/Favourites";
 
@@ -10,7 +11,7 @@ const DogProfileCard = function (props) {
   const [owner, setOwner] = useState(props.owner);
   const [isShown, setIsShown] = useState(false);
 
-  // console.log("dog in JSX: ", dog);
+  // console.log("dog in JSX: ", dog.id);
   // console.log("owner in JSX: ", owner);
 
   const handleChat = (event) => {
@@ -22,13 +23,13 @@ const DogProfileCard = function (props) {
   };
 
   return (
-    <div className="dogProfile" key={dog.id}>
+    <div className="dogProfile">
       <div>
         <img className="dog" src={dog.photo_url} />
       </div>
       <span className="icons">
         <h1 className="dogName">{dog.name}</h1>
-        <Favourites dog_id={dog.id} key={dog.id} />
+        <Favourites dog_id={dog.id}/>
         <button className="sendChatBtn" onClick={handleChat}>
           <i
             className="fa-solid fa-message fa-2xl"

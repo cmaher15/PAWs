@@ -16,6 +16,7 @@ form {
   
 }
 
+
 .title {
   font-weight: 600;
 }
@@ -104,3 +105,23 @@ textarea {
   cursor: pointer;
 }
 
+/* .userapp {
+  margin-top: 70px;
+  height: 800px;
+  overflow: overlay;
+}
+
+.dogapp {
+  margin-top: 70px;
+  height: 800px;
+  overflow: overlay;
+} */
+
+.scrollbox {
+width: 400px;
+margin: auto;
+}
+
+.breedscroll {
+  width: fit-content
+}

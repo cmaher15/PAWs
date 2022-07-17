@@ -10,6 +10,7 @@ export default function Breed(props) {
     <br />
     <br />
     <select
+      className="breedscroll"
       name="breed"
       id="selectList"
       value={props.breed}
