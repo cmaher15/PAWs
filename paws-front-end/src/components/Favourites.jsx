@@ -15,7 +15,7 @@ export default function Favourites(props) {
     axios.post(`/api/favourites/`, data).then(
       (response) => {
         console.log(response);
-        console.log("dog sucessfully added to favourites!");
+        console.log("dog successfully added to favourites!");
       },
       (error) => {
         console.log(error);
@@ -23,18 +23,37 @@ export default function Favourites(props) {
     );
     setFavourite((current) => !current);
   };
+
+  const handleDelete = () => {
+    axios.delete(`/api/favourites/${owner_id}/${dog_id}`).then(
+      (response) => {
+        console.log(response);
+        console.log("dog successfully removed favourites!");
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    setFavourite((current) => !current);
+  };
+  
   return (
-    <div
-      style={{ color: favourite ? "darkred" : "gray" }}
-      onClick={handleClick}
-    >
-      <button className="favourite">
+    <div>
+    { favourite ? (
+      <button className="favourited" onClick={handleDelete}>
         <i
-         className="fa-solid fa-heart fa-2xl"
+          className="fa-solid fa-heart fa-2xl"
+        ></i>
+      </button>   
+    ) : (
+      <button className="favourite" onClick={handleClick}>
+        <i
+        className="fa-solid fa-heart fa-2xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>
-      </button>
+      </button> )
+    }
     </div>
   );
 }

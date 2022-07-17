@@ -94,12 +94,17 @@ border: none;
   cursor: pointer
 }
 
-.favourite:active {
+
+.favourited {
   background: transparent;
-color: darkred;
-border: none;
+  color: darkred;
+  border: none;
+ 
 }
 
+.favourited:hover {
+  cursor: pointer
+}
 
 .sendChatBtn {
   background: transparent;
