@@ -1,6 +1,5 @@
 import React from "react";
-import "../styles/Header.css"
-import FetchProfiles from "./FetchProfiles";
+import "../styles/Header.css";
 
 const UsersDogs = function () {
   //   const [userDogs, setUserDogs] = useState([]);
@@ -23,10 +22,7 @@ const UsersDogs = function () {
 
   // console.log("usersDogs before return call: ", userDogs);
 
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default UsersDogs;

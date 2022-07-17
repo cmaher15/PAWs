@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./styles/ProfileSpinner.css"
+import "./styles/ProfileSpinner.css";
 import axios from "axios";
 
 // Components
@@ -18,7 +18,6 @@ import Terms from "./components/Terms";
 import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
-import FetchProfiles from "./components/FetchProfiles";
 import NewsBar from "./components/NewsBar";
 import FavePage from "./components/FavePage";
 // import DogProfileTemplate from "./components/DogProfileTemp";
@@ -43,6 +42,8 @@ const App = () => {
   const [userId, setUserId] = useState();
   const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
+
+  // GET DOGS
 
   // GET USER LOCATION
   const [userCoordinates, setUserCoordinates] = useState("");
@@ -77,21 +78,16 @@ const App = () => {
           setUrlPath={setUrlPath}
           setUserId={setUserId}
         />
-        <NewsBar />
+        {loggedIn ? <NewsBar /> : <></>}
+        {loggedIn ? <LandingPage /> : <></>}
         <Routes>
           <Route path="/" element={<HomePage userName={userName} />} />
           <Route path="/register-user" element={<RegisterUser />} />
           <Route path="/register-dog" element={<RegisterDog />} />
-          <Route
-            path="/dog-matches"
-            element={<FetchProfiles urlPath={urlPath} />}
-          />
-          <Route path="/users-dogs" element={<FetchProfiles urlPath={urlPath}/>} />
           <Route path="/dog-matches" element={<DogMatches />} />
-            <Route path="/users-dogs" element={<UsersDogs />} />
+          <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/user-profile" element={<LandingPage />} />
           <Route path="/my-favourites" element={<FavePage />} />
         </Routes>
         {/* <RegisterDog /> */}

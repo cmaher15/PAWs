@@ -56,7 +56,7 @@ const Footer = function (props) {
     <div className="footer-div">
       <p className="footer">{renderLinks}</p>
       <p className="easteregg">
-        a Threat-Level MIDNIGHT production /{new Date().getFullYear()}
+        a Threat-Level MIDNIGHT production / {new Date().getFullYear()}
       </p>
     </div>
   );
