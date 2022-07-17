@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
+import LandingPage from "./components/LandingPage";
 import DogMatches from "./components/DogMatches";
 import UsersDogs from "./components/UsersDogs";
 import AboutUs from "./components/AboutUs";
@@ -133,6 +134,7 @@ const App = () => {
             <Route path="/users-dogs" element={<UsersDogs />} /> */}
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/user-profile" element={<LandingPage />} />
         </Routes>
         {/* <RegisterDog /> */}
         {/* <Status />

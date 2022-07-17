@@ -12,6 +12,15 @@ const UserProfile = function (props) {
             <p>Menu</p>
           </button>
           <div className="dropdown-content">
+          <button className="mainbtn">
+              <Link
+                className="hovermenu"
+                to={"/user-profile"}
+                onClick={() => props.setUrlPath("/user-profile")}
+              >
+                <p className="dropdown-text">My Page</p>
+              </Link>
+            </button>
             <button className="mainbtn">
               <Link
                 className="hovermenu"

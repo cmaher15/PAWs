@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "../styles/Header.css"
 // Helper functions
 // Function takes dog object as argument, returns jsx profile card
 import { DogProfileCard } from "../helpers/dogProfileCard";
@@ -29,9 +30,7 @@ const UsersDogs = function () {
   return (
     <div>
       "It appears that you do not have any dogs registered" Register your pup{" "}
-      <button>
-        <Link to="/register-dog">Here</Link>
-      </button>
+        <Link className="sign-up" to="/register-dog">Here</Link>
     </div>
   );
 };

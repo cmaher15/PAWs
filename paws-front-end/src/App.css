@@ -1,10 +1,11 @@
 .App {
-  height: 700vh;
+  height: 100vh;
   text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 
