@@ -51,7 +51,7 @@ const DogProfileCard = function (props) {
         <img className="userThumbnail" src={owner.thumbnail_photo_url} />
         <h4>Parent: {owner.name}</h4>
       </span>
-      <div>{isShown && <Chat />}</div>
+      <div>{isShown && <Chat owner_photo={owner.thumbnail_photo_url} owner_name={owner.name} />}</div>
     </div>
   );
 };

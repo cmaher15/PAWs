@@ -66,8 +66,8 @@ export default function Chat(props) {
 
       <div className="headerChat">
         You're chatting with:
-        <img className="userChatThumb" src="images/mscarn.jpeg" />
-        Michael Scarn
+        <img className="userChatThumb" src={props.owner_photo} />
+        {props.owner_name}
       </div>
       <div className="messagehistory">
         <div className="messages">{list}</div>
