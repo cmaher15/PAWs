@@ -4,7 +4,7 @@
   margin-left: 160px;
   margin: auto;
   display: flex;
-  gap: 0.7em;
+  gap: 1.1em;
   width: 70%;
   /* adds scrolling for the element: */
   overflow-x: scroll;
@@ -28,3 +28,4 @@
   max-width: 70%;
   max-height: 70%;
 }
+

@@ -12,6 +12,11 @@
   border-radius: 10px;
 }
 
+.dogProfile:hover {
+  transform: scale(1.007);
+  background: linear-gradient(rgba(245, 245, 220, 0.789), rgba(253, 253, 203, 0.833));
+}
+
 .dog {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
