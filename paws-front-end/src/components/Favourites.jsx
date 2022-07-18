@@ -42,7 +42,7 @@ export default function Favourites(props) {
     { favourite ? (
       <button className="favourited" onClick={handleDelete}>
         <i
-          className="fa-solid fa-heart fa-2xl"
+          className="fa-solid fa-heart fa-xl"
         ></i>
       </button>   
     ) : (

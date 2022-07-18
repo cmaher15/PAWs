@@ -15,13 +15,11 @@ import UsersDogs from "./components/UsersDogs";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
-import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 import NewsBar from "./components/NewsBar";
 import FavePage from "./components/FavePage";
-import DogList from "./components/DogList";
-// import DogProfileTemplate from "./components/DogProfileTemp";
+
 
 // Helpers
 // import {
@@ -172,7 +170,6 @@ const App = () => {
         {/* <RegisterDog /> /}
                     {/ <Status />
                     <RegisterUser /> /}
-                    {/ <DogProfile /> */}
         {/* <Footer urlPath={urlPath} setUrlPath={setUrlPath} /> */}
       </BrowserRouter>
     </div>

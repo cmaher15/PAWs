@@ -18,7 +18,7 @@ const Header = function (props) {
         </h3>
         <span className="title-description">Pups. Awaiting. Walks.</span>
       </div>
-      <span className="user-credentials">
+      <span className="logged-in-creds">
         {props.loggedIn ? (
           <HeaderLoggedIn
             userName={props.userName}
