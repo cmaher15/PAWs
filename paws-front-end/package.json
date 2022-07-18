@@ -6,7 +6,6 @@
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "react": "^18.2.0",
-    "react-cards-carousel": "^1.0.4",
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",

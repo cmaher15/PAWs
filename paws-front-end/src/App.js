@@ -100,7 +100,7 @@ const App = () => {
         {/* <RegisterDog /> */}
         {/* <Status />
         <RegisterUser /> */}
-        <DogList />
+        {/* <DogList /> */}
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
