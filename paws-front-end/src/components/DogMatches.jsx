@@ -9,6 +9,7 @@ import { matchDogs } from "../helpers/matchDogs";
 import { DogProfileCard } from "../helpers/dogProfileCard";
 
 const DogMatches = function (props) {
+  console.log('area dogs props:', props.areaDogs)
   return props.areaDogs.map(dog => {
     let owner;
     for (let areaOwner of props.areaOwners) {

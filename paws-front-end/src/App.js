@@ -69,24 +69,28 @@ const App = () => {
   useEffect(() => {
     axios
       .get(`/api/dogs`)
-      .then(response => {
+      .then((response) => {
         // callSetAreaDogs(response.data);
         setAreaDogs(response.data);
         setIsLoadingDogs(false);
       })
-      .catch(error => console.log("Error fetching dogs from server: ", error));
+      .catch((error) =>
+        console.log("Error fetching dogs from server: ", error)
+      );
   }, []);
 
   // Fetch owners from server
   useEffect(() => {
     axios
       .get(`/api/owners`)
-      .then(response => {
+      .then((response) => {
         // callSetAreaDogs(response.data);
         setAreaOwners(response.data);
         setIsLoadingOwners(false);
       })
-      .catch(error => console.log("Error fetching dogs from server: ", error));
+      .catch((error) =>
+        console.log("Error fetching dogs from server: ", error)
+      );
   }, []);
 
   if (isLoadingDogs || isLoadingOwners) {
@@ -113,6 +117,8 @@ const App = () => {
   //   getLongLat();
   // }, []);
 
+  console.log("response dogs", areaDogs);
+  console.log("response owners", areaOwners);
   return (
     <div
       className="App"
@@ -132,8 +138,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />
-          <Route path="/register-dog" element={<RegisterDog />} />
-          {/* <Route
           <Route
             path="/register-dog"
             element={<RegisterDog userId={userId} setUrlPath={setUrlPath} />}
@@ -162,19 +166,13 @@ const App = () => {
               />
             }
           />
-          <Route
-            path="/users-dogs"
-            element={<FetchProfiles urlPath={urlPath} />}
-          /> */}
-          <Route path="/dog-matches" element={<DogMatches />} />
-          <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-        {/* <RegisterDog /> */}
-        {/* <Status />
-        <RegisterUser /> */}
-        {/* <DogList /> */}
+        {/* <RegisterDog /> /}
+                    {/ <Status />
+                    <RegisterUser /> /}
+                    {/ <DogProfile /> */}
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>
