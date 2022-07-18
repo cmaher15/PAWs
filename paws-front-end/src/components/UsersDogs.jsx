@@ -1,6 +1,5 @@
 import React from "react";
-import "../styles/Header.css"
-
+import "../styles/Header.css";
 
 // Helper functions
 import { UserDogProfileCard } from "../helpers/UserDogProfileCard";
@@ -15,10 +14,10 @@ const UsersDogs = function (props) {
       dog.owner_id,
       " vs ",
       "props.userId: ",
-      props.userId
+      window.localStorage.getItem("paws_id")
     );
     // Use == rather than === in order to compare num with
-    if (dog.owner_id == props.userId) {
+    if (dog.owner_id == window.localStorage.getItem("paws_id")) {
       myDogs.push(dog);
     }
   });

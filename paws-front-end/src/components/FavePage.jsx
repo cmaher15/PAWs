@@ -7,9 +7,9 @@ export default function FavePage(props) {
   const [favDogs, setFavDogs] = useState();
   const [favouritesLoading, setFavouritesLoading] = useState(true);
 
-  console.log("user id in favs: ", props.userId);
+  console.log("user id in favs: ", window.localStorage.getItem("user_id"));
   useEffect(() => {
-    axios.get(`/api/favourites/${props.userId}`).then(
+    axios.get(`/api/favourites/${window.localStorage.getItem("paws_id")}`).then(
       response => {
         console.log(response);
         setFavDogs(response.data);

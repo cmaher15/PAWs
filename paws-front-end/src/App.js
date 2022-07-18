@@ -21,6 +21,7 @@ import Status from "./components/Status";
 import NewsBar from "./components/NewsBar";
 import FavePage from "./components/FavePage";
 import DogList from "./components/DogList";
+import AxiosRouter from "./components/AxiosRouter";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -44,58 +45,54 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
-  // GET DOGS
-  const [isLoadingDogs, setIsLoadingDogs] = useState(true);
-  const [isLoadingOwners, setIsLoadingOwners] = useState(true);
-  const [areaDogs, setAreaDogs] = useState();
-  const [areaOwners, setAreaOwners] = useState();
+  // // GET DOGS
+  // const [isLoadingDogs, setIsLoadingDogs] = useState(true);
+  // const [isLoadingOwners, setIsLoadingOwners] = useState(true);
+  // const [areaDogs, setAreaDogs] = useState();
+  // const [areaOwners, setAreaOwners] = useState();
   // GET USER LOCATION
-  const [userCoordinates, setUserCoordinates] = useState("");
-  // Update userCoordinates, after async request for location is fulfilled
-  const getLongLat = async function () {
-    try {
-      await fetchCoordinates(getCoordinates).then((results) => {
-        console.log("results, App.js: ", results);
-        setUserCoordinates(results);
-        // After state is set, pass lat/longitude to database
-        // sendCoordinatesToServer(userCoordinates, ownerId);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const [userCoordinates, setUserCoordinates] = useState("");
+  // // Update userCoordinates, after async request for location is fulfilled
+  // const getLongLat = async function () {
+  //   try {
+  //     await fetchCoordinates(getCoordinates).then(results => {
+  //       console.log("results, App.js: ", results);
+  //       setUserCoordinates(results);
+  //       // After state is set, pass lat/longitude to database
+  //       // sendCoordinatesToServer(userCoordinates, ownerId);
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  // Fetch dogs from server
-  useEffect(() => {
-    axios
-      .get(`/api/dogs`)
-      .then((response) => {
-        // callSetAreaDogs(response.data);
-        setAreaDogs(response.data);
-        setIsLoadingDogs(false);
-      })
-      .catch((error) =>
-        console.log("Error fetching dogs from server: ", error)
-      );
-  }, []);
+  // // Fetch dogs from server
+  // useEffect(() => {
+  //   axios
+  //     .get(`/api/dogs`)
+  //     .then(response => {
+  //       // callSetAreaDogs(response.data);
+  //       setAreaDogs(response.data);
+  //       setIsLoadingDogs(false);
+  //     })
+  //     .catch(error => console.log("Error fetching dogs from server: ", error));
+  // }, []);
 
-  // Fetch owners from server
-  useEffect(() => {
-    axios
-      .get(`/api/owners`)
-      .then((response) => {
-        // callSetAreaDogs(response.data);
-        setAreaOwners(response.data);
-        setIsLoadingOwners(false);
-      })
-      .catch((error) =>
-        console.log("Error fetching dogs from server: ", error)
-      );
-  }, []);
+  // // Fetch owners from server
+  // useEffect(() => {
+  //   axios
+  //     .get(`/api/owners`)
+  //     .then(response => {
+  //       // callSetAreaDogs(response.data);
+  //       setAreaOwners(response.data);
+  //       setIsLoadingOwners(false);
+  //     })
+  //     .catch(error => console.log("Error fetching dogs from server: ", error));
+  // }, []);
 
-  if (isLoadingDogs || isLoadingOwners) {
-    return <div>LOADING DOGS AND OWNERS</div>;
-  }
+  // if (isLoadingDogs || isLoadingOwners) {
+  //   return <div>LOADING DOGS AND OWNERS</div>;
+  // }
 
   // // GET USER LOCATION *Leave commented out until needed
   // const [userCoordinates, setUserCoordinates] = useState("");
@@ -117,8 +114,6 @@ const App = () => {
   //   getLongLat();
   // }, []);
 
-  console.log("response dogs", areaDogs);
-  console.log("response owners", areaOwners);
   return (
     <div
       className="App"
@@ -143,6 +138,18 @@ const App = () => {
             element={<RegisterDog userId={userId} setUrlPath={setUrlPath} />}
           />
           <Route
+            path="/my-favourites"
+            element={<AxiosRouter urlPath={urlPath} />}
+          />
+          <Route
+            path="/users-dogs"
+            element={<AxiosRouter urlPath={urlPath} />}
+          />
+          <Route
+            path="/dog-matches"
+            element={<AxiosRouter urlPath={urlPath} />}
+          />
+          {/* <Route
             path="/dog-matches"
             element={<DogMatches areaDogs={areaDogs} areaOwners={areaOwners} />}
           />
@@ -164,8 +171,7 @@ const App = () => {
                 areaDogs={areaDogs}
                 areaOwners={areaOwners}
               />
-            }
-          />
+            } */}
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
