@@ -9,7 +9,7 @@ import UserName from "./UserForm/UserName";
 import UserImage from "./UserForm/UserImage";
 import { useNavigate } from "react-router-dom";
 
-export default function RegisterUser() {
+export default function RegisterUser(props) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +35,8 @@ export default function RegisterUser() {
     axios.post(`/api/owners`, data).then(
       (response) => {
         console.log(response);
-        navigate('/users-dogs')
+        props.setUrlPath('/')
+        navigate('/')
       },
       (error) => {
         console.log(error);

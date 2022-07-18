@@ -12,17 +12,16 @@ const DogMatches = function (props) {
   let array = [];
   // console.log("area dogs props:", props.areaDogs);
   const renderMatches = function (dogs, owners) {
-    dogs.map(dog => {
+    dogs.map((dog) => {
       let owner;
       for (let areaOwner of owners) {
         if (areaOwner.id === dog.owner_id) {
           owner = areaOwner;
         }
       }
-   
-      array.push(
-        <DogProfileCard dog={dog} owner={owner} key={dog.id} />
-      );
+      if (dog.owner_id != window.localStorage.getItem("paws_id")) {
+        array.push(<DogProfileCard dog={dog} owner={owner} key={dog.id} />);
+      }
     });
     return array;
   };

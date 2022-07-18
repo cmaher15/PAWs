@@ -112,7 +112,7 @@ const App = () => {
   //   getLongLat();
   // }, []);
 
-    const newsDisplay = function (url, loggedIn) {
+  const newsDisplay = function (url, loggedIn) {
     if (url === "/dog-matches" || url === "/my-favourites") {
       return;
     } else {
@@ -121,7 +121,7 @@ const App = () => {
       }
     }
   };
-    
+
   return (
     <div
       className="App"
@@ -135,13 +135,16 @@ const App = () => {
           setUrlPath={setUrlPath}
           setUserId={setUserId}
         />
-         {newsDisplay(urlPath, loggedIn)}
+        {newsDisplay(urlPath, loggedIn)}
         {/* {loggedIn ? <NewsBar /> : <></>} */}
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
-  
+
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/register-user" element={<RegisterUser />} />
+          <Route
+            path="/register-user"
+            element={<RegisterUser setUrlPath={setUrlPath} />}
+          />
           <Route
             path="/register-dog"
             element={<RegisterDog userId={userId} setUrlPath={setUrlPath} />}
