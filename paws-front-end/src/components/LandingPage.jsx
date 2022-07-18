@@ -35,9 +35,9 @@ export default function LandingPage(props) {
 
   return (
     <main className="ownerProfile">
-      <h1 className="welcome">
+      <h3 className="welcome">
         Hello, {window.localStorage.getItem("paws_name")}
-      </h1>
+      </h3>
       <div className="user-photo">
         <img
           className="userpic"
@@ -83,7 +83,7 @@ export default function LandingPage(props) {
         </Link>
       </h3>
       <span className="userlocation">
-        <i className="fa-solid fa-location-dot fa-2xl"></i>
+        <i className="fa-solid fa-location-dot fa-xl"></i>
         <p className="distance">{window.localStorage.getItem("paws_city")}</p>
       </span>
     </main>
