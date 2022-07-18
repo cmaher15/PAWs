@@ -39,7 +39,11 @@ const AxiosRouter = function (props) {
   console.log("response owners", areaOwners);
 
   if (isLoadingDogs || isLoadingOwners) {
-    return <div>LOADING DOGS AND OWNERS</div>;
+    return (
+      <div style={{ "background-image": "url(images/skipping-dogs.jpg)" }}>
+        LOADING DOGS AND OWNERS
+      </div>
+    );
   }
 
   const renderComponent = function (urlPath, dogs, owners) {

@@ -5,24 +5,24 @@ import "../styles/Header.css";
 import { UserDogProfileCard } from "../helpers/UserDogProfileCard";
 
 const UsersDogs = function (props) {
-  console.log("UserDogs props.areaDogs", props.areaDogs);
-  console.log("UsersDogs ownerId", props.userId);
+  // console.log("UserDogs props.areaDogs", props.areaDogs);
+  // console.log("UsersDogs ownerId", props.userId);
   const myDogs = [];
   props.areaDogs.map(dog => {
-    console.log(
-      "dog.owner_id: ",
-      dog.owner_id,
-      " vs ",
-      "props.userId: ",
-      window.localStorage.getItem("paws_id")
-    );
+    // console.log(
+    //   "dog.owner_id: ",
+    //   dog.owner_id,
+    //   " vs ",
+    //   "props.userId: ",
+    //   window.localStorage.getItem("paws_id")
+    // );
     // Use == rather than === in order to compare num with
     if (dog.owner_id == window.localStorage.getItem("paws_id")) {
       myDogs.push(dog);
     }
   });
 
-  console.log("UsersDogs, myDogs array: ", myDogs);
+  // console.log("UsersDogs, myDogs array: ", myDogs);
   return myDogs.map(dog => {
     return <UserDogProfileCard dog={dog} key={dog.id} />;
   });
