@@ -125,6 +125,16 @@ textarea {
   padding-left: 50px;
 }
 
+.dogapp:hover {
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.393);
+  cursor: pointer;
+}
+
+.userapp:hover {
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.393);
+  cursor: pointer;
+}
+
 .photoupload {
  padding-left: 30px;
  padding-right: 30px;
