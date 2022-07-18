@@ -128,6 +128,18 @@ const App = () => {
 
         {/* {loggedIn ? <NewsBar /> : <></>} */}
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
+        {urlPath !== "/dog-matches" ||
+        urlPath !== "/my-favourites" ||
+        urlPath !== "/" ? (
+          <></>
+        ) : (
+          <NewsBar />
+        )}
+        {urlPath === "/users-dogs" || urlPath === "/register-dog" ? (
+          <NewsBar />
+        ) : (
+          <></>
+        )}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />
