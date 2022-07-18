@@ -7,6 +7,7 @@ import Email from "./UserForm/Email";
 import Password from "./UserForm/Password";
 import UserName from "./UserForm/UserName";
 import UserImage from "./UserForm/UserImage";
+import { useNavigate } from "react-router-dom";
 
 
 export default function RegisterUser() {
@@ -16,6 +17,7 @@ export default function RegisterUser() {
   const [password, setPassword] = useState("");
   const [distance, setDistance] = useState("");
   const [thumbnail_photo_url, setPhoto] = useState("");
+  const navigate = useNavigate();
 
   const formHandle = e => {
     e.preventDefault();
@@ -34,6 +36,7 @@ export default function RegisterUser() {
     axios.post(`/api/owners`, data).then(
       response => {
         console.log(response);
+        navigate('/')
       },
       error => {
         console.log(error);
