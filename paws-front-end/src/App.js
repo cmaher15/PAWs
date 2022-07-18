@@ -136,8 +136,8 @@ const App = () => {
           setUserId={setUserId}
         />
         {newsDisplay(urlPath, loggedIn)}
-        {/* {loggedIn ? <NewsBar /> : <></>} */}
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />

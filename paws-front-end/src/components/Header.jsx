@@ -30,6 +30,7 @@ const Header = function (props) {
             loggedIn={props.loggedIn}
             setLoggedIn={props.setLoggedIn}
             setUserId={props.setUserId}
+            setUrlPath={props.setUrlPath}
           />
         )}
       </span>

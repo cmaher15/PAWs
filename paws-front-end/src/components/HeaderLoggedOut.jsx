@@ -3,12 +3,14 @@ import { useState } from "react";
 import axios from "axios";
 import "../styles/Header.css";
 import "../styles/Login.css";
+import { useNavigate } from "react-router-dom";
+
 
 // We will show a login option on top of the header, or perhaps no header?
 const HeaderLoggedOut = function (props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = function (e) {
     // Prevent page refresh on for submit
     e.preventDefault();
@@ -34,6 +36,8 @@ const HeaderLoggedOut = function (props) {
 
           // setLoggedIn called in order to trigger App.js re-render
           props.setLoggedIn(true);
+          props.setUrlPath('/users-dogs');
+          navigate('/users-dogs');
         })
         .catch(error => {
           console.log("Unsuccessful login: ", error.message);
