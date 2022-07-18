@@ -74,7 +74,6 @@ const App = () => {
   }, []);
 
   if (isLoadingDogs || isLoadingOwners) {
-    console.log("Axios not finished.");
     return <div>LOADING DOGS AND OWNERS</div>;
   }
 
@@ -130,7 +129,7 @@ const App = () => {
             element={
               <FavePage
                 userId={userId}
-                Dogs={areaDogs}
+                areaDogs={areaDogs}
                 areaOwners={areaOwners}
               />
             }
