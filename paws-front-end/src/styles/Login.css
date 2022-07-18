@@ -1,4 +1,4 @@
-.login-box {
+#login-box {
   margin-top: 40px;
  margin-right: 10px;
  background-color: transparent;
@@ -11,7 +11,7 @@
 
 .login {
   font-family: "Montserrat", sans-serif;
-  height: 20px;
+  height: 25px;
   font-weight: 600;
 }
 
@@ -22,8 +22,8 @@
   border-radius: 10px;
   color: rgb(255, 255, 255);
   outline-color: rgb(255, 255, 255);
-  width: 100px;
-  height: 40px;
+  width: 90px;
+  height: 30px;
   font-size: 15px;
   font-weight: 600;
   border-color: rgb(255, 255, 255);
