@@ -14,7 +14,7 @@ import BreedIncompatibility from "./DogForm/BreedIncompability";
 import Description from "./DogForm/Description";
 import Status from "./Status";
 import Image from "./DogForm/Image";
-
+import { useNavigate } from "react-router-dom";
 //Main function to handle dog registration and form submission for dog profile
 
 export default function RegisterDog(props) {
@@ -31,7 +31,10 @@ export default function RegisterDog(props) {
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
   const [isShown, setIsShown] = useState(false);
-  const owner_id = window.localStorage.getItem('paws_id');
+  const owner_id = window.localStorage.getItem("paws_id");
+
+  // Function to be used to redirect to user-dogs after submit
+  const navigate = useNavigate();
 
   //Function to manage checked box status in size compatibility form section
 
@@ -66,21 +69,27 @@ export default function RegisterDog(props) {
 
   const formHandle = e => {
     e.preventDefault();
-    showStatus()
+    showStatus();
     const formData = new FormData();
-    formData.append('owner_id', owner_id)
-    formData.append('name', name)
-    formData.append('breed', breed)
-    formData.append('gender', gender)
-    formData.append('age', age)
-    formData.append('size', size)
-    formData.append('reactive', reactive)
-    formData.append('good_with_reactive_dogs', good_with_reactive_dogs)
-    formData.append('size_compatibility', JSON.stringify(size_compatibility))
-    formData.append('gender_compatibility', JSON.stringify(gender_compatibility))
-    formData.append('breed_incompatibility', JSON.stringify(breed_incompatibility))
-    formData.append('description', description)
-    formData.append('photo_url', photo_url)
+    formData.append("owner_id", owner_id);
+    formData.append("name", name);
+    formData.append("breed", breed);
+    formData.append("gender", gender);
+    formData.append("age", age);
+    formData.append("size", size);
+    formData.append("reactive", reactive);
+    formData.append("good_with_reactive_dogs", good_with_reactive_dogs);
+    formData.append("size_compatibility", JSON.stringify(size_compatibility));
+    formData.append(
+      "gender_compatibility",
+      JSON.stringify(gender_compatibility)
+    );
+    formData.append(
+      "breed_incompatibility",
+      JSON.stringify(breed_incompatibility)
+    );
+    formData.append("description", description);
+    formData.append("photo_url", photo_url);
     addDataToServer(formData);
   };
 
@@ -90,6 +99,8 @@ export default function RegisterDog(props) {
     axios.post(`/api/dogs/`, data).then(
       response => {
         console.log(response);
+        props.setUrlPath("/users-dogs");
+        navigate("/users-dogs");
       },
       error => {
         console.log(error);
@@ -119,19 +130,25 @@ export default function RegisterDog(props) {
       <Description onChange={setDescription} value={description} />
       <Image onChange={setImage} value={photo_url} />
       <div className="component">
+        {/* <Link
+          to={"/"}
+          onClick={() => {
+            props.setUrlPath("/");
+          }}
+          onChange={formHandle}
+        > */}
         <button
           type="submit"
           className="submitbtn"
           onChange={() => {
             formHandle;
-            // Redirect to User's dogs page
-            setUrlPath("/users-dogs");
           }}
         >
           Submit
         </button>
+        {/* </Link> */}
       </div>
-      <div>{isShown && <Status />}</div>
+      {/* <div>{isShown && <Status />}</div> */}
     </form>
   );
 }

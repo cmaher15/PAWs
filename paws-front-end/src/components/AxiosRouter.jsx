@@ -35,8 +35,8 @@ const AxiosRouter = function (props) {
       .catch(error => console.log("Error fetching dogs from server: ", error));
   }, []);
 
-  console.log("response dogs", areaDogs);
-  console.log("response owners", areaOwners);
+  // console.log("response dogs", areaDogs);
+  // console.log("response owners", areaOwners);
 
   if (isLoadingDogs || isLoadingOwners) {
     return (
