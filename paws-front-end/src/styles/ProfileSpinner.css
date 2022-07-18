@@ -11,6 +11,7 @@
   overflow: auto;
   /* removes the horizontal scrollbar: */
   scrollbar-width: none;
+  border: 2px black;
 }
 
 .doggos-item {
@@ -29,3 +30,5 @@
   max-height: 70%;
 }
 
+
+/* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */

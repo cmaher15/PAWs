@@ -48,7 +48,7 @@ const AxiosRouter = function (props) {
 
   const renderComponent = function (urlPath, dogs, owners) {
     if (urlPath === "/my-favourites") {
-      return <FavePage areaOwners={areaOwners} />;
+      return <FavePage areaOwners={areaOwners} key={index}/>;
     } else if (urlPath === "/users-dogs") {
       return <UsersDogs areaDogs={dogs} areaOwners={owners} />;
     } else {
