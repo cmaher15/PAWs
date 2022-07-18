@@ -2,7 +2,7 @@ const UserDogProfileCard = function (props) {
   // const [dog, setDog] = useState(props.dog);
 
   return (
-    <div className="dogProfile">
+    <div className="dogProfile dogProfile-user">
       <div>
         <img className="dog" src={props.dog.photo_url} />
       </div>

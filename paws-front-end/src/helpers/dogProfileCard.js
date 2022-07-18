@@ -10,8 +10,9 @@ const DogProfileCard = function (props) {
   const [dog, setDog] = useState(props.dog);
   const [owner, setOwner] = useState(props.owner);
   const [isShown, setIsShown] = useState(false);
+  
 
-  // console.log("dog in JSX: ", dog.id);
+  // console.log("dog in JSX: ", dog);
   // console.log("owner in JSX: ", owner);
 
   const handleChat = (event) => {

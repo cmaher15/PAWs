@@ -44,5 +44,10 @@
   color: gray;
   font-size: 15px;
   cursor: pointer;
+
 }
 
+.userlinks:focus {
+  color: rgb(39, 39, 39);
+  transform: scale(1.05);
+}

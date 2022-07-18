@@ -3,7 +3,7 @@
   flex-direction: column;
   margin: auto;
   border: 1px solid rgba(0, 0, 0, 0.119);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   width: 350px;
   height: 620px;
   overflow: none;
@@ -12,10 +12,17 @@
   border-radius: 10px;
 }
 
+.dogProfile-user {
+  height: 480px;
+}
+
 .dogProfile:hover {
   transform: scale(1.007);
-  background: linear-gradient(rgba(245, 245, 220, 0.789), rgba(253, 253, 203, 0.833));
-  box-shadow: 3px 3px  rgba(253, 252, 252, 0.144);
+  background: linear-gradient(
+    rgba(245, 245, 220, 0.789),
+    rgba(253, 253, 203, 0.833)
+  );
+  box-shadow: 3px 3px rgba(253, 252, 252, 0.144);
 }
 
 ::-webkit-scrollbar {
@@ -49,7 +56,6 @@
   margin-bottom: 0px;
   color: black;
   margin-right: 85px;
-  
 }
 
 .icons {
@@ -68,13 +74,12 @@
   align-items: center;
   justify-content: left;
   margin-left: 10px;
-  margin-top: 0px
+  margin-top: 0px;
 }
 
 .distance {
   margin-left: 5px;
   font-size: 15px;
-
 }
 .dogInfo {
   display: flex;
@@ -91,7 +96,7 @@
   max-width: 340px;
   max-height: 30px;
   justify-content: center;
-  float:inherit;
+  float: inherit;
 }
 .userThumbnail {
   display: flex;
@@ -110,34 +115,31 @@
 }
 
 .favourite {
-background: transparent;
-color: gray;
-border: none;
+  background: transparent;
+  color: gray;
+  border: none;
 }
 
 .favourite:hover {
-  cursor: pointer
+  cursor: pointer;
 }
-
 
 .favourited {
   background: transparent;
   color: darkred;
   border: none;
- 
 }
 
 .favourited:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .sendChatBtn {
   background: transparent;
   color: gray;
-border: none;
+  border: none;
 }
 
 .sendChatBtn:hover {
-  cursor: pointer
+  cursor: pointer;
 }
-
