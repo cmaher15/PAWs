@@ -25,10 +25,18 @@ const DogProfileCard = function (props) {
   return (
     <div className="dogProfile">
       <div>
-        <img className="dog" src={dog.photo_url} />
+        {dog.favPage ? (
+          <img className="dog" src={dog.photo_url} />
+        ) : (
+          <img className="dog" src={dog.dogs_photo} />
+        )}
       </div>
       <span className="icons">
-        <h1 className="dogName">{dog.name}</h1>
+        {props.favPage ? (
+          <h1 className="dogName">{dog.dog_name}</h1>
+        ) : (
+          <h1 className="dogName">{dog.dog_name}</h1>
+        )}
         <Favourites dog_id={dog.id} />
         <button className="sendChatBtn" onClick={handleChat}>
           <i

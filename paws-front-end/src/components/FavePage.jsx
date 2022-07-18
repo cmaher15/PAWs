@@ -18,6 +18,7 @@ export default function FavePage(props) {
       }
     );
   }, []);
+
   if (favouritesLoading) {
     return <p>Loading...</p>;
   } else {
@@ -28,7 +29,8 @@ export default function FavePage(props) {
           owner = areaOwner;
         }
       }
-      return <DogProfileCard dog={dog} owner={owner} key={dog.id} />;
+
+      return <DogProfileCard dog={dog} owner={owner} key={dog.dog_id} />;
     });
   }
 }
