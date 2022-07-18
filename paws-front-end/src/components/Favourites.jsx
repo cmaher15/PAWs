@@ -28,7 +28,7 @@ export default function Favourites(props) {
     axios.delete(`/api/favourites/${owner_id}/${dog_id}`).then(
       (response) => {
         console.log(response);
-        console.log("dog successfully removed favourites!");
+        console.log("dog successfully removed from favourites!");
       },
       (error) => {
         console.log(error);
