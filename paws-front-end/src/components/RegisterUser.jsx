@@ -36,7 +36,7 @@ export default function RegisterUser() {
     axios.post(`/api/owners`, data).then(
       response => {
         console.log(response);
-        navigate('/')
+        navigate('/users-dogs')
       },
       error => {
         console.log(error);
