@@ -19,7 +19,6 @@ import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 import NewsBar from "./components/NewsBar";
 import FavePage from "./components/FavePage";
-import DogList from "./components/DogList";
 import AxiosRouter from "./components/AxiosRouter";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
