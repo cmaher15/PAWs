@@ -114,11 +114,16 @@ textarea {
   height: 800px;
   overflow: overlay;
 }*/
+/* 
+.dogapp {
+  width: 800px;
+  overflow: overlay;
+}  */
 
 .dogapp {
-  width: 750px;
-  overflow: overlay;
-} 
+  padding-right: 50px;
+  padding-left: 50px;
+}
 
 .photoupload {
  padding-left: 30px;
