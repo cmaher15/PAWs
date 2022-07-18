@@ -24,7 +24,6 @@ const DogMatches = function (props) {
         <DogProfileCard dog={dog} owner={owner} key={dog.id} />
       );
     });
-    console.log("array", array);
     return array;
   };
   return (
