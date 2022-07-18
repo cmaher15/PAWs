@@ -53,7 +53,7 @@ const DogProfileCard = function (props) {
           <img className="userThumbnail" src={owner.thumbnail_photo_url} />
           <h4>Parent: {owner.name}</h4>
         </span>
-        <div>
+        <div className="pullchat">
           {isShown && (
             <Chat
               owner_photo={owner.thumbnail_photo_url}

@@ -117,3 +117,7 @@
   outline-color: white;
   cursor: pointer;
 }
+
+.pullchat {
+  animation: fadeIn 5s;
+}
