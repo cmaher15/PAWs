@@ -19,10 +19,9 @@ const DogMatches = function (props) {
           owner = areaOwner;
         }
       }
-      console.log("dog in matches: ", dog);
-      console.log("owner in matches: ", owner);
+   
       array.push(
-        <DogProfileCard dog={dog} owner={owner} key={dog.id} favePage={false} />
+        <DogProfileCard dog={dog} owner={owner} key={dog.id} />
       );
     });
     console.log("array", array);

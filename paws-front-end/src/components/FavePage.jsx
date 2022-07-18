@@ -9,28 +9,40 @@ export default function FavePage(props) {
 
   useEffect(() => {
     axios.get(`/api/favourites/${window.localStorage.getItem("paws_id")}`).then(
-      response => {
+      (response) => {
+        console.log('response.data', response.data)
         setFavDogs(response.data);
         setFavouritesLoading(false);
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
   }, []);
 
+  const renderFavourites = function (dogs, owners) {
+    let array = [];
+    console.log('dogs before map:', dogs);
+    dogs.map((dog) => {
+      let dogOwner;
+      for (let owner of owners) {
+        if (owner.id === dog.owners_id) {
+          dogOwner = owner;
+        }
+      }
+      console.log('dogOwner: before push', dogOwner);
+      array.push(<DogProfileCard dog={dog} owner={dogOwner} key={dog.id} />);
+    });
+    return array;
+  };
+
   if (favouritesLoading) {
     return <p>Loading...</p>;
   } else {
-    return favDogs.map(dog => {
-      let owner;
-      for (let areaOwner of props.areaOwners) {
-        if (areaOwner.id === dog.owners_id) {
-          owner = areaOwner;
-        }
-      }
-
-      return <DogProfileCard dog={dog} owner={owner} key={dog.dog_id} />;
-    });
+    return (
+      <div className="doggos">
+        {renderFavourites(favDogs, props.areaOwners)}
+      </div>
+    );
   }
-}
+};
