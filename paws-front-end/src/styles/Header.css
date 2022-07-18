@@ -1,5 +1,5 @@
 .header-div {
-  background-color: rgb(214, 231, 194);
+  background-color: rgba(214, 231, 194, 0.75);
   overscroll-behavior: none;
   display: flex;
   flex-direction: row;
@@ -91,13 +91,16 @@
   }
   
   .footer {
+    position: flex;
+    align-self: flex-end;
     display: flex;
-    margin: 30px;
+    margin: 1px;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 600;
-    margin-top: 400px;
     justify-content: center;
+    z-index: 4;
+    gap: 0.5em;
   }
 
   .footer:hover {
@@ -107,6 +110,7 @@
 
   .footer-div {
     justify-content: center;
+    z-index: 4;
   }
   
   .easteregg {
@@ -114,7 +118,6 @@
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 20px;
     justify-content: center;
   }
   

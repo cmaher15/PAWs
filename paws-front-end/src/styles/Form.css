@@ -8,12 +8,15 @@ form {
   width:fit-content;
   block-size: fit-content;
   margin: auto;
-  padding:20px;
+  padding: 5px;
+  margin-top: 3vh;
   font-family: 'Montserrat', sans-serif;
-  border: 5px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.039);
   border-radius: 10px;
   background-color: rgba(245, 245, 220, 0.789);
-  
+  max-height: 70vh;
+  /* overflow: hidden; */
+  overflow-y: scroll;
 }
 
 

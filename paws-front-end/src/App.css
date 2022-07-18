@@ -1,10 +1,11 @@
 .App {
-  height: 800vh;
+  height: 120vh;
   text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  z-index: 9;
 }
 
 
