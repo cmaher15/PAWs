@@ -48,7 +48,7 @@ export default function Favourites(props) {
     ) : (
       <button className="favourite" onClick={handleClick}>
         <i
-        className="fa-solid fa-heart fa-2xl"
+        className="fa-solid fa-heart fa-xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>

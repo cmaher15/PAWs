@@ -1,14 +1,16 @@
 .doggos {
+  size: 70%;
   margin-top: 30px;
   margin-left: 160px;
   margin: auto;
   display: flex;
   gap: 0.7em;
+  width: 70%;
   /* adds scrolling for the element: */
   overflow-x: scroll;
+  overflow: auto;
   /* removes the horizontal scrollbar: */
   scrollbar-width: none;
-  border: 2px solid black;
 }
 
 .doggos-item {
@@ -20,4 +22,9 @@
   background-size: cover;
   opacity: 0.85;
   transition: 300ms ease;
+}
+
+.dog-container {
+  max-width: 70%;
+  max-height: 70%;
 }
