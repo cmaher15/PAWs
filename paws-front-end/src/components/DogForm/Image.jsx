@@ -13,14 +13,12 @@ export default function Image(props) {
       profile and visible to other users.
       <br />
       <br />
-      {/* <input type="file" />
-      <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script> */}
       <input
       type="file"
       id="myFile"
       name="photo"
       value={props.photo_url}
-      onChange={(event) => props.onChange(event.target.value)}
+      onChange={(event) => props.onChange(event.target.files[0])}
       required
     ></input>
     </div>

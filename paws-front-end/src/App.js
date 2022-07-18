@@ -20,13 +20,14 @@ import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 import NewsBar from "./components/NewsBar";
 import FavePage from "./components/FavePage";
+import DogList from "./components/DogList";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
 import {
   getCoordinates,
   fetchCoordinates,
-  sendCoordinatesToServer
+  sendCoordinatesToServer,
   // apiLocationSetState
 } from "./helpers/getCoordinates";
 
@@ -48,6 +49,21 @@ const App = () => {
   const [isLoadingOwners, setIsLoadingOwners] = useState(true);
   const [areaDogs, setAreaDogs] = useState();
   const [areaOwners, setAreaOwners] = useState();
+  // GET USER LOCATION
+  const [userCoordinates, setUserCoordinates] = useState("");
+  // Update userCoordinates, after async request for location is fulfilled
+  const getLongLat = async function () {
+    try {
+      await fetchCoordinates(getCoordinates).then((results) => {
+        console.log("results, App.js: ", results);
+        setUserCoordinates(results);
+        // After state is set, pass lat/longitude to database
+        // sendCoordinatesToServer(userCoordinates, ownerId);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // Fetch dogs from server
   useEffect(() => {
@@ -118,7 +134,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />
           <Route path="/register-dog" element={<RegisterDog />} />
-          <Route
+          {/* <Route
             path="/dog-matches"
             element={<DogMatches areaDogs={areaDogs} areaOwners={areaOwners} />}
           />
@@ -130,13 +146,19 @@ const App = () => {
             path="/users-dogs"
             element={<UsersDogs areaDogs={areaDogs} areaOwners={areaOwners} />}
           />
+          <Route
+            path="/users-dogs"
+            element={<FetchProfiles urlPath={urlPath} />}
+          /> */}
+          <Route path="/dog-matches" element={<DogMatches />} />
+          <Route path="/users-dogs" element={<UsersDogs />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
         {/* <RegisterDog /> */}
         {/* <Status />
         <RegisterUser /> */}
-        {/* <DogProfile /> */}
+        {/* <DogList /> */}
         <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
       </BrowserRouter>
     </div>

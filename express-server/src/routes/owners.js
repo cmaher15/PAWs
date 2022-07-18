@@ -32,9 +32,7 @@ module.exports = db => {
 
   //Create new owner
   router.post(`/owners`, (req, res) => {
-    //const id = db.query(`SELECT id FROM owners WHERE id = 1`)
-    // console.log(req.body);
-    // console.log(req.params);
+
     const salt = bcrypt.genSaltSync(10);
     const hashedpassword = bcrypt.hashSync(req.body.password, salt);
     db.query(

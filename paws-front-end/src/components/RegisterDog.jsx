@@ -67,21 +67,21 @@ export default function RegisterDog() {
   const formHandle = (e) => {
     e.preventDefault();
     showStatus()
-    addDataToServer({
-      owner_id,
-      name,
-      breed,
-      gender,
-      age,
-      size,
-      reactive,
-      good_with_reactive_dogs,
-      size_compatibility,
-      gender_compatibility,
-      breed_incompatibility,
-      description,
-      photo_url,
-    });
+    const formData = new FormData();
+    formData.append('owner_id', owner_id)
+    formData.append('name', name)
+    formData.append('breed', breed)
+    formData.append('gender', gender)
+    formData.append('age', age)
+    formData.append('size', size)
+    formData.append('reactive', reactive)
+    formData.append('good_with_reactive_dogs', good_with_reactive_dogs)
+    formData.append('size_compatibility', JSON.stringify(size_compatibility))
+    formData.append('gender_compatibility', JSON.stringify(gender_compatibility))
+    formData.append('breed_incompatibility', JSON.stringify(breed_incompatibility))
+    formData.append('description', description)
+    formData.append('photo_url', photo_url)
+    addDataToServer(formData);
   };
 
   //Axios post request to send data to server

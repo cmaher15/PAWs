@@ -1,4 +1,14 @@
 const router = require("express").Router();
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
 
 module.exports = (db) => {
   ////////////////////////////////////////////////////////////////////
@@ -30,22 +40,15 @@ module.exports = (db) => {
   ////////////////////////////////////////////////////////////////////
 
   // Create new dog
-  router.post(`/dogs`, (req, res) => {
-    // console.log('req.body', req.body);
+  router.post(`/dogs`, upload.single("photo_url"), (req, res) => {
+    const url = req.protocol + "://" + req.get("host");
+    const photo_url = url + "/uploads/" + req.file.filename;
     db.query(
       `
     INSERT INTO dogs 
     (name, breed, gender, age, size, reactive, good_with_reactive_dogs, size_compatibility, gender_compatibility, breed_incompatibility, description, photo_url, owner_id)
      VALUES 
-     ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${
-        req.body.age
-      }', '${req.body.size}', '${req.body.reactive}', '${
-        req.body.good_with_reactive_dogs
-      }', '${JSON.stringify(req.body.size_compatibility)}', '${JSON.stringify(
-        req.body.gender_compatibility
-      )}', '${JSON.stringify(req.body.breed_incompatibility)}', '${
-        req.body.description
-      }', '${req.body.photo_url}', '${req.body.owner_id}')`
+     ('${req.body.name}', '${req.body.breed}', '${req.body.gender}', '${req.body.age}', '${req.body.size}', '${req.body.reactive}', '${req.body.good_with_reactive_dogs}', '${req.body.size_compatibility}', '${req.body.gender_compatibility}', '${req.body.breed_incompatibility}', '${req.body.description}', '${photo_url}', '${req.body.owner_id}')`
     )
       .then((result) => {
         console.log("New dog was successfully added");
