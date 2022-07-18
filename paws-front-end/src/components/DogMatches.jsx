@@ -21,6 +21,7 @@ const DogMatches = function (props) {
       }
       console.log("dog in matches: ", dog);
       console.log("owner in matches: ", owner);
+
       array.push(
         <DogProfileCard dog={dog} owner={owner} key={dog.id} favePage={false} />
       );

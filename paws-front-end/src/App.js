@@ -112,6 +112,16 @@ const App = () => {
   //   getLongLat();
   // }, []);
 
+  const newsDisplay = function (url, loggedIn) {
+    if (url === "/dog-matches" || url === "/my-favourites") {
+      return;
+    } else {
+      if (loggedIn) {
+        return <NewsBar />;
+      }
+    }
+  };
+
   return (
     <div
       className="App"
@@ -125,7 +135,7 @@ const App = () => {
           setUrlPath={setUrlPath}
           setUserId={setUserId}
         />
-
+        {newsDisplay(urlPath, loggedIn)}
         {/* {loggedIn ? <NewsBar /> : <></>} */}
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
         <Routes>
