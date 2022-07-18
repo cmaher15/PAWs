@@ -1,12 +1,22 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
 
-module.exports = db => {
+module.exports = (db) => {
   ////////////////////////////////////////////////////////////////////
 
   router.get("/owners", (req, res) => {
     db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then(
-      result => {
+      (result) => {
         res.send(result.rows);
       }
     );
@@ -19,11 +29,11 @@ module.exports = db => {
     const id = req.params.id;
     // const id = req.session.user_id;
     db.query(`SELECT * FROM owners WHERE id = ${id}`)
-      .then(result => {
+      .then((result) => {
         // console.log('info about the dog of specific owner: ',result.rows)
         res.send(result.rows[0]);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   });
@@ -31,8 +41,9 @@ module.exports = db => {
   ////////////////////////////////////////////////////////////////////
 
   //Create new owner
-  router.post(`/owners`, (req, res) => {
-
+  router.post(`/owners`, upload.single("thumbnail_photo_url"), (req, res) => {
+    const url = req.protocol + "://" + req.get("host");
+    const thumbnail_photo_url = url + "/uploads/" + req.file.filename;
     const salt = bcrypt.genSaltSync(10);
     const hashedpassword = bcrypt.hashSync(req.body.password, salt);
     db.query(
@@ -40,16 +51,16 @@ module.exports = db => {
     INSERT INTO owners 
     (name, password, city, email, thumbnail_photo_url, location)
      VALUES 
-     ('${req.body.name}', '${hashedpassword}', '${req.body.city}', '${req.body.email}', '${req.body.thumbnail_photo_url}', '(-194.0, 53.0)')`
+     ('${req.body.name}', '${hashedpassword}', '${req.body.city}', '${req.body.email}', '${thumbnail_photo_url}', '(-194.0, 53.0)')`
     )
-      .then(result => {
+      .then((result) => {
         console.log("New owner was successfully added");
         res.json({
           statuscode: 200,
-          message: "User was successfully created"
+          message: "User was successfully created",
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.message);
       });
   });
@@ -61,7 +72,7 @@ module.exports = db => {
     const userEmail = req.body.email;
     const userPassword = req.body.password;
     db.query(`SELECT * FROM owners WHERE email = '${userEmail}'`)
-      .then(result => {
+      .then((result) => {
         if (bcrypt.compareSync(userPassword, result.rows[0].password)) {
           res.cookie("userId", result.rows[0].id);
           res.status(200).send(result.rows[0]);
@@ -70,7 +81,7 @@ module.exports = db => {
           return res.status(403).send("Incorrect password");
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         return res.sendStatus(403);
       });

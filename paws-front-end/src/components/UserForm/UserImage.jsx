@@ -15,7 +15,7 @@ export default function UserImage(props) {
       id="myFile1"
       name="photo"
       value={props.thumbnail_photo_url}
-      onChange={(event) => props.onChange(event.target.value)}
+      onChange={(event) => props.onChange(event.target.files[0])}
       required
     ></input>
   </div>
