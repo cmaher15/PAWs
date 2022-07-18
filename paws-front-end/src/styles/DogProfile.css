@@ -2,18 +2,21 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  border: 3px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.119);
   font-family: 'Montserrat', sans-serif;
-  width: 450px;
-  height: 830px;
-  overflow: auto;
+  width: 350px;
+  height: 620px;
+  overflow: none;
   margin-bottom: 20px;
   background-color: rgba(245, 245, 220, 0.789);
+  border-radius: 10px;
 }
 
 .dog {
-  width: 450px;
-  height: 400px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 348px;
+  height: 300px;
   object-fit: cover;
   float: right;
   border-bottom-width: 3px;
@@ -26,7 +29,7 @@
   justify-content: left;
   margin-bottom: 0px;
   color: black;
-  margin-right: 170px
+  margin-right: 85px;
   
 }
 
@@ -44,13 +47,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 0px
 }
 
 .distance {
-  margin-left: 10px;
-  font-size: 20px;
+  margin-left: 5px;
+  font-size: 15px;
 
 }
 .dogInfo {
@@ -63,25 +66,27 @@
 }
 
 .description {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 340px;
+  max-height: 30px;
   justify-content: center;
   float:inherit;
 }
 .userThumbnail {
   display: flex;
   float: left;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  padding: 15px;
+  padding: 7.5px;
 }
 
 .parent {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .favourite {

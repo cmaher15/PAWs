@@ -1,5 +1,5 @@
 .login-box {
-  background: none;
+  margin-top: 40px;
   border: none;
   margin: auto;
   width: 290px;
@@ -10,7 +10,6 @@
 .login {
   font-family: "Montserrat", sans-serif;
   height: 30px;
-  margin-bottom: 5px;
   font-weight: 600;
 }
 

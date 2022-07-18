@@ -133,7 +133,7 @@ const App = () => {
           setUserId={setUserId}
         />
 
-        {loggedIn ? <NewsBar /> : <></>}
+        {/* {loggedIn ? <NewsBar /> : <></>} */}
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -173,7 +173,7 @@ const App = () => {
                     {/ <Status />
                     <RegisterUser /> /}
                     {/ <DogProfile /> */}
-        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+        {/* <Footer urlPath={urlPath} setUrlPath={setUrlPath} /> */}
       </BrowserRouter>
     </div>
   );

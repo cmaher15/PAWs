@@ -34,7 +34,7 @@ export default function DogProfile() {
         ></i></button>
       </span>
       <span className="locationInfo">
-        <i className="fa-solid fa-location-dot fa-2xl"></i>
+        <i className="fa-solid fa-location-dot fa-xl"></i>
         <p className="distance">15 km away</p>
       </span>
       <span className="dogInfo">
