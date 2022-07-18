@@ -9,16 +9,24 @@ import { matchDogs } from "../helpers/matchDogs";
 import { DogProfileCard } from "../helpers/dogProfileCard";
 
 const DogMatches = function (props) {
-  console.log('area dogs props:', props.areaDogs)
-  return props.areaDogs.map(dog => {
-    let owner;
-    for (let areaOwner of props.areaOwners) {
-      if (areaOwner.id === dog.owner_id) {
-        owner = areaOwner;
+  let array = [];
+  // console.log("area dogs props:", props.areaDogs);
+  const renderMatches = function (dogs, owners) {
+    console.log('owners', owners);
+    console.log('dogs', dogs);
+    dogs.map((dog) => {
+      let owner;
+      for (let areaOwner of owners) {
+        if (areaOwner.id === dog.owner_id) {
+          owner = areaOwner;
+        }
       }
-    }
-    return <DogProfileCard dog={dog} owner={owner} key={dog.id} />;
-  });
+      array.push(<DogProfileCard dog={dog} owner={owner} key={dog.id} />)
+    });
+    console.log('array', array)
+    return array;
+  };
+  return <div className="doggos">{renderMatches(props.areaDogs, props.areaOwners)}</div>
 };
 
 export default DogMatches;
