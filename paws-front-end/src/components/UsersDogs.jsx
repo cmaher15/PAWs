@@ -2,28 +2,31 @@ import React from "react";
 import "../styles/Header.css"
 
 
-const UsersDogs = function () {
-  //   const [userDogs, setUserDogs] = useState([]);
+// Helper functions
+import { UserDogProfileCard } from "../helpers/UserDogProfileCard";
 
-  //   const getDogs = ownerId => {
-  //     // Make GET request to server for array of user's dogs
-  //     axios
-  //       .get(`/api/dogs/${ownerId}`)
-  //       .then(response => {
-  //         console.log("response in users-dogs axios-request:", response.data);
-  //         return response.data;
-  //       })
-  //       .catch(err => console.error(err));
-  //   };
+const UsersDogs = function (props) {
+  console.log("UserDogs props.areaDogs", props.areaDogs);
+  console.log("UsersDogs ownerId", props.userId);
+  const myDogs = [];
+  props.areaDogs.map(dog => {
+    console.log(
+      "dog.owner_id: ",
+      dog.owner_id,
+      " vs ",
+      "props.userId: ",
+      props.userId
+    );
+    // Use == rather than === in order to compare num with
+    if (dog.owner_id == props.userId) {
+      myDogs.push(dog);
+    }
+  });
 
-  //   useEffect(() => {
-  //     // Array sent back from the server will be the value of matchedDogs
-  //     setUserDogs(getUserDogs(1));
-  //   }, []);
-
-  // console.log("usersDogs before return call: ", userDogs);
-
-  return <div></div>;
+  console.log("UsersDogs, myDogs array: ", myDogs);
+  return myDogs.map(dog => {
+    return <UserDogProfileCard dog={dog} key={dog.id} />;
+  });
 };
 
 export default UsersDogs;

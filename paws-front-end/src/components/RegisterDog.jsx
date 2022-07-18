@@ -17,7 +17,7 @@ import Image from "./DogForm/Image";
 
 //Main function to handle dog registration and form submission for dog profile
 
-export default function RegisterDog() {
+export default function RegisterDog(props) {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [gender, setGender] = useState("");
@@ -31,11 +31,11 @@ export default function RegisterDog() {
   const [description, setDescription] = useState("");
   const [photo_url, setImage] = useState("");
   const [isShown, setIsShown] = useState(false);
-  const owner_id = document.cookie.slice(7);
+  const owner_id = window.localStorage.getItem('paws_id');
 
   //Function to manage checked box status in size compatibility form section
 
-  const onSizeCompatibilityChange = (size) => {
+  const onSizeCompatibilityChange = size => {
     const newSizeCompatibility = size_compatibility;
     newSizeCompatibility[size] = !size_compatibility[size];
     setDogComp(newSizeCompatibility);
@@ -43,7 +43,7 @@ export default function RegisterDog() {
 
   //Function to manage checked box status in gender compatibility form section
 
-  const onGenderCompatibilityChange = (gender) => {
+  const onGenderCompatibilityChange = gender => {
     const newGenderCompatibility = gender_compatibility;
     newGenderCompatibility[gender] = !size_compatibility[gender];
     setGenderComp(newGenderCompatibility);
@@ -51,7 +51,7 @@ export default function RegisterDog() {
 
   //Function to manage checked box status in breed compatibility form section
 
-  const checkBreedIncompatibility = (breed) => {
+  const checkBreedIncompatibility = breed => {
     const newBreedIncompatibility = breed_incompatibility;
     newBreedIncompatibility[breed] = !breed_incompatibility[breed];
     setBreedIncomp(newBreedIncompatibility);
@@ -59,12 +59,12 @@ export default function RegisterDog() {
 
   //Function to manage status "pop up" component
   const showStatus = event => {
-    setIsShown(current => !current)
-  }
+    setIsShown(current => !current);
+  };
 
   //Function to add data to server on form submission
 
-  const formHandle = (e) => {
+  const formHandle = e => {
     e.preventDefault();
     showStatus()
     const formData = new FormData();
@@ -86,12 +86,12 @@ export default function RegisterDog() {
 
   //Axios post request to send data to server
 
-  const addDataToServer = (data) => {
+  const addDataToServer = data => {
     axios.post(`/api/dogs/`, data).then(
-      (response) => {
+      response => {
         console.log(response);
       },
-      (error) => {
+      error => {
         console.log(error);
       }
     );
@@ -119,7 +119,15 @@ export default function RegisterDog() {
       <Description onChange={setDescription} value={description} />
       <Image onChange={setImage} value={photo_url} />
       <div className="component">
-        <button type="submit" className="submitbtn" onChange={formHandle}>
+        <button
+          type="submit"
+          className="submitbtn"
+          onChange={() => {
+            formHandle;
+            // Redirect to User's dogs page
+            setUrlPath("/users-dogs");
+          }}
+        >
           Submit
         </button>
       </div>

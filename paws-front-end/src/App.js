@@ -24,23 +24,23 @@ import DogList from "./components/DogList";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
-import {
-  getCoordinates,
-  fetchCoordinates,
-  sendCoordinatesToServer,
-  // apiLocationSetState
-} from "./helpers/getCoordinates";
+// import {
+//   getCoordinates,
+//   fetchCoordinates,
+//   sendCoordinatesToServer
+//   // apiLocationSetState
+// } from "./helpers/getCoordinates";
 
-//Chat
-import Chat from "./Chat";
-import DogProfileTemplate from "./components/DogMatches";
+// //Chat
+// import Chat from "./Chat";
+// import DogProfileTemplate from "./components/DogMatches";
 
 const App = () => {
   // GLOBAL STATE
   const [loggedIn, setLoggedIn] = useState(
     window.localStorage.getItem("paws_logged_in")
   );
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState(window.localStorage.getItem("paws_id"));
   const [userName, setUserName] = useState("");
   const [urlPath, setUrlPath] = useState(window.location.pathname);
 
@@ -90,7 +90,6 @@ const App = () => {
   }, []);
 
   if (isLoadingDogs || isLoadingOwners) {
-    console.log("Axios not finished.");
     return <div>LOADING DOGS AND OWNERS</div>;
   }
 
@@ -129,22 +128,39 @@ const App = () => {
         />
 
         {loggedIn ? <NewsBar /> : <></>}
-        {loggedIn ? <LandingPage /> : <></>}
+        {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register-user" element={<RegisterUser />} />
           <Route path="/register-dog" element={<RegisterDog />} />
           {/* <Route
+          <Route
+            path="/register-dog"
+            element={<RegisterDog userId={userId} setUrlPath={setUrlPath} />}
+          />
+          <Route
             path="/dog-matches"
             element={<DogMatches areaDogs={areaDogs} areaOwners={areaOwners} />}
           />
           <Route
             path="/my-favourites"
-            element={<FavePage areaDogs={areaDogs} areaOwners={areaOwners} />}
+            element={
+              <FavePage
+                userId={userId}
+                areaDogs={areaDogs}
+                areaOwners={areaOwners}
+              />
+            }
           />
           <Route
             path="/users-dogs"
-            element={<UsersDogs areaDogs={areaDogs} areaOwners={areaOwners} />}
+            element={
+              <UsersDogs
+                userId={userId}
+                areaDogs={areaDogs}
+                areaOwners={areaOwners}
+              />
+            }
           />
           <Route
             path="/users-dogs"

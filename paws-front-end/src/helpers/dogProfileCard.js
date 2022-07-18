@@ -14,8 +14,8 @@ const DogProfileCard = function (props) {
   // console.log("dog in JSX: ", dog.id);
   // console.log("owner in JSX: ", owner);
 
-  const handleChat = (event) => {
-    setIsShown((current) => !current);
+  const handleChat = event => {
+    setIsShown(current => !current);
   };
 
   const generateRandomInteger = function (max) {
@@ -29,7 +29,7 @@ const DogProfileCard = function (props) {
       </div>
       <span className="icons">
         <h1 className="dogName">{dog.name}</h1>
-        <Favourites dog_id={dog.id}/>
+        <Favourites dog_id={dog.id} />
         <button className="sendChatBtn" onClick={handleChat}>
           <i
             className="fa-solid fa-message fa-2xl"
@@ -52,7 +52,14 @@ const DogProfileCard = function (props) {
         <img className="userThumbnail" src={owner.thumbnail_photo_url} />
         <h4>Parent: {owner.name}</h4>
       </span>
-      <div>{isShown && <Chat owner_photo={owner.thumbnail_photo_url} owner_name={owner.name} />}</div>
+      <div>
+        {isShown && (
+          <Chat
+            owner_photo={owner.thumbnail_photo_url}
+            owner_name={owner.name}
+          />
+        )}
+      </div>
     </div>
   );
 };
