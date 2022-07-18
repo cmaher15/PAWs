@@ -30,7 +30,7 @@ const HomePage = function (props) {
     <div>
       {/*Display profile page if user logged in, else prompt user to sign up */}
       {window.localStorage.getItem("paws_logged_in") ? (
-        <p>Redirect to users-dogs</p>
+        <p></p>
       ) : (
         // <Link to="/users-dogs" />
         guestGreeting()
