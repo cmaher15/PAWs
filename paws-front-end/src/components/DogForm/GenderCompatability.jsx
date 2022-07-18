@@ -8,7 +8,7 @@ export default function GenderCompatability(props) {
       name="gender_compatibility"
       required="required"
     >
-      What gender(s) of dog does yours get along with? Select all that
+      What gender(s) of dog does yours get along with? <br/>Select all that
       apply. 
     </label>
     <br />

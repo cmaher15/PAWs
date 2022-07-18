@@ -5,12 +5,14 @@
   margin: auto;
   border: 3px solid black;
   font-family: "Montserrat", sans-serif;
-  width: 450px;
-  height: 100%;
+  width: 350px;
+  height: 80%;
   object-fit: cover;
   overflow: auto;
   margin-bottom: 20px;
 }
+
+
 
 .headerChat {
   display: flex;

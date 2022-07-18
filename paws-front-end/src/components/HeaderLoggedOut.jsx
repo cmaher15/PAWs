@@ -50,7 +50,7 @@ const HeaderLoggedOut = function (props) {
 
   return (
     <>
-      <form className="login-box" onSubmit={handleSubmit}>
+      <form id="login-box" onSubmit={handleSubmit}>
         <input
           className="login"
           type="text"

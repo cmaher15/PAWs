@@ -11,14 +11,14 @@ const Header = function (props) {
       <UserProfile loggedIn={props.loggedIn} />
       <div className="dd-men"></div>
       <div className="site-title" id="paws">
-        <h1 className="home">
-          <Link to={"/"} onClick={() => props.setUrlPath("/")}>
+        <h3 className="home">
+          <Link className="paws-top" to={"/"} onClick={() => props.setUrlPath("/")}>
             PAWs 🐾
           </Link>
-        </h1>
+        </h3>
         <span className="title-description">Pups. Awaiting. Walks.</span>
       </div>
-      <span className="user-credentials">
+      <span className="logged-in-creds">
         {props.loggedIn ? (
           <HeaderLoggedIn
             userName={props.userName}

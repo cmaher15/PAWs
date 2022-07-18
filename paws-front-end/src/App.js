@@ -15,7 +15,6 @@ import UsersDogs from "./components/UsersDogs";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
-import DogProfile from "./components/DogProfile";
 import DogProfileCard from "./helpers/dogProfileCard";
 import Status from "./components/Status";
 import NewsBar from "./components/NewsBar";
@@ -128,7 +127,7 @@ const App = () => {
           setUserId={setUserId}
         />
 
-        {loggedIn ? <NewsBar /> : <></>}
+        {/* {loggedIn ? <NewsBar /> : <></>} */}
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -178,8 +177,7 @@ const App = () => {
         {/* <RegisterDog /> /}
                     {/ <Status />
                     <RegisterUser /> /}
-                    {/ <DogProfile /> */}
-        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+        {/* <Footer urlPath={urlPath} setUrlPath={setUrlPath} /> */}
       </BrowserRouter>
     </div>
   );

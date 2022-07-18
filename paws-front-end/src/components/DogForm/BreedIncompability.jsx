@@ -5,7 +5,7 @@ export default function BreedIncompatibility(props) {
     <div className="component">
     <label className="title">
       {" "}
-      Which breed(s) of dogs is your dog NOT comfortable with? Select all that apply, if applicable.
+      Which breed(s) of dogs is your dog NOT comfortable with? <br/>Select all that apply, if applicable.
     </label>{" "}<br/>
     <br />
     <br />

@@ -91,6 +91,7 @@ textarea {
 .submitbtn {
   background: transparent;
   border-radius: 10px;
+  margin-bottom: 10px;
   width: 100px;
   height: 50px;
   font-size: 20px;
@@ -112,13 +113,32 @@ textarea {
   margin-top: 70px;
   height: 800px;
   overflow: overlay;
-}
+}*/
+/* 
+.dogapp {
+  width: 800px;
+  overflow: overlay;
+}  */
 
 .dogapp {
-  margin-top: 70px;
-  height: 800px;
-  overflow: overlay;
-} */
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.dogapp:hover {
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.393);
+  cursor: pointer;
+}
+
+.userapp:hover {
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.393);
+  cursor: pointer;
+}
+
+.photoupload {
+ padding-left: 30px;
+ padding-right: 30px;
+}
 
 .scrollbox {
 width: 400px;

@@ -1,188 +1,207 @@
 .header-div {
-  background-color: rgba(214, 231, 194, 0.75);
+  background-color: rgba(210, 237, 178, 0.616);
   overscroll-behavior: none;
   display: flex;
   flex-direction: row;
+  height: 110px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 50px;
-  }
-  
-  .title-description {
-    font-family: "Montserrat", sans-serif;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    font-size: 20px;
-    margin-top: 0px;
-  }
+  margin-bottom: 30px;
+}
 
-  #paws {
-    display: flex;
-    justify-content: center;
-    margin-right: 300px;
-  }
-  
-  .site-title {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  a,
-  a:visited,
-  a:hover,
-  a:active {
-    color: rgb(114, 92, 64);
-    text-decoration: none;
-    font-size: 50px;
-    font-family: "Montserrat", sans-serif;
-    margin-bottom: 0px;
-  }
-  
-  .user-credentials {
-    display: flex;
-    flex-direction: column;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    margin-right: 20px;
-  }
+.paws-top {
+  margin-top: 20px;
+  font-size: 50px;
+  margin-bottom: 0px;
+}
 
-  .menu {
-    float: left;
-  }
-  
-  .logout {
-    width: 100px;
-    height: 50px;
-    margin: 20px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    border-radius: 10px;
-    border-color: rgb(21, 56, 88);
-    border-style: solid;
-    background-color: rgb(21, 56, 88);
-    color: white;
-    outline-color: white;
-  }
-  
-  .logout:hover {
-    background-color: rgb(21, 56, 88);
-    background: white;
-    color: rgb(21, 56, 88);
-    outline-color: rgb(21, 56, 88);
-    cursor: pointer;
-  }
-  
-  .mainbtn {
+.title-description {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: -20px;
+  padding-bottom: 30px;
+}
+
+#paws {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  /* margin: auto; */
+}
+
+.site-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: rgb(114, 92, 64);
+  text-decoration: none;
+  font-size: 50px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0px;
+}
+
+.logged-in-creds {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-right: 30px; 
+  /* margin-bottom: 40px; */
+ }
+
+.logged-in {
+  margin: -10px;
+}
+
+.menu {
+  float: left;
+}
+
+.logout {
+  width: 90px;
+  height: 40px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: -15px;
+  font-weight: 600;
+  border-radius: 10px;
+  border-color: rgb(21, 56, 88);
+  border-style: solid;
+  background-color: rgb(21, 56, 88);
+  color: white;
+  outline-color: white;
+}
+
+.logout:hover {
+  background-color: rgb(21, 56, 88);
+  background: white;
+  color: rgb(21, 56, 88);
+  outline-color: rgb(21, 56, 88);
+  cursor: pointer;
+}
+
+.mainbtn {
   border: none;
   background-color: transparent;
-  }
-  
-  .mainpage {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 0px;
-  }
-  
-  .userlinks {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .footer {
-    position: flex;
-    align-self: flex-end;
-    display: flex;
-    margin: 1px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    justify-content: center;
-    z-index: 4;
-    gap: 0.5em;
-  }
+}
 
-  .footer:hover {
-    color: gray;
-    font-size: 20px;
-  }
+.mainpage {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 0px;
+}
 
-  .footer-div {
-    justify-content: center;
-    z-index: 4;
-  }
-  
-  .easteregg {
-    display: flex;
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    justify-content: center;
-  }
-  
-  .dropbtn {
-    background-color: #889c95;
-    color: white;
-    padding: 16px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    border: none;
-    height: 160px
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    float: left;
-    position: relative;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    min-height: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content .mainpage {
-    color: black;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content .hovermenu:hover {color: gray;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block}
-  
-  .dropdown-text {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .register-account {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    background-color: transparent;
-  }
+.userlinks {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
 
-  .sign-up {
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-  }
+.footer {
+  position: flex;
+  align-self: flex-end;
+  display: flex;
+  margin: 1px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: center;
+  z-index: 4;
+  gap: 0.5em;
+}
 
-  .sign-up:hover {
-    font-size: 20px;
-    color: gray;
-  }
+.footer:hover {
+  color: gray;
+  font-size: 20px;
+}
+
+.footer-div {
+  justify-content: center;
+  z-index: 4;
+}
+
+.easteregg {
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.dropbtn {
+  background-color: #889c95;
+  color: white;
+  padding: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  height: 110px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  float: left;
+  position: relative;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  min-height: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .mainpage {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content .hovermenu:hover {
+  color: gray;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.register-account {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.sign-up {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sign-up:hover {
+  font-size: 20px;
+  color: gray;
+}

@@ -9,7 +9,7 @@ export default function Image(props) {
       <label className="title">Image:</label>
       <br />
       <br />
-      Please upload an image of your dog. This image will be used on their
+      Please upload an image of your dog. <br/>This image will be used on their
       profile and visible to other users.
       <br />
       <br />

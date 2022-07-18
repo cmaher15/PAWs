@@ -8,7 +8,7 @@ export default function Description(props) {
     </label>
     <br />
     <br />
-    Please provide a brief description of your dog, including any other
+    Please provide a brief description of your dog, <br/>including any other
     info/fun facts not covered in this form!
     <br />
     <br />

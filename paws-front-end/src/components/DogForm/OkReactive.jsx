@@ -4,7 +4,7 @@ export default function OkReactive (props) {
   return (
     <div className="component">
       <label className="title" name="people" required="required">
-        Is your dog okay to walk with other dogs who may be reactive and/or
+        Is your dog okay to walk with other dogs <br/>who may be reactive and/or
         vocal with other dogs?
       </label>
       <br />

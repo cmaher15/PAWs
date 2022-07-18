@@ -16,10 +16,9 @@ module.exports = (db) => {
   router.get("/favourites/:id", (req, res) => {
     const id = req.params.id;
     db.query(
-      `SELECT dogs.name as dogs_name, dogs.breed, dogs.gender, dogs.age, dogs.size, dogs.reactive, dogs.good_with_reactive_dogs, dogs.size_compatibility, dogs.gender_compatibility, dogs.breed_incompatibility, dogs.description, dogs.photo_url as dogs_photo, owners.id as owners_id, owners.name as owners_name, owners.city as city, owners.thumbnail_photo_url as owners_photo FROM dogs JOIN owners ON dogs.owner_id = owners.id JOIN favourites ON dogs.id = favourites.dog_id WHERE favourites.owner_id = ${id}`
+      `SELECT dogs.name as name, dogs.breed as breed, dogs.gender as gender, dogs.age as age, dogs.size as size, dogs.reactive as reactive, dogs.good_with_reactive_dogs as good_with_reactive_dogs, dogs.size_compatibility as size_compatibility, dogs.gender_compatibility as gender_compatibility, dogs.breed_incompatibility as breed_incompatibility, dogs.description as description, dogs.photo_url as photo_url, owners.id as owners_id, owners.name as owners_name, owners.city as city, owners.thumbnail_photo_url as owners_photo FROM dogs JOIN owners ON dogs.owner_id = owners.id JOIN favourites ON dogs.id = favourites.dog_id WHERE favourites.owner_id = ${id}`
     )
       .then((result) => {
-        // console.log('info about the dog of specific owner: ',result.rows)
         res.send(result.rows);
       })
       .catch((err) => {

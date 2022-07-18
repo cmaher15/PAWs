@@ -13,6 +13,11 @@ background-color: rgba(250, 235, 215, 0.667);
 width: 100%
 }
 
+.guest-greeting:hover {
+  background-color: rgb(250, 235, 215);
+  font-weight: 600;
+}
+
 .intro {
   margin-left: 80px;
 }

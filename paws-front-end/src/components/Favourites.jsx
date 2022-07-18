@@ -28,7 +28,7 @@ export default function Favourites(props) {
     axios.delete(`/api/favourites/${owner_id}/${dog_id}`).then(
       (response) => {
         console.log(response);
-        console.log("dog successfully removed favourites!");
+        console.log("dog successfully removed from favourites!");
       },
       (error) => {
         console.log(error);
@@ -42,13 +42,13 @@ export default function Favourites(props) {
     { favourite ? (
       <button className="favourited" onClick={handleDelete}>
         <i
-          className="fa-solid fa-heart fa-2xl"
+          className="fa-solid fa-heart fa-xl"
         ></i>
       </button>   
     ) : (
       <button className="favourite" onClick={handleClick}>
         <i
-        className="fa-solid fa-heart fa-2xl"
+        className="fa-solid fa-heart fa-xl"
           onMouseOver={({ target }) => (target.style.color = "darkred")}
           onMouseOut={({ target }) => (target.style.color = "gray")}
         ></i>

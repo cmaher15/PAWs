@@ -3,11 +3,10 @@
   float: left;
   flex-direction: column;
   margin: auto;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
-  width: 360px;
-  height: 730px;
+  width: 300px;
+  height: 540px;
   overflow: auto;
   margin-bottom: 20px;
   background-color: rgba(245, 245, 220, 0.789);
@@ -21,8 +20,8 @@
 }
 
 .userpic {
-  width: 360px;
-  height: 300px;
+  width: 300px;
+  height: 220px;
   object-fit: cover;
   float: right;
   border-bottom: 4px solid black;
@@ -36,14 +35,14 @@
   display: flex;
   margin-left: 10px;
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   justify-content: center;
 }
 
 .userlinks:hover {
   color: gray;
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
 }
 
