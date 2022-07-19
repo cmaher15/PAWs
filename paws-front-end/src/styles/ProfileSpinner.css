@@ -7,7 +7,7 @@
   gap: 1.1em;
   width: 70%;
   /* adds scrolling for the element: */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow: auto;
   /* removes the horizontal scrollbar: */
   /* scrollbar-width: none; */
@@ -15,7 +15,12 @@
   cursor: grab;
   -webkit-overflow-scrolling: touch;
   transition: 300ms ease;
+  scroll-snap-type: x mandatory;
 }
+
+
+
+
 /* ::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera 
 } 

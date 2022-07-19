@@ -78,7 +78,12 @@ a:active {
   background-color: rgb(21, 56, 88);
   color: white;
   outline-color: white;
+
+  transition: background .8s ease;
+
 }
+
+
 
 .logout:hover {
   background-color: rgb(21, 56, 88);
