@@ -30,7 +30,7 @@ module.exports = (db) => {
 
   // Add to favourites
   router.post("/favourites", (req, res) => {
-    const sql = `INSERT INTO favourites (owner_id, dog_id) SELECT ${req.body.owner_id}, ${req.body.dog_id} WHERE NOT EXISTS (SELECT owner_id, dog_id FROM favourites WHERE owner_id = ${req.body.owner_id} AND dog_id = ${req.body.dog_id});`;
+    const sql = `INSERT INTO favourites (owner_id, dog_id) SELECT ${req.body.owner_id}, ${req.body.dog_id} WHERE NOT EXISTS SELE(CT owner_id, dog_id FROM favourites WHERE owner_id = ${req.body.owner_id} AND dog_id = ${req.body.dog_id});`;
 
     db.query(sql)
       .then((result) => {
