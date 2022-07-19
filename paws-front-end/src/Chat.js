@@ -10,7 +10,7 @@ export default function Chat(props) {
   const [text, setText] = useState("");
   const [socket, setSocket] = useState();
   const userID = document.cookie.slice(7);
-  const [chat, setChat] = useState(0);
+  const [chat, setChat] = useState(true);
 
   axios
     .get(`/api/owners/${userID}`)
