@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Header.css";
+import {Link} from 'react-router-dom'
 
 // Helper functions
 import { UserDogProfileCard } from "../helpers/UserDogProfileCard";
@@ -15,24 +16,18 @@ const UsersDogs = function (props) {
   const noDogs = (
     <div className="emptyuser">
       <p className="nodogs">
-        It appears you don't have any registered dogs yet! Click here to add
-        one!
+        It appears you don't have any registered dogs yet! <br/>Click <Link className="sign-up" to="/register-dog">
+            here
+          </Link>{" "} to add
+          one!
       </p>
-      <img src="images/whitedoggo.png" />
+      <img className="waggie" src="images/whitedoggo.png" />
     </div>
   );
 
   if (myDogs.length === 0) {
     return (
-      <div className="emptyuser">
-        <p className="nodogs">
-          It appears you don't have any registered dogs yet! Click  <Link className="register-dog" to="/register-dog">
-            here
-          </Link>{" "} to add
-          one!
-        </p>
-        <img src="images/whitedoggo.png" />
-      </div>
+    noDogs
     );
   }
   return myDogs.map(dog => {
