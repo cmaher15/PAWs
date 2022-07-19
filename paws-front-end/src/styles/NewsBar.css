@@ -6,10 +6,9 @@
   overflow: auto;
   border: 1px solid rgba(0, 0, 0, 0.154);
   width: 300px;
-  background-color:rgba(250, 227, 197, 0.835);
+  background-color: rgba(250, 227, 197, 0.835);
   opacity: 0.9;
   border-radius: 10px;
-
 }
 
 .main-box:hover {
@@ -19,13 +18,12 @@
 
 @keyframes move {
   0% {
-     transform:translateY(0);
+    transform: translateY(0);
   }
   100% {
-     transform:translateY(-100%);
+    transform: translateY(-100%);
   }
 }
-
 
 .message-image {
   width: 300px;
@@ -35,21 +33,19 @@
   margin-bottom: 10px;
 }
 
-
 .news-article {
   margin: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
 }
 
-
 .news-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   align-items: center;
   padding-left: 10px;
-  padding-right: 10px
+  padding-right: 10px;
 }
 
 .breaker {
@@ -59,8 +55,8 @@
 .article {
   border-bottom: 3px solid black;
   -webkit-animation-name: move;
-   -webkit-animation-duration: 10s;
-   -webkit-animation-iteration-count: infinite;
-   -webkit-animation-direction: up;
-   -webkit-animation-timing-function:linear;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: up;
+  -webkit-animation-timing-function: linear;
 }
