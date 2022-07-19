@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 import { DogProfileCard } from "../helpers/dogProfileCard";
 
 export default function FavePage(props) {
-  console.log("areaOwners in Favs: ", props.areaOwners);
-  console.log("favDogs in Favs: ", props.favDogs);
-
   const renderFavourites = function (dogs, owners) {
     // Fetch list of favourites
     useEffect(() => {

@@ -8,16 +8,15 @@ export default function LandingPage(props) {
   // const [isLoadingOwners, setIsLoadingOwners] = useState(true);
   // const [areaDogs, setAreaDogs] = useState();
   // const [areaOwners, setAreaOwners] = useState();
-  const userId = window.localStorage.getItem("paws_id")
-  const [ownerPic, setOwnerPic] = useState("")
+  const userId = window.localStorage.getItem("paws_id");
+  const [ownerPic, setOwnerPic] = useState("");
 
   axios
-  .get(`api/owners/${userId}`)
-  .then(response => {
-    console.log('response', response)
-    setOwnerPic(response.data.thumbnail_photo_url)
-  })
-  .catch(error => console.log("Error fetching user from server: ", error));
+    .get(`api/owners/${userId}`)
+    .then(response => {
+      setOwnerPic(response.data.thumbnail_photo_url);
+    })
+    .catch(error => console.log("Error fetching user from server: ", error));
 
   // // Fetch dogs from server
   // useEffect(() => {
