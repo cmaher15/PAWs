@@ -8,11 +8,18 @@ import "../styles/Header.css";
 const Header = function (props) {
   return (
     <div className="header-div">
+      <p className="easteregg">
+        a Threat-Level MIDNIGHT production - <i>{new Date().getFullYear()}</i>
+      </p>
       <UserProfile loggedIn={props.loggedIn} />
       <div className="dd-men"></div>
       <div className="site-title" id="paws">
         <h3 className="home">
-          <Link className="paws-top" to={"/"} onClick={() => props.setUrlPath("/")}>
+          <Link
+            className="paws-top"
+            to={"/"}
+            onClick={() => props.setUrlPath("/")}
+          >
             PAWs 🐾
           </Link>
         </h3>

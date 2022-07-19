@@ -54,9 +54,9 @@ a:active {
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  margin-right: 30px; 
+  margin-right: 30px;
   /* margin-bottom: 40px; */
- }
+}
 
 .logged-in {
   margin: -10px;
@@ -79,11 +79,8 @@ a:active {
   color: white;
   outline-color: white;
 
-  transition: background .8s ease;
-
+  transition: background 0.8s ease;
 }
-
-
 
 .logout:hover {
   background-color: rgb(21, 56, 88);
@@ -135,11 +132,15 @@ a:active {
 }
 
 .easteregg {
+  position: absolute;
   display: flex;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 600;
   justify-content: center;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  color: #759b36;
 }
 
 .dropbtn {
@@ -212,7 +213,7 @@ a:active {
 }
 
 .emptyuser {
-  background-color: rgba(245, 245, 220, 0.789);;
+  background-color: rgba(245, 245, 220, 0.789);
   display: flex;
   width: 400px;
   height: 400px;
