@@ -15,11 +15,11 @@ module.exports = (db) => {
   ////////////////////////////////////////////////////////////////////
 
   router.get("/owners", (req, res) => {
-    db.query(`SELECT id, name, city, thumbnail_photo_url FROM owners`).then(
-      (result) => {
-        res.send(result.rows);
-      }
-    );
+    db.query(
+      `SELECT id, name, city, thumbnail_photo_url, location FROM owners`
+    ).then((result) => {
+      res.send(result.rows);
+    });
   });
 
   ////////////////////////////////////////////////////////////////////
@@ -51,7 +51,7 @@ module.exports = (db) => {
     INSERT INTO owners 
     (name, password, city, email, thumbnail_photo_url, location)
      VALUES 
-     ('${req.body.name}', '${hashedpassword}', '${req.body.city}', '${req.body.email}', '${thumbnail_photo_url}', '(-194.0, 53.0)')`
+     ('${req.body.name}', '${hashedpassword}', '${req.body.city}', '${req.body.email}', '${thumbnail_photo_url}', 3)`
     )
       .then((result) => {
         console.log("New owner was successfully added");

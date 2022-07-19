@@ -9,7 +9,7 @@ CREATE TABLE owners (
   city VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   thumbnail_photo_url VARCHAR(255) NOT NULL,
-  location POINT NOT NULL
+  location INTEGER NOT NULL
   );
 
 CREATE TABLE dogs (

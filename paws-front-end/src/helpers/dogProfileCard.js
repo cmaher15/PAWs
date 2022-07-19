@@ -3,6 +3,7 @@ import "../styles/DogProfile.css";
 import "../styles/ProfileSpinner.css";
 import Chat from "../Chat";
 import Favourites from "../components/Favourites";
+import axios from "axios";
 
 //JSX template for each dog profile
 
@@ -10,17 +11,11 @@ const DogProfileCard = function (props) {
   const [dog, setDog] = useState(props.dog);
   const [owner, setOwner] = useState(props.owner);
   const [isShown, setIsShown] = useState(false);
-  
-
   // console.log("dog in JSX: ", dog);
   // console.log("owner in JSX: ", owner);
 
   const handleChat = (event) => {
     setIsShown((current) => !current);
-  };
-
-  const generateRandomInteger = function (max) {
-    return Math.floor(Math.random() * max) + 1;
   };
 
   return (
@@ -42,7 +37,7 @@ const DogProfileCard = function (props) {
         </span>
         <span className="locationInfo">
           <i className="fa-solid fa-location-dot fa-xl"></i>
-          <p className="distance">{generateRandomInteger(8)} km away</p>
+          <p className="distance">{props.owner.location} km away</p>
         </span>
         <span className="dogInfo">
           <h3>{dog.gender}</h3>

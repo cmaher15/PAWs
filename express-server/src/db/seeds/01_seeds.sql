@@ -1,17 +1,17 @@
 INSERT INTO owners
 (name, password, city, email, thumbnail_photo_url, location)
 VALUES
-('Angela', 's565ds8d5h8s75f8h57858s5s', 'Calgary', 'ilovecats@yahoo.com', '/owners/angela.jpeg', '(-194.0, 53.0)'),
-('Dwight', 's565ds8d5h8s75f8h57858s5s', 'Vancouver', 'supreme_dwight@gmail.com', '/owners/dwight.jpeg', '(-194.0, 53.0)'),
-('Michael','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'nice-to-meet-me@yahoo.com', '/owners/michael.jpeg', '(-194.0, 53.0)'),
-('Kevin','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'chili_lover@yahoo.com', '/owners/kevin.jpeg', '(-194.0, 53.0)'),
-('Jimothy','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'asian_jim@mail.com', '/owners/jim.jpeg', '(-194.0, 53.0)'),
-('Toby', 's565ds8d5h8s75f8h57858s5s','Montreal', 'stranglehorn@gmail.com', '/owners/toby.jpeg', '(-194.0, 53.0)'),
-('Robert','s565ds8d5h8s75f8h57858s5s', 'Toronto', 'california@yahoo.com', '/owners/robert.jpeg', '(-194.0, 53.0)'),
-('Erin', 's565ds8d5h8s75f8h57858s5s','Calgary', 'hannon123@inbox.com', '/owners/erin.jpeg', '(-194.0, 53.0)'),
-('Stanley','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'manley99@email.com', '/owners/stanley.jpeg', '(-194.0, 53.0)'),
-('Darryl','s565ds8d5h8s75f8h57858s5s', 'Montreal', 'big_boi@inbox.com', '/owners/darryl.jpeg', '(-194.0, 53.0)'),
-('Mose','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'mastermind111@gmail.com', '/owners/mose.jpeg', '(-194.0, 53.0)');
+('Angela', 's565ds8d5h8s75f8h57858s5s', 'Calgary', 'ilovecats@yahoo.com', '/owners/angela.jpeg', 5),
+('Dwight', 's565ds8d5h8s75f8h57858s5s', 'Vancouver', 'supreme_dwight@gmail.com', '/owners/dwight.jpeg', 8),
+('Michael','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'nice-to-meet-me@yahoo.com', '/owners/michael.jpeg', 6),
+('Kevin','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'chili_lover@yahoo.com', '/owners/kevin.jpeg', 5),
+('Jimothy','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'asian_jim@mail.com', '/owners/jim.jpeg', 5),
+('Toby', 's565ds8d5h8s75f8h57858s5s','Montreal', 'stranglehorn@gmail.com', '/owners/toby.jpeg', 7),
+('Robert','s565ds8d5h8s75f8h57858s5s', 'Toronto', 'california@yahoo.com', '/owners/robert.jpeg', 3),
+('Erin', 's565ds8d5h8s75f8h57858s5s','Calgary', 'hannon123@inbox.com', '/owners/erin.jpeg', 9),
+('Stanley','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'manley99@email.com', '/owners/stanley.jpeg', 2),
+('Darryl','s565ds8d5h8s75f8h57858s5s', 'Montreal', 'big_boi@inbox.com', '/owners/darryl.jpeg', 4),
+('Mose','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'mastermind111@gmail.com', '/owners/mose.jpeg', 6);
 
 
 INSERT INTO dogs 

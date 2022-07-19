@@ -136,11 +136,18 @@ const App = () => {
           setUserId={setUserId}
         />
         {newsDisplay(urlPath, loggedIn)}
+<<<<<<< HEAD
+=======
+        {/* {loggedIn ? <NewsBar /> : <></>} */}
+>>>>>>> 3e2064caeb5a02a7efbad344f395836082bb971a
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/register-user" element={<RegisterUser />} />
+          <Route
+            path="/register-user"
+            element={<RegisterUser setUrlPath={setUrlPath} />}
+          />
           <Route
             path="/register-dog"
             element={<RegisterDog userId={userId} setUrlPath={setUrlPath} />}
