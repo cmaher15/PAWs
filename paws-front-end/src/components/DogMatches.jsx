@@ -10,7 +10,6 @@ import { DogProfileCard } from "../helpers/dogProfileCard";
 
 const DogMatches = function (props) {
   let array = [];
-  // console.log("area dogs props:", props.areaDogs);
   const renderMatches = function (dogs, owners) {
     dogs.map(dog => {
       let owner;
