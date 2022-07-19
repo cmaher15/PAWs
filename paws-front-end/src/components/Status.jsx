@@ -6,7 +6,7 @@ export default function Status() {
   <div className="loading">
     <img
     className="status_image"
-    src="images/doggo2.png"
+    src="images/whitetransparentdoggo copy.png"
     alt="Loading"
     />
     <h2 className="loadingtitle">Finding compatible pups...</h2>
