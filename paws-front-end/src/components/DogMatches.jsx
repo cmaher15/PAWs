@@ -12,7 +12,7 @@ import { DogProfileCard } from "../helpers/dogProfileCard";
 const DogMatches = function (props) {
   let array = [];
   const renderMatches = function (dogs, owners) {
-    dogs.map(dog => {
+    dogs.map((dog) => {
       let owner;
       for (let areaOwner of owners) {
         if (areaOwner.id === dog.owner_id) {
@@ -27,9 +27,9 @@ const DogMatches = function (props) {
   };
 
   return (
-    <div className="doggos">
-      {renderMatches(props.areaDogs, props.areaOwners)}
-    </div>
+      <div className="doggos">
+        {renderMatches(props.areaDogs, props.areaOwners)}
+      </div>
   );
 };
 

@@ -3,6 +3,7 @@ display: flex;
 justify-content: space-around;
 align-content: flex-end;
 margin-top: 10vh;
+margin-top: 60px;
 }
 
 .editbutton {

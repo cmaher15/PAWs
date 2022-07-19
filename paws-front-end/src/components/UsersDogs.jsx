@@ -16,10 +16,12 @@ const UsersDogs = function (props) {
   const noDogs = (
     <div className="emptyuser">
       <p className="nodogs">
-        It appears you don't have any registered dogs yet! Click here to add
-        one!
+        It appears you don't have any registered dogs yet! <br/>Click <Link className="sign-up" to="/register-dog">
+            here
+          </Link>{" "} to add
+          one!
       </p>
-      <img src="images/whitedoggo.png" />
+      <img className="waggie" src="images/whitedoggo.png" />
     </div>
   );
 
