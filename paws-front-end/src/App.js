@@ -136,10 +136,6 @@ const App = () => {
           setUserId={setUserId}
         />
         {newsDisplay(urlPath, loggedIn)}
-<<<<<<< HEAD
-=======
-        {/* {loggedIn ? <NewsBar /> : <></>} */}
->>>>>>> 3e2064caeb5a02a7efbad344f395836082bb971a
         {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
 
         <Routes>
