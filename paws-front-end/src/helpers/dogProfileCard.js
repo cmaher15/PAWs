@@ -13,6 +13,7 @@ const DogProfileCard = function (props) {
   const [isShown, setIsShown] = useState(false);
   // console.log("dog in JSX: ", dog);
   // console.log("owner in JSX: ", owner);
+  console.log("favourite: ", props.favourite);
 
   const handleChat = event => {
     setIsShown(current => !current);
@@ -26,7 +27,7 @@ const DogProfileCard = function (props) {
         </div>
         <span className="icons">
           <h2 className="dogName">{dog.name}</h2>
-          <Favourites dog_id={dog.id} />
+          <Favourites dog_id={dog.id} favourite={props.favourite} />
           <button className="sendChatBtn" onClick={handleChat}>
             <i
               className="fa-solid fa-message fa-xl"

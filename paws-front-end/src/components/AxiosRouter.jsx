@@ -75,7 +75,14 @@ const AxiosRouter = function (props) {
     } else if (urlPath === "/users-dogs") {
       return <UsersDogs areaDogs={dogs} areaOwners={owners} />;
     } else {
-      return <DogMatches areaDogs={dogs} areaOwners={owners} />;
+      return (
+        <DogMatches
+          areaDogs={dogs}
+          areaOwners={owners}
+          favDogs={favDogs}
+          setFavDogs={setFavDogs}
+        />
+      );
     }
   };
 

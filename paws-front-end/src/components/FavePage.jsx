@@ -8,7 +8,6 @@ export default function FavePage(props) {
 
   const renderFavourites = function (dogs, owners) {
     let array = [];
-    console.log("dogs before map:", dogs);
     dogs.map(dog => {
       let dogOwner;
       for (let owner of owners) {
@@ -16,8 +15,14 @@ export default function FavePage(props) {
           dogOwner = owner;
         }
       }
-      console.log("dogOwner: before push", dogOwner);
-      array.push(<DogProfileCard dog={dog} owner={dogOwner} key={dog.id} />);
+      array.push(
+        <DogProfileCard
+          dog={dog}
+          owner={dogOwner}
+          key={dog.id}
+          favourite={true}
+        />
+      );
     });
     return array;
   };

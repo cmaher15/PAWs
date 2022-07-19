@@ -10,15 +10,10 @@ import HomePage from "./components/HomePage";
 import RegisterUser from "./components/RegisterUser";
 import RegisterDog from "./components/RegisterDog";
 import LandingPage from "./components/LandingPage";
-import DogMatches from "./components/DogMatches";
-import UsersDogs from "./components/UsersDogs";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Terms from "./components/Terms";
-import DogProfileCard from "./helpers/dogProfileCard";
-import Status from "./components/Status";
 import NewsBar from "./components/NewsBar";
-import FavePage from "./components/FavePage";
 import AxiosRouter from "./components/AxiosRouter";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
