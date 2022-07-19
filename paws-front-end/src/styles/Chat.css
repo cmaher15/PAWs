@@ -1,18 +1,57 @@
 .chat {
   display: flex;
   flex-direction: column;
-  background-color: rgb(207, 230, 230);
+  background-color: rgba(138, 241, 241, 0.899);
   margin: auto;
-  border: 3px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.118);
   font-family: "Montserrat", sans-serif;
   width: 350px;
-  height: 80%;
+  height: 620px;
+  border-radius: 10px;
   object-fit: cover;
   overflow: auto;
   margin-bottom: 20px;
+  animation: fadeIn 1s;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
+.chat-hidden {
+  display: none;
+}
+
+.closechat {
+  background-color: transparent;
+  border: none;
+  color: gray;
+  display: flex;
+  justify-content: right;
+  margin-right: 10px;
+  margin-top: -30px;
+}
+
+.closechat:hover {
+  color: darkred;
+  cursor: pointer;
+}
+
+.pullchat {
+  z-index:1;
+  position: absolute;
+  height: 620px;
+  border-radius: 10px;
+}
+
+.email {
+  margin-top: 40px;
+}
 
 .headerChat {
   display: flex;
@@ -34,7 +73,7 @@
 }
 
 .messagehistory {
-  width: 440px;
+  width: 344px;
   height: 400px;
   overflow: auto;
   margin-bottom: 20px;

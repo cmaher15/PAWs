@@ -111,7 +111,7 @@ const App = () => {
           <Route path="/terms" element={<Terms />} />
         </Routes>
 
-        <Footer urlPath={urlPath} setUrlPath={setUrlPath} />
+        {/* <Footer urlPath={urlPath} setUrlPath={setUrlPath} /> */}
       </BrowserRouter>
     </div>
   );

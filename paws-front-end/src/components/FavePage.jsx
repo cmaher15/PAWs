@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { DogProfileCard } from "../helpers/dogProfileCard";
+import { v4 } from "uuid";
 
 export default function FavePage(props) {
   const renderFavourites = function (dogs, owners) {
@@ -21,7 +22,7 @@ export default function FavePage(props) {
         <DogProfileCard
           dog={dog}
           owner={dogOwner}
-          key={dog.id}
+          key={v4()}
           favourite={true}
         />
       );

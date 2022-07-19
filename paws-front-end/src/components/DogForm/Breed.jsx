@@ -46,7 +46,7 @@ export default function Breed(props) {
       <option value="Husky">Husky</option>
       <option value="Irish Setter">Irish Setter</option>
       <option value="Irish Wolfhound">Irish Wolfhound</option>
-      <option value="Labrador Retriever">Labrador Retriever</option>
+      <option value="Labrador">Labrador</option>
       <option value="Lhasa Apso">Lhasa Apso</option>
       <option value="Maltese">Maltese</option>
       <option value="Mastiff">Mastiff</option>

@@ -7,25 +7,38 @@
   gap: 1.1em;
   width: 70%;
   /* adds scrolling for the element: */
-  overflow-x: scroll;
+  /* overflow-y: scroll; */
   overflow: auto;
   /* removes the horizontal scrollbar: */
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
+  border: 2px black;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  transition: 300ms ease;
+  scroll-snap-type: x mandatory;
 }
 
-.doggos-item {
+
+
+
+/* ::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera 
+} 
+
+/* .doggos-item {
   min-width: 360px;
   /* carousel item should have defined height: */
-  height: 540px;
+  /* height: 540px;
   border-radius: 0.4em;
   background-position: center;
   background-size: cover;
   opacity: 0.85;
   transition: 300ms ease;
-}
+} */ 
 
 .dog-container {
   max-width: 70%;
   max-height: 70%;
 }
 
+/* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */

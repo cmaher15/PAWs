@@ -23,7 +23,7 @@ INSERT INTO dogs
 
   ('Flash', 'Pug', 'male', 7, 'small', true, true, '{"small": true}', '{"male": true, "female": true}', '{"husky": true}', 'Small but quick, Flash loved dog parks more than anything, a little cautious of other dogs', '/dogs/flash.jpeg', 3),
 
-  ('Gatsby', 'Labrador Retriever', 'male', 5, 'medium', true, false, '{"medium": true}', '{"male": true, "female": true}', '{"german shepherd": true}', 'Being a resque dog, Gatsby is a sweet and loving dog, but needs a little time to get adjusted to new faces', '/dogs/gatsby.jpeg', 4),
+  ('Gatsby', 'Labrador', 'male', 5, 'medium', true, false, '{"medium": true}', '{"male": true, "female": true}', '{"german shepherd": true}', 'Being a resque dog, Gatsby is a sweet and loving dog, but needs a little time to get adjusted to new faces', '/dogs/gatsby.jpeg', 4),
 
   ('Abby', 'Bulldog', 'female', 4, 'medium', true, true, '{"medium": true}', '{"female": true}', '{"pitbull": true}', 'Give Abby a treat, and she will become your best friend', '/dogs/abby.jpeg', 5),
 
