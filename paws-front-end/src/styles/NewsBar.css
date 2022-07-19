@@ -4,10 +4,11 @@
   flex-direction: column;
   height: 80vh;
   overflow: auto;
-  border: 3px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.154);
   width: 300px;
-  background-color:antiquewhite;
-  opacity: 0.9
+  background-color:rgba(250, 227, 197, 0.835);
+  opacity: 0.9;
+  border-radius: 10px;
 }
 
 .main-box:hover {
@@ -30,7 +31,7 @@
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 5px
+  padding-bottom: 5px;
 }
 
 
@@ -48,3 +49,4 @@
 .article {
   border-bottom: 3px solid black;
 }
+

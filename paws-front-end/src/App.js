@@ -189,7 +189,7 @@ const App = () => {
         </Routes>
         {/* <RegisterDog /> /}
                     {/ <Status />
-                    <RegisterUser /> /}
+                    <RegisterUser /> /} */}
         {/* <Footer urlPath={urlPath} setUrlPath={setUrlPath} /> */}
       </BrowserRouter>
     </div>

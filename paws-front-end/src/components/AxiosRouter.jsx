@@ -3,6 +3,7 @@ import axios from "axios";
 import UsersDogs from "./UsersDogs";
 import DogMatches from "./DogMatches";
 import FavePage from "./FavePage";
+import { v4 } from "uuid";
 
 const AxiosRouter = function (props) {
   // GET DOGS
@@ -48,7 +49,7 @@ const AxiosRouter = function (props) {
 
   const renderComponent = function (urlPath, dogs, owners) {
     if (urlPath === "/my-favourites") {
-      return <FavePage areaOwners={areaOwners} key={index}/>;
+      return <FavePage areaOwners={areaOwners} key={v4()}/>;
     } else if (urlPath === "/users-dogs") {
       return <UsersDogs areaDogs={dogs} areaOwners={owners} />;
     } else {

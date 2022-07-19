@@ -1,0 +1,30 @@
+.myDogIcons {
+display: flex;
+justify-content: space-around;
+align-content: flex-end;
+margin-top: 10vh;
+}
+
+.editbutton {
+  background: transparent;
+  border: none;
+  color: rgb(68, 130, 67);
+}
+
+
+.deletebutton {
+  background: transparent;
+  border: none;
+  color: rgb(108, 29, 11);
+}
+
+
+.editbutton:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.deletebutton:hover {
+  color: gray;
+  cursor: pointer;
+}

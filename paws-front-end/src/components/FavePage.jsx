@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { DogProfileCard } from "../helpers/dogProfileCard";
+import { v4 } from "uuid";
 
 export default function FavePage(props) {
   console.log("areaOwners in Favs: ", props.areaOwners);
@@ -31,7 +32,7 @@ export default function FavePage(props) {
         }
       }
       console.log('dogOwner: before push', dogOwner);
-      array.push(<DogProfileCard dog={dog} owner={dogOwner} key={dog.id} />);
+      array.push(<DogProfileCard dog={dog} owner={dogOwner} key={v4()} />);
     });
     return array;
   };

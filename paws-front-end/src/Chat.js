@@ -4,13 +4,14 @@ import { v4 } from "uuid";
 import "./styles/Chat.css";
 import axios from "axios";
 
+
 export default function Chat(props) {
   const [name, setName] = useState("");
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const [socket, setSocket] = useState();
   const userID = document.cookie.slice(7);
-  const [chat, setChat] = useState(0);
+  // const [chat, setChat] = useState(false);
 
   axios
     .get(`/api/owners/${userID}`)
