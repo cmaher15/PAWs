@@ -9,11 +9,21 @@
   background-color:rgba(250, 227, 197, 0.835);
   opacity: 0.9;
   border-radius: 10px;
+
 }
 
 .main-box:hover {
   cursor: pointer;
   opacity: 1;
+}
+
+@keyframes move {
+  0% {
+     transform:translateY(0);
+  }
+  100% {
+     transform:translateY(-100%);
+  }
 }
 
 
@@ -48,5 +58,9 @@
 
 .article {
   border-bottom: 3px solid black;
+  -webkit-animation-name: move;
+   -webkit-animation-duration: 10s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-direction: up;
+   -webkit-animation-timing-function:linear;
 }
-
