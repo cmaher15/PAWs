@@ -1,9 +1,9 @@
 .chat {
   display: flex;
   flex-direction: column;
-  background-color: rgb(207, 230, 230);
+  background-color: rgba(138, 241, 241, 0.899);
   margin: auto;
-  border: 3px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.118);
   font-family: "Montserrat", sans-serif;
   width: 350px;
   height: 620px;
@@ -11,7 +11,7 @@
   object-fit: cover;
   overflow: auto;
   margin-bottom: 20px;
-  animation: fadeIn 2s;
+  animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {
@@ -21,6 +21,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.chat-hidden {
+  display: none;
 }
 
 .closechat {

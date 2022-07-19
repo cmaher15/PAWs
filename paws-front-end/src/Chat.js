@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { v4 } from "uuid";
 import "./styles/Chat.css";
 import axios from "axios";
-
+import DogMatches from "./components/DogMatches";
 
 export default function Chat(props) {
   const [name, setName] = useState("");
@@ -64,37 +64,80 @@ export default function Chat(props) {
     setChat((current) => !current);
   };
 
-  return (
-    <div className="chat">
-      <h3 className="headerChat">Chat</h3>
-      <button className="closechat" onClick={hideChat}>
-        <i className="fa-solid fa-square-xmark fa-2xl"></i>
-      </button>
-      <div className="email">{name},</div>
+  // {props.loggedIn ? (
+  //   <HeaderLoggedIn
+  //     userName={props.userName}
+  //     setLoggedIn={props.setLoggedIn}
+  //   />
+  // ) : ()}
 
-      <div className="headerChat">
-        You're chatting with:
-        <img className="userChatThumb" src={props.owner_photo} />
-        {props.owner_name}
-      </div>
-      <div className="messagehistory">
-        <div className="messages">{list}</div>
-      </div>
-      <div id="newmessagebox">
-        <textarea
-          className="newmessage"
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Type a message"
-        />
-      </div>
-      <div id="chatbottom">
-        <button className="clear" onClick={() => setMessages([])}>
-          Clear
-        </button>
-        <button className="send" onClick={send}>
-          Send
-        </button>
-      </div>
-    </div>
+  return (
+    <>
+      {chat ? (
+        <div className="chat">
+          <h3 className="headerChat">Chat</h3>
+          <button className="closechat" onClick={hideChat}>
+            <i className="fa-solid fa-square-xmark fa-2xl"></i>
+          </button>
+          <div className="email">{name},</div>
+
+          <div className="headerChat">
+            You're chatting with:
+            <img className="userChatThumb" src={props.owner_photo} />
+            {props.owner_name}
+          </div>
+          <div className="messagehistory">
+            <div className="messages">{list}</div>
+          </div>
+          <div id="newmessagebox">
+            <textarea
+              className="newmessage"
+              onChange={(e) => setText(e.target.value)}
+              placeholder="Type a message"
+            />
+          </div>
+          <div id="chatbottom">
+            <button className="clear" onClick={() => setMessages([])}>
+              Clear
+            </button>
+            <button className="send" onClick={send}>
+              Send
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className="chat-hidden">
+          <h3 className="headerChat">Chat</h3>
+          <button className="closechat" onClick={hideChat}>
+            <i className="fa-solid fa-square-xmark fa-2xl"></i>
+          </button>
+          <div className="email">{name},</div>
+
+          <div className="headerChat">
+            You're chatting with:
+            <img className="userChatThumb" src={props.owner_photo} />
+            {props.owner_name}
+          </div>
+          <div className="messagehistory">
+            <div className="messages">{list}</div>
+          </div>
+          <div id="newmessagebox">
+            <textarea
+              className="newmessage"
+              onChange={(e) => setText(e.target.value)}
+              placeholder="Type a message"
+            />
+          </div>
+          <div id="chatbottom">
+            <button className="clear" onClick={() => setMessages([])}>
+              Clear
+            </button>
+            <button className="send" onClick={send}>
+              Send
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
