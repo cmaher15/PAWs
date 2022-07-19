@@ -14,8 +14,8 @@ const DogProfileCard = function (props) {
   // console.log("dog in JSX: ", dog);
   // console.log("owner in JSX: ", owner);
 
-  const handleChat = (event) => {
-    setIsShown((current) => !current);
+  const handleChat = event => {
+    setIsShown(current => !current);
   };
 
   return (

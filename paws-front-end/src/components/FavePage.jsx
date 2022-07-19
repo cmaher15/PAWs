@@ -4,45 +4,27 @@ import { DogProfileCard } from "../helpers/dogProfileCard";
 
 export default function FavePage(props) {
   console.log("areaOwners in Favs: ", props.areaOwners);
-  const [favDogs, setFavDogs] = useState();
-  const [favouritesLoading, setFavouritesLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get(`/api/favourites/${window.localStorage.getItem("paws_id")}`).then(
-      (response) => {
-        console.log('response.data', response.data)
-        setFavDogs(response.data);
-        setFavouritesLoading(false);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }, []);
+  console.log("favDogs in Favs: ", props.favDogs);
 
   const renderFavourites = function (dogs, owners) {
     let array = [];
-    console.log('dogs before map:', dogs);
-    dogs.map((dog) => {
+    console.log("dogs before map:", dogs);
+    dogs.map(dog => {
       let dogOwner;
       for (let owner of owners) {
         if (owner.id === dog.owners_id) {
           dogOwner = owner;
         }
       }
-      console.log('dogOwner: before push', dogOwner);
+      console.log("dogOwner: before push", dogOwner);
       array.push(<DogProfileCard dog={dog} owner={dogOwner} key={dog.id} />);
     });
     return array;
   };
 
-  if (favouritesLoading) {
-    return <p>Loading...</p>;
-  } else {
-    return (
-      <div className="doggos">
-        {renderFavourites(favDogs, props.areaOwners)}
-      </div>
-    );
-  }
-};
+  return (
+    <div className="doggos">
+      {renderFavourites(props.favDogs, props.areaOwners)}
+    </div>
+  );
+}
