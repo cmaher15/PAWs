@@ -59,10 +59,17 @@ export default function Chat(props) {
     socket.emit("message", { name, text });
   };
 
+  const hideChat = (event) => {
+    setChat((current) => !current);
+  };
+
   return (
     <div className="chat">
       <h3 className="headerChat">Chat</h3>
-      <div className="email">{name}</div>
+      <button className="closechat" onClick={hideChat}>
+        <i className="fa-solid fa-square-xmark fa-2xl"></i>
+      </button>
+      <div className="email">{name},</div>
 
       <div className="headerChat">
         You're chatting with:

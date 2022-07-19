@@ -6,7 +6,8 @@
   border: 3px solid black;
   font-family: "Montserrat", sans-serif;
   width: 350px;
-  height: 80%;
+  height: 620px;
+  border-radius: 10px;
   object-fit: cover;
   overflow: auto;
   margin-bottom: 20px;
@@ -22,13 +23,30 @@
   }
 }
 
-@keyframes slide {
-  100% { nav-up: 100; }
+.closechat {
+  background-color: transparent;
+  border: none;
+  color: gray;
+  display: flex;
+  justify-content: right;
+  margin-right: 10px;
+  margin-top: -30px;
+}
+
+.closechat:hover {
+  color: darkred;
+  cursor: pointer;
 }
 
 .pullchat {
   z-index:1;
-  position: absolute
+  position: absolute;
+  height: 620px;
+  border-radius: 10px;
+}
+
+.email {
+  margin-top: 40px;
 }
 
 .headerChat {
@@ -51,7 +69,7 @@
 }
 
 .messagehistory {
-  width: 440px;
+  width: 344px;
   height: 400px;
   overflow: auto;
   margin-bottom: 20px;
