@@ -7,6 +7,11 @@ export default function FavePage(props) {
   console.log("favDogs in Favs: ", props.favDogs);
 
   const renderFavourites = function (dogs, owners) {
+    // Fetch list of favourites
+    useEffect(() => {
+      props.getFavourites();
+    }, []);
+
     let array = [];
     dogs.map(dog => {
       let dogOwner;

@@ -39,7 +39,7 @@ const AxiosRouter = function (props) {
   }, []);
 
   // Get Favourites
-  useEffect(() => {
+  const getFavourites = function () {
     axios.get(`/api/favourites/${window.localStorage.getItem("paws_id")}`).then(
       response => {
         console.log("response.data", response.data);
@@ -50,6 +50,10 @@ const AxiosRouter = function (props) {
         console.log(error);
       }
     );
+  };
+
+  useEffect(() => {
+    getFavourites();
   }, []);
 
   // console.log("response dogs", areaDogs);
@@ -70,6 +74,7 @@ const AxiosRouter = function (props) {
           areaOwners={areaOwners}
           favDogs={favDogs}
           setFavDogs={setFavDogs}
+          getFavourites={getFavourites}
         />
       );
     } else if (urlPath === "/users-dogs") {
