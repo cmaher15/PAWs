@@ -11,7 +11,7 @@ const AxiosRouter = function (props) {
   const [isLoadingOwners, setIsLoadingOwners] = useState(true);
   const [isLoadingFavourites, setIsLoadingFavourites] = useState(true);
 
-  const [areaDogs, setAreaDogs] = useState();
+  const [areaDogs, setAreaDogs] = useState([]);
   const [areaOwners, setAreaOwners] = useState();
   const [favDogs, setFavDogs] = useState();
 
@@ -40,7 +40,7 @@ const AxiosRouter = function (props) {
   }, []);
 
   // Get Favourites
-  const getFavourites = function () {
+  useEffect(() => {
     axios.get(`/api/favourites/${window.localStorage.getItem("paws_id")}`).then(
       response => {
         console.log("response.data", response.data);
@@ -51,10 +51,6 @@ const AxiosRouter = function (props) {
         console.log(error);
       }
     );
-  };
-
-  useEffect(() => {
-    getFavourites();
   }, []);
 
   // console.log("response dogs", areaDogs);
@@ -62,9 +58,7 @@ const AxiosRouter = function (props) {
 
   if (isLoadingDogs || isLoadingOwners || isLoadingFavourites) {
     return (
-      <div style={{ backgroundImage: "url(images/skipping-dogs.jpg)" }}>
-        LOADING DOGS AND OWNERS
-      </div>
+      <div style={{ backgroundImage: "url(images/skipping-dogs.jpg)" }}></div>
     );
   }
 
@@ -75,7 +69,7 @@ const AxiosRouter = function (props) {
           areaOwners={areaOwners}
           favDogs={favDogs}
           setFavDogs={setFavDogs}
-          getFavourites={getFavourites}
+          // getFavourites={getFavourites}
           key={v4()}
         />
       );

@@ -76,8 +76,8 @@ export default function LandingPage(props) {
       <h3 className="userlinks">
         <Link
           className="userlinks"
-          to={"/dog-matches"}
-          onClick={() => props.setUrlPath("/dog-matches")}
+          to={"/matches-loading"}
+          onClick={() => props.setUrlPath("/matches-loading")}
         >
           My Matches
         </Link>

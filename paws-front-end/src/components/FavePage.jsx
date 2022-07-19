@@ -6,9 +6,9 @@ import { v4 } from "uuid";
 export default function FavePage(props) {
   const renderFavourites = function (dogs, owners) {
     // Fetch list of favourites
-    useEffect(() => {
-      props.getFavourites();
-    }, []);
+    // useEffect(() => {
+    //   props.getFavourites();
+    // }, []);
 
     let array = [];
     dogs.map(dog => {

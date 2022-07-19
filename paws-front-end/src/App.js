@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Terms from "./components/Terms";
 import NewsBar from "./components/NewsBar";
 import AxiosRouter from "./components/AxiosRouter";
+import MatchesLoading from "./components/MatchesLoading";
 // import DogProfileTemplate from "./components/DogProfileTemp";
 
 // Helpers
@@ -101,6 +102,10 @@ const App = () => {
           <Route
             path="/users-dogs"
             element={<AxiosRouter urlPath={urlPath} />}
+          />
+          <Route
+            path="/matches-loading"
+            element={<MatchesLoading setUrlPath={setUrlPath} />}
           />
           <Route
             path="/dog-matches"

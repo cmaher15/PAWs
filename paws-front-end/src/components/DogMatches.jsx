@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/DogProfile.css";
 import "../styles/ProfileSpinner.css";
+import MatchesLoading from "./MatchesLoading";
 
 // Helper functions
 import { matchDogs } from "../helpers/matchDogs";
@@ -24,6 +25,7 @@ const DogMatches = function (props) {
     });
     return array;
   };
+
   return (
     <div className="doggos">
       {renderMatches(props.areaDogs, props.areaOwners)}
