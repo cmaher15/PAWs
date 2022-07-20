@@ -8,10 +8,12 @@ const MatchesLoading = function (props) {
   const maggeiWaggei = function () {
     toDogsMatches;
     return (
-      <div className="maggei-waggei">
+      <div className="loadingpups">
         <p>Finding compatible pups...</p>
-        <img src="images/browndoggo.png" alt="" />
-        <img src="images/whitedoggo.png" alt="" />
+        <div className="puppers">
+          <img className="maggei-waggei" src="images/browndoggo.png" alt="" />
+          <img className="maggei-waggei" src="images/whitedoggo.png" alt="" />
+        </div>
       </div>
     );
   };

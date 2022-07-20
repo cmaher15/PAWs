@@ -83,7 +83,11 @@ const App = () => {
           setUserId={setUserId}
         />
         {newsDisplay(urlPath, loggedIn)}
-        {loggedIn ? <LandingPage setUrlPath={setUrlPath} /> : <></>}
+        {loggedIn ? (
+          <LandingPage setUrlPath={setUrlPath} urlPath={urlPath} />
+        ) : (
+          <></>
+        )}
 
         <Routes>
           <Route path="/" element={<HomePage />} />

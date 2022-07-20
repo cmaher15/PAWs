@@ -27,11 +27,7 @@ export default function NewsBar() {
           for some friends to walk with.
         </p>
       </span>
-      <span className="article">
-        <img className="message-image" src="images/maz.jpg"></img>
-        <h4 className="news-title">All Bows 50% Off at BowWow Boutique!</h4>
-        <p className="news-article">It's time to get fancy.</p>
-      </span>
+
       <span className="article">
         <img className="message-image" src="images/gloria.jpg"></img>
         <h4 className="news-title">Dogs can get depressed too</h4>

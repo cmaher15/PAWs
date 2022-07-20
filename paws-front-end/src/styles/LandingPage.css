@@ -60,7 +60,14 @@
   cursor: pointer;
 }
 
-.userlinks:focus {
+/* .userlinks:focus {
   color: rgb(39, 39, 39);
   transform: scale(1.05);
+} */
+
+.menu-underline span {
+  /* text-decoration: underline; */
+  border-bottom: solid 2px black;
+  color: black;
+  font-size: 1.05em;
 }

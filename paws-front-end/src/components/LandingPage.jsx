@@ -41,7 +41,13 @@ export default function LandingPage(props) {
   //     })
   //     .catch(error => console.log("Error fetching dogs from server: ", error));
   // }, []);
+  const myDogsUnderline = function (url) {
+    if (url === "/matches-loading" || url === "/dog-matches") {
+      return "menu-underline";
+    }
+  };
 
+  const url = props.urlPath;
   return (
     <main className="ownerProfile">
       <h3 className="welcome">
@@ -60,36 +66,45 @@ export default function LandingPage(props) {
           to={"/my-favourites"}
           onClick={() => props.setUrlPath("/my-favourites")}
         >
-          My Favourites
+          <span>My Favourites</span>
         </Link>
       </h3>
-      <h3 className="userlinks">
+
+      <h3
+        className={`userlinks ${url === "/users-dogs" ? "menu-underline" : ""}`}
+      >
         {" "}
         <Link
           className="userlinks"
           to={"/users-dogs"}
           onClick={() => props.setUrlPath("/users-dogs")}
         >
-          My Dogs
+          <span>My Dogs</span>
         </Link>
       </h3>
-      <h3 className="userlinks">
+
+      <h3 className={`userlinks ${myDogsUnderline(url)}`}>
         <Link
           className="userlinks"
           to={"/matches-loading"}
           onClick={() => props.setUrlPath("/matches-loading")}
         >
-          My Matches
+          <span>My Matches</span>
         </Link>
       </h3>
-      <h3 className="userlinks">
+
+      <h3
+        className={`userlinks ${
+          url === "/register-dog" ? "menu-underline" : ""
+        }`}
+      >
         {" "}
         <Link
           className="userlinks"
           to={"/register-dog"}
           onClick={() => props.setUrlPath("/register-dog")}
         >
-          Register New Dog
+          <spam>Register New Dog</spam>
         </Link>
       </h3>
       <span className="userlocation">
