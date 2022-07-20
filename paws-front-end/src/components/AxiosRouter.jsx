@@ -40,9 +40,7 @@ const AxiosRouter = function (props) {
 
   if (isLoadingDogs || isLoadingOwners) {
     return (
-      <div style={{ backgroundImage: "url(images/skipping-dogs.jpg)" }}>
-        LOADING DOGS AND OWNERS
-      </div>
+      <div style={{ backgroundImage: "url(images/skipping-dogs.jpg)" }}></div>
     );
   }
 
