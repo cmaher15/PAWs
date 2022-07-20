@@ -58,6 +58,7 @@ export default function Chat(props) {
 
   const send = function () {
     socket.emit("message", { name, text });
+    setText("");
   };
 
   const hideChat = (event) => {
@@ -94,6 +95,7 @@ export default function Chat(props) {
               className="newmessage"
               onChange={(e) => setText(e.target.value)}
               placeholder="Type a message"
+              value={text}
             />
           </div>
           <div id="chatbottom">
