@@ -32,7 +32,7 @@ export default function FavePage(props) {
         }
       }
       console.log("dogOwner: before push", dogOwner);
-      array.push(<DogProfileCard dog={dog} owner={dogOwner} key={v4()} />);
+      array.push(<DogProfileCard favourite={true} dog={dog} owner={dogOwner} key={v4()} />);
     });
     return array;
   };
