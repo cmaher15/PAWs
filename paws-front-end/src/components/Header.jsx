@@ -15,7 +15,6 @@ const Header = function (props) {
       ) : (
         ""
       )}
-
       <UserProfile loggedIn={props.loggedIn} />
       <div className="dd-men"></div>
       <div className="site-title" id="paws">
