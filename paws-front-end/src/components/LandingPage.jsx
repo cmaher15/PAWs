@@ -104,7 +104,7 @@ export default function LandingPage(props) {
           to={"/register-dog"}
           onClick={() => props.setUrlPath("/register-dog")}
         >
-          <spam>Register New Dog</spam>
+          <span>Register New Dog</span>
         </Link>
       </h3>
       <span className="userlocation">
