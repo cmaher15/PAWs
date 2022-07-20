@@ -11,6 +11,7 @@ VALUES
 ('Erin', 's565ds8d5h8s75f8h57858s5s','Calgary', 'hannon123@inbox.com', '/owners/erin.jpeg', 9),
 ('Stanley','s565ds8d5h8s75f8h57858s5s', 'Vancouver', 'manley99@email.com', '/owners/stanley.jpeg', 2),
 ('Darryl','s565ds8d5h8s75f8h57858s5s', 'Montreal', 'big_boi@inbox.com', '/owners/darryl.jpeg', 4),
+('Kelly','s565ds8d5h8s75f8h57858s5s', 'Montreal', 'OMG@inbox.com', '/owners/kelly.jpeg', 4),
 ('Mose','s565ds8d5h8s75f8h57858s5s', 'Calgary', 'mastermind111@gmail.com', '/owners/mose.jpeg', 6);
 
 
@@ -40,7 +41,7 @@ INSERT INTO dogs
   ('Arnold', 'Boxer', 'male', 4, 'large', false, true, '{"small": true, "medium": true}', '{"male": true, "female": true}', '{}', 'Very energetic and playful, Arnord will not leave anyone without a smile', '/dogs/arnold.jpeg', 11),
 
   ('Rocky', 'Pit Bull', 'male', 2, 'large', false, true, '{"medium": true, "large": true}', '{"male": true, "female": true}', '{}', 'Rocky is a good boy who likes jumping in puddles! He would absolutely
-  love to go on a walk with you.', '/dogs/happy_baby.jpeg', 1);
+  love to go on a walk with you.', '/dogs/happy_baby.jpeg', 12);
 
 INSERT INTO favourites
   (owner_id, dog_id)

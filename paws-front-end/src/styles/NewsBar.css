@@ -55,7 +55,7 @@
 .article {
   border-bottom: 3px solid black;
   -webkit-animation-name: move;
-  -webkit-animation-duration: 15s;
+  -webkit-animation-duration: 20s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: up;
   -webkit-animation-timing-function: linear;
