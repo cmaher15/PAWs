@@ -8,9 +8,13 @@ import "../styles/Header.css";
 const Header = function (props) {
   return (
     <div className="header-div">
-      <p className="easteregg">
-        a Threat-Level MIDNIGHT production - <i>{new Date().getFullYear()}</i>
-      </p>
+      {window.localStorage.getItem("paws_id") ? (
+        <p className="easteregg">
+          a Threat-Level MIDNIGHT production - <i>{new Date().getFullYear()}</i>
+        </p>
+      ) : (
+        ""
+      )}
       <UserProfile loggedIn={props.loggedIn} />
       <div className="dd-men"></div>
       <div className="site-title" id="paws">
